@@ -11,6 +11,10 @@
 		19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0C2BB48B4600738E6C /* ContentView.swift */; };
 		19613D0F2BB48B4800738E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D0E2BB48B4800738E6C /* Assets.xcassets */; };
 		19613D122BB48B4800738E6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D112BB48B4800738E6C /* Preview Assets.xcassets */; };
+		19613D192BB4908E00738E6C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* Model.swift */; };
+		19613D1C2BB490AD00738E6C /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1B2BB490AD00738E6C /* SomeView.swift */; };
+		19613D202BB4914E00738E6C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
+		19613D242BB492A300738E6C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D232BB492A300738E6C /* Components.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		19613D0C2BB48B4600738E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19613D0E2BB48B4800738E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19613D112BB48B4800738E6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		19613D182BB4908E00738E6C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		19613D1B2BB490AD00738E6C /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
+		19613D1F2BB4914E00738E6C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		19613D232BB492A300738E6C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				19613D0A2BB48B4600738E6C /* MC04App.swift */,
-				19613D0C2BB48B4600738E6C /* ContentView.swift */,
+				19613D1A2BB4909A00738E6C /* Model */,
+				19613D212BB4915D00738E6C /* ViewModel */,
+				19613D1E2BB4910B00738E6C /* View */,
+				19613D222BB4928400738E6C /* Components */,
 				19613D0E2BB48B4800738E6C /* Assets.xcassets */,
 				19613D102BB48B4800738E6C /* Preview Content */,
 			);
@@ -65,6 +76,39 @@
 				19613D112BB48B4800738E6C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		19613D1A2BB4909A00738E6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19613D182BB4908E00738E6C /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		19613D1E2BB4910B00738E6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19613D0C2BB48B4600738E6C /* ContentView.swift */,
+				19613D1B2BB490AD00738E6C /* SomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19613D212BB4915D00738E6C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				19613D1F2BB4914E00738E6C /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		19613D222BB4928400738E6C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				19613D232BB492A300738E6C /* Components.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19613D202BB4914E00738E6C /* ViewModel.swift in Sources */,
+				19613D242BB492A300738E6C /* Components.swift in Sources */,
+				19613D1C2BB490AD00738E6C /* SomeView.swift in Sources */,
+				19613D192BB4908E00738E6C /* Model.swift in Sources */,
 				19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */,
 				19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */,
 			);
