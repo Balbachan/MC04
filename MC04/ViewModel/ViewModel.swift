@@ -6,4 +6,9 @@
 //
 
 // Aqui é onde a comunicação entre as Views e o Model é feito, além de ser onde os dados são alterados
+
 import Foundation
+
+//class HabitManager: ObservableObject {
+//
+//}
