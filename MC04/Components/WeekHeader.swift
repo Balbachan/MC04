@@ -36,7 +36,6 @@ struct WeekHeader: View {
                 }
             }
             .position(x: geometry.size.width / 2 ,y: geometry.size.height / 2)
-            .frame(height: geometry.size.height / 8)
             .onAppear(perform: {
                 week = []
                 weekDate = []
@@ -48,8 +47,9 @@ struct WeekHeader: View {
                         }
                         
                         let formatter = DateFormatter()
-                        formatter.dateStyle = .medium
+                        formatter.dateFormat = "EEE \n dd"
                         week.append(formatter.string(from: date))
+                        print(date)
                         weekDate.append(date)
                     }
                 }

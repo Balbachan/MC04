@@ -27,6 +27,9 @@ class WeekModel {
         self.currentDate = today
         self.selectedWeek = 0
         self.selectedDate = today
+        
+        updateWeeks(date: self.currentDate)
+        calculateSelectedWeek()
     }
     
     private func calculateSelectedWeek() {

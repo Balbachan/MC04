@@ -7,6 +7,7 @@
 
 import SwiftData
 import SwiftUI
+import SwiftData
 
 @main
 struct MC04App: App {
@@ -14,6 +15,6 @@ struct MC04App: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Habit.self)
+        .modelContainer(for: Habits.self)
     }
 }
