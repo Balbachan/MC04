@@ -13,6 +13,7 @@ struct CalendarView: View {
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
     @State var isDone: Bool = false
+    @State var date: Date = Date()
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel(weeks: [], currentDate: Date(), selectedWeek: 0, selectedDate: Date())
     
@@ -21,7 +22,7 @@ struct CalendarView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             GeometryReader { geometry in
                 VStack {
                     // Calendar
@@ -32,14 +33,13 @@ struct CalendarView: View {
                     VStack {
                         List {
                             ForEach(filteredHabits) { habit in
-                                Text(habit.name)
+                                NavigationLink(value: habit) {
+                                    Text(habit.name)
+                                    
+                                }
                             }
                             .onDelete(perform: deleteHabit)
                         }
-                        
-                        //                        .padding(.horizontal)
-                        //                        .padding(.top)
-                        //                        .listStyle(.plain)
                     }
                 }
                 .navigationTitle("Home")
@@ -62,9 +62,6 @@ struct CalendarView: View {
             modelContext.delete(habit)
         }
     }
-    
-    
-    // editar hábitos registrados (Laura)
     
     // Fazer checklist (Laura)
     
