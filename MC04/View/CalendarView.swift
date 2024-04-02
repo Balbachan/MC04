@@ -12,6 +12,8 @@ import SwiftData
 struct CalendarView: View {
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
+    @State var isDone: Bool = false
+    @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel(weeks: [], currentDate: Date(), selectedWeek: 0, selectedDate: Date())
     
     var filteredHabits: [Habits] {
@@ -19,24 +21,29 @@ struct CalendarView: View {
     }
     
     var body: some View {
-        NavigationView{
-            GeometryReader{ geometry in
-                VStack{
+        NavigationStack {
+            GeometryReader { geometry in
+                VStack {
                     // Calendar
                     WeekScroll(weekModel: $weekCalendar)
                         .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
                     
                     // List
-                    List(filteredHabits) { habit in
-                        HStack {
-                            Text(habit.name)
+                    VStack {
+                        List {
+                            ForEach(filteredHabits) { habit in
+                                Text(habit.name)
+                            }
+                            .onDelete(perform: deleteHabit)
                         }
+                        
+                        //                        .padding(.horizontal)
+                        //                        .padding(.top)
+                        //                        .listStyle(.plain)
                     }
-                    .padding(.horizontal)
-                    .padding(.top)
-                    .listStyle(.plain)
                 }
-                .navigationTitle("POC")
+                .navigationTitle("Home")
+                .navigationDestination(for: Habits.self, destination: EditTaskView.init)
                 .toolbar {
                     Button("Add habit", systemImage: "plus", action: addHabit)
                 }
@@ -49,11 +56,13 @@ struct CalendarView: View {
         modelContext.insert(Habits(id: UUID(), name: "eee", isDone: true, desc: "sdv", steps: "sdv", images: "sdv", startDate: weekCalendar.selectedDate, finalDate: Date(), daysOfWeek: [4], time: Date()))
     }
     
-    //Arrumar o bug (Igor)
+    func deleteHabit(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let habit = habits[index]
+            modelContext.delete(habit)
+        }
+    }
     
-    // selecionar as datas (daysOfWeek) -> Verificar dias da semana (Igor)
-    
-    // deletar hábitos registrados (Laura)
     
     // editar hábitos registrados (Laura)
     

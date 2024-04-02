@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */; };
+		195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */; };
+		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
 		19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0A2BB48B4600738E6C /* MC04App.swift */; };
 		19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0C2BB48B4600738E6C /* ContentView.swift */; };
 		19613D0F2BB48B4800738E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D0E2BB48B4800738E6C /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
+		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		19613D072BB48B4600738E6C /* MC04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19613D0A2BB48B4600738E6C /* MC04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC04App.swift; sourceTree = "<group>"; };
 		19613D0C2BB48B4600738E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +103,8 @@
 			children = (
 				19613D0C2BB48B4600738E6C /* ContentView.swift */,
 				DE0359752BB5E30F00BD70D2 /* CalendarView.swift */,
+				195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */,
+				195C77E42BBC858D007C8DC9 /* EditTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +124,7 @@
 				19613D232BB492A300738E6C /* Components.swift */,
 				DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */,
 				DE7A20652BB96E7A00D85214 /* WeekScroll.swift */,
+				195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -191,12 +200,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */,
+				195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */,
 				19613D202BB4914E00738E6C /* ViewModel.swift in Sources */,
+				195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */,
 				DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */,
 				19613D242BB492A300738E6C /* Components.swift in Sources */,
 				DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */,
 				DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */,
 				19613D192BB4908E00738E6C /* Model.swift in Sources */,
+				195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */,
 				19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */,
 				19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */,
 			);

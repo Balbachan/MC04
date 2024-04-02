@@ -50,8 +50,5 @@ class Habits: Identifiable {
             print("Fora")
             return false
         }
-        
-        var daysOfWeek = DateComponents()
-        daysOfWeek.weekday = 1
     }
 }
