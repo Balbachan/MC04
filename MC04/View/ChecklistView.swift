@@ -1,18 +1,20 @@
 //
-//  SomeView.swift
+//  ChecklistView.swift
 //  MC04
 //
-//  Created by Laura C. Balbachan dos Santos on 27/03/24.
+//  Created by Laura C. Balbachan dos Santos on 02/04/24.
 //
 
 import SwiftUI
+import SwiftData
 
-struct SomeView: View {
+struct ChecklistView: View {
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    SomeView()
+    ChecklistView()
 }

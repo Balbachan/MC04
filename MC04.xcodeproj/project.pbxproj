@@ -7,26 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */; };
+		195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */; };
+		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
+		195C77E72BBC9F20007C8DC9 /* TaskTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* TaskTypeEnum.swift */; };
+		195C77E92BBC9F39007C8DC9 /* TaskSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */; };
 		19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0A2BB48B4600738E6C /* MC04App.swift */; };
 		19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0C2BB48B4600738E6C /* ContentView.swift */; };
 		19613D0F2BB48B4800738E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D0E2BB48B4800738E6C /* Assets.xcassets */; };
 		19613D122BB48B4800738E6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D112BB48B4800738E6C /* Preview Assets.xcassets */; };
 		19613D192BB4908E00738E6C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* Model.swift */; };
-		19613D1C2BB490AD00738E6C /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1B2BB490AD00738E6C /* SomeView.swift */; };
 		19613D202BB4914E00738E6C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
 		19613D242BB492A300738E6C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D232BB492A300738E6C /* Components.swift */; };
+		DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359752BB5E30F00BD70D2 /* CalendarView.swift */; };
+		DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
+		DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
+		DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A20652BB96E7A00D85214 /* WeekScroll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
+		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		195C77E62BBC9F20007C8DC9 /* TaskTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeEnum.swift; sourceTree = "<group>"; };
+		195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectorView.swift; sourceTree = "<group>"; };
 		19613D072BB48B4600738E6C /* MC04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19613D0A2BB48B4600738E6C /* MC04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC04App.swift; sourceTree = "<group>"; };
 		19613D0C2BB48B4600738E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19613D0E2BB48B4800738E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19613D112BB48B4800738E6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		19613D182BB4908E00738E6C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		19613D1B2BB490AD00738E6C /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		19613D1F2BB4914E00738E6C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		19613D232BB492A300738E6C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		DE0359752BB5E30F00BD70D2 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeader.swift; sourceTree = "<group>"; };
+		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
+		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				19613D182BB4908E00738E6C /* Model.swift */,
+				195C77E62BBC9F20007C8DC9 /* TaskTypeEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,8 +106,11 @@
 		19613D1E2BB4910B00738E6C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */,
 				19613D0C2BB48B4600738E6C /* ContentView.swift */,
-				19613D1B2BB490AD00738E6C /* SomeView.swift */,
+				DE0359752BB5E30F00BD70D2 /* CalendarView.swift */,
+				195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */,
+				195C77E42BBC858D007C8DC9 /* EditTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				19613D1F2BB4914E00738E6C /* ViewModel.swift */,
+				DE03597D2BB627B000BD70D2 /* WeekModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -107,6 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				19613D232BB492A300738E6C /* Components.swift */,
+				DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */,
+				DE7A20652BB96E7A00D85214 /* WeekScroll.swift */,
+				195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -181,10 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */,
+				195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */,
 				19613D202BB4914E00738E6C /* ViewModel.swift in Sources */,
+				195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */,
+				DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */,
 				19613D242BB492A300738E6C /* Components.swift in Sources */,
-				19613D1C2BB490AD00738E6C /* SomeView.swift in Sources */,
+				DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */,
+				DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */,
+				195C77E72BBC9F20007C8DC9 /* TaskTypeEnum.swift in Sources */,
 				19613D192BB4908E00738E6C /* Model.swift in Sources */,
+				195C77E92BBC9F39007C8DC9 /* TaskSelectorView.swift in Sources */,
+				195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */,
 				19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */,
 				19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */,
 			);

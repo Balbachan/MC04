@@ -5,7 +5,9 @@
 //  Created by Laura C. Balbachan dos Santos on 27/03/24.
 //
 
+import SwiftData
 import SwiftUI
+import SwiftData
 
 @main
 struct MC04App: App {
@@ -13,5 +15,6 @@ struct MC04App: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Habits.self)
     }
 }
