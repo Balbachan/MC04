@@ -18,14 +18,14 @@ class Habits: Identifiable {
     var name: String
     var isDone: Bool
     var desc: String
-    var steps: String
+    var steps: [[String]]
     var images: String
     var startDate: Date
     var finalDate: Date
     var daysOfWeek: [Int]
     var time: Date
     
-    init(id: UUID, name: String, isDone: Bool, desc: String, steps: String, images: String, startDate: Date, finalDate: Date, daysOfWeek: [Int], time: Date) {
+    init(id: UUID, name: String, isDone: Bool, desc: String, steps: [[String]], images: String, startDate: Date, finalDate: Date, daysOfWeek: [Int], time: Date) {
         self.id = id
         self.name = name
         self.isDone = isDone

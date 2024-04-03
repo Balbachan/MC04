@@ -53,7 +53,7 @@ struct CalendarView: View {
     
     // Acho que isso aqui deveria estar na ViewModel
     func addHabit() {
-        modelContext.insert(Habits(id: UUID(), name: "eee", isDone: true, desc: "sdv", steps: "sdv", images: "sdv", startDate: weekCalendar.selectedDate, finalDate: Date(), daysOfWeek: [4], time: Date()))
+        modelContext.insert(  Habits(id: UUID(), name: "Lavar o rosto", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date()))
     }
     
     func deleteHabit(_ indexSet: IndexSet) {
