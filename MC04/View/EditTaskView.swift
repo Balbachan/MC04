@@ -9,33 +9,61 @@ import SwiftUI
 import SwiftData
 
 struct EditTaskView: View {
-    @Bindable var habit: Habits
+    @Environment(\.modelContext) var modelContext
+    @State var habits: Habits = Habits()
+    var habitModel: HabitModel?
     
     var body: some View {
         VStack {
             Spacer()
-            Text("\(habit.desc)")
+            Text("\(habits.desc)")
             
             Form {
                 Section {
                     DatePicker (
-                        "Dia",
-                        selection: $habit.startDate,
+                        "Dia inicial",
+                        selection: $habits.startDate,
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.compact)
+                }
+                
+                Section {
+                    DatePicker (
+                        "Dia final",
+                        selection: $habits.finalDate,
                         displayedComponents: [.date]
                     )
                     .datePickerStyle(.compact)
                 }
                 
                 // Esse botão aparece só se a pessoa estiver vindo
-                Button {
-                    print("aaa")
-                } label: {
-                    Text("Adicionar tarefa")
+                Button("Adicionar tarefa") {
+                    DispatchQueue(label: "com.example.queue").async {
+                        modelContext.insert(self.habits)
+                        print("Acidionado")
+                    }
+                    
                 }
 
             }
             .scrollContentBackground(.hidden)
-            .navigationTitle("\(habit.name)")
+            .navigationTitle("\(habits.name)")
+        }.onAppear(perform: {
+            if let habitModel = habitModel {
+                self.habits = habitModel.newHabits() 
+            }
+        })
+        .onChange(of: habits.startDate) { oldValue, newValue in
+            if habits.startDate > habits.finalDate {
+                habits.finalDate = habits.startDate
+            }
+        }
+        
+        .onChange(of: habits.finalDate) { oldValue, newValue in
+            if habits.startDate > habits.finalDate {
+                habits.startDate = habits.finalDate
+            }
         }
     }
 }
@@ -44,8 +72,8 @@ struct EditTaskView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Habits.self, configurations: config)
-        let example =   Habits(id: UUID(), name: "Lavar o rosto", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date())
-        return EditTaskView(habit: example)
+        let example =   HabitModel(name: "Lavar o rosto", desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv")
+        return EditTaskView(habitModel: example)
             .modelContainer(container)
     } catch {
         fatalError("Alguém me desconfigurou")

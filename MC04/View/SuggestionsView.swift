@@ -9,16 +9,40 @@ import SwiftUI
 import SwiftData
 
 struct SuggestionsView: View {
-    //    @Bindable var habits: Habits
-    var vm: ViewModel = ViewModel()
+    var viewModel: ViewModel = ViewModel()
     
     var body: some View {
-        VStack(spacing: 60){
-            ForEach(vm.habits, id: \.self) { habit in
-                SuggestionCard(habits: habit)
-
+        
+        VStack {
+            // Título da Seção
+            HStack {
+                Text("Hábitos")
+                    .font(.custom("Digitalt", size: 28))
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            
+            
+            ScrollView {
+                
+                
+                VStack(alignment: .center, spacing: 0) {
+                    ForEach(viewModel.habits) { habit in
+                        NavigationLink(destination: EditTaskView(habitModel: habit)) {
+                            
+                            Text("\(habit.name)") // Coloca o nome do hábito no botão
+                        }
+                    }
+                }
+                
+                NavigationLink {
+                    Text("aaa")
+                } label: {
+                    Text("Confirmar rotina")
+                }
             }
         }
+        .padding(20)
     }
 }
 
@@ -26,7 +50,6 @@ struct SuggestionsView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Habits.self, configurations: config)
-
         return SuggestionsView()
             .modelContainer(container)
     } catch {

@@ -9,8 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct DescriptionView: View {
-    //    @Bindable var habits: Habits
-    var vm: ViewModel = ViewModel()
+//    @Environment(\.modelContext) var modelContext
+//    @Query var habits: [Habits]
     @Bindable var habits: Habits
     
     var body: some View {
@@ -21,10 +21,9 @@ struct DescriptionView: View {
                 .font(.title2.bold())
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading)
-            ForEach(vm.habits, id: \.self) { step in
-                Steps(habits: step)
-
-            }.padding()
+            
+                Steps(habits: habits)
+                    .padding()
             VStack{
                 Text("!AVISO")
                     .font(.title3.bold())

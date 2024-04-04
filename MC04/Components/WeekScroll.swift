@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct WeekScroll: View {
-    @State var viewModel = WeekModel()
+    @Binding var viewModel: WeekModel
     @State var update = false;
     
     var body: some View {
@@ -66,5 +66,5 @@ struct WeekScroll: View {
 }
 
 #Preview {
-    WeekScroll()
+    WeekScroll(viewModel: .constant(WeekModel()))
 }
