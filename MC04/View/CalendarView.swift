@@ -15,31 +15,31 @@ struct CalendarView: View {
     @State var isDone: Bool = false
     @State var date: Date = Date()
     @State private var path = [Habits]()
-    @State private var weekCalendar = WeekModel(weeks: [], currentDate: Date(), selectedWeek: 0, selectedDate: Date())
+    @State private var weekCalendar = WeekModel()
     
-    var filteredHabits: [Habits] {
-        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
-    }
+//    var filteredHabits: [Habits] {
+//        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
+//    }
     
     var body: some View {
         NavigationStack(path: $path) {
             GeometryReader { geometry in
                 VStack {
                     // Calendar
-                    WeekScroll(weekModel: $weekCalendar)
+                    WeekScroll()
                         .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
                     
                     // List
                     VStack {
                         List {
-                            ForEach(filteredHabits) { habit in
+                            ForEach(habits) { habit in
                                 NavigationLink(value: habit) {
                                     Text(habit.name)
-                                    
+                                    Text("\(habit.startDate)")
                                 }
                             }
                             .onDelete(perform: deleteHabit)
-                        }
+                        }.listStyle(.plain)
                     }
                 }
                 .navigationTitle("Home")
@@ -62,9 +62,6 @@ struct CalendarView: View {
             modelContext.delete(habit)
         }
     }
-    
-    // Fazer checklist (Laura)
-    
 }
 
 
