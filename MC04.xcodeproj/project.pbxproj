@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
+		194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */; };
 		195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */; };
 		195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */; };
 		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
@@ -26,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		194F742C2BBDE74B008AE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		194F742E2BBDE845008AE4E1 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
+		194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowStyle.swift; sourceTree = "<group>"; };
 		195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
@@ -56,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		194F742D2BBDE82C008AE4E1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				194F742E2BBDE845008AE4E1 /* Digitalt.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		19613CFE2BB48B4600738E6C = {
 			isa = PBXGroup;
 			children = (
@@ -75,11 +88,13 @@
 		19613D092BB48B4600738E6C /* MC04 */ = {
 			isa = PBXGroup;
 			children = (
+				194F742C2BBDE74B008AE4E1 /* Info.plist */,
 				19613D0A2BB48B4600738E6C /* MC04App.swift */,
 				19613D1A2BB4909A00738E6C /* Model */,
 				19613D212BB4915D00738E6C /* ViewModel */,
 				19613D1E2BB4910B00738E6C /* View */,
 				19613D222BB4928400738E6C /* Components */,
+				194F742D2BBDE82C008AE4E1 /* Fonts */,
 				19613D0E2BB48B4800738E6C /* Assets.xcassets */,
 				19613D102BB48B4800738E6C /* Preview Content */,
 			);
@@ -131,6 +146,7 @@
 				DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */,
 				DE7A20652BB96E7A00D85214 /* WeekScroll.swift */,
 				195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */,
+				194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -195,6 +211,7 @@
 			files = (
 				19613D122BB48B4800738E6C /* Preview Assets.xcassets in Resources */,
 				19613D0F2BB48B4800738E6C /* Assets.xcassets in Resources */,
+				194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +225,7 @@
 				DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */,
 				195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */,
 				19613D202BB4914E00738E6C /* ViewModel.swift in Sources */,
+				194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */,
 				195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */,
 				DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */,
 				19613D242BB492A300738E6C /* Components.swift in Sources */,
@@ -355,6 +373,7 @@
 				DEVELOPMENT_TEAM = 8LW8TUQS66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MC04/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -384,6 +403,7 @@
 				DEVELOPMENT_TEAM = 8LW8TUQS66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MC04/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
