@@ -16,8 +16,21 @@ struct Steps: View {
     
     var body: some View {
         VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            HStack{
+                ZStack{
+                    Circle().fill(Color("CinzaNumber"))
+                        .frame(width: 28)
+                    Text("\(habits.steps[0][0])")
+                        .foregroundColor(Color("Amarelo"))
+                        .font(.title3.bold())
+                }
+                Text("\(habits.steps[0][1])")
+                    .font(.title3.bold())
+            }.frame(maxWidth: .infinity, alignment: .leading)
+            Text("\(habits.steps[0][2])")
+                .padding(.leading, 40)
         }
+        
     }
 }
 

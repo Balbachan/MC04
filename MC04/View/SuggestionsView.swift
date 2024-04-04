@@ -13,7 +13,7 @@ struct SuggestionsView: View {
     var vm: ViewModel = ViewModel()
     
     var body: some View {
-        VStack{
+        VStack(spacing: 60){
             ForEach(vm.habits, id: \.self) { habit in
                 SuggestionCard(habits: habit)
 
