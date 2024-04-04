@@ -9,10 +9,14 @@
 
 import Foundation
 
-var habits: [Habits] = [
-    Habits(id: UUID(), name: "hoje", isDone: true, desc: "sdv", steps: "sdv", images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date()),
-    Habits(id: UUID(), name: "futuro", isDone: true, desc: "sdv", steps: "sdv", images: "sdv", startDate: Calendar.current.date(byAdding: .day, value: 0, to: Date())!, finalDate: Calendar.current.date(byAdding: .day, value: 4, to: Date())!, daysOfWeek: [1], time: Date())
-]
+struct ViewModel: Observable {
+    var habits: [Habits] = [
+        Habits(id: UUID(), name: "Lavar o rosto", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date()),
+        Habits(id: UUID(), name: "Hidratação", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["a","teste", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date())
+        
+    ]
+}
+
 
 
 var phrases: [String] = ["Se não quiser virar uma uva passa, comece a usar protetor solar!", "Se não quiser virar uma protetor solar, comece a usar uva passa!"]

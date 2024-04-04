@@ -7,13 +7,13 @@
 
 import SwiftData
 import SwiftUI
-import SwiftData
 
 @main
 struct MC04App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
         }
         .modelContainer(for: Habits.self)
     }
