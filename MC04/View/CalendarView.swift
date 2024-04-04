@@ -33,7 +33,7 @@ struct CalendarView: View {
                     
                     
                     // Calendar
-                    WeekScroll(weekModel: $weekCalendar)
+                    WeekScroll()
                         .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
                     
                     
@@ -52,7 +52,7 @@ struct CalendarView: View {
                     
                     // List
                     List {
-                        ForEach(filteredHabits) { habit in
+                        ForEach(habits) { habit in
                             NavigationLink(value: habit) {
                                 ListRowStyle(habit: habit)
                                     .swipeActions {
