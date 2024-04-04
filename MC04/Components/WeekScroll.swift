@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-import SwiftUI
-
 struct WeekScroll: View {
     @State var viewModel = WeekModel()
     @State var update = false;
