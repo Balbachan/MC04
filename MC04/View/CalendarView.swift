@@ -15,11 +15,11 @@ struct CalendarView: View {
     @State var isDone: Bool = false
     @State var date: Date = Date()
     @State private var path = [Habits]()
-    @State private var weekCalendar = WeekModel(weeks: [], currentDate: Date(), selectedWeek: 0, selectedDate: Date())
+    @State private var weekCalendar = WeekModel()
     
-    var filteredHabits: [Habits] {
-        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
-    }
+//    var filteredHabits: [Habits] {
+//        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
+//    }
     
     var body: some View {
         NavigationStack(path: $path) {
