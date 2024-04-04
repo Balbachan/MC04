@@ -15,41 +15,72 @@ struct CalendarView: View {
     @State var isDone: Bool = false
     @State var date: Date = Date()
     @State private var path = [Habits]()
-    @State private var weekCalendar = WeekModel(weeks: [], currentDate: Date(), selectedWeek: 0, selectedDate: Date())
+    @State private var weekCalendar = WeekModel()
     
-    var filteredHabits: [Habits] {
-        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
-    }
+//    var filteredHabits: [Habits] {
+//        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
+//    }
     
     var body: some View {
         NavigationStack(path: $path) {
             GeometryReader { geometry in
-                VStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    // Frase de efeito diária
+                    Text("Bora reagir meu chapa")
+                        .font(.custom("Digitalt", size: 28))
+                        .fontWeight(.bold)
+                    
+                    
                     // Calendar
-                    WeekScroll(weekModel: $weekCalendar)
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
+                    WeekScroll()
+                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
+                    
+                    
+                    // Título Hoje
+                    HStack {
+                        Text("Hoje")
+                            .font(.custom("Digitalt", size: 28))
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        Button("", systemImage: "plus", action: addHabit)
+
+                    }
+
                     
                     // List
-                    VStack {
-                        List {
-                            ForEach(filteredHabits) { habit in
-                                NavigationLink(value: habit) {
-                                    Text(habit.name)
+                    List {
+                        ForEach(habits) { habit in
+                            NavigationLink(value: habit) {
+                                ListRowStyle(habit: habit)
+                                    .swipeActions {
+                                        Button("", systemImage: "plus", action: addHabit)
                                     
-                                }
+                                        Button("", systemImage: "plus", action: addHabit)
+                                    }
                             }
-                            .onDelete(perform: deleteHabit)
                         }
+                        .listRowSeparator(.hidden)
+//                        .onDelete(perform: deleteHabit)
+
                     }
+                    .listStyle(.plain)
+                    
+                    
+                    // Frase diária
+                    
+                    
+                    
                 }
-                .navigationTitle("Home")
+                .padding(20)
                 .navigationDestination(for: Habits.self, destination: EditTaskView.init)
-                .toolbar {
-                    Button("Add habit", systemImage: "plus", action: addHabit)
-                }
             }
         }
     }
+    
+    
     
     // Acho que isso aqui deveria estar na ViewModel
     func addHabit() {
@@ -62,12 +93,17 @@ struct CalendarView: View {
             modelContext.delete(habit)
         }
     }
-    
-    // Fazer checklist (Laura)
-    
 }
 
 
 #Preview {
-    CalendarView()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Habits.self, configurations: config)
+        let example = Habits(id: UUID(), name: "hoje", isDone: true, desc: "sdv", steps: "sdv", images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date())
+        return CalendarView()
+            .modelContainer(container)
+    } catch {
+        fatalError("Alguém me desconfigurou")
+    }
 }

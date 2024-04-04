@@ -12,31 +12,30 @@ struct EditTaskView: View {
     @Bindable var habit: Habits
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Text("\(habit.desc)")
-                
-                Form {
-                    Section("Dia e Hora") {
-                        DatePicker (
-                            "Dia",
-                            selection: $habit.startDate,
-                            displayedComponents: [.date]
-                        )
-                        .datePickerStyle(.compact)
-                        
-                        DatePicker (
-                            "Horário",
-                            selection: $habit.time,
-                            displayedComponents: [.hourAndMinute]
-                        )
-                        .datePickerStyle(.compact)
-                    }
-                    
-                    
+        VStack {
+            Spacer()
+            Text("\(habit.desc)")
+            
+            Form {
+                Section {
+                    DatePicker (
+                        "Dia",
+                        selection: $habit.startDate,
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.compact)
                 }
-                .navigationTitle("\(habit.name)")
+                
+                // Esse botão aparece só se a pessoa estiver vindo
+                Button {
+                    print("aaa")
+                } label: {
+                    Text("Adicionar tarefa")
+                }
+
             }
+            .scrollContentBackground(.hidden)
+            .navigationTitle("\(habit.name)")
         }
     }
 }
