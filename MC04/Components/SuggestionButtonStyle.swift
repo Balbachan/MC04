@@ -15,7 +15,7 @@ struct SuggestionButtonStyle: ButtonStyle {
                 .bold()
                 .frame(width: geometry.size.width * 1, height: geometry.size.height * 0.1)
                 .background(configuration.isPressed ? Color.cinzaNumber : Color.cinzaCard)
-                .clipShape(RoundedRectangle(cornerRadius: 20))    
+                .clipShape(RoundedRectangle(cornerRadius: 20))
         }
     }
 }
