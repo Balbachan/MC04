@@ -12,6 +12,18 @@ import SwiftData
 import Foundation
 import SwiftData
 
+struct HabitModel: Identifiable, Hashable {
+    let id: UUID = UUID()
+    var name: String
+    var desc: String
+    var steps: [[String]]
+    var images: String
+    
+    func newHabits() -> Habits {
+        return Habits(id: UUID(), name: self.name, isDone: false, desc: self.desc, steps: self.steps, images: self.images, startDate: Date(), finalDate: Date(), daysOfWeek: [], time: Date())
+    }
+}
+
 @Model
 class Habits: Identifiable {
     var id: UUID
@@ -25,7 +37,7 @@ class Habits: Identifiable {
     var daysOfWeek: [Int]
     var time: Date
     
-    init(id: UUID, name: String, isDone: Bool, desc: String, steps: [[String]], images: String, startDate: Date, finalDate: Date, daysOfWeek: [Int], time: Date) {
+    init(id: UUID = UUID(), name: String = "", isDone: Bool = false, desc: String = "", steps: [[String]] = [], images: String = "", startDate: Date = Date(), finalDate: Date = Date(), daysOfWeek: [Int] = [], time: Date = Date()) {
         self.id = id
         self.name = name
         self.isDone = isDone

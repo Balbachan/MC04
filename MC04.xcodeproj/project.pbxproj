@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
-		194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */; };
 		00CA831F2BBDCA5000C0B713 /* SuggestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */; };
 		00CA83212BBDD0F500C0B713 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83202BBDD0F500C0B713 /* Steps.swift */; };
 		00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */; };
 		00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83242BBE067900C0B713 /* DescriptionView.swift */; };
+		1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */; };
+		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
+		194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */; };
 		195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */; };
 		195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */; };
 		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
@@ -32,13 +33,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		194F742C2BBDE74B008AE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		194F742E2BBDE845008AE4E1 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
-		194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowStyle.swift; sourceTree = "<group>"; };
 		00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCard.swift; sourceTree = "<group>"; };
 		00CA83202BBDD0F500C0B713 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		00CA83242BBE067900C0B713 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonStyle.swift; sourceTree = "<group>"; };
+		194F742C2BBDE74B008AE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		194F742E2BBDE845008AE4E1 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
+		194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowStyle.swift; sourceTree = "<group>"; };
 		195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */,
 				194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */,
 				00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */,
+				1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */,
 				00CA83202BBDD0F500C0B713 /* Steps.swift */,
 			);
 			path = Components;
@@ -241,6 +244,7 @@
 				00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */,
 				00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */,
 				195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */,
+				1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */,
 				DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */,
 				00CA83212BBDD0F500C0B713 /* Steps.swift in Sources */,
 				00CA831F2BBDCA5000C0B713 /* SuggestionCard.swift in Sources */,

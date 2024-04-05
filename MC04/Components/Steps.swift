@@ -13,24 +13,55 @@ import SwiftData
 struct Steps: View {
     
     @Bindable var habits: Habits
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+
     var body: some View {
-        VStack{
-            HStack{
-                ZStack{
-                    Circle().fill(Color("CinzaNumber"))
-                        .frame(width: 28)
-                    Text("\(habits.steps[0][0])")
-                        .foregroundColor(Color("Amarelo"))
-                        .font(.title3.bold())
+        if horizontalSizeClass == .compact {//iphone
+            VStack{
+                
+                ForEach(habits.steps, id: \.self) { step in
+                    HStack{
+                        ZStack{
+                            Circle().fill(Color("CinzaNumber"))
+                                .frame(width: 28)
+                            Text(step[0])
+                                .foregroundColor(Color("Amarelo"))
+                                .font(.custom("Digitalt", size: 20))
+                        }
+                        Text(step[1])
+                            .font(.custom("Digitalt", size: 23))
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(step[2])
+                        .padding(.leading )
                 }
-                Text("\(habits.steps[0][1])")
-                    .font(.title3.bold())
-            }.frame(maxWidth: .infinity, alignment: .leading)
-            Text("\(habits.steps[0][2])")
-                .padding(.leading, 40)
+            }
+            
+            
+        }else if horizontalSizeClass == .regular  {//ipad
+            VStack{
+                
+                ForEach(habits.steps, id: \.self) { step in
+                    HStack{
+                        ZStack{
+                            Circle().fill(Color("CinzaNumber"))
+                                .frame(width: 45)
+                            Text(step[0])
+                                .foregroundColor(Color("Amarelo"))
+                                .font(.custom("Digitalt", size: 45))
+                        }
+                        Text(step[1])
+                            .font(.custom("Digitalt", size: 30))
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(step[2])
+                        .padding(.leading )
+                        .font(.system(size: 25))
+                }
+            }
+            
+            
         }
-        
     }
 }
 

@@ -15,6 +15,7 @@ struct WeekHeader: View {
     @State var weekDate:[Date] = []
     @State var selectedIndex: Int?
     @Binding var selectedDate: Date
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     var body: some View {
         GeometryReader { geometry in
@@ -22,11 +23,24 @@ struct WeekHeader: View {
                 ForEach(week.indices, id: \.self) { index in
                     ZStack {
                         Rectangle()
-                            .foregroundStyle(index == selectedIndex ? .blue : .white)
-                            .cornerRadius(10)
-                        Text("\(week[index])")
-                            .font(.footnote)
-                            .multilineTextAlignment(.center)
+                            .foregroundStyle(index == selectedIndex ? .biaOrange : .tommorowGrey)
+                            .frame(height: index == selectedIndex ? geometry.size.height * 1 : geometry.size.height * 0.5)
+                            .cornerRadius(100)
+                            .padding(.horizontal, 9)
+                            if horizontalSizeClass == .compact {
+                        
+                                Text("\(week[index])")
+                                    .font(.custom("Digitalt", size: 17))
+                                    .multilineTextAlignment(.center)
+                                    .position(x: geometry.size.width * 0.07, y: geometry.size.height / 7)
+                            }
+                            else if horizontalSizeClass == .regular  {
+                        
+                                Text("\(week[index])")
+                                    .font(.custom("Digitalt", size: 30))
+                                    .multilineTextAlignment(.center)
+                                    .position(x: geometry.size.width * 0.07, y: geometry.size.height / 7)
+                            }
                     }
                     .frame(width: geometry.size.width / 7)
                     .onTapGesture {
@@ -47,9 +61,11 @@ struct WeekHeader: View {
                         }
                         
                         let formatter = DateFormatter()
-                        formatter.dateFormat = "EEE \n dd"
-                        week.append(formatter.string(from: date))
-                        print(date)
+                        formatter.dateFormat = "E"
+                        formatter.locale = Locale(identifier: "pt-br")
+                        let dayNameWithPeriod = formatter.string(from: date)
+                        let dayNameWithoutPeriod = dayNameWithPeriod.replacingOccurrences(of: ".", with: "")
+                        week.append(dayNameWithoutPeriod)
                         weekDate.append(date)
                     }
                 }
