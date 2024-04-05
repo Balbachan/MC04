@@ -117,7 +117,7 @@ struct EditTaskView: View {
                     Button("Adicionar tarefa") {
                         DispatchQueue(label: "com.example.queue").async {
                             modelContext.insert(self.habits)
-                            print("Acidionado")
+                            print("Adicionado")
                             
                         }
                         
