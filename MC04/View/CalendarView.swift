@@ -63,7 +63,13 @@ struct CalendarView: View {
                                         } label: {
                                             Image(systemName: "pencil")
                                         }
-                                        
+                                    }
+                                    .swipeActions {
+                                        Button {
+                                            modelContext.delete(habit)
+                                        } label: {
+                                            Image(systemName: "trash")
+                                        }
                                     }
                             }
                         }
@@ -79,20 +85,11 @@ struct CalendarView: View {
                         .fontWeight(.bold)
                     
                     Text("\(phrases[0])")
-                    
-                    
-                    
                 }
                 .padding(20)
-//                .navigationDestination(for: HabitModel.self, destination: EditTaskView.init)
+                //                .navigationDestination(for: HabitModel.self, destination: EditTaskView.init)
             }
         }
-    }
-    
-    func addHabit() {
-        let habit = Habits()
-        modelContext.insert(habit)
-        path = [habit]
     }
     
     func deleteHabit(_ indexSet: IndexSet) {

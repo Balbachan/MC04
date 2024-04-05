@@ -13,7 +13,8 @@ struct SuggestionButtonStyle: ButtonStyle {
             configuration.label
                 .font(.title)
                 .bold()
-                .frame(width: geometry.size.width * 1, height: geometry.size.height * 0.1)
+                .frame(width: 340)
+                .frame(height: 100)
                 .background(configuration.isPressed ? Color.cinzaNumber : Color.cinzaCard)
                 .clipShape(RoundedRectangle(cornerRadius: 20))    
         }

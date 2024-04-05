@@ -42,6 +42,7 @@ struct EditTaskView: View {
                     DispatchQueue(label: "com.example.queue").async {
                         modelContext.insert(self.habits)
                         print("Acidionado")
+                    
                     }
                     
                 }

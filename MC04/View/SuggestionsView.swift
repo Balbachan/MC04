@@ -13,36 +13,39 @@ struct SuggestionsView: View {
     
     var body: some View {
         
-        VStack {
-            // Título da Seção
-            HStack {
-                Text("Hábitos")
-                    .font(.custom("Digitalt", size: 28))
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            
-            ScrollView {
+        GeometryReader { geometry in
+            VStack {
+                // Título da Seção
+                HStack {
+                    Text("Hábitos")
+                        .font(.custom("Digitalt", size: 28))
+                        .fontWeight(.bold)
+                    Spacer()
+                }
                 
                 
-                VStack(alignment: .center, spacing: 0) {
-                    ForEach(viewModel.habits) { habit in
-                        NavigationLink(destination: EditTaskView(habitModel: habit)) {
+                ScrollView {
+                    VStack(alignment: .center, spacing: 100) {
+                        ForEach(viewModel.habits) { habit in
+                            NavigationLink(destination: EditTaskView(habitModel: habit)) {
+                                
+                                Text("\(habit.name)") // Coloca o nome do hábito no botão
+                            }
+                            .buttonStyle(SuggestionButtonStyle())
                             
-                            Text("\(habit.name)") // Coloca o nome do hábito no botão
                         }
                     }
                 }
+                    
+//                    NavigationLink {
+//                        Text("aaa")
+//                    } label: {
+//                        Text("Confirmar rotina")
+//                    }
                 
-                NavigationLink {
-                    Text("aaa")
-                } label: {
-                    Text("Confirmar rotina")
-                }
             }
+            .padding(20)
         }
-        .padding(20)
     }
 }
 
