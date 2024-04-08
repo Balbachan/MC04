@@ -11,150 +11,79 @@ import SwiftData
 struct EditTaskView: View {
     @Environment(\.modelContext) var modelContext
     @State var habits: Habits = Habits()
+    
     var habitModel: HabitModel?
     
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
-    
     var body: some View {
-
-            if horizontalSizeClass == .compact {
-                VStack {
-                    Spacer()
-                    
-                    Text("\(habits.name)")
-                        .font(.custom("Digitalt", size: 33))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                    
-                    Text("\(habits.desc)")
-                    
-                    Form {
-                        Section {
-                            DatePicker (
-                                "Dia inicial",
-                                selection: $habits.startDate,
-                                displayedComponents: [.date]
-                            )
-                            .datePickerStyle(.compact)
-                        }
-                        
-                        Section {
-                            DatePicker (
-                                "Dia final",
-                                selection: $habits.finalDate,
-                                displayedComponents: [.date]
-                            )
-                            .datePickerStyle(.compact)
-                        }
-                        
-                        // Esse botão aparece só se a pessoa estiver vindo
-                        Button("Adicionar tarefa") {
-                            DispatchQueue(label: "com.example.queue").async {
-                                modelContext.insert(self.habits)
-                                print("Acidionado")
-                                
+        VStack {
+            
+//            Text("\(habits.name)")
+//                .font(.custom("Digitalt", size: 33))
+//                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Text("\(habits.desc)")
+            
+            Spacer()
+            
+            WeekPicker()
+            
+            Spacer()
+            
+                        Form {
+                            Section {
+                                DatePicker (
+                                    "Dia inicial",
+                                    selection: $habits.startDate,
+                                    displayedComponents: [.date]
+                                )
+                                .datePickerStyle(.compact)
                             }
-                            
-                        }.foregroundColor(Color("AmareloAlert"))
-                                .background(RoundedRectangle(cornerRadius: 10)
-                                    .foregroundColor(Color("Confirm"))
-                                    .frame(height: 70)
-                                    .frame(width: 4000))
-                       
-
-                    }
-                    .scrollContentBackground(.hidden)
-                    .navigationTitle("\(habits.name)")
-                }.onAppear(perform: {
-                    if let habitModel = habitModel {
-                        self.habits = habitModel.newHabits()
-                    }
-                })
-                .onChange(of: habits.startDate) { oldValue, newValue in
-                    if habits.startDate > habits.finalDate {
-                        habits.finalDate = habits.startDate
-                    }
-                }
-                
-                .onChange(of: habits.finalDate) { oldValue, newValue in
-                    if habits.startDate > habits.finalDate {
-                        habits.startDate = habits.finalDate
-                    }
-                }
-            } else if horizontalSizeClass == .regular  {
-            VStack {
-                Spacer()
-                Text("\(habits.name)")
-                    .font(.custom("Digitalt", size: 45))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                Text("\(habits.desc)")
-                    .font(.system(size: 30))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                
-                Form {
-                    Section {
-                        DatePicker (
-                            "Dia inicial",
-                            selection: $habits.startDate,
-                            displayedComponents: [.date]
-                        ) .font(.system(size: 26))
-                        
-                       
-                    }
-                    
-                    Section {
-                        DatePicker (
-                            "Dia final",
-                            selection: $habits.finalDate,
-                            displayedComponents: [.date]
-                        )
-                        .datePickerStyle(.compact)
-                    }.font(.system(size: 26))
-                    
-                    // Esse botão aparece só se a pessoa estiver vindo
-                    Button("Adicionar tarefa") {
-                        DispatchQueue(label: "com.example.queue").async {
-                            modelContext.insert(self.habits)
-                            print("Adicionado")
-                            
+            
+                            Section {
+                                DatePicker (
+                                    "Dia final",
+                                    selection: $habits.finalDate,
+                                    displayedComponents: [.date]
+                                )
+                                .datePickerStyle(.compact)
+                            }
                         }
-                        
-                    }.font(.system(size: 30))
-                        .bold()
-                        .multilineTextAlignment(.center)
-                    .foregroundColor(Color("AmareloAlert"))
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color("Confirm"))
-                                .frame(width: 3000,height: 90))
-                               
-                   
-
-                }
-                .scrollContentBackground(.hidden)
-                .navigationTitle("\(habits.name)")
-            }.onAppear(perform: {
-                if let habitModel = habitModel {
-                    self.habits = habitModel.newHabits()
-                }
-            })
-            .onChange(of: habits.startDate) { oldValue, newValue in
-                if habits.startDate > habits.finalDate {
-                    habits.finalDate = habits.startDate
-                }
-            }
+                        .scrollContentBackground(.hidden)
+                        .navigationTitle("\(habits.name)")
             
-            .onChange(of: habits.finalDate) { oldValue, newValue in
-                if habits.startDate > habits.finalDate {
-                    habits.startDate = habits.finalDate
+            // Esse botão aparece só se a pessoa estiver vindo
+            Button("Adicionar tarefa") {
+                DispatchQueue(label: "com.example.queue").async {
+                    modelContext.insert(self.habits)
+                    
                 }
-            }
                 
-            }
+            }.foregroundColor(Color("AmareloAlert"))
+                .background(RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color("Confirm"))
+                    .frame(height: 70)
+                    .frame(width: 4000))
             
+        }.onAppear(perform: {
+            if let habitModel = habitModel {
+                self.habits = habitModel.newHabits()
+            }
+        })
+        .onChange(of: habits.startDate) { oldValue, newValue in
+            if habits.startDate > habits.finalDate {
+                habits.finalDate = habits.startDate
+            }
+        }
+        
+        .onChange(of: habits.finalDate) { oldValue, newValue in
+            if habits.startDate > habits.finalDate {
+                habits.startDate = habits.finalDate
+            }
+        }
+        .padding(.horizontal)
     }
 }
+
 
 #Preview {
     do {

@@ -23,7 +23,6 @@ struct SuggestionButtonStyle: ButtonStyle {
 
 #Preview {
     Button("Lavar o rosto"){
-        print("aaaa")
     }
     .buttonStyle(SuggestionButtonStyle())
 }

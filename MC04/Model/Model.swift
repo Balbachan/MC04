@@ -56,10 +56,10 @@ class Habits: Identifiable {
         let startDate = Calendar.current.startOfDay(for: self.startDate)
         
         if date >= startDate && date < finalDate {
-            print("Dentro do período")
+//            print("Dentro do período")
             return true
         } else {
-            print("Fora do período")
+//            print("Fora do período")
             return false
         }
     }
