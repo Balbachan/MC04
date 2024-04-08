@@ -18,6 +18,7 @@ struct CalendarView: View {
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
     
+    
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     var filteredHabits: [Habits] {
@@ -38,11 +39,13 @@ struct CalendarView: View {
                         
                         // Calendar
                         WeekScroll(viewModel: $weekCalendar)
-                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
+                            .frame(height: geometry.size.height / 5)
+                            .padding(.top, 30)
+                        
                         
                         // Título Hoje
                         HStack {
-                            Text("Rotina")
+                            Text("Hoje")
                                 .font(.custom("Digitalt", size: 28))
                                 .fontWeight(.bold)
                             
@@ -52,6 +55,8 @@ struct CalendarView: View {
                                 SuggestionsView()
                             } label: {
                                 Image(systemName: "plus")
+                                    .bold()
+                                    .tint(.appOrange)
                             }
                         }
                         
@@ -85,7 +90,7 @@ struct CalendarView: View {
                                                 }
                                                 .tint(.red)
                                             }
-                                            
+                                        
                                     }
                                     
                                 }
@@ -106,7 +111,6 @@ struct CalendarView: View {
                         
                     }
                     .padding(20)
-                    //                .navigationDestination(for: HabitModel.self, destination: EditTaskView.init)
                 }
             }
         } else if horizontalSizeClass == .regular  { //ipad
@@ -125,9 +129,10 @@ struct CalendarView: View {
                         WeekScroll(viewModel: $weekCalendar)
                             .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
                             .padding()
+                        
                         // Título Hoje
                         HStack {
-                            Text("Rotina")
+                            Text("Hoje")
                                 .font(.custom("Digitalt", size: 50))
                                 .fontWeight(.bold)
                             
