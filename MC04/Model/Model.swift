@@ -55,11 +55,17 @@ class Habits: Identifiable {
         let finalDate = Calendar.current.startOfDay(for: auxDate)
         let startDate = Calendar.current.startOfDay(for: self.startDate)
         
+        let dateWeekDay = Calendar.current.component(.weekday, from: date) // 3
+        
+        //Dentro do período
         if date >= startDate && date < finalDate {
-//            print("Dentro do período")
-            return true
-        } else {
-//            print("Fora do período")
+            for day in daysOfWeek {
+                if day == dateWeekDay {
+                    return true
+                }
+            }
+            return false
+        } else { //Fora do período
             return false
         }
     }

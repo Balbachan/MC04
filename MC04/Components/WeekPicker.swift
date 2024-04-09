@@ -8,22 +8,31 @@
 import SwiftUI
 import SwiftData
 
-struct WeekPicker: View {
+enum DayOfWeek: Int, CaseIterable {
+    case Domingo = 1,
+         Segunda = 2,
+         Terça = 3,
+         Quarta = 4,
+         Quinta = 5,
+         Sexta = 6,
+         Sabado = 7
     
-    @State private var selectedDays: [Day] = []
-    @State private var week = "1"
-    
-    enum Day: String, CaseIterable {
-        case Domingo,
-             Segunda,
-             Terça,
-             Quarta,
-             Quinta,
-             Sexta,
-             Sábado
+    func name() -> String {
+        switch self {
+        case .Domingo: return "D"
+        case .Segunda: return "S"
+        case .Terça: return "T"
+        case .Quarta: return "Q"
+        case .Quinta: return "Q"
+        case .Sexta: return "S"
+        case .Sabado: return "S"
+        }
     }
-    
-    let weeks: [Int] = []
+}
+
+struct WeekPicker: View {
+    @Binding var selectedDays: [DayOfWeek]
+    @Binding var numberOfWeeks: Int
     
     var body: some View {
         ZStack{
@@ -37,9 +46,8 @@ struct WeekPicker: View {
                     .font(.custom("Digitalt", size: 32))
                 
                 HStack {
-                    ForEach(Day.allCases, id: \.self) { day in
-                        
-                        Text(String(day.rawValue.first!))
+                    ForEach(DayOfWeek.allCases, id: \.self) { day in
+                        Text(day.name())
                             .font(.custom("Digitalt", size: 20))
                             .foregroundColor(selectedDays.contains(day) ? Color.yellow : Color.black)
                         
@@ -52,6 +60,7 @@ struct WeekPicker: View {
                                     selectedDays.removeAll(where: {$0 == day})
                                 } else {
                                     selectedDays.append(day)
+//                                    print(day)
                                 }
                             }
                     }
@@ -59,11 +68,10 @@ struct WeekPicker: View {
                 
                 HStack {
                     Text("Durante")
-                    Picker("", selection: $week) {
-                        ForEach(["1","2","3"], id: \.self) {
+                    Picker("", selection: $numberOfWeeks) {
+                        ForEach([1,2,3,4,5], id: \.self) {
                             Text("\($0)")
                                 .font(.custom("Digitalt", size: 30))
-                            
                         }
                     }.pickerStyle(.wheel)
                     Text("Semana")
@@ -74,5 +82,5 @@ struct WeekPicker: View {
 }
 
 #Preview {
-    WeekPicker()
+    WeekPicker(selectedDays: .constant([.Domingo,.Terça]), numberOfWeeks: .constant(3))
 }

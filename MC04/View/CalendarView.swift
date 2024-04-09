@@ -64,7 +64,6 @@ struct CalendarView: View {
                         }
                     }
                     
-                    
                     // List
                     List {
                         ForEach(filteredHabits) { habit in
@@ -95,13 +94,11 @@ struct CalendarView: View {
                                             }
                                             .tint(.red)
                                         }
-                                    
                                 }
                                 
                             }
                         }
                         .listRowSeparator(.hidden)
-                        
                     }
                     .onAppear {
                         verifyDone()

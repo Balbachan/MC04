@@ -30,7 +30,6 @@ struct WeekScroll: View {
                                 .frame(width: geometry.size.width, height: 110)
                                 .onAppear(perform: {
                                     value.scrollTo(Int(viewModel.weeks.count / 2))
-                                    print(viewModel.weeks.count)
                                 })
                             }
                         }

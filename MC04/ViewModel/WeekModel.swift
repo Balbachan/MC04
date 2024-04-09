@@ -47,7 +47,7 @@ class WeekModel {
         
         if let firstDayOfThisWeek = calendar.nextDate(after: date, matching: componentDay, matchingPolicy: .previousTimePreservingSmallerComponents, direction: .backward) {
             
-            for i in -3...3 {
+            for i in -10...10 {
                 if let newDate = calendar.date(byAdding: .weekOfYear, value: i, to: firstDayOfThisWeek) {
                     weeks.append(newDate)
                 } else {
