@@ -18,22 +18,39 @@ struct CalendarView: View {
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
     
-    
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    @State var somaFeitos = 0
     
     var filteredHabits: [Habits] {
         return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
     }
     
+    func verifyDone() {
+        var somaTotal = 0
+        
+        for habit in filteredHabits where habit.isDone == true{
+            somaTotal += 1
+        }
+        
+        somaFeitos = somaTotal
+    }
+    
     var body: some View {
-        if horizontalSizeClass == .compact { //iphone
-            
-            NavigationStack(path: $path) {
-                GeometryReader { geometry in
-                    VStack(alignment: .leading, spacing: 0) {
-                        
-                        // Frase de efeito diária
-                        Text("Bora reagir meu chapa")
+        NavigationStack(path: $path) {
+            GeometryReader { geometry in
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    // Frase de efeito diária
+                    Text("Bora reagir meu chapa")
+                        .font(.custom("Digitalt", size: 28))
+                        .fontWeight(.bold)
+                    
+                    // Calendar
+                    WeekScroll(viewModel: $weekCalendar)
+                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
+                    
+                    // Título Hoje
+                    HStack {
+                        Text("Rotina")
                             .font(.custom("Digitalt", size: 28))
                             .fontWeight(.bold)
                         

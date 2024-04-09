@@ -44,6 +44,17 @@ struct SuggestionsView: View {
                     }
                     
                 }
+                
+                //                NavigationLink {
+                //                    Text("aaa")
+                //                } label: {
+                //                    Text("Confirmar rotina")
+                //                        .foregroundColor(Color("AmareloAlert"))
+                //                        .background(RoundedRectangle(cornerRadius: 10)
+                //                            .foregroundColor(Color("Confirm"))
+                //                            .frame(height: 70)
+                //                            .frame(width: 390))
+                //                }.padding(.top, 22)
             }
             .padding(20)
 //        }
