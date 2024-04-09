@@ -31,16 +31,6 @@ struct CalendarView: View {
         return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
     }
     
-    func verifyDone() {
-        var somaTotal = 0
-        
-        for habit in filteredHabits where habit.isDone == true{
-            somaTotal += 1
-        }
-        
-        somaFeitos = somaTotal
-    }
-    
     var body: some View {
         NavigationStack(path: $path) {
             GeometryReader { geometry in
