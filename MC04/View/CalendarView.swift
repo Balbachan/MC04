@@ -17,6 +17,15 @@ struct CalendarView: View {
     @State var phrases: [String]
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
+    @State var somaFeitos = 0
+    
+    func verifyDone() {
+        var somaTotal = 0
+        for habit in filteredHabits where habit.isDone == true{
+            somaTotal += 1
+        }
+        somaFeitos = somaTotal
+    }
     
     var filteredHabits: [Habits] {
         return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
@@ -64,6 +73,7 @@ struct CalendarView: View {
                                     Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
                                         .onTapGesture {
                                             habit.isDone.toggle()
+                                            verifyDone()
                                         }
                                         .padding(.trailing, 20)
                                     
@@ -92,17 +102,26 @@ struct CalendarView: View {
                         }
                         .listRowSeparator(.hidden)
                         
-                        
                     }
+                    .onAppear {
+                        verifyDone()
+                    }
+                    
                     .listStyle(.plain)
                     
                     .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
                     
-                    
-                    // Frase diária
-                    
-                    
-                    
+                    //Texto de feitos:
+                    if somaFeitos == filteredHabits.count {
+                        Text("\(somaFeitos) Feitos")
+                            .foregroundColor(.green)
+                    } else if somaFeitos == 0 {
+                        Text("\(somaFeitos) Feitos")
+                            .foregroundColor(.red)
+                    } else {
+                        Text("\(somaFeitos) Feitos")
+                            .foregroundColor(.yellow)
+                    }
                     
                 }
                 .padding(20)
