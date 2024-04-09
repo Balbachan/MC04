@@ -23,7 +23,7 @@ struct WeekHeader: View {
                 ForEach(week.indices, id: \.self) { index in
                     ZStack {
                         Rectangle()
-                            .foregroundStyle(index == selectedIndex ? .biaOrange : .tommorowGrey)
+                            .foregroundStyle(index == selectedIndex ? .appOrange : .appMediumGray)
                             .frame(height: index == selectedIndex ? geometry.size.height * 1 : geometry.size.height * 0.5)
                             .cornerRadius(100)
                             .padding(.horizontal, 9)

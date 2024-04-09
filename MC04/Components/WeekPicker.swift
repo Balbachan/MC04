@@ -28,7 +28,7 @@ struct WeekPicker: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(.cinzaCard)
+                .foregroundColor(.gray)
                 .cornerRadius(20)
                 .frame(height: 250)
             
@@ -41,10 +41,10 @@ struct WeekPicker: View {
                         
                         Text(String(day.rawValue.first!))
                             .font(.custom("Digitalt", size: 20))
-                            .foregroundColor(selectedDays.contains(day) ? Color.biaYellow : Color.black)
+                            .foregroundColor(selectedDays.contains(day) ? Color.yellow : Color.black)
                         
                             .frame(width: 30, height: 30)
-                            .background(selectedDays.contains(day) ? Color.biaOrange.cornerRadius(100) : Color.weekPickerButtons.cornerRadius(100))
+                            .background(selectedDays.contains(day) ? Color.orange.cornerRadius(100) : Color.gray.cornerRadius(100))
                             .padding(.horizontal, 5)
                         
                             .onTapGesture {
