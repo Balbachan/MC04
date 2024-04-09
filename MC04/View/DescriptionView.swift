@@ -9,80 +9,42 @@ import SwiftUI
 import SwiftData
 
 struct DescriptionView: View {
-//    @Environment(\.modelContext) var modelContext
-//    @Query var habits: [Habits]
+    //    @Environment(\.modelContext) var modelContext
+    //    @Query var habits: [Habits]
     @Bindable var habits: Habits
     
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
-
-    
     var body: some View {
-        if horizontalSizeClass == .compact {//iphone
+        VStack{
+            Text("\(habits.name)")
+                .font(.custom("Digitalt", size: 33))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading)
+            Text("\(habits.desc)")
+                .padding()
+            Text("COMO FAZER")
+                .font(.custom("Digitalt", size: 30))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading)
+            
+            Steps(habits: habits)
+                .padding()
             VStack{
-                Text("\(habits.name)")
-                    .font(.custom("Digitalt", size: 33))
+                Text("!AVISO")
+                    .font(.title3.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                Text("\(habits.desc)")
-                    .padding()
-                Text("COMO FAZER")
-                    .font(.custom("Digitalt", size: 30))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                
-                Steps(habits: habits)
-                    .padding()
-                VStack{
-                    Text("!AVISO")
-                        .font(.title3.bold())
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Ao ler as descrições e dicas desse aplicativo, lembre-se de que as informações são apenas para referência geral.Este aplicativo não deve ser usado ou entendido como substituto da orientação e acompanhamento de um dermatologista. Os usuários devem sempre consultar um médico ou outro profissional de saúde para receber orientações médicas ou informações sobre diagnósticos e tratamentos.")
-                        .font(.system(size: 15))
-                }.padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color("AmareloAlert"))
-                            .frame(height: 200)
-                            .frame(width: 390)
-                        
-                    )
-                
-            }
-            Spacer()
-        }else if horizontalSizeClass == .regular  {//ipad
-            VStack{
-                Text("\(habits.name)")
-                    .font(.custom("Digitalt", size: 40))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                Text("\(habits.desc)")
-                    .font(.system(size: 25))
-                    .padding()
-                Text("COMO FAZER")
-                    .font(.custom("Digitalt", size: 35))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                
-                Steps(habits: habits)
-                    .padding()
-                VStack{
-                    Text("!AVISO")
-                        .font(.custom("Digitalt", size: 25))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Ao ler as descrições e dicas desse aplicativo, lembre-se de que as informações são apenas para referência geral. \nEste aplicativo não deve ser usado ou entendido como substituto da orientação e acompanhamento de um dermatologista. \nOs usuários devem sempre consultar um médico ou outro profissional de saúde para receber orientações médicas ou informações sobre diagnósticos e tratamentos.")
-                        .font(.system(size: 25))
-                }.padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color("AmareloAlert"))
-                            .frame(height: 250)
-                            .frame(width: 820)
-                        
-                    )
-                
-            }
-            Spacer()
+                Text("Ao ler as descrições e dicas desse aplicativo, lembre-se de que as informações são apenas para referência geral.Este aplicativo não deve ser usado ou entendido como substituto da orientação e acompanhamento de um dermatologista. Os usuários devem sempre consultar um médico ou outro profissional de saúde para receber orientações médicas ou informações sobre diagnósticos e tratamentos.")
+                    .font(.system(size: 15))
+            }.padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(Color("AmareloAlert"))
+                        .frame(height: 200)
+                        .frame(width: 390)
+                    
+                )
+            
         }
+        Spacer()
     }
 }
 

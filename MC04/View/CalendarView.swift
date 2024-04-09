@@ -18,181 +18,94 @@ struct CalendarView: View {
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
     
-    
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
-    
     var filteredHabits: [Habits] {
         return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
     }
     
     var body: some View {
-        if horizontalSizeClass == .compact { //iphone
-            
-            NavigationStack(path: $path) {
-                GeometryReader { geometry in
-                    VStack(alignment: .leading, spacing: 0) {
-                        
-                        // Frase de efeito diária
-                        Text("Bora reagir meu chapa")
+        NavigationStack(path: $path) {
+            GeometryReader { geometry in
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    // Frase de efeito diária
+                    Text("Bora reagir meu chapa")
+                        .font(.custom("Digitalt", size: 28))
+                        .fontWeight(.bold)
+                    
+                    // Calendar
+                    WeekScroll(viewModel: $weekCalendar)
+                        .frame(height: geometry.size.height / 5)
+                        .padding(.top, 30)
+                    
+                    
+                    // Título Hoje
+                    HStack {
+                        Text("Hoje")
                             .font(.custom("Digitalt", size: 28))
                             .fontWeight(.bold)
                         
-                        // Calendar
-                        WeekScroll(viewModel: $weekCalendar)
-                            .frame(height: geometry.size.height / 5)
-                            .padding(.top, 30)
+                        Spacer()
                         
-                        
-                        // Título Hoje
-                        HStack {
-                            Text("Hoje")
-                                .font(.custom("Digitalt", size: 28))
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                            
-                            NavigationLink {
-                                SuggestionsView()
-                            } label: {
-                                Image(systemName: "plus")
-                                    .bold()
-                                    .tint(.appOrange)
-                            }
+                        NavigationLink {
+                            SuggestionsView()
+                        } label: {
+                            Image(systemName: "plus")
+                                .bold()
+                                .tint(.appOrange)
                         }
-                        
-                        
-                        // List
-                        List {
-                            ForEach(filteredHabits) { habit in
-                                NavigationLink(destination: DescriptionView(habits: habit)) {
-                                    HStack {
-                                        Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                                            .onTapGesture {
-                                                habit.isDone.toggle()
+                    }
+                    
+                    
+                    // List
+                    List {
+                        ForEach(filteredHabits) { habit in
+                            NavigationLink(destination: DescriptionView(habits: habit)) {
+                                HStack {
+                                    Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                                        .onTapGesture {
+                                            habit.isDone.toggle()
+                                        }
+                                        .padding(.trailing, 20)
+                                    
+                                    Text(habit.name)
+                                        .font(.custom("Digitalt", size: 20))
+                                        .swipeActions {
+                                            NavigationLink {
+                                                EditTaskView(habits: habit)
+                                            } label: {
+                                                Image(systemName: "pencil")
                                             }
-                                            .padding(.trailing, 20)
-                                        
-                                        Text(habit.name)
-                                            .font(.custom("Digitalt", size: 20))
-                                            .swipeActions {
-                                                NavigationLink {
-                                                    EditTaskView(habits: habit)
-                                                } label: {
-                                                    Image(systemName: "pencil")
-                                                }
+                                        }
+                                    
+                                        .swipeActions {
+                                            Button {
+                                                modelContext.delete(habit)
+                                            } label: {
+                                                Image(systemName: "trash")
                                             }
-                                        
-                                            .swipeActions {
-                                                Button {
-                                                    modelContext.delete(habit)
-                                                } label: {
-                                                    Image(systemName: "trash")
-                                                }
-                                                .tint(.red)
-                                            }
-                                        
-                                    }
+                                            .tint(.red)
+                                        }
                                     
                                 }
+                                
                             }
-                            .listRowSeparator(.hidden)
-                            
-                            
                         }
-                        .listStyle(.plain)
-                        
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
-                        
-                        
-                        // Frase diária
-                        
-                        
+                        .listRowSeparator(.hidden)
                         
                         
                     }
-                    .padding(20)
+                    .listStyle(.plain)
+                    
+                    .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
+                    
+                    
+                    // Frase diária
+                    
+                    
+                    
+                    
                 }
-            }
-        } else if horizontalSizeClass == .regular  { //ipad
-            
-            NavigationStack(path: $path) {
-                GeometryReader { geometry in
-                    VStack(alignment: .leading, spacing: 0) {
-                        
-                        // Frase de efeito diária
-                        Text("Bora reagir meu chapa")
-                            .font(.custom("Digitalt", size: 40))
-                            .fontWeight(.bold)
-                            .padding()
-                        
-                        // Calendar
-                        WeekScroll(viewModel: $weekCalendar)
-                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
-                            .padding()
-                        
-                        // Título Hoje
-                        HStack {
-                            Text("Hoje")
-                                .font(.custom("Digitalt", size: 50))
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                            
-                            NavigationLink {
-                                SuggestionsView()
-                            } label: {
-                                Image(systemName: "plus")
-                                    .font(.system(size: 40))
-                            }
-                        }
-                        .padding()
-                        .padding(.bottom)
-                        
-                        // List
-                        List {
-                            ForEach(filteredHabits) { habit in
-                                NavigationLink(destination: DescriptionView(habits: habit)) {
-                                    HStack {
-                                        Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                                            .resizable()
-                                            .frame(width: 40, height: 40)
-                                            .onTapGesture {
-                                                habit.isDone.toggle()
-                                            }
-                                            .padding(.trailing, 20)
-                                        
-                                        Text(habit.name)
-                                            .font(.custom("Digitalt", size: 40))
-                                            .swipeActions {
-                                                NavigationLink {
-                                                    EditTaskView(habits: habit)
-                                                } label: {
-                                                    Image(systemName: "pencil")
-                                                }
-                                                
-                                            }
-                                    }
-                                    
-                                }
-                            }
-                            .listRowSeparator(.hidden)
-                            
-                            
-                        }
-                        .listStyle(.plain)
-                        
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
-                        
-                        
-                        // Frase diária
-                        
-                        
-                        
-                        
-                    }
-                    .padding(20)
-                    //                .navigationDestination(for: HabitModel.self, destination: EditTaskView.init)
-                }
+                .padding(20)
             }
         }
     }

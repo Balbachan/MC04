@@ -15,7 +15,6 @@ struct WeekHeader: View {
     @State var weekDate:[Date] = []
     @State var selectedIndex: Int?
     @Binding var selectedDate: Date
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     var body: some View {
         GeometryReader { geometry in

@@ -11,75 +11,39 @@ import SwiftUI
 struct WeekScroll: View {
     @Binding var viewModel: WeekModel
     @State var update = false;
-
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
-    
-
     
     var body: some View {
-        if horizontalSizeClass == .compact {
-            GeometryReader { geometry in
-                ScrollViewReader { value in
-                    VStack {
-                        ScrollView(.horizontal) {
-                            LazyHStack(spacing: 0) {
-                                ForEach(viewModel.weeks.indices, id: \.self) { index in
-                                    ZStack {
-                                        if update {
-                                            WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                        } else {
-                                            WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                        }
+        GeometryReader { geometry in
+            ScrollViewReader { value in
+                VStack {
+                    ScrollView(.horizontal) {
+                        LazyHStack(spacing: 0) {
+                            ForEach(viewModel.weeks.indices, id: \.self) { index in
+                                ZStack {
+                                    if update {
+                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
+                                    } else {
+                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
                                     }
-                                    .frame(width: geometry.size.width, height: 110)
-                                    .onAppear(perform: {
-                                        value.scrollTo(Int(viewModel.weeks.count / 2))
-                                        print(viewModel.weeks.count)
-                                    })
                                 }
+                                .frame(width: geometry.size.width, height: 110)
+                                .onAppear(perform: {
+                                    value.scrollTo(Int(viewModel.weeks.count / 2))
+                                    print(viewModel.weeks.count)
+                                })
                             }
-                            .scrollTargetLayout()
                         }
-                        .scrollTargetBehavior(.viewAligned)
-                        
-                        
+                        .scrollTargetLayout()
                     }
+                    .scrollTargetBehavior(.viewAligned)
+                    
                 }
             }
         }
-            else if horizontalSizeClass == .regular  {
-                GeometryReader { geometry in
-                    ScrollViewReader { value in
-                        VStack {
-                            ScrollView(.horizontal) {
-                                LazyHStack(spacing: 0) {
-                                    ForEach(viewModel.weeks.indices, id: \.self) { index in
-                                        ZStack {
-                                            if update {
-                                                WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                            } else {
-                                                WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                            }
-                                        }
-                                        .frame(width: geometry.size.width, height: 170)
-                                        .onAppear(perform: {
-                                            value.scrollTo(Int(viewModel.weeks.count / 2))
-                                            print(viewModel.weeks.count)
-                                        })
-                                    }
-                                }
-                                .scrollTargetLayout()
-                            }
-                            .scrollTargetBehavior(.viewAligned)
-                            
-                            
-                        }
-                    }
-                }
-            }
     }
 }
+
 
 #Preview {
     WeekScroll(viewModel: .constant(WeekModel()))
