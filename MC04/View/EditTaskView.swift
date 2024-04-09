@@ -17,10 +17,6 @@ struct EditTaskView: View {
     var body: some View {
         VStack {
             
-//            Text("\(habits.name)")
-//                .font(.custom("Digitalt", size: 33))
-//                .frame(maxWidth: .infinity, alignment: .leading)
-            
             Text("\(habits.desc)")
             
             Spacer()
@@ -29,27 +25,27 @@ struct EditTaskView: View {
             
             Spacer()
             
-                        Form {
-                            Section {
-                                DatePicker (
-                                    "Dia inicial",
-                                    selection: $habits.startDate,
-                                    displayedComponents: [.date]
-                                )
-                                .datePickerStyle(.compact)
-                            }
-            
-                            Section {
-                                DatePicker (
-                                    "Dia final",
-                                    selection: $habits.finalDate,
-                                    displayedComponents: [.date]
-                                )
-                                .datePickerStyle(.compact)
-                            }
-                        }
-                        .scrollContentBackground(.hidden)
-                        .navigationTitle("\(habits.name)")
+            Form {
+                Section {
+                    DatePicker (
+                        "Dia inicial",
+                        selection: $habits.startDate,
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.compact)
+                }
+                
+                Section {
+                    DatePicker (
+                        "Dia final",
+                        selection: $habits.finalDate,
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.compact)
+                }
+            }
+            .scrollContentBackground(.hidden)
+            .navigationTitle("\(habits.name)")
             
             // Esse botão aparece só se a pessoa estiver vindo
             Button("Adicionar tarefa") {

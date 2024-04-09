@@ -98,8 +98,6 @@ struct CalendarView: View {
                             }
                         }
                         .listRowSeparator(.hidden)
-                        
-                        
                     }
                     .onAppear{
                         verifyDone()
@@ -118,17 +116,6 @@ struct CalendarView: View {
                         Text("\(somaFeitos) Feitos")
                             .foregroundColor(.yellow)
                     }
-                    
-//                    if 0 >= filteredHabits.count {
-//                        Text("\(filteredHabits.count) Feitos")
-//                            .foregroundColor(.green)
-//                    } else {
-//                        Text("\(filteredHabits.count) Feitos")
-//                            .foregroundColor(.red)
-//                    }
-                    
-                    // Frase diária
-                    
                 }
                 .padding(20)
             }
