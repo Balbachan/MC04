@@ -13,6 +13,7 @@
 		00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83242BBE067900C0B713 /* DescriptionView.swift */; };
 		1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */; };
 		1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193733792BC5B50000DFC6C3 /* WeekPicker.swift */; };
+		1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */; };
 		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
 		194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */; };
 		195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */; };
@@ -40,6 +41,7 @@
 		00CA83242BBE067900C0B713 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonStyle.swift; sourceTree = "<group>"; };
 		193733792BC5B50000DFC6C3 /* WeekPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekPicker.swift; sourceTree = "<group>"; };
+		1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DandiButtonStyle.swift; sourceTree = "<group>"; };
 		194F742C2BBDE74B008AE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		194F742E2BBDE845008AE4E1 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
 		194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowStyle.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */,
 				00CA83202BBDD0F500C0B713 /* Steps.swift */,
 				193733792BC5B50000DFC6C3 /* WeekPicker.swift */,
+				1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */,
 				195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */,
 				1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */,
+				1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */,
 				DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */,
 				00CA83212BBDD0F500C0B713 /* Steps.swift in Sources */,
 				00CA831F2BBDCA5000C0B713 /* SuggestionCard.swift in Sources */,

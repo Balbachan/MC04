@@ -4,52 +4,56 @@
 //
 // Created by Laura C. Balbachan dos Santos on 02/04/24.
 //
+
 import SwiftUI
 import SwiftData
+
+
 struct EditTaskView: View {
     @Environment(\.modelContext) var modelContext
     @State var habits: Habits = Habits()
     var habitModel: HabitModel?
+    
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Spacer(minLength: 20)
+            
             Text("\(habits.desc)")
+                .padding(.bottom, 100)
             
-//            Spacer()
-//            WeekPicker()
-//            Spacer()
-            
-            Form {
-                Section {
-                    DatePicker (
-                        "Dia inicial",
-                        selection: $habits.startDate,
-                        displayedComponents: [.date]
-                    )
-                    .datePickerStyle(.compact)
+            VStack(alignment: .center) {
+                Form {
+                    Section {
+                        DatePicker (
+                            "Dia inicial",
+                            selection: $habits.startDate,
+                            displayedComponents: [.date]
+                        )
+                        .datePickerStyle(.compact)
+                    }
+                    Section {
+                        DatePicker (
+                            "Dia final",
+                            selection: $habits.finalDate,
+                            displayedComponents: [.date]
+                        )
+                        .datePickerStyle(.compact)
+                    }
                 }
-                Section {
-                    DatePicker (
-                        "Dia final",
-                        selection: $habits.finalDate,
-                        displayedComponents: [.date]
-                    )
-                    .datePickerStyle(.compact)
-                }
-            }
-            .scrollContentBackground(.hidden)
-            .navigationTitle("\(habits.name)")
-            // Esse botão aparece só se a pessoa estiver vindo
-            Button("Adicionar tarefa") {
-                DispatchQueue(label: "com.example.queue").async {
-                    modelContext.insert(self.habits)
-                }
+                .scrollContentBackground(.hidden)
+                .navigationTitle("\(habits.name)")
                 
-            }.foregroundColor(Color("AmareloAlert"))
-                .background(RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color("Confirm"))
-                    .frame(height: 70)
-                    .frame(width: 4000))
-        }.onAppear(perform: {
+                
+                // Esse botão aparece só se a pessoa estiver vindo
+                Button("Adicionar tarefa") {
+                    DispatchQueue(label: "com.example.queue").async {
+                        modelContext.insert(self.habits)
+                    }
+                }
+                .buttonStyle(DandiButtonStyle())
+            }
+        }
+        .onAppear(perform: {
             if let habitModel = habitModel {
                 self.habits = habitModel.newHabits()
             }
@@ -67,6 +71,9 @@ struct EditTaskView: View {
         .padding(.horizontal)
     }
 }
+
+
+
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)

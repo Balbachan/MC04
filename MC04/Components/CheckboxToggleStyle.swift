@@ -16,7 +16,3 @@ struct CheckboxToggleStyle: ToggleStyle {
             .onTapGesture { configuration.isOn.toggle() }
     }
 }
-
-//#Preview {
-//    CheckboxToggleStyle()
-//}
