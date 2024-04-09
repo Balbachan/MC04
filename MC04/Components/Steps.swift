@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct Steps: View {
-    
     @Bindable var habits: Habits
     
     var body: some View {
         VStack{
+            
             ForEach(habits.steps, id: \.self) { step in
                 HStack{
                     ZStack{

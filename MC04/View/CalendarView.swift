@@ -17,8 +17,15 @@ struct CalendarView: View {
     @State var phrases: [String]
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
-    
     @State var somaFeitos = 0
+    
+    func verifyDone() {
+        var somaTotal = 0
+        for habit in filteredHabits where habit.isDone == true{
+            somaTotal += 1
+        }
+        somaFeitos = somaTotal
+    }
     
     var filteredHabits: [Habits] {
         return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
@@ -46,11 +53,13 @@ struct CalendarView: View {
                     
                     // Calendar
                     WeekScroll(viewModel: $weekCalendar)
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
+                        .frame(height: geometry.size.height / 5)
+                        .padding(.top, 30)
+                    
                     
                     // Título Hoje
                     HStack {
-                        Text("Rotina")
+                        Text("Hoje")
                             .font(.custom("Digitalt", size: 28))
                             .fontWeight(.bold)
                         
@@ -60,6 +69,8 @@ struct CalendarView: View {
                             SuggestionsView()
                         } label: {
                             Image(systemName: "plus")
+                                .bold()
+                                .tint(.appOrange)
                         }
                     }
                     
@@ -94,15 +105,20 @@ struct CalendarView: View {
                                             }
                                             .tint(.red)
                                         }
+                                    
                                 }
+                                
                             }
                         }
                         .listRowSeparator(.hidden)
+                        
                     }
-                    .onAppear{
+                    .onAppear {
                         verifyDone()
                     }
+                    
                     .listStyle(.plain)
+                    
                     .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
                     
                     //Texto de feitos:
@@ -116,6 +132,7 @@ struct CalendarView: View {
                         Text("\(somaFeitos) Feitos")
                             .foregroundColor(.yellow)
                     }
+                    
                 }
                 .padding(20)
             }

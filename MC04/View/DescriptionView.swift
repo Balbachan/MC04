@@ -9,6 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct DescriptionView: View {
+    //    @Environment(\.modelContext) var modelContext
+    //    @Query var habits: [Habits]
     @Bindable var habits: Habits
     
     var body: some View {
@@ -38,7 +40,9 @@ struct DescriptionView: View {
                         .foregroundColor(Color("AmareloAlert"))
                         .frame(height: 200)
                         .frame(width: 390)
+                    
                 )
+            
         }
         Spacer()
     }

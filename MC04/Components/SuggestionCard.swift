@@ -18,7 +18,7 @@ struct SuggestionCard: View {
                     .font(.title.bold())
                     .background(
                         RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color("CinzaCard"))
+                            .foregroundColor(Color.appLightGray)
                             .frame(height: 100)
                             .frame(width: 390)
                     )

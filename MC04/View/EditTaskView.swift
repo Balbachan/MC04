@@ -1,13 +1,11 @@
 //
-//  EditTaskView.swift
-//  MC04
+// EditTaskView.swift
+// MC04
 //
-//  Created by Laura C. Balbachan dos Santos on 02/04/24.
+// Created by Laura C. Balbachan dos Santos on 02/04/24.
 //
-
 import SwiftUI
 import SwiftData
-
 struct EditTaskView: View {
     @Environment(\.modelContext) var modelContext
     @State var habits: Habits = Habits()
@@ -85,7 +83,7 @@ struct EditTaskView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Habits.self, configurations: config)
-        let example =   HabitModel(name: "Lavar o rosto", desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv")
+        let example =  HabitModel(name: "Lavar o rosto", desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv")
         return EditTaskView(habitModel: example)
             .modelContainer(container)
     } catch {

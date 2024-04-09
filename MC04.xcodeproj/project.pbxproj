@@ -12,12 +12,13 @@
 		00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */; };
 		00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83242BBE067900C0B713 /* DescriptionView.swift */; };
 		1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */; };
+		1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193733792BC5B50000DFC6C3 /* WeekPicker.swift */; };
 		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
 		194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */; };
 		195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */; };
 		195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */; };
 		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
-		195C77E72BBC9F20007C8DC9 /* TaskTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* TaskTypeEnum.swift */; };
+		195C77E72BBC9F20007C8DC9 /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */; };
 		195C77E92BBC9F39007C8DC9 /* TaskSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */; };
 		19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0A2BB48B4600738E6C /* MC04App.swift */; };
 		19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0C2BB48B4600738E6C /* ContentView.swift */; };
@@ -38,13 +39,14 @@
 		00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		00CA83242BBE067900C0B713 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonStyle.swift; sourceTree = "<group>"; };
+		193733792BC5B50000DFC6C3 /* WeekPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekPicker.swift; sourceTree = "<group>"; };
 		194F742C2BBDE74B008AE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		194F742E2BBDE845008AE4E1 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
 		194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowStyle.swift; sourceTree = "<group>"; };
 		195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
-		195C77E62BBC9F20007C8DC9 /* TaskTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeEnum.swift; sourceTree = "<group>"; };
+		195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsEnum.swift; sourceTree = "<group>"; };
 		195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectorView.swift; sourceTree = "<group>"; };
 		19613D072BB48B4600738E6C /* MC04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19613D0A2BB48B4600738E6C /* MC04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC04App.swift; sourceTree = "<group>"; };
@@ -123,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				19613D182BB4908E00738E6C /* Model.swift */,
-				195C77E62BBC9F20007C8DC9 /* TaskTypeEnum.swift */,
+				195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,7 +163,7 @@
 				00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */,
 				1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */,
 				00CA83202BBDD0F500C0B713 /* Steps.swift */,
-				DE0CF1A12BC07984003B996A /* WeekPicker.swift */,
+				193733792BC5B50000DFC6C3 /* WeekPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -250,9 +252,9 @@
 				00CA831F2BBDCA5000C0B713 /* SuggestionCard.swift in Sources */,
 				DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */,
 				DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */,
-				195C77E72BBC9F20007C8DC9 /* TaskTypeEnum.swift in Sources */,
+				195C77E72BBC9F20007C8DC9 /* FontsEnum.swift in Sources */,
 				19613D192BB4908E00738E6C /* Model.swift in Sources */,
-				DE0CF1A22BC07984003B996A /* WeekPicker.swift in Sources */,
+				1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */,
 				195C77E92BBC9F39007C8DC9 /* TaskSelectorView.swift in Sources */,
 				195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */,
 				19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */,

@@ -15,41 +15,34 @@ struct WeekHeader: View {
     @State var weekDate:[Date] = []
     @State var selectedIndex: Int?
     @Binding var selectedDate: Date
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: 0){
+            HStack(spacing: 5){
                 ForEach(week.indices, id: \.self) { index in
-                    ZStack {
-                        Rectangle()
-                            .foregroundStyle(index == selectedIndex ? .appOrange : .appMediumGray)
-                            .frame(height: index == selectedIndex ? geometry.size.height * 1 : geometry.size.height * 0.5)
-                            .cornerRadius(100)
-                            .padding(.horizontal, 9)
-                            if horizontalSizeClass == .compact {
-                        
-                                Text("\(week[index])")
-                                    .font(.custom("Digitalt", size: 17))
-                                    .multilineTextAlignment(.center)
-                                    .position(x: geometry.size.width * 0.07, y: geometry.size.height / 7)
-                            }
-                            else if horizontalSizeClass == .regular  {
-                        
-                                Text("\(week[index])")
-                                    .font(.custom("Digitalt", size: 30))
-                                    .multilineTextAlignment(.center)
-                                    .position(x: geometry.size.width * 0.07, y: geometry.size.height / 7)
-                            }
+                    VStack(spacing: 0) {
+                        Text("\(week[index])")
+                            .font(.custom("Digitalt", size: 17))
+   
                     }
-                    .frame(width: geometry.size.width / 7)
+                    .padding(.horizontal, 10)
+                    .background(
+                        Capsule()
+                            
+                            .frame(width: geometry.size.width / 10)
+                            .frame(height: index == selectedIndex ? geometry.size.height * 0.9 : geometry.size.height * 0.5)
+                            .position(y: index ==  selectedIndex ? geometry.size.height * 0.5 : geometry.size.height * 0.65)
+                            .foregroundStyle(index == selectedIndex ? .appSuperLightGray : .appLightGray)
+                            .animation(.easeInOut)
+                            .padding(40)
+                            .padding(.bottom, 70)
+                    )
                     .onTapGesture {
                         selectedDate = weekDate[index]
                         selectedIndex = index
                     }
                 }
             }
-            .position(x: geometry.size.width / 2 ,y: geometry.size.height / 2)
             .onAppear(perform: {
                 week = []
                 weekDate = []

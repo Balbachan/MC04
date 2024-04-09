@@ -12,6 +12,7 @@ struct WeekScroll: View {
     @Binding var viewModel: WeekModel
     @State var update = false;
     
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollViewReader { value in
@@ -36,11 +37,13 @@ struct WeekScroll: View {
                         .scrollTargetLayout()
                     }
                     .scrollTargetBehavior(.viewAligned)
+                    
                 }
             }
         }
     }
 }
+
 
 #Preview {
     WeekScroll(viewModel: .constant(WeekModel()))
