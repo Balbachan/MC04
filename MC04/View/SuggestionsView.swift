@@ -29,15 +29,9 @@ struct SuggestionsView: View {
                     ForEach(viewModel.habits) { habit in
                         NavigationLink(destination: EditTaskView(habitModel: habit)) {
                             Text("\(habit.name)")
-                                .font(.custom("Digitalt", size: 25))
-                                .foregroundColor(.black)
-                                .padding(30)
-                            
-                                .background (
-                                    RoundedRectangle(cornerRadius: 20)
-                                    //                                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.1)
-                                )
                         }
+                        .buttonStyle(SuggestionButtonStyle())
+                        .padding(.top, 10)
                     }
                 }
                 

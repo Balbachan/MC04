@@ -12,39 +12,43 @@ struct DescriptionView: View {
     //    @Environment(\.modelContext) var modelContext
     //    @Query var habits: [Habits]
     @Bindable var habits: Habits
+
     
     var body: some View {
-        VStack{
-            Text("\(habits.name)")
-                .font(.custom("Digitalt", size: 33))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading)
-            Text("\(habits.desc)")
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                Text("\(habits.name)")
+  
+                Text("\(habits.desc)")
+                    .padding(.top, 5)
+                
+                Text("Como fazer")
+                    .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
+                    .padding(.top, 20)
+                
+                
+                ScrollView {
+                    Steps(habits: habits)
+                    
+                    //                    .padding()
+                }
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("!AVISO")
+                        .font(.custom("Digitalt", size: 20))
+                    
+                    Text("Ao ler as descrições e dicas desse aplicativo, lembre-se de que as informações são apenas para referência geral.Este aplicativo não deve ser usado ou entendido como substituto da orientação e acompanhamento de um dermatologista. Os usuários devem sempre consultar um médico ou outro profissional de saúde para receber orientações médicas ou informações sobre diagnósticos e tratamentos.")
+                        .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
+                }
                 .padding()
-            Text("COMO FAZER")
-                .font(.custom("Digitalt", size: 30))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading)
-            
-            Steps(habits: habits)
-                .padding()
-            VStack{
-                Text("!AVISO")
-                    .font(.title3.bold())
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Ao ler as descrições e dicas desse aplicativo, lembre-se de que as informações são apenas para referência geral.Este aplicativo não deve ser usado ou entendido como substituto da orientação e acompanhamento de um dermatologista. Os usuários devem sempre consultar um médico ou outro profissional de saúde para receber orientações médicas ou informações sobre diagnósticos e tratamentos.")
-                    .font(.system(size: 15))
-            }.padding()
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color("AmareloAlert"))
-                        .frame(height: 200)
-                        .frame(width: 390)
-                    
+                        .foregroundColor(Color.appBeige)
                 )
-            
+                
+                
+            }
+            .padding(15)
         }
-        Spacer()
     }
 }
 

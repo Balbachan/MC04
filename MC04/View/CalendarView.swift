@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct CalendarView: View {
+    @State private var isPresented = false
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
     @State var isDone: Bool = false
@@ -21,7 +22,7 @@ struct CalendarView: View {
     
     func verifyDone() {
         var somaTotal = 0
-        for habit in filteredHabits where habit.isDone == true{
+        for habit in filteredHabits where habit.isDone == true {
             somaTotal += 1
         }
         somaFeitos = somaTotal
@@ -46,15 +47,12 @@ struct CalendarView: View {
                         .frame(height: geometry.size.height / 5)
                         .padding(.top, 30)
                     
-                    
                     // Título Hoje
                     HStack {
                         Text("Hoje")
                             .font(.custom("Digitalt", size: 28))
                             .fontWeight(.bold)
-                        
                         Spacer()
-                        
                         NavigationLink {
                             SuggestionsView()
                         } label: {
@@ -63,40 +61,63 @@ struct CalendarView: View {
                                 .tint(.appOrange)
                         }
                     }
+                    .padding(.bottom, 10)
                     
-                    // List
-                    List {
-                        ForEach(filteredHabits) { habit in
-                            NavigationLink(destination: DescriptionView(habits: habit)) {
-                                HStack {
-                                    Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                                        .onTapGesture {
-                                            habit.isDone.toggle()
-                                            verifyDone()
-                                        }
-                                        .padding(.trailing, 20)
-                                    
-                                    Text(habit.name)
-                                        .font(.custom("Digitalt", size: 20))
-                                        .swipeActions {
-                                            NavigationLink {
-                                                EditTaskView(habits: habit)
-                                            } label: {
-                                                Image(systemName: "pencil")
+                    VStack(alignment: .center) {
+                        List {
+                            ForEach(filteredHabits) { habit in
+                                NavigationLink(destination: DescriptionView(habits: habit)) {
+                                    HStack {
+                                        Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                                            .onTapGesture {
+                                                habit.isDone.toggle()
+                                                verifyDone()
                                             }
-                                        }
-                                    
-                                        .swipeActions {
-                                            Button {
-                                                modelContext.delete(habit)
-                                            } label: {
-                                                Image(systemName: "trash")
+                                        
+                                        Text(habit.name)
+                                            .font(.custom("Digitalt", size: 20))
+                                            .swipeActions {
+                                                NavigationLink {
+                                                    EditTaskView(habits: habit)
+                                                } label: {
+                                                    Image(systemName: "pencil")
+                                                }
                                             }
-                                            .tint(.red)
-                                        }
+                                        
+                                            .swipeActions {
+                                                Button {
+                                                    modelContext.delete(habit)
+                                                } label: {
+                                                    Image(systemName: "trash")
+                                                }
+                                                .tint(.red)
+                                            }
+                                        
+                                    }
+                                    
+                                    
                                 }
-                                
                             }
+                            .listRowSeparator(.hidden)
+                        }
+                        .onAppear {
+                            verifyDone()
+                        }
+                        .listStyle(.plain)
+                                                
+                        // Texto de feitos:
+                        if somaFeitos == filteredHabits.count {
+                            Text("\(somaFeitos) Feitos")
+                                .font(.custom("Digitalt", size: 24))
+                                .foregroundColor(.appYellow)
+                        } else if somaFeitos == 0 {
+                            Text("\(somaFeitos) Feitos")
+                                .font(.custom("Digitalt", size: 24))
+                                .foregroundColor(.appOrange)
+                        } else {
+                            Text("\(somaFeitos) Feitos")
+                                .font(.custom("Digitalt", size: 24))
+                                .foregroundColor(.appYellow)
                         }
                         .listRowSeparator(.hidden)
                     }

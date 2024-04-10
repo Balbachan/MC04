@@ -8,28 +8,43 @@
 import SwiftUI
 import SwiftData
 
+
 struct Steps: View {
     @Bindable var habits: Habits
     
     var body: some View {
-        VStack{
-            
-            ForEach(habits.steps, id: \.self) { step in
-                HStack{
-                    ZStack{
-                        Circle().fill(Color("CinzaNumber"))
-                            .frame(width: 28)
-                        Text(step[0])
-                            .foregroundColor(Color("Amarelo"))
-                            .font(.custom("Digitalt", size: 20))
+        GeometryReader { geometry in
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(habits.steps, id: \.self) { step in
+                    HStack {
+                        ZStack {
+                            Circle().fill(Color.appLightGray)
+                                .frame(width: geometry.size.width * 0.075)
+                            VStack(spacing: 0) {
+                                Text(step[0])
+                                    .foregroundColor(Color.appYellow)
+                                .font(.custom("Digitalt", size: 20))
+                            }
+                        }
+                        Text(step[1])
+                            .font(.custom("Digitalt", size: 23))
                     }
-                    Text(step[1])
-                        .font(.custom("Digitalt", size: 23))
-                }.frame(maxWidth: .infinity, alignment: .leading)
-                
-                Text(step[2])
-                    .padding(.leading )
+                    Text(step[2])
+                        .padding(.leading, 35)
+                        .padding(.bottom, 15)
+                    
+                    // Dangee
+                    // Danger
+                    // Danlee
+                    // Dantee
+                    // Danvee
+                    // Dinda
+                    
+                    
+                    
+                }
             }
+//            .padding()
         }
     }
 }
