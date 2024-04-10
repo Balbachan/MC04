@@ -31,8 +31,8 @@ struct EditTaskView: View {
             
             // salva o habito
             modelContext.insert(self.habits)
-            print("StartDate -> \(self.habits.startDate)")
-            print("FinalDate -> \(self.habits.finalDate)")
+//            print("StartDate -> \(self.habits.startDate)")
+//            print("FinalDate -> \(self.habits.finalDate)")
         }
     }
     
@@ -51,7 +51,7 @@ struct EditTaskView: View {
             
             Button("Adicionar tarefa") {
                 saveHabit()
-                
+                print(numberOfWeeks)
             }
             .buttonStyle(DandiButtonStyle())
             

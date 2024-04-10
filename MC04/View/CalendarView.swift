@@ -92,10 +92,7 @@ struct CalendarView: View {
                                                 }
                                                 .tint(.red)
                                             }
-                                        
                                     }
-                                    
-                                    
                                 }
                             }
                             .listRowSeparator(.hidden)
