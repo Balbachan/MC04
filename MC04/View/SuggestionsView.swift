@@ -10,6 +10,8 @@ import SwiftData
 
 struct SuggestionsView: View {
     var viewModel: ViewModel = ViewModel()
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
     
     var body: some View {
         
@@ -33,6 +35,7 @@ struct SuggestionsView: View {
                         .buttonStyle(SuggestionButtonStyle())
                         .padding(.top, 10)
                     }
+                    
                 }
                 
                 //                NavigationLink {

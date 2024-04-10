@@ -73,6 +73,7 @@ struct CalendarView: View {
                                                 habit.isDone.toggle()
                                                 verifyDone()
                                             }
+                                            .padding(.trailing, 20)
                                         
                                         Text(habit.name)
                                             .font(.custom("Digitalt", size: 20))
@@ -104,6 +105,75 @@ struct CalendarView: View {
                             verifyDone()
                         }
                         .listStyle(.plain)
+                        
+                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
+                        
+                        
+                        // Frase diária
+                        
+                        
+                        
+                        
+                    }
+                    .padding(20)
+                }
+            }
+        } else if horizontalSizeClass == .regular  { //ipad
+            
+            NavigationStack(path: $path) {
+                GeometryReader { geometry in
+                    VStack(alignment: .leading, spacing: 0) {
+                        
+                        // Frase de efeito diária
+                        Text("Bora reagir meu chapa")
+                            .font(.custom("Digitalt", size: 40))
+                            .fontWeight(.bold)
+                            .padding()
+                        
+                        // Calendar
+                        WeekScroll(viewModel: $weekCalendar)
+                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
+                            .padding()
+                        
+                        // Título Hoje
+                        HStack {
+                            Text("Hoje")
+                                .font(.custom("Digitalt", size: 50))
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            
+                            NavigationLink {
+                                SuggestionsView()
+                            } label: {
+                                Image(systemName: "plus")
+                                    .font(.system(size: 40))
+                            }
+                        }
+                        .padding()
+                        .padding(.bottom)
+                        
+                        // List
+                        List {
+                            ForEach(filteredHabits) { habit in
+                                NavigationLink(destination: DescriptionView(habits: habit)) {
+                                    HStack {
+                                        Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                            .onTapGesture {
+                                                habit.isDone.toggle()
+                                            }
+                                            .padding(.trailing, 20)
+                                        
+                                        Text(habit.name)
+                                            .font(.custom("Digitalt", size: 40))
+                                            .swipeActions {
+                                                NavigationLink {
+                                                    EditTaskView(habits: habit)
+                                                } label: {
+                                                    Image(systemName: "pencil")
+                                                }
                                                 
                         // Texto de feitos:
                         if somaFeitos == filteredHabits.count {
@@ -119,6 +189,16 @@ struct CalendarView: View {
                                 .font(.custom("Digitalt", size: 24))
                                 .foregroundColor(.appYellow)
                         }
+                        .listStyle(.plain)
+                        
+                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
+                        
+                        
+                        // Frase diária
+                        
+                        
+                        
+                        
                     }
                     
                 }
