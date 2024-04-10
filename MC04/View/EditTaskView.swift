@@ -52,28 +52,14 @@ struct EditTaskView: View {
             Button("Adicionar tarefa") {
                 saveHabit()
                 
-            }.foregroundColor(Color.blue)
-                .background(RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color.appWhite)
-                    .frame(height: 70)
-                    .frame(width: 4000))
+            }
+            .buttonStyle(DandiButtonStyle())
             
         }.onAppear(perform: {
             if let habitModel = habitModel {
                 self.habits = habitModel.newHabits()
             }
         })
-//        .onChange(of: habits.startDate, { oldValue, newValue in
-//            if habits.startDate > habits.finalDate {
-//                habits.finalDate = habits.startDate
-//            }
-//        })
-//        .onChange(of: habits.finalDate) { oldValue, newValue in
-//            habits.finalDate = Calendar.current.date(byAdding: .day, value: numberOfWeeks * (7), to: habits.startDate)!
-//            if habits.startDate > habits.finalDate {
-//                habits.startDate = habits.finalDate
-//            }
-//        }
         .padding(.horizontal)
     }
 }

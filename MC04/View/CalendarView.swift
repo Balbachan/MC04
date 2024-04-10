@@ -109,7 +109,7 @@ struct CalendarView: View {
                         if somaFeitos == filteredHabits.count {
                             Text("\(somaFeitos) Feitos")
                                 .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.appYellow)
+                                .foregroundColor(.green)
                         } else if somaFeitos == 0 {
                             Text("\(somaFeitos) Feitos")
                                 .font(.custom("Digitalt", size: 24))
@@ -119,26 +119,6 @@ struct CalendarView: View {
                                 .font(.custom("Digitalt", size: 24))
                                 .foregroundColor(.appYellow)
                         }
-                        .listRowSeparator(.hidden)
-                    }
-                    .onAppear {
-                        verifyDone()
-                    }
-                    
-                    .listStyle(.plain)
-                    
-                    .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
-                    
-                    //Texto de feitos:
-                    if somaFeitos == filteredHabits.count {
-                        Text("\(somaFeitos) Feitos")
-                            .foregroundColor(.green)
-                    } else if somaFeitos == 0 {
-                        Text("\(somaFeitos) Feitos")
-                            .foregroundColor(.red)
-                    } else {
-                        Text("\(somaFeitos) Feitos")
-                            .foregroundColor(.yellow)
                     }
                     
                 }
