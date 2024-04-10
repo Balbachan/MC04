@@ -33,7 +33,7 @@ enum DayOfWeek: Int, CaseIterable {
 struct WeekPicker: View {
     @Binding var selectedDays: [DayOfWeek]
     @Binding var numberOfWeeks: Int
-    @State var allDays: Bool = false
+    @State var allDays: Bool = true
     
     var body: some View {
         ZStack{
@@ -83,8 +83,10 @@ struct WeekPicker: View {
                 }.frame(width: 280, height: 80)
                 
                 //Toggle repetir toda semana
-                VStack{
+                HStack{
                     Toggle("Repetir toda semana", isOn: $allDays)
+                        .toggleStyle(SwitchToggleStyle(tint: .appLightGray))
+                    
                 }
                 
             }
