@@ -33,26 +33,30 @@ enum DayOfWeek: Int, CaseIterable {
 struct WeekPicker: View {
     @Binding var selectedDays: [DayOfWeek]
     @Binding var numberOfWeeks: Int
+    @State var allDays: Bool = false
     
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(.gray)
+                .foregroundColor(.appSuperLightGray)
                 .cornerRadius(20)
                 .frame(height: 250)
             
             VStack{
+                
+                //Título
                 Text("Quais dias e repetições")
                     .font(.custom("Digitalt", size: 32))
                 
+                //Seletor de dias da semana
                 HStack {
                     ForEach(DayOfWeek.allCases, id: \.self) { day in
                         Text(day.name())
                             .font(.custom("Digitalt", size: 20))
-                            .foregroundColor(selectedDays.contains(day) ? Color.yellow : Color.black)
+                            .foregroundColor(selectedDays.contains(day) ? Color.appBeige : Color.black)
                         
                             .frame(width: 30, height: 30)
-                            .background(selectedDays.contains(day) ? Color.orange.cornerRadius(100) : Color.gray.cornerRadius(100))
+                            .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
                             .padding(.horizontal, 5)
                         
                             .onTapGesture {
@@ -60,12 +64,13 @@ struct WeekPicker: View {
                                     selectedDays.removeAll(where: {$0 == day})
                                 } else {
                                     selectedDays.append(day)
-//                                    print(day)
+                                    //                                    print(day)
                                 }
                             }
                     }
                 }.padding(.vertical)
                 
+                //Picker de semanas
                 HStack {
                     Text("Durante")
                     Picker("", selection: $numberOfWeeks) {
@@ -75,7 +80,13 @@ struct WeekPicker: View {
                         }
                     }.pickerStyle(.wheel)
                     Text("Semana")
-                }.frame(width: 320, height: 80)
+                }.frame(width: 280, height: 80)
+                
+                //Toggle repetir toda semana
+                VStack{
+                    Toggle("Repetir toda semana", isOn: $allDays)
+                }
+                
             }
         }
     }
