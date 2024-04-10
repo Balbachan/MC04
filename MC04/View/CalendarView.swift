@@ -18,14 +18,14 @@ struct CalendarView: View {
     @State var phrases: [String]
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
-    @State var somaFeitos = 0
+    @State var sumDone = 0
     
     func verifyDone() {
-        var somaTotal = 0
+        var sumTotal = 0
         for habit in filteredHabits where habit.isDone == true {
-            somaTotal += 1
+            sumTotal += 1
         }
-        somaFeitos = somaTotal
+        sumDone = sumTotal
     }
     
     var filteredHabits: [Habits] {
@@ -106,16 +106,16 @@ struct CalendarView: View {
                         .listStyle(.plain)
                                                 
                         // Texto de feitos:
-                        if somaFeitos == filteredHabits.count {
-                            Text("\(somaFeitos) Feitos")
+                        if sumDone == filteredHabits.count {
+                            Text("\(sumDone) Feitos")
                                 .font(.custom("Digitalt", size: 24))
                                 .foregroundColor(.green)
-                        } else if somaFeitos == 0 {
-                            Text("\(somaFeitos) Feitos")
+                        } else if sumDone == 0 {
+                            Text("\(sumDone) Feitos")
                                 .font(.custom("Digitalt", size: 24))
                                 .foregroundColor(.appOrange)
                         } else {
-                            Text("\(somaFeitos) Feitos")
+                            Text("\(sumDone) Feitos")
                                 .font(.custom("Digitalt", size: 24))
                                 .foregroundColor(.appYellow)
                         }

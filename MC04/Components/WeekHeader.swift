@@ -9,26 +9,26 @@ import Foundation
 import SwiftUI
 
 struct WeekHeader: View {
-    
     var firstDay: Date = Date()
-    @State var week: [String] = []
-    @State var weekDate:[Date] = []
-    @State var selectedIndex: Int?
-    @Binding var selectedDate: Date
+    @State var weekDays: [String] = [] // Dias da semana
+    @State var weekDate:[Date] = [] // Dia na semana
+    @State var selectedIndex: Int? // Dia selecionado
+    @Binding var selectedDate: Date // Dia atual
     
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 5){
-                ForEach(week.indices, id: \.self) { index in
+                ForEach(weekDays.indices, id: \.self) { index in
                     VStack(spacing: 0) {
-                        Text("\(week[index])")
-                            .font(.custom("Digitalt", size: 17))
-   
+                        ZStack {
+                            Text("\(weekDays[index])")
+                                .font(.custom(FontType.t1.font, size: 17))
+                            
+                        }
                     }
                     .padding(.horizontal, 10)
                     .background(
                         Capsule()
-                            
                             .frame(width: geometry.size.width / 10)
                             .frame(height: index == selectedIndex ? geometry.size.height * 0.9 : geometry.size.height * 0.5)
                             .position(y: index ==  selectedIndex ? geometry.size.height * 0.5 : geometry.size.height * 0.65)
@@ -40,11 +40,12 @@ struct WeekHeader: View {
                     .onTapGesture {
                         selectedDate = weekDate[index]
                         selectedIndex = index
+                        print("\(weekDate[index])")
                     }
                 }
             }
             .onAppear(perform: {
-                week = []
+                weekDays = []
                 weekDate = []
                 
                 for i in 0..<7 {
@@ -53,12 +54,14 @@ struct WeekHeader: View {
                             selectedIndex = i
                         }
                         
+                        
+                        // Popular o array com os dias da semana
                         let formatter = DateFormatter()
                         formatter.dateFormat = "E"
                         formatter.locale = Locale(identifier: "pt-br")
                         let dayNameWithPeriod = formatter.string(from: date)
                         let dayNameWithoutPeriod = dayNameWithPeriod.replacingOccurrences(of: ".", with: "")
-                        week.append(dayNameWithoutPeriod)
+                        weekDays.append(dayNameWithoutPeriod)
                         weekDate.append(date)
                     }
                 }

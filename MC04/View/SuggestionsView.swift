@@ -14,19 +14,15 @@ struct SuggestionsView: View {
     
     
     var body: some View {
-        
-        //        GeometryReader { geometry in
         VStack {
-            // Título da Seção
-            HStack {
-                Text("Hábitos")
-                    .font(.custom("Digitalt", size: 28))
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            
             ScrollView {
+                HStack {
+                    Text("Hábitos")
+                        .font(.custom(FontType.t1.font, size: 28))
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
                         NavigationLink(destination: EditTaskView(habitModel: habit)) {
@@ -38,20 +34,16 @@ struct SuggestionsView: View {
                     
                 }
                 
-                //                NavigationLink {
-                //                    Text("aaa")
-                //                } label: {
-                //                    Text("Confirmar rotina")
-                //                        .foregroundColor(Color("AmareloAlert"))
-                //                        .background(RoundedRectangle(cornerRadius: 10)
-                //                            .foregroundColor(Color("Confirm"))
-                //                            .frame(height: 70)
-                //                            .frame(width: 390))
-                //                }.padding(.top, 22)
+                NavigationLink {
+                    Text("aaa")
+                } label: {
+                    Text("Concluir rotina")
+                }
+                .buttonStyle(DandiButtonStyle())
+                .padding(.top, 22)
             }
+            .padding(.horizontal, 40)
         }
-        .padding(20)
-        //        }
     }
 }
 

@@ -23,28 +23,19 @@ struct Steps: View {
                             VStack(spacing: 0) {
                                 Text(step[0])
                                     .foregroundColor(Color.appYellow)
-                                .font(.custom("Digitalt", size: 20))
+                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
                             }
                         }
                         Text(step[1])
-                            .font(.custom("Digitalt", size: 23))
+                            .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
                     }
                     Text(step[2])
+                        .font(.custom(FontType.b1.font, size: FontType.b1.rawValue))
                         .padding(.leading, 35)
                         .padding(.bottom, 15)
-                    
-                    // Dangee
-                    // Danger
-                    // Danlee
-                    // Dantee
-                    // Danvee
-                    // Dinda
-                    
-                    
-                    
+                         
                 }
             }
-//            .padding()
         }
     }
 }
