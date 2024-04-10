@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct CalendarView: View {
+    @State private var isPresented = false
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
     @State var isDone: Bool = false
@@ -17,21 +18,18 @@ struct CalendarView: View {
     @State var phrases: [String]
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
-    
     @State var somaFeitos = 0
-    
-    var filteredHabits: [Habits] {
-        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
-    }
     
     func verifyDone() {
         var somaTotal = 0
-        
-        for habit in filteredHabits where habit.isDone == true{
+        for habit in filteredHabits where habit.isDone == true {
             somaTotal += 1
         }
-        
         somaFeitos = somaTotal
+    }
+    
+    var filteredHabits: [Habits] {
+        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
     }
     
     var body: some View {
@@ -46,39 +44,26 @@ struct CalendarView: View {
                     
                     // Calendar
                     WeekScroll(viewModel: $weekCalendar)
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
+                        .frame(height: geometry.size.height / 5)
+                        .padding(.top, 30)
                     
                     // Título Hoje
                     HStack {
-                        Text("Rotina")
+                        Text("Hoje")
                             .font(.custom("Digitalt", size: 28))
                             .fontWeight(.bold)
-                        
-                        // Calendar
-                        WeekScroll(viewModel: $weekCalendar)
-                            .frame(height: geometry.size.height / 5)
-                            .padding(.top, 30)
-                        
-                        
-                        // Título Hoje
-                        HStack {
-                            Text("Hoje")
-                                .font(.custom("Digitalt", size: 28))
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                            
-                            NavigationLink {
-                                SuggestionsView()
-                            } label: {
-                                Image(systemName: "plus")
-                                    .bold()
-                                    .tint(.appOrange)
-                            }
+                        Spacer()
+                        NavigationLink {
+                            SuggestionsView()
+                        } label: {
+                            Image(systemName: "plus")
+                                .bold()
+                                .tint(.appOrange)
                         }
-                        
-                        
-                        // List
+                    }
+                    .padding(.bottom, 10)
+                    
+                    VStack(alignment: .center) {
                         List {
                             ForEach(filteredHabits) { habit in
                                 NavigationLink(destination: DescriptionView(habits: habit)) {
@@ -86,8 +71,8 @@ struct CalendarView: View {
                                         Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
                                             .onTapGesture {
                                                 habit.isDone.toggle()
+                                                verifyDone()
                                             }
-                                            .padding(.trailing, 20)
                                         
                                         Text(habit.name)
                                             .font(.custom("Digitalt", size: 20))
@@ -110,106 +95,34 @@ struct CalendarView: View {
                                         
                                     }
                                     
-                                }
-                            }
-                            .listRowSeparator(.hidden)
-                            
-                            
-                        }
-                        .listStyle(.plain)
-                        
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
-                        
-                        
-                        // Frase diária
-                        
-                        
-                        
-                        
-                    }
-                    .padding(20)
-                }
-            }
-        } else if horizontalSizeClass == .regular  { //ipad
-            
-            NavigationStack(path: $path) {
-                GeometryReader { geometry in
-                    VStack(alignment: .leading, spacing: 0) {
-                        
-                        // Frase de efeito diária
-                        Text("Bora reagir meu chapa")
-                            .font(.custom("Digitalt", size: 40))
-                            .fontWeight(.bold)
-                            .padding()
-                        
-                        // Calendar
-                        WeekScroll(viewModel: $weekCalendar)
-                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 6)
-                            .padding()
-                        
-                        // Título Hoje
-                        HStack {
-                            Text("Hoje")
-                                .font(.custom("Digitalt", size: 50))
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                            
-                            NavigationLink {
-                                SuggestionsView()
-                            } label: {
-                                Image(systemName: "plus")
-                                    .font(.system(size: 40))
-                            }
-                        }
-                        .padding()
-                        .padding(.bottom)
-                        
-                        // List
-                        List {
-                            ForEach(filteredHabits) { habit in
-                                NavigationLink(destination: DescriptionView(habits: habit)) {
-                                    HStack {
-                                        Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                                            .resizable()
-                                            .frame(width: 40, height: 40)
-                                            .onTapGesture {
-                                                habit.isDone.toggle()
-                                            }
-                                            .padding(.trailing, 20)
-                                        
-                                        Text(habit.name)
-                                            .font(.custom("Digitalt", size: 40))
-                                            .swipeActions {
-                                                NavigationLink {
-                                                    EditTaskView(habits: habit)
-                                                } label: {
-                                                    Image(systemName: "pencil")
-                                                }
-                                                
-                                            }
-                                    }
                                     
                                 }
                             }
                             .listRowSeparator(.hidden)
-                            
-                            
+                        }
+                        .onAppear {
+                            verifyDone()
                         }
                         .listStyle(.plain)
-                        
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2)
-                        
-                        
-                        // Frase diária
-                        
-                        
-                        
-                        
+                                                
+                        // Texto de feitos:
+                        if somaFeitos == filteredHabits.count {
+                            Text("\(somaFeitos) Feitos")
+                                .font(.custom("Digitalt", size: 24))
+                                .foregroundColor(.green)
+                        } else if somaFeitos == 0 {
+                            Text("\(somaFeitos) Feitos")
+                                .font(.custom("Digitalt", size: 24))
+                                .foregroundColor(.appOrange)
+                        } else {
+                            Text("\(somaFeitos) Feitos")
+                                .font(.custom("Digitalt", size: 24))
+                                .foregroundColor(.appYellow)
+                        }
                     }
-                    .padding(20)
-                    //                .navigationDestination(for: HabitModel.self, destination: EditTaskView.init)
+                    
                 }
+                .padding(20)
             }
         }
     }

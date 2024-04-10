@@ -5,6 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Digitalt.ttf</string>
+		<string>AssistantRoman-SemiBold.ttf</string>
+		<string>AssistantRoman-ExtraBold.ttf</string>
 	</array>
 </dict>
 </plist>

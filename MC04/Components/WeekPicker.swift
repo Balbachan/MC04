@@ -8,43 +8,55 @@
 import SwiftUI
 import SwiftData
 
-struct WeekPicker: View {
+enum DayOfWeek: Int, CaseIterable {
+    case Domingo = 1,
+         Segunda = 2,
+         Terça = 3,
+         Quarta = 4,
+         Quinta = 5,
+         Sexta = 6,
+         Sabado = 7
     
-    @State private var selectedDays: [Day] = []
-    @State private var week = "1"
-    
-    enum Day: String, CaseIterable {
-        case Domingo,
-             Segunda,
-             Terça,
-             Quarta,
-             Quinta,
-             Sexta,
-             Sábado
+    func name() -> String {
+        switch self {
+        case .Domingo: return "D"
+        case .Segunda: return "S"
+        case .Terça: return "T"
+        case .Quarta: return "Q"
+        case .Quinta: return "Q"
+        case .Sexta: return "S"
+        case .Sabado: return "S"
+        }
     }
-    
-    let weeks: [Int] = []
+}
+
+struct WeekPicker: View {
+    @Binding var selectedDays: [DayOfWeek]
+    @Binding var numberOfWeeks: Int
+    @State var allDays: Bool = false
     
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(.cinzaCard)
+                .foregroundColor(.appSuperLightGray)
                 .cornerRadius(20)
                 .frame(height: 250)
             
             VStack{
+                
+                //Título
                 Text("Quais dias e repetições")
                     .font(.custom("Digitalt", size: 32))
                 
+                //Seletor de dias da semana
                 HStack {
-                    ForEach(Day.allCases, id: \.self) { day in
-                        
-                        Text(String(day.rawValue.first!))
+                    ForEach(DayOfWeek.allCases, id: \.self) { day in
+                        Text(day.name())
                             .font(.custom("Digitalt", size: 20))
-                            .foregroundColor(selectedDays.contains(day) ? Color.biaYellow : Color.black)
+                            .foregroundColor(selectedDays.contains(day) ? Color.appBeige : Color.black)
                         
                             .frame(width: 30, height: 30)
-                            .background(selectedDays.contains(day) ? Color.biaOrange.cornerRadius(100) : Color.weekPickerButtons.cornerRadius(100))
+                            .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
                             .padding(.horizontal, 5)
                         
                             .onTapGesture {
@@ -52,27 +64,34 @@ struct WeekPicker: View {
                                     selectedDays.removeAll(where: {$0 == day})
                                 } else {
                                     selectedDays.append(day)
+                                    //                                    print(day)
                                 }
                             }
                     }
                 }.padding(.vertical)
                 
+                //Picker de semanas
                 HStack {
                     Text("Durante")
-                    Picker("", selection: $week) {
-                        ForEach(["1","2","3"], id: \.self) {
+                    Picker("", selection: $numberOfWeeks) {
+                        ForEach([1,2,3,4,5], id: \.self) {
                             Text("\($0)")
                                 .font(.custom("Digitalt", size: 30))
-                            
                         }
                     }.pickerStyle(.wheel)
                     Text("Semana")
-                }.frame(width: 320, height: 80)
+                }.frame(width: 280, height: 80)
+                
+                //Toggle repetir toda semana
+                VStack{
+                    Toggle("Repetir toda semana", isOn: $allDays)
+                }
+                
             }
         }
     }
 }
 
 #Preview {
-    WeekPicker()
+    WeekPicker(selectedDays: .constant([.Domingo,.Terça]), numberOfWeeks: .constant(3))
 }

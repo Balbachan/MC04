@@ -15,32 +15,25 @@ struct SuggestionsView: View {
     
     var body: some View {
         
-//        GeometryReader { geometry in
-            VStack {
-                // Título da Seção
-                HStack {
-                    Text("Hábitos")
-                        .font(.custom("Digitalt", size: 28))
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                
-                
-                ScrollView {
-                    VStack(alignment: .center) {
-                        ForEach(viewModel.habits) { habit in
-                            NavigationLink(destination: EditTaskView(habitModel: habit)) {
-                                Text("\(habit.name)")
-                                    .font(.custom("Digitalt", size: 25))
-                                    .foregroundColor(.black)
-                                    .padding(30)
-                                
-                                    .background (
-                                        RoundedRectangle(cornerRadius: 20)
-//                                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.1)
-                                    )
-                            }
+        //        GeometryReader { geometry in
+        VStack {
+            // Título da Seção
+            HStack {
+                Text("Hábitos")
+                    .font(.custom("Digitalt", size: 28))
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            
+            
+            ScrollView {
+                VStack(alignment: .center) {
+                    ForEach(viewModel.habits) { habit in
+                        NavigationLink(destination: EditTaskView(habitModel: habit)) {
+                            Text("\(habit.name)")
                         }
+                        .buttonStyle(SuggestionButtonStyle())
+                        .padding(.top, 10)
                     }
                     
                 }
@@ -56,8 +49,9 @@ struct SuggestionsView: View {
                 //                            .frame(width: 390))
                 //                }.padding(.top, 22)
             }
-            .padding(20)
-//        }
+        }
+        .padding(20)
+        //        }
     }
 }
 

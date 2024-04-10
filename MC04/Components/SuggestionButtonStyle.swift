@@ -9,20 +9,20 @@ import SwiftUI
 
 struct SuggestionButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
-        GeometryReader { geometry in
-            configuration.label
-                .font(.title)
-                .bold()
-                .frame(width: geometry.size.width * 1, height: geometry.size.height * 0.1)
-                .background(configuration.isPressed ? Color.appLightGray : Color.appMediumGray)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-        }
+        configuration.label
+            .font(.custom("Digitalt", size: 25))
+            .foregroundStyle(Color.appBlack)
+            .padding(.vertical, 35)
+            .padding(.horizontal, 90)
+            .background(configuration.isPressed ? Color(.appDarkGray) : Color.appSuperLightGray)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            
     }
 }
 
-
 #Preview {
-    Button("Lavar o rosto"){
+    Button("Esfoliação") {
+        print("aaaa")
     }
     .buttonStyle(SuggestionButtonStyle())
 }
