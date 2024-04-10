@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct CalendarView: View {
+    @State private var isPresented = false
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
     @State var isDone: Bool = false
@@ -21,7 +22,7 @@ struct CalendarView: View {
     
     func verifyDone() {
         var somaTotal = 0
-        for habit in filteredHabits where habit.isDone == true{
+        for habit in filteredHabits where habit.isDone == true {
             somaTotal += 1
         }
         somaFeitos = somaTotal
@@ -104,7 +105,7 @@ struct CalendarView: View {
                         }
                         .listStyle(.plain)
                                                 
-                        //Texto de feitos:
+                        // Texto de feitos:
                         if somaFeitos == filteredHabits.count {
                             Text("\(somaFeitos) Feitos")
                                 .font(.custom("Digitalt", size: 24))

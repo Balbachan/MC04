@@ -12,19 +12,18 @@ struct DescriptionView: View {
     //    @Environment(\.modelContext) var modelContext
     //    @Query var habits: [Habits]
     @Bindable var habits: Habits
+
     
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
                 Text("\(habits.name)")
-                    .font(.custom("Digitalt", size: 33))
-                
-                
+  
                 Text("\(habits.desc)")
                     .padding(.top, 5)
                 
-                Text("COMO FAZER")
-                    .font(.custom("Digitalt", size: 30))
+                Text("Como fazer")
+                    .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
                     .padding(.top, 20)
                 
                 
@@ -38,7 +37,7 @@ struct DescriptionView: View {
                         .font(.custom("Digitalt", size: 20))
                     
                     Text("Ao ler as descrições e dicas desse aplicativo, lembre-se de que as informações são apenas para referência geral.Este aplicativo não deve ser usado ou entendido como substituto da orientação e acompanhamento de um dermatologista. Os usuários devem sempre consultar um médico ou outro profissional de saúde para receber orientações médicas ou informações sobre diagnósticos e tratamentos.")
-                        .font(.system(size: 14))
+                        .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
                 }
                 .padding()
                 .background(

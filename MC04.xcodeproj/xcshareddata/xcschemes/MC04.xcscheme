@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "19613D062BB48B4600738E6C"
-               BuildableName = "MC04.app"
-               BlueprintName = "MC04"
+               BuildableName = "Dandie.app"
+               BlueprintName = "Dandie"
                ReferencedContainer = "container:MC04.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "19613D062BB48B4600738E6C"
-            BuildableName = "MC04.app"
-            BlueprintName = "MC04"
+            BuildableName = "Dandie.app"
+            BlueprintName = "Dandie"
             ReferencedContainer = "container:MC04.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "19613D062BB48B4600738E6C"
-            BuildableName = "MC04.app"
-            BlueprintName = "MC04"
+            BuildableName = "Dandie.app"
+            BlueprintName = "Dandie"
             ReferencedContainer = "container:MC04.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

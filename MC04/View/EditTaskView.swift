@@ -10,6 +10,7 @@ import SwiftData
 
 
 struct EditTaskView: View {
+    @Environment(\.dismiss) var dissmiss
     @Environment(\.modelContext) var modelContext
     @State var habits: Habits = Habits()
     var habitModel: HabitModel?
@@ -48,6 +49,7 @@ struct EditTaskView: View {
                 Button("Adicionar tarefa") {
                     DispatchQueue(label: "com.example.queue").async {
                         modelContext.insert(self.habits)
+                        dissmiss()
                     }
                 }
                 .buttonStyle(DandiButtonStyle())

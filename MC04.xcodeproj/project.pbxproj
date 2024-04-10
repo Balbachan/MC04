@@ -28,6 +28,8 @@
 		19613D192BB4908E00738E6C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* Model.swift */; };
 		19613D202BB4914E00738E6C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
 		19613D242BB492A300738E6C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D232BB492A300738E6C /* Components.swift */; };
+		198BC0CC2BC704C100B482EE /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */; };
+		198BC0CE2BC704D300B482EE /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */; };
 		DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359752BB5E30F00BD70D2 /* CalendarView.swift */; };
 		DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
 		DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
@@ -50,7 +52,7 @@
 		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsEnum.swift; sourceTree = "<group>"; };
 		195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectorView.swift; sourceTree = "<group>"; };
-		19613D072BB48B4600738E6C /* MC04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC04.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19613D072BB48B4600738E6C /* Dandie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19613D0A2BB48B4600738E6C /* MC04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC04App.swift; sourceTree = "<group>"; };
 		19613D0C2BB48B4600738E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19613D0E2BB48B4800738E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		19613D182BB4908E00738E6C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		19613D1F2BB4914E00738E6C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		19613D232BB492A300738E6C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-ExtraBold.ttf"; sourceTree = "<group>"; };
+		198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE0359752BB5E30F00BD70D2 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeader.swift; sourceTree = "<group>"; };
 		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				194F742E2BBDE845008AE4E1 /* Digitalt.ttf */,
+				198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */,
+				198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -94,7 +100,7 @@
 		19613D082BB48B4600738E6C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				19613D072BB48B4600738E6C /* MC04.app */,
+				19613D072BB48B4600738E6C /* Dandie.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,9 +181,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		19613D062BB48B4600738E6C /* MC04 */ = {
+		19613D062BB48B4600738E6C /* Dandie */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "MC04" */;
+			buildConfigurationList = 19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "Dandie" */;
 			buildPhases = (
 				19613D032BB48B4600738E6C /* Sources */,
 				19613D042BB48B4600738E6C /* Frameworks */,
@@ -187,9 +193,9 @@
 			);
 			dependencies = (
 			);
-			name = MC04;
+			name = Dandie;
 			productName = MC04;
-			productReference = 19613D072BB48B4600738E6C /* MC04.app */;
+			productReference = 19613D072BB48B4600738E6C /* Dandie.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -220,7 +226,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				19613D062BB48B4600738E6C /* MC04 */,
+				19613D062BB48B4600738E6C /* Dandie */,
 			);
 		};
 /* End PBXProject section */
@@ -230,8 +236,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198BC0CC2BC704C100B482EE /* Assistant-ExtraBold.ttf in Resources */,
 				19613D122BB48B4800738E6C /* Preview Assets.xcassets in Resources */,
 				19613D0F2BB48B4800738E6C /* Assets.xcassets in Resources */,
+				198BC0CE2BC704D300B482EE /* Assistant-SemiBold.ttf in Resources */,
 				194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,7 +470,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "MC04" */ = {
+		19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "Dandie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19613D162BB48B4800738E6C /* Debug */,
