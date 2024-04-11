@@ -12,16 +12,29 @@ struct DandiButtonStyle: ButtonStyle {
         configuration.label
             .font(.custom("Digitalt", size: 24))
             .foregroundStyle(Color.appBeige)
-            .padding(.vertical, 25)
-            .padding(.horizontal, 90)
+            .padding(.vertical, 20)
+            .padding(.horizontal, 50)
             .background(configuration.isPressed ? Color(.appDarkGray) : Color.appOrange)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            
+    }
+}
+
+struct DandiBlackButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.custom("Digitalt", size: 24))
+            .foregroundStyle(Color.appBeige)
+            .padding(.vertical, 20)
+            .padding(.horizontal, 90)
+            .background(configuration.isPressed ? Color(.appDarkGray) : Color.appBlack)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
             
     }
 }
 
 #Preview {
-    Button("Confirmar Rotina") {
+    Button("Continuar adicionando") {
         print("aaaa")
     }
     .buttonStyle(DandiButtonStyle())

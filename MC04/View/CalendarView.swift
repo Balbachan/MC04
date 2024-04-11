@@ -16,7 +16,6 @@ struct CalendarView: View {
     @State var isDone: Bool = false
     @State var date: Date = Date()
     @State var phrases: [String]
-    @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
     @State var somaFeitos = 0
     
@@ -33,97 +32,96 @@ struct CalendarView: View {
     }
     
     var body: some View {
-        NavigationStack(path: $path) {
-            GeometryReader { geometry in
-                VStack(alignment: .leading, spacing: 0) {
-                    
-                    // Frase de efeito diária
-                    Text("Bora reagir meu chapa")
+        GeometryReader { geometry in
+            VStack(alignment: .leading, spacing: 0) {
+                
+                // Frase de efeito diária
+                Text("Bora reagir meu chapa")
+                    .font(.custom("Digitalt", size: 28))
+                    .fontWeight(.bold)
+                
+                // Calendar
+                WeekScroll(viewModel: $weekCalendar)
+                    .frame(height: geometry.size.height / 5)
+                    .padding(.top, 30)
+                
+                // Título Hoje
+                HStack {
+                    Text("Hoje")
                         .font(.custom("Digitalt", size: 28))
                         .fontWeight(.bold)
-                    
-                    // Calendar
-                    WeekScroll(viewModel: $weekCalendar)
-                        .frame(height: geometry.size.height / 5)
-                        .padding(.top, 30)
-                    
-                    // Título Hoje
-                    HStack {
-                        Text("Hoje")
-                            .font(.custom("Digitalt", size: 28))
-                            .fontWeight(.bold)
-                        Spacer()
-                        NavigationLink {
-                            SuggestionsView()
-                        } label: {
-                            Image(systemName: "plus")
-                                .bold()
-                                .tint(.appOrange)
-                        }
+                    Spacer()
+                    NavigationLink {
+                        SuggestionsView()
+                    } label: {
+                        Image(systemName: "plus")
+                            .bold()
+                            .tint(.appOrange)
                     }
-                    .padding(.bottom, 10)
-                    
-                    VStack(alignment: .center) {
-                        List {
-                            ForEach(filteredHabits) { habit in
-                                NavigationLink(destination: DescriptionView(habits: habit)) {
-                                    HStack {
-                                        Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                                            .onTapGesture {
-                                                habit.isDone.toggle()
-                                                verifyDone()
+                }
+                .padding(.bottom, 10)
+                
+                VStack(alignment: .center) {
+                    List {
+                        ForEach(filteredHabits) { habit in
+                            NavigationLink(destination: DescriptionView(habits: habit)) {
+                                HStack {
+                                    Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                                        .onTapGesture {
+                                            habit.isDone.toggle()
+                                            verifyDone()
+                                        }
+                                    
+                                    Text(habit.name)
+                                        .font(.custom("Digitalt", size: 20))
+                                        .swipeActions {
+                                            NavigationLink {
+                                                EditTaskView(habits: habit)
+                                            } label: {
+                                                Image(systemName: "pencil")
                                             }
-                                        
-                                        Text(habit.name)
-                                            .font(.custom("Digitalt", size: 20))
-                                            .swipeActions {
-                                                NavigationLink {
-                                                    EditTaskView(habits: habit)
-                                                } label: {
-                                                    Image(systemName: "pencil")
-                                                }
+                                        }
+                                    
+                                        .swipeActions {
+                                            Button {
+                                                modelContext.delete(habit)
+                                            } label: {
+                                                Image(systemName: "trash")
                                             }
-                                        
-                                            .swipeActions {
-                                                Button {
-                                                    modelContext.delete(habit)
-                                                } label: {
-                                                    Image(systemName: "trash")
-                                                }
-                                                .tint(.red)
-                                            }
-                                    }
+                                            .tint(.red)
+                                        }
                                 }
                             }
-                            .listRowSeparator(.hidden)
                         }
-                        .onAppear {
-                            verifyDone()
-                        }
-                        .listStyle(.plain)
-                                                
-                        // Texto de feitos:
-                        if somaFeitos == filteredHabits.count {
-                            Text("\(somaFeitos) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.green)
-                        } else if somaFeitos == 0 {
-                            Text("\(somaFeitos) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.appOrange)
-                        } else {
-                            Text("\(somaFeitos) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.appYellow)
-                        }
+                        .listRowSeparator(.hidden)
                     }
+                    .onAppear {
+                        verifyDone()
+                    }
+                    .listStyle(.plain)
                     
+                    // Texto de feitos:
+                    if somaFeitos == filteredHabits.count {
+                        Text("\(somaFeitos) Feitos")
+                            .font(.custom("Digitalt", size: 24))
+                            .foregroundColor(.green)
+                    } else if somaFeitos == 0 {
+                        Text("\(somaFeitos) Feitos")
+                            .font(.custom("Digitalt", size: 24))
+                            .foregroundColor(.appOrange)
+                    } else {
+                        Text("\(somaFeitos) Feitos")
+                            .font(.custom("Digitalt", size: 24))
+                            .foregroundColor(.appYellow)
+                    }
                 }
-                .padding(20)
+                
             }
+            .padding(20)
         }
     }
 }
+
 
 
 #Preview {

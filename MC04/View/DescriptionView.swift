@@ -13,7 +13,6 @@ struct DescriptionView: View {
     //    @Query var habits: [Habits]
     @Bindable var habits: Habits
 
-    
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {

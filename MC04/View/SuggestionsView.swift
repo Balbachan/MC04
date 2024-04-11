@@ -12,43 +12,30 @@ struct SuggestionsView: View {
     var viewModel: ViewModel = ViewModel()
     
     var body: some View {
-        
-        //        GeometryReader { geometry in
-        VStack {
-            // Título da Seção
-            HStack {
-                Text("Hábitos")
-                    .font(.custom("Digitalt", size: 28))
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            
-            ScrollView {
-                VStack(alignment: .center) {
-                    ForEach(viewModel.habits) { habit in
-                        NavigationLink(destination: EditTaskView(habitModel: habit)) {
-                            Text("\(habit.name)")
-                        }
-                        .buttonStyle(SuggestionButtonStyle())
-                        .padding(.top, 10)
-                    }
+        NavigationStack{
+            VStack {
+                // Título da Seção
+                HStack {
+                    Text("Hábitos")
+                        .font(.custom("Digitalt", size: 28))
+                        .fontWeight(.bold)
+                    Spacer()
                 }
                 
-                //                NavigationLink {
-                //                    Text("aaa")
-                //                } label: {
-                //                    Text("Confirmar rotina")
-                //                        .foregroundColor(Color("AmareloAlert"))
-                //                        .background(RoundedRectangle(cornerRadius: 10)
-                //                            .foregroundColor(Color("Confirm"))
-                //                            .frame(height: 70)
-                //                            .frame(width: 390))
-                //                }.padding(.top, 22)
+                ScrollView {
+                    VStack(alignment: .center) {
+                        ForEach(viewModel.habits) { habit in
+                            NavigationLink(destination: EditTaskView(habitModel: habit)) {
+                                Text("\(habit.name)")
+                            }
+                            .buttonStyle(SuggestionButtonStyle())
+                            .padding(.top, 10)
+                        }
+                    }
+                }
             }
+            .padding(20)
         }
-        .padding(20)
-        //        }
     }
 }
 

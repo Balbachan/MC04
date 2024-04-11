@@ -58,7 +58,6 @@ struct WeekPicker: View {
                 //Título
                 Text("Quais dias e repetições")
                     .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
-//                    .font(.custom("Digitalt", size: 32))
                 
                 
                 //Seletor de dias da semana
@@ -85,29 +84,29 @@ struct WeekPicker: View {
                 
                 
                 //Picker de semanas
-                HStack {
-                    Text("Durante")
-                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
-                    
-                    Picker("", selection: $numberOfWeeks) {
-                        ForEach(weeks, id: \.self) {
-                            Text("\($0)")
-                                .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
-                        }
-                    }.pickerStyle(.wheel)
-                    
-                    Text("Semanas")
-                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
-                    
-                }.frame(width: 250, height: 80)
+//                HStack {
+//                    Text("Durante")
+//                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
+//                    
+//                    Picker("", selection: $numberOfWeeks) {
+//                        ForEach(weeks, id: \.self) {
+//                            Text("\($0)")
+//                                .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
+//                        }
+//                    }.pickerStyle(.wheel)
+//                    
+//                    Text("Semanas")
+//                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
+//                    
+//                }.frame(width: 250, height: 80)
                 
                 
                 //Toggle repetir toda semana
                 HStack{
                     Toggle("Repetir toda semana", isOn: $allWeeks)
-                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
+                        .font(.custom(FontType.b1.font, size: FontType.b1.rawValue))
                         .toggleStyle(SwitchToggleStyle(tint: .appOrange))
-                        .frame(width: 190)
+                        .frame(width: 250)
 //                    print(numberOfWeeks)
                 }.padding(.top, 10)
                     .onChange(of: allWeeks) {
