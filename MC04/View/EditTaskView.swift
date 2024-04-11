@@ -10,7 +10,6 @@ import SwiftData
 
 
 struct EditTaskView: View {
-    
     @Environment(\.modelContext) var modelContext
     @State var habits: Habits = Habits()
     @State var selectedDays: [DayOfWeek] = []
@@ -20,7 +19,6 @@ struct EditTaskView: View {
     
     private func saveHabit() {
         DispatchQueue(label: "com.example.queue").async {
-            
             // adiciona no habito a data de início e fim
             let calendar = Calendar.current
             habits.startDate = calendar.startOfDay(for: Date())
@@ -37,9 +35,12 @@ struct EditTaskView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Text("\(habits.name)")
+                .font(.custom(FontType.t1.font, size: FontType.t1.rawValue))
             
             Text("\(habits.desc)")
+                .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
             
             Spacer()
             

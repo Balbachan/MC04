@@ -16,6 +16,7 @@
 		1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */; };
 		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
 		194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */; };
+		19571C612BC872D200E57F59 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19571C602BC872D200E57F59 /* OnboardingView.swift */; };
 		195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */; };
 		195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */; };
 		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
@@ -27,13 +28,11 @@
 		19613D122BB48B4800738E6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D112BB48B4800738E6C /* Preview Assets.xcassets */; };
 		19613D192BB4908E00738E6C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* Model.swift */; };
 		19613D202BB4914E00738E6C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
-		19613D242BB492A300738E6C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D232BB492A300738E6C /* Components.swift */; };
 		198BC0CC2BC704C100B482EE /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */; };
 		198BC0CE2BC704D300B482EE /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */; };
 		DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359752BB5E30F00BD70D2 /* CalendarView.swift */; };
 		DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
 		DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
-		DE0CF1A22BC07984003B996A /* WeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0CF1A12BC07984003B996A /* WeekPicker.swift */; };
 		DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A20652BB96E7A00D85214 /* WeekScroll.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +47,7 @@
 		194F742C2BBDE74B008AE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		194F742E2BBDE845008AE4E1 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
 		194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowStyle.swift; sourceTree = "<group>"; };
+		19571C602BC872D200E57F59 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
@@ -60,13 +60,11 @@
 		19613D112BB48B4800738E6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		19613D182BB4908E00738E6C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		19613D1F2BB4914E00738E6C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		19613D232BB492A300738E6C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-ExtraBold.ttf"; sourceTree = "<group>"; };
 		198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE0359752BB5E30F00BD70D2 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeader.swift; sourceTree = "<group>"; };
 		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
-		DE0CF1A12BC07984003B996A /* WeekPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPicker.swift; sourceTree = "<group>"; };
 		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +148,7 @@
 				195C77E42BBC858D007C8DC9 /* EditTaskView.swift */,
 				00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */,
 				00CA83242BBE067900C0B713 /* DescriptionView.swift */,
+				19571C602BC872D200E57F59 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,6 +272,7 @@
 				195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */,
 				19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */,
 				19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */,
+				19571C612BC872D200E57F59 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
