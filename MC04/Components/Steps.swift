@@ -30,7 +30,7 @@ struct Steps: View {
                             .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
                     }
                     Text(step[2])
-                        .font(.custom(FontType.b1.font, size: FontType.b1.rawValue))
+                        .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
                         .padding(.leading, 35)
                         .padding(.bottom, 15)
                          
