@@ -34,6 +34,7 @@ struct SuggestionsView: View {
                     
                 }
                 
+                // MARK: Isso aqui precisa ser por cima dos cards
                 NavigationLink {
                     Text("aaa")
                 } label: {
@@ -44,6 +45,7 @@ struct SuggestionsView: View {
             }
             .padding(.horizontal, 40)
         }
+        .background(.appWhite)
     }
 }
 

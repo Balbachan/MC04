@@ -46,11 +46,10 @@ struct DescriptionView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(Color.appBeige)
                     )
-                    
                 }
-                
             }
             .padding(15)
+            .background(.appWhite)
         }
     }
 }

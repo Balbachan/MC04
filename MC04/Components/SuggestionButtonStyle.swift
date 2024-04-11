@@ -12,11 +12,9 @@ struct SuggestionButtonStyle: ButtonStyle {
         configuration.label
             .font(.custom("Digitalt", size: 25))
             .foregroundStyle(Color.appBlack)
-//            .padding(.vertical, 35)
-//            .padding(.horizontal, 90)
             .frame(width: 350, height: 100) // MARK: aqui está com número fixo
             
-            .background(configuration.isPressed ? Color(.appDarkGray) : Color.appSuperLightGray)
+            .background(configuration.isPressed ? Color.appDarkGray : Color.appSuperLightGray)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             
             

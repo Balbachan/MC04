@@ -56,12 +56,14 @@ struct EditTaskView: View {
             }
             .buttonStyle(DandiButtonStyle())
             
-        }.onAppear(perform: {
+        }
+        .onAppear(perform: {
             if let habitModel = habitModel {
                 self.habits = habitModel.newHabits()
             }
         })
         .padding(.horizontal)
+        .background(.appWhite)
     }
 }
 

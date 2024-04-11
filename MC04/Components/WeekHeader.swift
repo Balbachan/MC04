@@ -32,7 +32,7 @@ struct WeekHeader: View {
                             .frame(width: geometry.size.width / 10)
                             .frame(height: index == selectedIndex ? geometry.size.height * 0.9 : geometry.size.height * 0.5)
                             .position(y: index ==  selectedIndex ? geometry.size.height * 0.5 : geometry.size.height * 0.65)
-                            .foregroundStyle(index == selectedIndex ? .appSuperLightGray : .appLightGray)
+                            .foregroundStyle(index == selectedIndex ? .appOrange : .appSuperLightGray)
                             .animation(.easeInOut)
                             .padding(40)
                             .padding(.bottom, 70)
