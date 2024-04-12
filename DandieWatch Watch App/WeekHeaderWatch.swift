@@ -71,7 +71,8 @@ struct WeekHeaderWatch: View {
                     }
                 }
             })
-        }
+        }.background(.blue)
+   
         
     }
 }

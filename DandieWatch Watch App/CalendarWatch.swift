@@ -44,6 +44,7 @@ struct CalendarWatch: View {
 //            GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
                     WeekScrollWatch(viewModel: $weekCalendar)
+                    
 //                        .frame(height: geometry.size.height / 5)
                         
                     // Frase de efeito diária
@@ -60,15 +61,13 @@ struct CalendarWatch: View {
                             .font(.custom("Digitalt", size: 28))
                             .fontWeight(.bold)
                         Spacer()
-//                        NavigationLink {
-//                            SuggestionsView()
-//                        } label: {
+                        NavigationLink {
+                            SuggestionWatch()
+                        } label: {
                             Image(systemName: "plus")
-                                .bold()
-                                .tint(.appOrange)
-//                        }
-                    }
-                    .padding(.bottom, 10)
+                    } .frame(width: 80, height: 1)
+                            
+//                    .padding(.bottom, 10)
                     
 //                    VStack(alignment: .center) {
 //                        List {
@@ -129,11 +128,11 @@ struct CalendarWatch: View {
 //                    }
                     
                 }
-                .padding(20)
+//                .padding(20)
             }
         }
     }
-//}
+}
 
 
 #Preview {
