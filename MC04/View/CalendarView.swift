@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct CalendarView: View {
+    @State var showOnboarding: Bool = false // para o onboarding
     @State private var isPresented = false
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
@@ -68,6 +69,7 @@ struct CalendarView: View {
                                 NavigationLink(destination: DescriptionView(habits: habit)) {
                                     HStack {
                                         Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                                            .tint(.appOrange)
                                             .onTapGesture {
                                                 habit.isDone.toggle()
                                                 verifyDone()
@@ -103,12 +105,18 @@ struct CalendarView: View {
                             verifyDone()
                         }
                         .listStyle(.plain)
-                                                
+                        
                         // Texto de feitos:
                         if sumDone == filteredHabits.count {
-                            Text("\(sumDone) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.green)
+                            if filteredHabits.count == 0 {
+                                Text("\(sumDone) Feitos")
+                                    .font(.custom("Digitalt", size: 24))
+                                    .foregroundColor(.appOrange)
+                            } else {
+                                Text("\(sumDone) Feitos")
+                                    .font(.custom("Digitalt", size: 24))
+                                    .foregroundColor(.green)
+                            }
                         } else if sumDone == 0 {
                             Text("\(sumDone) Feitos")
                                 .font(.custom("Digitalt", size: 24))
@@ -123,6 +131,7 @@ struct CalendarView: View {
                 }
                 .padding(20)
                 .background(.appWhite)
+                
             }
         }
     }

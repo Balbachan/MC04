@@ -22,11 +22,10 @@ struct ListRowStyle: View {
             Text("\(habit.name)")
                 .font(.custom("Digitalt", size: 32))
             
-            
         }
         .padding()
         .padding(.horizontal, 60)
-        .background(.gray)
+        .background(.appSuperLightGray)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         
     }
