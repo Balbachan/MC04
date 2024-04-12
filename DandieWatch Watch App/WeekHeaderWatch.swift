@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct WeekHeader: View {
+struct WeekHeaderWatch: View {
     var firstDay: Date = Date()
     @State var weekDays: [String] = [] // Dias da semana
     @State var weekDate:[Date] = [] // Dia na semana
@@ -17,22 +17,27 @@ struct WeekHeader: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: 5){
+            HStack(spacing: 0){
                 ForEach(weekDays.indices, id: \.self) { index in
                     VStack(spacing: 0) {
                         ZStack {
                             Text("\(weekDays[index])")
-                                .font(.custom(FontType.t1.font, size: 17))
+//                            Text("\(weekDays[index].first!)")
+//                                .font(.custom(FontType.t1.font, size: 15))
+                                .font(.system(size: 13))
+                               .frame(width: geometry.size.width * 0.145)
+                               .frame(height: geometry.size.width * 0.04)
                             
                         }
+                        
                     }
-                    .padding(.horizontal, 10)
+//                    .padding(.horizontal, 10)
                     .background(
                         Capsule()
-                            .frame(width: geometry.size.width / 10)
-                            .frame(height: index == selectedIndex ? geometry.size.height * 0.9 : geometry.size.height * 0.5)
-                            .position(y: index ==  selectedIndex ? geometry.size.height * 0.5 : geometry.size.height * 0.65)
-                            .foregroundStyle(index == selectedIndex ? .appSuperLightGray : .appLightGray)
+                            .frame(width: geometry.size.width / 8)
+                            .frame(height: index == selectedIndex ? geometry.size.height * 0.5 : geometry.size.height * 0.4)
+                            .position(y: index ==  selectedIndex ? geometry.size.height * 0.6 : geometry.size.height * 0.65)
+                            .foregroundStyle(index == selectedIndex ? .appOrange : .appLightGray)
                             .animation(.easeInOut)
                             .padding(40)
                             .padding(.bottom, 70)
@@ -66,10 +71,12 @@ struct WeekHeader: View {
                     }
                 }
             })
-        }
+        }.background(.blue)
+   
+        
     }
 }
 
 #Preview {
-    WeekHeader(firstDay: Date(), selectedDate: .constant(Date()))
+    WeekHeaderWatch(firstDay: Date(), selectedDate: .constant(Date()))
 }

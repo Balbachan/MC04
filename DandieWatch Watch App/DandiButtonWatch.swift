@@ -1,30 +1,31 @@
 //
-//  DandiButtonStyle.swift
-//  MC04
+//  DandiButtonWatch.swift
+//  DandieWatch Watch App
 //
-//  Created by Laura C. Balbachan dos Santos on 09/04/24.
+//  Created by Beatriz Andreucci on 11/04/24.
 //
+
 
 import SwiftUI
 
-struct DandiButtonStyle: ButtonStyle {
+struct DandiButtonWatch: ButtonStyle {
     var isOrange: Bool = true
     
     func makeBody(configuration: Configuration) -> some View {
         if(isOrange) {
             configuration.label
-                .font(.custom("Digitalt", size: 24))
+                .font(.custom("Digitalt", size: 10))
                 .foregroundStyle(Color.appBeige)
-                .padding(.vertical, 25)
-                .padding(.horizontal, 90)
+                .padding(.vertical, 13)
+                .padding(.horizontal, 19)
                 .background(configuration.isPressed ? Color(.appMediumGray) : Color.appOrange)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
         } else {
             configuration.label
-                .font(.custom("Digitalt", size: 24))
+                .font(.custom("Digitalt", size: 10))
                 .foregroundStyle(Color.appBeige)
-                .padding(.vertical, 25)
-                .padding(.horizontal, 90)
+                .padding(.vertical, 13)
+                .padding(.horizontal, 19)
                 .background(configuration.isPressed ? Color(.appMediumGray) : Color.appBlack)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
         }
@@ -32,8 +33,8 @@ struct DandiButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    Button("Continuar adicionando") {
+    Button("Confirmar Rotina") {
         print("aaaa")
     }
-    .buttonStyle(DandiButtonStyle(isOrange: false))
+    .buttonStyle(DandiButtonWatch(isOrange: false))
 }

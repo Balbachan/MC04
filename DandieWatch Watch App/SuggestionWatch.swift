@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct SuggestionsView: View {
+struct SuggestionWatch: View {
     var viewModel: ViewModel = ViewModel()
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
@@ -25,9 +25,11 @@ struct SuggestionsView: View {
                 
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
-                        NavigationLink(destination: EditTaskView(habitModel: habit)) {
+                     /*   NavigationLink(destination: EditTaskView(habitModel: habit)) *//*{*/
                             Text("\(habit.name)")
                         }
+//                        .buttonStyle(SuggestionButtonStyle())
+                        .padding(.top, 10)
                     }
                     
                 }
@@ -37,19 +39,19 @@ struct SuggestionsView: View {
                 } label: {
                     Text("Concluir rotina")
                 }
-                .buttonStyle(DandiButtonStyle())
+                .buttonStyle(DandiButtonWatch())
                 .padding(.top, 22)
             }
             .padding(.horizontal, 40)
         }
     }
-}
+//}
 
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Habits.self, configurations: config)
-        return SuggestionsView()
+        return SuggestionWatch()
             .modelContainer(container)
     } catch {
         fatalError("Alguém me desconfigurou")

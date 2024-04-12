@@ -1,4 +1,11 @@
 //
+//  WeekScrollWatch.swift
+//  DandieWatch Watch App
+//
+//  Created by Beatriz Andreucci on 11/04/24.
+//
+
+//
 //  WeekScroll.swift
 //  MC04
 //
@@ -8,7 +15,7 @@
 import Foundation
 import SwiftUI
 
-struct WeekScroll: View {
+struct WeekScrollWatch: View {
     @Binding var viewModel: WeekModel
     @State var update = false;
         
@@ -17,13 +24,13 @@ struct WeekScroll: View {
             ScrollViewReader { value in
                 VStack {
                     ScrollView(.horizontal) {
-                        LazyHStack(spacing: 0) {
+                        LazyHStack(spacing: 9) {
                             ForEach(viewModel.weeks.indices, id: \.self) { index in
                                 ZStack {
                                     if update {
-                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
+                                        WeekHeaderWatch(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
                                     } else {
-                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
+                                        WeekHeaderWatch(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
                                     }
                                 }
                                 .frame(width: geometry.size.width, height: 110)
@@ -34,7 +41,7 @@ struct WeekScroll: View {
                         }
                         .scrollTargetLayout()
                     }
-                    .scrollTargetBehavior(.viewAligned)
+//                    .scrollTargetBehavior(.viewAligned)
                     
                 }
             }
@@ -44,5 +51,5 @@ struct WeekScroll: View {
 
 
 #Preview {
-    WeekScroll(viewModel: .constant(WeekModel()))
+    WeekScrollWatch(viewModel: .constant(WeekModel()))
 }
