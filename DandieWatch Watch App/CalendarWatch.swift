@@ -1,17 +1,3 @@
-//
-//  CalendarWatch.swift
-//  DandieWatch Watch App
-//
-//  Created by Beatriz Andreucci on 11/04/24.
-//
-
-//
-//  PocView.swift
-//  POC_SelfCare
-//
-//  Created by Igor Bragança Toledo on 26/03/24.
-//
-
 import Foundation
 import SwiftUI
 import SwiftData
@@ -40,100 +26,100 @@ struct CalendarWatch: View {
     }
     
     var body: some View {
-        
         NavigationStack(path: $path) {
-            //            GeometryReader { geometry in
-            VStack(alignment: .leading, spacing: 0) {
-                WeekScrollWatch(viewModel: $weekCalendar)
-                
-                //                        .frame(height: geometry.size.height / 5)
-                
-                // Frase de efeito diária
-                //                    Text("Bora reagir meu chapa")
-                //                        .font(.custom("Digitalt", size: 28))
-                //                        .fontWeight(.bold)
-                
-                // Calendar
-                
-                
-                // Título Hoje
-                ScrollView(){
+//            GeometryReader { geometry in
+                VStack(alignment: .leading, spacing: 0) {
+                    WeekScrollWatch(viewModel: $weekCalendar)
+                    
+//                        .frame(height: geometry.size.height / 5)
+                        
+                    // Frase de efeito diária
+//                    Text("Bora reagir meu chapa")
+//                        .font(.custom("Digitalt", size: 28))
+//                        .fontWeight(.bold)
+                    
+                    // Calendar
+                  
+                    
+                    // Título Hoje
                     HStack {
                         Text("Hoje")
                             .font(.custom("Digitalt", size: 28))
                             .fontWeight(.bold)
-                        
+                        Spacer()
                         NavigationLink {
                             SuggestionWatch()
                         } label: {
                             Image(systemName: "plus")
                         } .frame(width: 80, height: 1)
-                            .padding(.bottom, 10)
-                        
-                        VStack(alignment: .center) {
-                            List {
-                                ForEach(filteredHabits) { habit in
-                                    NavigationLink(destination: DescriptionWatch(habits: habit)) {
+                    }
+                            
+//                    .padding(.bottom, 10)
+                    
+                    VStack(alignment: .center) {
+                        List {
+                            ForEach(habits) { habit in
+                                NavigationLink(destination: DescriptionWatch(habits: habit)) {
+                                    HStack {
+                                        Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                                            .onTapGesture {
+                                                habit.isDone.toggle()
+                                                verifyDone()
+                                            }
+
                                         Text(habit.name)
-                                            .foregroundStyle(Color.white)
-                                        
-                                        //                                        HStack {
-                                        //                                            Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                                        //                                                .onTapGesture {
-                                        //                                                    habit.isDone.toggle()
-                                        //                                                    verifyDone()
-                                        //                                                }
-                                        //
-                                        //                                            Text(habit.name)
-                                        //                                                .font(.custom("Digitalt", size: 20))
-                                        //                                                .swipeActions {
-                                        //                                                    NavigationLink {
-                                        //                                                        EditTaskWatch(habits: habit)
-                                        //                                                    } label: {
-                                        //                                                        Image(systemName: "pencil")
-                                        //                                                    }
-                                        //                                                }
-                                        //
-                                        //                                                .swipeActions {
-                                        //                                                    Button {
-                                        //                                                        modelContext.delete(habit)
-                                        //                                                    } label: {
-                                        //                                                        Image(systemName: "trash")
-                                        //                                                    }
-                                        //                                                    .tint(.red)
-                                        //                                                }
-                                        //                                        }
+                                            .font(.custom("Digitalt", size: 20))
+                                            .swipeActions {
+                                                NavigationLink {
+                                                    EditTaskWatch(habits: habit)
+                                                } label: {
+                                                    Image(systemName: "pencil")
+                                                }
+                                            }
+
+                                            .swipeActions {
+                                                Button {
+                                                    modelContext.delete(habit)
+                                                } label: {
+                                                    Image(systemName: "trash")
+                                                }
+                                                .tint(.red)
+                                            }
+
                                     }
+
+
                                 }
                             }
-                            .onAppear {
-                                verifyDone()
-                            }
-                            .listStyle(.plain)
-                            
-                            // Texto de feitos:
-                            //                            if sumDone == filteredHabits.count {
-                            //                                Text("\(sumDone) Feitos")
-                            //                                    .font(.custom("Digitalt", size: 24))
-                            //                                    .foregroundColor(.green)
-                            //                            } else if sumDone == 0 {
-                            //                                Text("\(sumDone) Feitos")
-                            //                                    .font(.custom("Digitalt", size: 24))
-                            //                                    .foregroundColor(.appOrange)
-                            //                            } else {
-                            //                                Text("\(sumDone) Feitos")
-                            //                                    .font(.custom("Digitalt", size: 24))
-                            //                                    .foregroundColor(.appYellow)
-                            //                            }
+//                            .listRowSeparator(.hidden)
                         }
-                        
+                        .onAppear {
+                            verifyDone()
+                        }
+                        .listStyle(.plain)
+
+                        // Texto de feitos:
+//                        if sumDone == filteredHabits.count {
+//                            Text("\(sumDone) Feitos")
+//                                .font(.custom("Digitalt", size: 24))
+//                                .foregroundColor(.green)
+//                        } else if sumDone == 0 {
+//                            Text("\(sumDone) Feitos")
+//                                .font(.custom("Digitalt", size: 24))
+//                                .foregroundColor(.appOrange)
+//                        } else {
+//                            Text("\(sumDone) Feitos")
+//                                .font(.custom("Digitalt", size: 24))
+//                                .foregroundColor(.appYellow)
+//                        }
                     }
-                    //                .padding(20)
+                    
                 }
-            }
-        }
+//                .padding(20)
+        }.ignoresSafeArea()
     }
 }
+
 
 #Preview {
     do {
