@@ -82,7 +82,6 @@ struct WeekPicker: View {
                     }
                 }.padding(.vertical)
                 
-                
                 //Picker de semanas
 //                HStack {
 //                    Text("Durante")

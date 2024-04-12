@@ -18,6 +18,7 @@ struct CalendarView: View {
     @State var phrases: [String]
     @State private var weekCalendar = WeekModel()
     @State var sumDone = 0
+    @State var somaFeitos = 0
     
     func verifyDone() {
         var sumTotal = 0
@@ -94,26 +95,6 @@ struct CalendarView: View {
                             }
                             .listRowSeparator(.hidden)
                         }
-                        .onAppear {
-                            verifyDone()
-                        }
-                        .listStyle(.plain)
-                                                
-                        // Texto de feitos:
-                        if sumDone == filteredHabits.count {
-                            Text("\(sumDone) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.green)
-                        } else if sumDone == 0 {
-                            Text("\(sumDone) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.appOrange)
-                        } else {
-                            Text("\(sumDone) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.appYellow)
-                        }
-                        .listRowSeparator(.hidden)
                     }
                     .onAppear {
                         verifyDone()

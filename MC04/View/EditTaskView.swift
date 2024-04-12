@@ -64,8 +64,7 @@ struct EditTaskView: View {
                 Button("Concluir Rotina") {
                     saveHabit()
                 }
-                .buttonStyle(DandiBlackButtonStyle())
-                
+                .buttonStyle(DandiButtonStyle(isOrange: false))
                 
                 
             }.onAppear(perform: {

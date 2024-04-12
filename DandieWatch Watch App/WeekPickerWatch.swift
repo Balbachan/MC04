@@ -9,90 +9,125 @@
 import SwiftUI
 import SwiftData
 
-enum DayOfWeek: Int, CaseIterable {
-    case Domingo = 1,
-         Segunda = 2,
-         Terça = 3,
-         Quarta = 4,
-         Quinta = 5,
-         Sexta = 6,
-         Sabado = 7
+enum DayOfWeekOne: Int, CaseIterable {
+    case Segunda = 1,
+         Terça = 2,
+         Quarta = 3
     
     func name() -> String {
         switch self {
-        case .Domingo: return "D"
         case .Segunda: return "S"
         case .Terça: return "T"
         case .Quarta: return "Q"
+        }
+    }
+}
+
+enum DayOfWeekTwo: Int, CaseIterable {
+    case Quinta = 1,
+         Sexta = 2,
+         Sabado = 3,
+         Domingo = 4
+    
+    func name() -> String {
+        switch self {
         case .Quinta: return "Q"
         case .Sexta: return "S"
         case .Sabado: return "S"
+        case .Domingo: return "D"
         }
     }
 }
 
 struct WeekPicker: View {
-    @Binding var selectedDays: [DayOfWeek]
+    @Binding var selectedDaysOne: [DayOfWeekOne]
+    @Binding var selectedDaysTwo: [DayOfWeekTwo]
     @Binding var numberOfWeeks: Int
     @State var allDays: Bool = false
     
     var body: some View {
-        ZStack{
-            Rectangle()
-                .foregroundColor(.appSuperLightGray)
-                .cornerRadius(20)
-                .frame(height: 250)
+        VStack{
+            //Título
+            Text("Quais dias")
+                .font(.system(size: 22))
+                .fontWeight(.black)
+                .foregroundStyle(Color.black)
             
-            VStack{
+            ZStack{
+                Rectangle()
+                    .frame(width: 180, height: 140)
+                    .foregroundColor(.appSuperLightGray)
+                    .cornerRadius(20)
                 
-                //Título
-                Text("Quais dias e repetições")
-                    .font(.custom("Digitalt", size: 32))
-                
-                //Seletor de dias da semana
-                HStack {
-                    ForEach(DayOfWeek.allCases, id: \.self) { day in
-                        Text(day.name())
-                            .font(.custom("Digitalt", size: 20))
-                            .foregroundColor(selectedDays.contains(day) ? Color.appBeige : Color.black)
-                        
-                            .frame(width: 30, height: 30)
-                            .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
-                            .padding(.horizontal, 5)
-                        
-                            .onTapGesture {
-                                if selectedDays.contains(day) {
-                                    selectedDays.removeAll(where: {$0 == day})
-                                } else {
-                                    selectedDays.append(day)
-                                    //                                    print(day)
-                                }
-                            }
-                    }
-                }.padding(.vertical)
-                
-                //Picker de semanas
-//                HStack {
-//                    Text("Durante")
-//                    Picker("", selection: $numberOfWeeks) {
-//                        ForEach([1,2,3,4,5], id: \.self) {
-//                            Text("\($0)")
-//                                .font(.custom("Digitalt", size: 30))
-//                        }
-//                    }.pickerStyle(.wheel)
-//                    Text("Semana")
-//                }.frame(width: 280, height: 80)
-                
-                //Toggle repetir toda semana
                 VStack{
-                    Toggle("Repetir toda semana", isOn: $allDays)
+                    //Seletor de dias da semana 1
+                    HStack {
+                        ForEach(DayOfWeekOne.allCases, id: \.self) { day in
+                            Text(day.name())
+                                .fontWeight(.black)
+                                .foregroundColor(selectedDaysOne.contains(day) ? Color.appYellow : Color.black)
+                            
+                                .frame(width: 30, height: 30)
+                                .background(selectedDaysOne.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
+                                .padding(.horizontal, 5)
+                            
+                                .onTapGesture {
+                                    if selectedDaysOne.contains(day) {
+                                        selectedDaysOne.removeAll(where: {$0 == day})
+                                    } else {
+                                        selectedDaysOne.append(day)
+                                    }
+                                }
+                        }
+                    }
+                    
+                    
+                    //Seletor de dias da semana 2
+                    HStack {
+                        ForEach(DayOfWeekTwo.allCases, id: \.self) { day in
+                            Text(day.name())
+                                .fontWeight(.black)
+                                .foregroundColor(selectedDaysTwo.contains(day) ? Color.appYellow : Color.black)
+                            
+                                .frame(width: 30, height: 30)
+                                .background(selectedDaysTwo.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
+                                .padding(.horizontal, 5)
+                            
+                                .onTapGesture {
+                                    if selectedDaysTwo.contains(day) {
+                                        selectedDaysTwo.removeAll(where: {$0 == day})
+                                    } else {
+                                        selectedDaysTwo.append(day)
+                                    }
+                                }
+                        }
+                    }
+                    
+                    //Toggle repetir toda semana
+                    VStack{
+                        Toggle("Repetir toda semana", isOn: $allDays)
+                            .toggleStyle(SwitchToggleStyle(tint: .appOrange))
+                            .font(.system(size: 12))
+                            .foregroundColor(.black)
+                            .frame(width: 160)
+                    }.padding(.top)
                 }
-                
             }
+            
+            Button("Adicionar tarede"){
+            }.buttonStyle(DandiButtonWatch(isOrange: false))
+                .padding(.top)
+            
         }
+        .padding(.top)
+        .frame(width: 200)
+        .background(.appWhite)
+        .ignoresSafeArea()
     }
 }
 
+
+
 #Preview {
-    WeekPicker(selectedDays: .constant([.Domingo,.Terça]), numberOfWeeks: .constant(3))
+    WeekPicker(selectedDaysOne: .constant([.Segunda,.Quarta]), selectedDaysTwo: .constant([.Domingo, .Quinta]), numberOfWeeks: .constant(3))
 }

@@ -51,6 +51,16 @@
 		DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
 		DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
 		DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A20652BB96E7A00D85214 /* WeekScroll.swift */; };
+		DEEBC3C32BC9AA88003D6105 /* FontsEnumWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3C12BC9A860003D6105 /* FontsEnumWatch.swift */; };
+		DEEBC3C42BC9AB2F003D6105 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
+		DEEBC3C52BC9AB32003D6105 /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */; };
+		DEEBC3C62BC9AB34003D6105 /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */; };
+		DEEBC3CD2BC9AB68003D6105 /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3C72BC9AB68003D6105 /* Assistant-ExtraBold.ttf */; };
+		DEEBC3CE2BC9AB68003D6105 /* Assistant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3C82BC9AB68003D6105 /* Assistant-Regular.ttf */; };
+		DEEBC3CF2BC9AB68003D6105 /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3C92BC9AB68003D6105 /* Assistant-SemiBold.ttf */; };
+		DEEBC3D02BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3CA2BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf */; };
+		DEEBC3D12BC9AB68003D6105 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3CB2BC9AB68003D6105 /* Digitalt.ttf */; };
+		DEEBC3D32BC9C32D003D6105 /* TimePickerWatch .swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +127,13 @@
 		DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeader.swift; sourceTree = "<group>"; };
 		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
 		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
+		DEEBC3C12BC9A860003D6105 /* FontsEnumWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsEnumWatch.swift; sourceTree = "<group>"; };
+		DEEBC3C72BC9AB68003D6105 /* Assistant-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-ExtraBold.ttf"; sourceTree = "<group>"; };
+		DEEBC3C82BC9AB68003D6105 /* Assistant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-Regular.ttf"; sourceTree = "<group>"; };
+		DEEBC3C92BC9AB68003D6105 /* Assistant-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-SemiBold.ttf"; sourceTree = "<group>"; };
+		DEEBC3CA2BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		DEEBC3CB2BC9AB68003D6105 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
+		DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimePickerWatch .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +157,7 @@
 		00A867452BC8772100EFD23A /* DandieWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				DEEBC3C12BC9A860003D6105 /* FontsEnumWatch.swift */,
 				00A867482BC8772100EFD23A /* ContentView.swift */,
 				00A8675C2BC877A200EFD23A /* CalendarWatch.swift */,
 				00A867642BC8859700EFD23A /* SuggestionWatch.swift */,
@@ -148,6 +166,8 @@
 				00A867622BC8786400EFD23A /* WeekHeaderWatch.swift */,
 				00A867672BC8863600EFD23A /* DandiButtonWatch.swift */,
 				00A8676F2BC9A2F700EFD23A /* WeekPickerWatch.swift */,
+				DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */,
+				DEEBC3CC2BC9AB68003D6105 /* Fonts */,
 				00A8674A2BC8772200EFD23A /* Assets.xcassets */,
 				00A8674C2BC8772200EFD23A /* Preview Content */,
 			);
@@ -262,6 +282,19 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		DEEBC3CC2BC9AB68003D6105 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DEEBC3C72BC9AB68003D6105 /* Assistant-ExtraBold.ttf */,
+				DEEBC3C82BC9AB68003D6105 /* Assistant-Regular.ttf */,
+				DEEBC3C92BC9AB68003D6105 /* Assistant-SemiBold.ttf */,
+				DEEBC3CA2BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf */,
+				DEEBC3CB2BC9AB68003D6105 /* Digitalt.ttf */,
+			);
+			name = Fonts;
+			path = MC04/Fonts;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,8 +376,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEEBC3D12BC9AB68003D6105 /* Digitalt.ttf in Resources */,
+				DEEBC3CF2BC9AB68003D6105 /* Assistant-SemiBold.ttf in Resources */,
+				DEEBC3C62BC9AB34003D6105 /* Assistant-SemiBold.ttf in Resources */,
+				DEEBC3D02BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf in Resources */,
 				00A8674E2BC8772200EFD23A /* Preview Assets.xcassets in Resources */,
 				00A8674B2BC8772200EFD23A /* Assets.xcassets in Resources */,
+				DEEBC3C42BC9AB2F003D6105 /* Digitalt.ttf in Resources */,
+				DEEBC3CE2BC9AB68003D6105 /* Assistant-Regular.ttf in Resources */,
+				DEEBC3C52BC9AB32003D6105 /* Assistant-ExtraBold.ttf in Resources */,
+				DEEBC3CD2BC9AB68003D6105 /* Assistant-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +412,9 @@
 				00A8675F2BC877CF00EFD23A /* WeekHeader.swift in Sources */,
 				00A867702BC9A2F700EFD23A /* WeekPickerWatch.swift in Sources */,
 				00A867552BC8774600EFD23A /* MC04App.swift in Sources */,
+				DEEBC3D32BC9C32D003D6105 /* TimePickerWatch .swift in Sources */,
 				00A867662BC8861300EFD23A /* DandiButtonStyle.swift in Sources */,
+				DEEBC3C32BC9AA88003D6105 /* FontsEnumWatch.swift in Sources */,
 				00A867492BC8772100EFD23A /* ContentView.swift in Sources */,
 				00A867572BC8774C00EFD23A /* FontsEnum.swift in Sources */,
 				00A867682BC8863600EFD23A /* DandiButtonWatch.swift in Sources */,
