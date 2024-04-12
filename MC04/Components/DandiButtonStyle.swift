@@ -32,7 +32,7 @@ struct DandiButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    Button("Confirmar Rotina") {
+    Button("Continuar adicionando") {
         print("aaaa")
     }
     .buttonStyle(DandiButtonStyle(isOrange: true))

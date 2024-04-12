@@ -11,6 +11,7 @@ import SwiftData
 struct DescriptionView: View {
     @Bindable var habits: Habits
     
+
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
