@@ -12,25 +12,27 @@ struct DandiButtonWatch: ButtonStyle {
     var isOrange: Bool = true
     
     func makeBody(configuration: Configuration) -> some View {
-        if(isOrange) {
-            configuration.label
-                .font(.custom("Digitalt", size: 10))
-                .foregroundStyle(Color.appBeige)
-                .padding(.vertical, 13)
-                .padding(.horizontal, 19)
-                .background(configuration.isPressed ? Color(.appMediumGray) : Color.appOrange)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-        } else {
-            configuration.label
-                .font(.custom("Digitalt", size: 10))
-                .foregroundStyle(Color.appBeige)
-                .padding(.vertical, 13)
-                .padding(.horizontal, 19)
-                .background(configuration.isPressed ? Color(.appMediumGray) : Color.appBlack)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
+//        GeometryReader { geometry in
+            if(isOrange) {
+                configuration.label
+                    .font(.custom("Digitalt", size: 10))
+                    .foregroundStyle(Color.appBeige)
+                    .padding(.vertical, 13)
+                    .padding(.horizontal, 19)
+                    .background(configuration.isPressed ? Color(.appMediumGray) : Color.appOrange)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+            } else {
+                configuration.label
+                    .font(.custom("Digitalt", size: 10))
+                    .foregroundStyle(Color.appBeige)
+                    .padding(.vertical, 13)
+                    .padding(.horizontal, 19)
+                    .background(configuration.isPressed ? Color(.appMediumGray) : Color.appBlack)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+            }
         }
     }
-}
+//}
 
 #Preview {
     Button("Confirmar Rotina") {

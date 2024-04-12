@@ -39,11 +39,13 @@ enum DayOfWeekTwo: Int, CaseIterable {
     }
 }
 
-struct WeekPicker: View {
+struct WeekPickerWatch: View {
     @Binding var selectedDaysOne: [DayOfWeekOne]
     @Binding var selectedDaysTwo: [DayOfWeekTwo]
     @Binding var numberOfWeeks: Int
     @State var allDays: Bool = false
+    
+    
     
     var body: some View {
         VStack{
@@ -114,9 +116,11 @@ struct WeekPicker: View {
                 }
             }
             
-            Button("Adicionar tarede"){
-            }.buttonStyle(DandiButtonWatch(isOrange: false))
-                .padding(.top)
+//            Button("Adicionar tarede"){
+//                saveHabit()
+//                .dismiss()
+//            }.buttonStyle(DandiButtonWatch(isOrange: false))
+//                .padding(.top)
             
         }
         .padding(.top)
@@ -129,5 +133,5 @@ struct WeekPicker: View {
 
 
 #Preview {
-    WeekPicker(selectedDaysOne: .constant([.Segunda,.Quarta]), selectedDaysTwo: .constant([.Domingo, .Quinta]), numberOfWeeks: .constant(3))
+    WeekPickerWatch(selectedDaysOne: .constant([.Segunda,.Quarta]), selectedDaysTwo: .constant([.Domingo, .Quinta]), numberOfWeeks: .constant(3))
 }

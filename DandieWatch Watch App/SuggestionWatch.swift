@@ -25,27 +25,27 @@ struct SuggestionWatch: View {
                 
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
-                     /*   NavigationLink(destination: EditTaskView(habitModel: habit)) *//*{*/
+                        NavigationLink(destination: EditTaskWatch(habitModel: habit)) {
                             Text("\(habit.name)")
                         }
-//                        .buttonStyle(SuggestionButtonStyle())
+                        .buttonStyle(SuggestionButtonWatch())
                         .padding(.top, 10)
                     }
                     
                 }
                 
-                NavigationLink {
-                    Text("aaa")
-                } label: {
-                    Text("Concluir rotina")
-                }
-                .buttonStyle(DandiButtonWatch())
-                .padding(.top, 22)
+//                NavigationLink {
+//                    Text("aaa")
+//                } label: {
+//                    Text("Concluir rotina")
+//                }
+//                .buttonStyle(DandiButtonWatch())
+//                .padding(.top, 22)
             }
             .padding(.horizontal, 40)
         }
     }
-//}
+}
 
 #Preview {
     do {

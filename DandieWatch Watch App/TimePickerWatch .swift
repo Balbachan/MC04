@@ -21,30 +21,40 @@ struct TimePickerWatch: View {
                     .fontWeight(.black)
                     .foregroundStyle(Color.black)
                 
-                //Picker de horas
-                HStack {
-                    Picker("", selection: $hours){
-                        ForEach(0..<24, id: \.self) { i in
-                            Text("\(i)").tag(i)
-                                .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
-                        }
-                    }.pickerStyle(WheelPickerStyle())
+                ZStack{
+                    Rectangle()
+                        .frame(width: geometry.size.width * 0.95, height: 100)
+                        .foregroundColor(.appSuperLightGray)
+                        .cornerRadius(20)
                     
-                    Text(":")
-                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
-                    
-                    Picker("", selection: $minutes){
-                        ForEach(minutes, id: \.self) { i in
-                            Text("\(i)").tag(i)
-                                .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
-                        }
-                    }.pickerStyle(WheelPickerStyle())
-                }.frame(width: 180, height: 90)
+                    //Picker de horas
+                    HStack {
+                        Picker("", selection: $hours){
+                            ForEach(0..<24, id: \.self) { i in
+                                Text("\(i)").tag(i)
+                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            }
+                        }.pickerStyle(.automatic)
+                        
+                        Picker("", selection: $minutes){
+                            ForEach(minutes, id: \.self) { i in
+                                Text("\(i)").tag(i)
+                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            }
+                        }.pickerStyle(WheelPickerStyle())
+                        
+                    }.frame(width: 150, height: 80)
+                }.padding(.vertical, 5)
+                
+                Button("Adicionar tarede"){
+                }.buttonStyle(DandiButtonWatch(isOrange: false))
+                    .padding(.top)
                 
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
             .background(.appWhite)
         }
+        .ignoresSafeArea()
     }
 }
 

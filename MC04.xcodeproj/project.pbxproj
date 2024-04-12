@@ -61,6 +61,8 @@
 		DEEBC3D02BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3CA2BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf */; };
 		DEEBC3D12BC9AB68003D6105 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3CB2BC9AB68003D6105 /* Digitalt.ttf */; };
 		DEEBC3D32BC9C32D003D6105 /* TimePickerWatch .swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */; };
+		DEEBC3D52BC9CC1F003D6105 /* SuggestionButtonWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3D42BC9CC1F003D6105 /* SuggestionButtonWatch.swift */; };
+		DEEBC3D72BC9CFDB003D6105 /* DescriptionWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3D62BC9CFDB003D6105 /* DescriptionWatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		DEEBC3CA2BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		DEEBC3CB2BC9AB68003D6105 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
 		DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimePickerWatch .swift"; sourceTree = "<group>"; };
+		DEEBC3D42BC9CC1F003D6105 /* SuggestionButtonWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonWatch.swift; sourceTree = "<group>"; };
+		DEEBC3D62BC9CFDB003D6105 /* DescriptionWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 				DEEBC3C12BC9A860003D6105 /* FontsEnumWatch.swift */,
 				00A867482BC8772100EFD23A /* ContentView.swift */,
 				00A8675C2BC877A200EFD23A /* CalendarWatch.swift */,
+				DEEBC3D62BC9CFDB003D6105 /* DescriptionWatch.swift */,
 				00A867642BC8859700EFD23A /* SuggestionWatch.swift */,
 				00A867602BC877F400EFD23A /* WeekScrollWatch.swift */,
 				00A8676D2BC9A2A000EFD23A /* EditTaskWatch.swift */,
@@ -167,6 +172,7 @@
 				00A867672BC8863600EFD23A /* DandiButtonWatch.swift */,
 				00A8676F2BC9A2F700EFD23A /* WeekPickerWatch.swift */,
 				DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */,
+				DEEBC3D42BC9CC1F003D6105 /* SuggestionButtonWatch.swift */,
 				DEEBC3CC2BC9AB68003D6105 /* Fonts */,
 				00A8674A2BC8772200EFD23A /* Assets.xcassets */,
 				00A8674C2BC8772200EFD23A /* Preview Content */,
@@ -409,8 +415,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A8676E2BC9A2A000EFD23A /* EditTaskWatch.swift in Sources */,
+				DEEBC3D52BC9CC1F003D6105 /* SuggestionButtonWatch.swift in Sources */,
 				00A8675F2BC877CF00EFD23A /* WeekHeader.swift in Sources */,
 				00A867702BC9A2F700EFD23A /* WeekPickerWatch.swift in Sources */,
+				DEEBC3D72BC9CFDB003D6105 /* DescriptionWatch.swift in Sources */,
 				00A867552BC8774600EFD23A /* MC04App.swift in Sources */,
 				DEEBC3D32BC9C32D003D6105 /* TimePickerWatch .swift in Sources */,
 				00A867662BC8861300EFD23A /* DandiButtonStyle.swift in Sources */,
