@@ -28,6 +28,8 @@ struct SuggestionsView: View {
                         NavigationLink(destination: EditTaskView(habitModel: habit)) {
                             Text("\(habit.name)")
                         }
+                        .buttonStyle(SuggestionButtonStyle())
+                        .padding(.top, 10)
                     }
                     
                 }

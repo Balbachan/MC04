@@ -16,7 +16,6 @@ struct CalendarView: View {
     @Query var habits: [Habits]
     @State var isDone: Bool = false
     @State var date: Date = Date()
-    @State var phrases: [String]
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
     @State var sumDone = 0
@@ -34,31 +33,33 @@ struct CalendarView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading, spacing: 0) {
-                
-                // Frase de efeito diária
-                Text("Bora reagir meu chapa")
-                    .font(.custom("Digitalt", size: 28))
-                    .fontWeight(.bold)
-                
-                // Calendar
-                WeekScroll(viewModel: $weekCalendar)
-                    .frame(height: geometry.size.height / 5)
-                    .padding(.top, 30)
-                
-                // Título Hoje
-                HStack {
-                    Text("Hoje")
+        NavigationStack(path: $path) {
+            GeometryReader { geometry in
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    // Frase de efeito diária
+                    Text("Bora reagir meu chapa")
                         .font(.custom("Digitalt", size: 28))
                         .fontWeight(.bold)
-                    Spacer()
-                    NavigationLink {
-                        SuggestionsView()
-                    } label: {
-                        Image(systemName: "plus")
-                            .bold()
-                            .tint(.appOrange)
+                    
+                    // Calendar
+                    WeekScroll(viewModel: $weekCalendar)
+                        .frame(height: geometry.size.height / 5)
+                        .padding(.top, 30)
+                    
+                    // Título Hoje
+                    HStack {
+                        Text("Hoje")
+                            .font(.custom("Digitalt", size: 28))
+                            .fontWeight(.bold)
+                        Spacer()
+                        NavigationLink {
+                            SuggestionsView()
+                        } label: {
+                            Image(systemName: "plus")
+                                .bold()
+                                .tint(.appOrange)
+                        }
                     }
                     .padding(.bottom, 10)
                     
@@ -125,37 +126,16 @@ struct CalendarView: View {
                                 .font(.custom("Digitalt", size: 24))
                                 .foregroundColor(.appYellow)
                         }
-                        .listRowSeparator(.hidden)
                     }
-                    .onAppear {
-                        verifyDone()
-                    }
-                    .listStyle(.plain)
                     
-                    // Texto de feitos:
-                    if somaFeitos == filteredHabits.count {
-                        Text("\(somaFeitos) Feitos")
-                            .font(.custom("Digitalt", size: 24))
-                            .foregroundColor(.green)
-                    } else if somaFeitos == 0 {
-                        Text("\(somaFeitos) Feitos")
-                            .font(.custom("Digitalt", size: 24))
-                            .foregroundColor(.appOrange)
-                    } else {
-                        Text("\(somaFeitos) Feitos")
-                            .font(.custom("Digitalt", size: 24))
-                            .foregroundColor(.appYellow)
-                    }
                 }
                 .padding(20)
                 .background(.appWhite)
                 
             }
-            .padding(20)
         }
     }
 }
-
 
 
 #Preview {
