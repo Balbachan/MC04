@@ -35,11 +35,11 @@ struct SuggestionsView: View {
                 }
                 
                 // MARK: Isso aqui precisa ser por cima dos cards
-                NavigationLink {
-                    Text("aaa")
-                } label: {
-                    Text("Concluir rotina")
-                }
+//                NavigationLink {
+//                    Text("aaa")
+//                } label: {
+//                    Text("Concluir rotina")
+//                }
                 .buttonStyle(DandiButtonStyle())
                 .padding(.top, 22)
             }

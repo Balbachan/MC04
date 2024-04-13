@@ -130,7 +130,7 @@ struct CalendarView: View {
                     
                 }
                 .padding(20)
-                .background(.appWhite)
+//                .background(.appWhite)
                 
             }
         }

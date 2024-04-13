@@ -71,16 +71,16 @@ struct WeekPicker: View {
                 }.padding(.vertical)
                 
                 //Picker de semanas
-                HStack {
-                    Text("Durante")
-                    Picker("", selection: $numberOfWeeks) {
-                        ForEach([1,2,3,4,5], id: \.self) {
-                            Text("\($0)")
-                                .font(.custom("Digitalt", size: 30))
-                        }
-                    }.pickerStyle(.wheel)
-                    Text("Semana")
-                }.frame(width: 280, height: 80)
+//                HStack {
+//                    Text("Durante")
+//                    Picker("", selection: $numberOfWeeks) {
+//                        ForEach([1,2,3,4,5], id: \.self) {
+//                            Text("\($0)")
+//                                .font(.custom("Digitalt", size: 30))
+//                        }
+//                    }.pickerStyle(.wheel)
+//                    Text("Semana")
+//                }.frame(width: 280, height: 80)
                 
                 //Toggle repetir toda semana
                 VStack{
