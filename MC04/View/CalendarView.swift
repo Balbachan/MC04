@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct CalendarView: View {
-    @AppStorage("isOnboarding") var isOnboarding: Bool = false
+    //    @AppStorage("isOnboarding") var isOnboarding: Bool = false
     @State private var isPresented = true
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
@@ -78,6 +78,8 @@ struct CalendarView: View {
                                         
                                         Text(habit.name)
                                             .font(.custom("Digitalt", size: 20))
+                                        
+                                        // Ações de edição e deleção 
                                             .swipeActions {
                                                 NavigationLink {
                                                     EditTaskView(habits: habit)
@@ -136,7 +138,7 @@ struct CalendarView: View {
             }
         }
         // Chama o Onboarding
-        .fullScreenCover(isPresented: $isOnboarding, content: {
+        .fullScreenCover(isPresented: $isPresented, content: {
             OnboardingView()
         })
     }

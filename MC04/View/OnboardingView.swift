@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @AppStorage("isOnboarding") var isOnboarding: Bool = false
+    @State var isOnboarding: Bool = false
     @Environment(\.dismiss) var dismiss
     @State private var introIndex: Int = 0
     
