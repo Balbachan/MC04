@@ -37,5 +37,5 @@ struct OnboardingButtonStyle: ButtonStyle {
     Button("Pular") {
         print("aaaa")
     }
-    .buttonStyle(OnboardingButtonStyle(isOrange: false))
+    .buttonStyle(OnboardingButtonStyle(isOrange: true))
 }

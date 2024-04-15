@@ -13,7 +13,6 @@ struct SuggestionButtonStyle: ButtonStyle {
             .font(.custom("Digitalt", size: 25))
             .foregroundStyle(Color.appBlack)
             .frame(width: 350, height: 100) // MARK: aqui está com número fixo
-            
             .background(configuration.isPressed ? Color.appDarkGray : Color.appSuperLightGray)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             

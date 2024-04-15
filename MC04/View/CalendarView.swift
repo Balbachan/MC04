@@ -10,8 +10,8 @@ import SwiftUI
 import SwiftData
 
 struct CalendarView: View {
-    @State var showOnboarding: Bool = false // para o onboarding
-    @State private var isPresented = false
+    @AppStorage("isOnboarding") var isOnboarding: Bool = false
+    @State private var isPresented = true
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
     @State var isDone: Bool = false
@@ -33,6 +33,7 @@ struct CalendarView: View {
     }
     
     var body: some View {
+        
         NavigationStack(path: $path) {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
@@ -134,7 +135,12 @@ struct CalendarView: View {
                 
             }
         }
+        // Chama o Onboarding
+        .fullScreenCover(isPresented: $isOnboarding, content: {
+            OnboardingView()
+        })
     }
+    
 }
 
 

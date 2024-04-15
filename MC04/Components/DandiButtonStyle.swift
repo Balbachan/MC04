@@ -35,5 +35,5 @@ struct DandiButtonStyle: ButtonStyle {
     Button("Confirmar Rotina") {
         print("aaaa")
     }
-    .buttonStyle(DandiButtonStyle(isOrange: true))
+    .buttonStyle(DandiButtonStyle(isOrange: false))
 }
