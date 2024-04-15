@@ -9,6 +9,9 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+    
+//    @Binding var dismissToHome: Bool
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -20,6 +23,6 @@ struct ContentView: View {
 
 
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}

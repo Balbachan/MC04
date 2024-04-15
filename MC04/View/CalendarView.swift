@@ -79,7 +79,7 @@ struct CalendarView: View {
                                             .font(.custom("Digitalt", size: 20))
                                             .swipeActions {
                                                 NavigationLink {
-                                                    EditTaskView(habits: habit)
+//                                                    EditTaskView(habits: habit)
                                                 } label: {
                                                     Image(systemName: "pencil")
                                                 }
@@ -130,7 +130,7 @@ struct CalendarView: View {
                     
                 }
                 .padding(20)
-//                .background(.appWhite)
+                .background(.appWhite)
                 
             }
         }

@@ -9,43 +9,49 @@ import SwiftUI
 import SwiftData
 
 struct SuggestionsView: View {
-    var viewModel: ViewModel = ViewModel()
+    @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    @State var dismissToHome: Bool = false
     
+    var viewModel: ViewModel = ViewModel()
+    
+    private func dismiss() {
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    func backToHome(){
+        if dismissToHome == true{
+            dismissToHome.toggle()
+            dismiss()
+        }
+    }
     
     var body: some View {
         VStack {
             ScrollView {
-                HStack {
-                    Text("Hábitos")
-                        .font(.custom(FontType.t1.font, size: 28))
-                        .fontWeight(.bold)
-                    Spacer()
-                }
+//                Button("back"){dismiss()}
                 
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
-                        NavigationLink(destination: EditTaskView(habitModel: habit)) {
+                        NavigationLink(destination: EditTaskView(dismissToHome: $dismissToHome, habitModel: habit)) {
                             Text("\(habit.name)")
                         }
                         .buttonStyle(SuggestionButtonStyle())
                         .padding(.top, 10)
                     }
-                    
                 }
-                
-                // MARK: Isso aqui precisa ser por cima dos cards
-//                NavigationLink {
-//                    Text("aaa")
-//                } label: {
-//                    Text("Concluir rotina")
-//                }
                 .buttonStyle(DandiButtonStyle())
                 .padding(.top, 22)
             }
+            .scrollIndicators(.hidden)
             .padding(.horizontal, 40)
         }
+        .navigationTitle("Hábitos")
+        .navigationBarTitleDisplayMode(.large)
         .background(.appWhite)
+        .onAppear(){
+            backToHome()
+        }
     }
 }
 
