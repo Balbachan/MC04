@@ -44,9 +44,9 @@ struct CalendarView: View {
                     
                     // Calendar
                     WeekScroll(viewModel: $weekCalendar)
-                        .frame(height: geometry.size.height / 5)
-                        .padding(.top, 30)
-                       
+                        .frame(height: geometry.size.height / 4.6)
+                        .padding(.top, 25)
+                    
                     // Título Hoje
                     HStack {
                         Text("Hoje")
@@ -63,81 +63,83 @@ struct CalendarView: View {
                     }
                     .padding(.bottom, 10)
                     
-                    VStack(alignment: .center) {
-                        List {
+                    VStack(){
+                        List(){
                             ForEach(filteredHabits) { habit in
-                                NavigationLink(destination: DescriptionView(habits: habit)) {
-                                    HStack {
-                                        Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                                            .tint(.appOrange)
-                                            .onTapGesture {
-                                                habit.isDone.toggle()
-                                                verifyDone()
-                                            }
-                                        
-                                        Text(habit.name)
-                                            .font(.custom("Digitalt", size: 20))
-                                            .swipeActions {
-                                                NavigationLink {
-//                                                    EditTaskView(habits: habit)
-                                                } label: {
-                                                    Image(systemName: "pencil")
-                                                }
-                                            }
-                                        
-                                            .swipeActions {
-                                                Button {
-                                                    modelContext.delete(habit)
-                                                } label: {
-                                                    Image(systemName: "trash")
-                                                }
-                                                .tint(.red)
-                                            }
-                                    }
+                                NavigationLink(destination: DescriptionView(habits: habit)){
                                     
+                                    Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                                        .tint(.appOrange)
+                                        .onTapGesture {
+                                            habit.isDone.toggle()
+                                            verifyDone()
+                                        }
                                     
+                                    Text(habit.name)
+                                        .font(.custom("Digitalt", size: 20))
+                                        .swipeActions {
+                                            NavigationLink {
+                                                // EditTaskView(habits: habit)
+                                            } label: {
+                                                Image(systemName: "pencil")
+                                            }
+                                        }
+                                        .swipeActions {
+                                            Button {
+                                                modelContext.delete(habit)
+                                            } label: {
+                                                Image(systemName: "trash")
+                                            }
+                                            .tint(.red)
+                                            .cornerRadius(20)
+                                        }
                                 }
-                            }
-                            .listRowSeparator(.hidden)
-                        }
-                        .onAppear {
-                            verifyDone()
+                            }.listRowSeparator(.hidden)
+                                .listRowBackground(
+                                    Rectangle()
+                                        .fill(Color.appSuperLightGray)
+                                        .cornerRadius(20)
+                                        .padding(2)
+                                )
+                            
                         }
                         .listStyle(.plain)
-                        
-                        // Texto de feitos:
-                        if sumDone == filteredHabits.count {
-                            if filteredHabits.count == 0 {
-                                Text("\(sumDone) Feitos")
-                                    .font(.custom("Digitalt", size: 24))
-                                    .foregroundColor(.appOrange)
-                            } else {
-                                Text("\(sumDone) Feitos")
-                                    .font(.custom("Digitalt", size: 24))
-                                    .foregroundColor(.green)
-                            }
-                        } else if sumDone == 0 {
+                        .environment(\.defaultMinListRowHeight, 70)
+                    }
+                    
+                    // Texto de feitos:
+                    if sumDone == filteredHabits.count {
+                        if filteredHabits.count == 0 {
                             Text("\(sumDone) Feitos")
                                 .font(.custom("Digitalt", size: 24))
                                 .foregroundColor(.appOrange)
                         } else {
                             Text("\(sumDone) Feitos")
                                 .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.appYellow)
+                                .foregroundColor(.green)
                         }
+                    } else if sumDone == 0 {
+                        Text("\(sumDone) Feitos")
+                            .font(.custom("Digitalt", size: 24))
+                            .foregroundColor(.appOrange)
+                    } else {
+                        Text("\(sumDone) Feitos")
+                            .font(.custom("Digitalt", size: 24))
+                            .foregroundColor(.appYellow)
                     }
-                    .onChange(of: weekCalendar.selectedDate){
-                        verifyDone()
-                    }
-                    
                 }
-                .padding(20)
-                .background(.appWhite)
+                .onChange(of: weekCalendar.selectedDate){
+                    verifyDone()
+                }
                 
             }
+            .padding(20)
+            .background(.appWhite)
+            
         }
     }
 }
+
 
 
 #Preview {

@@ -12,23 +12,34 @@ struct ListRowStyle: View {
     var habit: Habits
     
     var body: some View {
-        HStack {
-            Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                .onTapGesture {
-                    habit.isDone.toggle()
+        GeometryReader { geometry in
+            ZStack(alignment: .leading){
+                Rectangle()
+                    .frame(width: geometry.size.width * 0.9, height: 80)
+                    .foregroundColor(.appSuperLightGray)
+                    .cornerRadius(20)
+                
+                HStack{
+                    Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                        .onTapGesture {
+                            habit.isDone.toggle()
+                        }
+                        .padding(.horizontal, 20)
+                    
+                    Text("\(habit.name)")
+                        .font(.custom("Digitalt", size: 32))
+                        .multilineTextAlignment(.trailing)
+                    
                 }
-                .padding(.trailing, 20)
-            
-            Text("\(habit.name)")
-                .font(.custom("Digitalt", size: 32))
-            
+            }
+            .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
         }
-        .padding()
-        .padding(.horizontal, 60)
-        .background(.appSuperLightGray)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        
     }
+//        .padding()
+//        .padding(.horizontal, 30)
+//        .background(.appSuperLightGray)
+//        .clipShape(RoundedRectangle(cornerRadius: 20))
+//    }
 }
 
 #Preview {
