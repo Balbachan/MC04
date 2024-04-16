@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @State var isOnboarding: Bool = false
+    @Binding var isPresented: Bool
     @Environment(\.dismiss) var dismiss
     @State private var introIndex: Int = 0
     
-    let introduction: [String] = ["Prazer! meu nome é Dandie e meu objetivo\naqui é te auxiliar a ter uma rotina de\nautocuidado.", "Nessa tela você poderá: \nAcompanhar sua rotina\nAdicionar novas tarefas\nVer suas tarefas do dia", "Ao escolher alguma dessas tarefas que fiz\npara você, basta definir o(s) dia(s), se ela irá\nse repetir e o horário que irá realizá-la.", "Viu como é fácil?\n Eu estarei aqui acompanhando seu\nprogresso, além de te lembrar de fazer as\ntarefas, seguir sua rotina com excelência\ne te dar dicas."]
+    let introduction: [String] = ["Prazer! Meu nome é Dandie e meu objetivo\naqui é te auxiliar a ter uma rotina de\nautocuidado.", "Nessa tela você poderá: \nAcompanhar sua rotina\nAdicionar novas tarefas\nVer suas tarefas do dia", "Ao escolher alguma dessas tarefas que fiz\npara você, basta definir o(s) dia(s), se ela irá\nse repetir e o horário que irá realizá-la.", "Viu como é fácil?\n Eu estarei aqui acompanhando seu\nprogresso, além de te lembrar de fazer as\ntarefas, seguir sua rotina com excelência\ne te dar dicas."]
     let introImagesLight: [String] = ["dandie1", "dandie2", "dandie3", "dandie4"]
     
     var body: some View {
@@ -56,7 +56,7 @@ struct OnboardingView: View {
                         if(introIndex == (introduction.count - 1)) {
                             Button("Vamos começar") {
                                 // MARK: Aqui daria um dissmiss para ir para o calendar view
-                                isOnboarding = true
+                                isPresented = false
                                 dismiss()
                             }
                             .buttonStyle(OnboardingButtonStyle())
@@ -83,5 +83,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(isPresented: .constant(true))
 }
