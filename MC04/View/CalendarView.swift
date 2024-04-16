@@ -32,7 +32,6 @@ struct CalendarView: View {
     }
     
     var body: some View {
-        
         NavigationStack(path: $path) {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
@@ -61,9 +60,9 @@ struct CalendarView: View {
                                 .tint(.appOrange)
                         }
                     }
-                    .padding(.bottom, 10)
                     
-                    VStack(alignment: .center) {
+                    // Lista de tarefas
+                    VStack(alignment: .center, spacing: 0) {
                         List {
                             ForEach(filteredHabits) { habit in
                                 NavigationLink(destination: DescriptionView(habits: habit)) {
@@ -95,20 +94,26 @@ struct CalendarView: View {
                                                 }
                                                 .tint(.red)
                                             }
-                                        
                                     }
-                                    
-                                    
                                 }
                             }
                             .listRowSeparator(.hidden)
+                        }
+                        .background() {
+                            if(filteredHabits.isEmpty) {
+                                Image("null")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geometry.size.width * 0.7)
+                            }
                         }
                         .onAppear {
                             verifyDone()
                         }
                         .listStyle(.plain)
                         
-                        // Texto de feitos:
+                        
+                        // Texto de feitos
                         if sumDone == filteredHabits.count {
                             if filteredHabits.count == 0 {
                                 Text("\(sumDone) Feitos")
