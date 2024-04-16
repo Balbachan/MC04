@@ -51,16 +51,17 @@ struct DescriptionView: View {
                     }
                     Spacer(minLength: 25)
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("!AVISO")
+                        Text("AVISO!")
                             .font(.custom(FontType.t1.font, size: 20))
                         
                         Text("Ao ler as descrições e dicas desse aplicativo, lembre-se de que as informações são apenas para referência geral.Este aplicativo não deve ser usado ou entendido como substituto da orientação e acompanhamento de um dermatologista. Os usuários devem sempre consultar um médico ou outro profissional de saúde para receber orientações médicas ou informações sobre diagnósticos e tratamentos.")
                             .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
                     }
                     .padding()
+                    .foregroundStyle(Color.black)
                     .background(
                         RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color.appBeige)
+                            .foregroundColor(Color.appBeigeForever)
                     )
                 }
                 .padding()

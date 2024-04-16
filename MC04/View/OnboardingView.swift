@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @Binding var isShowingOnboarding: Bool
+    @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
     @State private var introIndex: Int = 0
     
-    let introduction: [String] = ["Prazer! meu nome é Dandie e meu objetivo\naqui é te auxiliar a ter uma rotina de\nautocuidado.", "Nessa tela você poderá: \nAcompanhar sua rotina\nAdicionar novas tarefas\nVer suas tarefas do dia", "Ao escolher alguma dessas tarefas que fiz\npara você, basta definir o(s) dia(s), se ela irá\nse repetir e o horário que irá realizá-la.", "Viu como é fácil?\n Eu estarei aqui acompanhando seu\nprogresso, além de te lembrar de fazer as\ntarefas, seguir sua rotina com excelência\ne te dar dicas."]
-    
-    let introImages: [String] = ["dandie1", "dandie2", "dandie3", "dandie4"]
+    let introduction: [String] = ["Prazer! Meu nome é Dandie e meu objetivo\naqui é te auxiliar a ter uma rotina de\nautocuidado.", "Nessa tela você poderá: \nAcompanhar sua rotina\nAdicionar novas tarefas\nVer suas tarefas do dia", "Ao escolher alguma dessas tarefas que fiz\npara você, basta definir o(s) dia(s), se ela irá\nse repetir e o horário que irá realizá-la.", "Viu como é fácil?\n Eu estarei aqui acompanhando seu\nprogresso, além de te lembrar de fazer as\ntarefas, seguir sua rotina com excelência\ne te dar dicas."]
+    let introImagesLight: [String] = ["dandie1", "dandie2", "dandie3", "dandie4"]
     
     var body: some View {
         GeometryReader { geometry in
@@ -23,7 +23,7 @@ struct OnboardingView: View {
                     TabView(selection: $introIndex) {
                         ForEach(0..<introduction.count, id: \.self) { index in
                             VStack {
-                                Image("\(introImages[index])")
+                                Image("\(introImagesLight[index])")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
@@ -35,14 +35,14 @@ struct OnboardingView: View {
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                    .ignoresSafeArea()                    
+                    .ignoresSafeArea()
                     
                     // Index em cículos personalizado
                     VStack {
                         HStack {
                             ForEach(0..<introduction.count, id: \.self) { index in
                                 Circle()
-                                    .fill(introIndex == index ? Color.appBeige : Color.appLightGray)
+                                    .fill(introIndex == index ? Color.appYellow : Color.appLightGray)
                                     .frame(width: 22)
                                     .onTapGesture {
                                         introIndex = index
@@ -54,9 +54,10 @@ struct OnboardingView: View {
                         
                         // Condição para os botões certos aparecerem nas etapas do Onboarding
                         if(introIndex == (introduction.count - 1)) {
-                            NavigationLink("Vamos começar") {
+                            Button("Vamos começar") {
                                 // MARK: Aqui daria um dissmiss para ir para o calendar view
-                                CalendarView()
+                                isPresented = false
+                                dismiss()
                             }
                             .buttonStyle(OnboardingButtonStyle())
                             .padding(.bottom, 71)
@@ -82,5 +83,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView(isShowingOnboarding: .constant(true))
+    OnboardingView(isPresented: .constant(true))
 }

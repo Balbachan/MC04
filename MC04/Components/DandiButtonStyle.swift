@@ -37,5 +37,5 @@ struct DandiButtonStyle: ButtonStyle {
     Button("Continuar Adicionando") {
         print("aaaa")
     }
-    .buttonStyle(DandiButtonStyle(isOrange: true))
+    .buttonStyle(DandiButtonStyle(isOrange: false))
 }

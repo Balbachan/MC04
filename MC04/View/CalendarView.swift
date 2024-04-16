@@ -10,8 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct CalendarView: View {
-    @State var showOnboarding: Bool = false // para o onboarding
-    @State private var isPresented = false
+    @AppStorage("isOnboarding") var showOnboarding: Bool = true
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
     @State var isDone: Bool = false
@@ -61,7 +60,6 @@ struct CalendarView: View {
                                 .tint(.appOrange)
                         }
                     }
-                    .padding(.bottom, 10)
                     
                     VStack(){
                         List(){
@@ -137,7 +135,12 @@ struct CalendarView: View {
             .background(.appWhite)
             
         }
+        // Chama o Onboarding
+        .fullScreenCover(isPresented: $showOnboarding, content: {
+            OnboardingView(isPresented: $showOnboarding)
+        })
     }
+    
 }
 
 

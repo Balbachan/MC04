@@ -34,6 +34,7 @@ struct ListRowStyle: View {
             }
             .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
         }
+        
     }
 //        .padding()
 //        .padding(.horizontal, 30)
