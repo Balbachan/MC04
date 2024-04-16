@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftData
 
 struct CalendarView: View {
-    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    @AppStorage("isOnboarding") var showOnboarding: Bool = true
     @Environment(\.modelContext) var modelContext
     @Query var habits: [Habits]
     @State var isDone: Bool = false
@@ -137,8 +137,8 @@ struct CalendarView: View {
             }
         }
         // Chama o Onboarding
-        .fullScreenCover(isPresented: $isOnboarding, content: {
-            OnboardingView(isPresented: $isOnboarding)
+        .fullScreenCover(isPresented: $showOnboarding, content: {
+            OnboardingView(isPresented: $showOnboarding)
         })
     }
     
