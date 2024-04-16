@@ -18,7 +18,6 @@ struct CalendarView: View {
     @State private var path = [Habits]()
     @State private var weekCalendar = WeekModel()
     @State var sumDone = 0
-    @State var somaFeitos = 0
     
     func verifyDone() {
         var sumTotal = 0

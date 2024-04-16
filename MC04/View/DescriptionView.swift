@@ -19,17 +19,11 @@ struct DescriptionView: View {
                         .font(.custom(FontType.t1.font, size: FontType.t1.rawValue))
                     
                     Text("\(habits.desc)")
-                        .padding(.top, 5)
-                        .font(.custom(FontType.b1.font, size: FontType.b1.rawValue))
+                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
                     
                     Text("Como fazer")
                         .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
                         .padding(.top, 20)
-                    
-                    // Descrição do hábito
-                    Steps(habits: habits)
-                        .frame(height: geometry.size.height * 0.3)
-                    
                     
                     // Descrição dos hábitos
                     ForEach(habits.steps, id: \.self) { step in
@@ -69,7 +63,6 @@ struct DescriptionView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(Color.appBeigeForever)
                     )
-                    
                 }
                 .padding()
             }

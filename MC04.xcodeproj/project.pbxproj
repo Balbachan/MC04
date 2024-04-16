@@ -7,24 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00A867492BC8772100EFD23A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A867482BC8772100EFD23A /* ContentView.swift */; };
-		00A8674B2BC8772200EFD23A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00A8674A2BC8772200EFD23A /* Assets.xcassets */; };
-		00A8674E2BC8772200EFD23A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00A8674D2BC8772200EFD23A /* Preview Assets.xcassets */; };
-		00A867512BC8772200EFD23A /* DandieWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 00A867442BC8772100EFD23A /* DandieWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		00A867552BC8774600EFD23A /* MC04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0A2BB48B4600738E6C /* MC04App.swift */; };
-		00A867562BC8774900EFD23A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* Model.swift */; };
-		00A867572BC8774C00EFD23A /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */; };
-		00A867582BC8775000EFD23A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
-		00A867592BC8775200EFD23A /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
-		00A8675D2BC877A300EFD23A /* CalendarWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8675C2BC877A200EFD23A /* CalendarWatch.swift */; };
-		00A8675F2BC877CF00EFD23A /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
-		00A867612BC877F400EFD23A /* WeekScrollWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A867602BC877F400EFD23A /* WeekScrollWatch.swift */; };
-		00A867632BC8786400EFD23A /* WeekHeaderWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A867622BC8786400EFD23A /* WeekHeaderWatch.swift */; };
-		00A867652BC8859700EFD23A /* SuggestionWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A867642BC8859700EFD23A /* SuggestionWatch.swift */; };
-		00A867662BC8861300EFD23A /* DandiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */; };
-		00A867682BC8863600EFD23A /* DandiButtonWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A867672BC8863600EFD23A /* DandiButtonWatch.swift */; };
-		00A8676E2BC9A2A000EFD23A /* EditTaskWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8676D2BC9A2A000EFD23A /* EditTaskWatch.swift */; };
-		00A867702BC9A2F700EFD23A /* WeekPickerWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8676F2BC9A2F700EFD23A /* WeekPickerWatch.swift */; };
 		00CA831F2BBDCA5000C0B713 /* SuggestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */; };
 		00CA83212BBDD0F500C0B713 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83202BBDD0F500C0B713 /* Steps.swift */; };
 		00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */; };
@@ -54,56 +36,9 @@
 		DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
 		DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
 		DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A20652BB96E7A00D85214 /* WeekScroll.swift */; };
-		DEEBC3C32BC9AA88003D6105 /* FontsEnumWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3C12BC9A860003D6105 /* FontsEnumWatch.swift */; };
-		DEEBC3C42BC9AB2F003D6105 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
-		DEEBC3C52BC9AB32003D6105 /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */; };
-		DEEBC3C62BC9AB34003D6105 /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */; };
-		DEEBC3CD2BC9AB68003D6105 /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3C72BC9AB68003D6105 /* Assistant-ExtraBold.ttf */; };
-		DEEBC3CE2BC9AB68003D6105 /* Assistant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3C82BC9AB68003D6105 /* Assistant-Regular.ttf */; };
-		DEEBC3CF2BC9AB68003D6105 /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3C92BC9AB68003D6105 /* Assistant-SemiBold.ttf */; };
-		DEEBC3D02BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3CA2BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf */; };
-		DEEBC3D12BC9AB68003D6105 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEBC3CB2BC9AB68003D6105 /* Digitalt.ttf */; };
-		DEEBC3D32BC9C32D003D6105 /* TimePickerWatch .swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */; };
-		DEEBC3D52BC9CC1F003D6105 /* SuggestionButtonWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3D42BC9CC1F003D6105 /* SuggestionButtonWatch.swift */; };
-		DEEBC3D72BC9CFDB003D6105 /* DescriptionWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEBC3D62BC9CFDB003D6105 /* DescriptionWatch.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		00A8674F2BC8772200EFD23A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19613CFF2BB48B4600738E6C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 00A867432BC8772100EFD23A;
-			remoteInfo = "DandieWatch Watch App";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		00128C2C2BC873EF0063397C /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				00A867512BC8772200EFD23A /* DandieWatch Watch App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		00A867442BC8772100EFD23A /* DandieWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DandieWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		00A867482BC8772100EFD23A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		00A8674A2BC8772200EFD23A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		00A8674D2BC8772200EFD23A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		00A8675C2BC877A200EFD23A /* CalendarWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWatch.swift; sourceTree = "<group>"; };
-		00A867602BC877F400EFD23A /* WeekScrollWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScrollWatch.swift; sourceTree = "<group>"; };
-		00A867622BC8786400EFD23A /* WeekHeaderWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderWatch.swift; sourceTree = "<group>"; };
-		00A867642BC8859700EFD23A /* SuggestionWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionWatch.swift; sourceTree = "<group>"; };
-		00A867672BC8863600EFD23A /* DandiButtonWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DandiButtonWatch.swift; sourceTree = "<group>"; };
-		00A8676D2BC9A2A000EFD23A /* EditTaskWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskWatch.swift; sourceTree = "<group>"; };
-		00A8676F2BC9A2F700EFD23A /* WeekPickerWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPickerWatch.swift; sourceTree = "<group>"; };
 		00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCard.swift; sourceTree = "<group>"; };
 		00CA83202BBDD0F500C0B713 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
@@ -135,25 +70,9 @@
 		DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeader.swift; sourceTree = "<group>"; };
 		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
 		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
-		DEEBC3C12BC9A860003D6105 /* FontsEnumWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsEnumWatch.swift; sourceTree = "<group>"; };
-		DEEBC3C72BC9AB68003D6105 /* Assistant-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-ExtraBold.ttf"; sourceTree = "<group>"; };
-		DEEBC3C82BC9AB68003D6105 /* Assistant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-Regular.ttf"; sourceTree = "<group>"; };
-		DEEBC3C92BC9AB68003D6105 /* Assistant-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-SemiBold.ttf"; sourceTree = "<group>"; };
-		DEEBC3CA2BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-VariableFont_wght.ttf"; sourceTree = "<group>"; };
-		DEEBC3CB2BC9AB68003D6105 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
-		DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimePickerWatch .swift"; sourceTree = "<group>"; };
-		DEEBC3D42BC9CC1F003D6105 /* SuggestionButtonWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonWatch.swift; sourceTree = "<group>"; };
-		DEEBC3D62BC9CFDB003D6105 /* DescriptionWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		00A867412BC8772100EFD23A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		19613D042BB48B4600738E6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,36 +83,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00A867452BC8772100EFD23A /* DandieWatch Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				DEEBC3C12BC9A860003D6105 /* FontsEnumWatch.swift */,
-				00A867482BC8772100EFD23A /* ContentView.swift */,
-				00A8675C2BC877A200EFD23A /* CalendarWatch.swift */,
-				DEEBC3D62BC9CFDB003D6105 /* DescriptionWatch.swift */,
-				00A867642BC8859700EFD23A /* SuggestionWatch.swift */,
-				00A867602BC877F400EFD23A /* WeekScrollWatch.swift */,
-				00A8676D2BC9A2A000EFD23A /* EditTaskWatch.swift */,
-				00A867622BC8786400EFD23A /* WeekHeaderWatch.swift */,
-				00A867672BC8863600EFD23A /* DandiButtonWatch.swift */,
-				00A8676F2BC9A2F700EFD23A /* WeekPickerWatch.swift */,
-				DEEBC3D22BC9C32D003D6105 /* TimePickerWatch .swift */,
-				DEEBC3D42BC9CC1F003D6105 /* SuggestionButtonWatch.swift */,
-				DEEBC3CC2BC9AB68003D6105 /* Fonts */,
-				00A8674A2BC8772200EFD23A /* Assets.xcassets */,
-				00A8674C2BC8772200EFD23A /* Preview Content */,
-			);
-			path = "DandieWatch Watch App";
-			sourceTree = "<group>";
-		};
-		00A8674C2BC8772200EFD23A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				00A8674D2BC8772200EFD23A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		194F742D2BBDE82C008AE4E1 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				19613D092BB48B4600738E6C /* MC04 */,
-				00A867452BC8772100EFD23A /* DandieWatch Watch App */,
 				19613D082BB48B4600738E6C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -217,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				19613D072BB48B4600738E6C /* Dandie.app */,
-				00A867442BC8772100EFD23A /* DandieWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -297,39 +184,9 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		DEEBC3CC2BC9AB68003D6105 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				DEEBC3C72BC9AB68003D6105 /* Assistant-ExtraBold.ttf */,
-				DEEBC3C82BC9AB68003D6105 /* Assistant-Regular.ttf */,
-				DEEBC3C92BC9AB68003D6105 /* Assistant-SemiBold.ttf */,
-				DEEBC3CA2BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf */,
-				DEEBC3CB2BC9AB68003D6105 /* Digitalt.ttf */,
-			);
-			name = Fonts;
-			path = MC04/Fonts;
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00A867432BC8772100EFD23A /* DandieWatch Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 00A867542BC8772200EFD23A /* Build configuration list for PBXNativeTarget "DandieWatch Watch App" */;
-			buildPhases = (
-				00A867402BC8772100EFD23A /* Sources */,
-				00A867412BC8772100EFD23A /* Frameworks */,
-				00A867422BC8772100EFD23A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "DandieWatch Watch App";
-			productName = "DandieWatch Watch App";
-			productReference = 00A867442BC8772100EFD23A /* DandieWatch Watch App.app */;
-			productType = "com.apple.product-type.application";
-		};
 		19613D062BB48B4600738E6C /* Dandie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "Dandie" */;
@@ -337,12 +194,10 @@
 				19613D032BB48B4600738E6C /* Sources */,
 				19613D042BB48B4600738E6C /* Frameworks */,
 				19613D052BB48B4600738E6C /* Resources */,
-				00128C2C2BC873EF0063397C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				00A867502BC8772200EFD23A /* PBXTargetDependency */,
 			);
 			name = Dandie;
 			productName = MC04;
@@ -359,9 +214,6 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					00A867432BC8772100EFD23A = {
-						CreatedOnToolsVersion = 15.3;
-					};
 					19613D062BB48B4600738E6C = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -381,29 +233,11 @@
 			projectRoot = "";
 			targets = (
 				19613D062BB48B4600738E6C /* Dandie */,
-				00A867432BC8772100EFD23A /* DandieWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		00A867422BC8772100EFD23A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DEEBC3D12BC9AB68003D6105 /* Digitalt.ttf in Resources */,
-				DEEBC3CF2BC9AB68003D6105 /* Assistant-SemiBold.ttf in Resources */,
-				DEEBC3C62BC9AB34003D6105 /* Assistant-SemiBold.ttf in Resources */,
-				DEEBC3D02BC9AB68003D6105 /* Assistant-VariableFont_wght.ttf in Resources */,
-				00A8674E2BC8772200EFD23A /* Preview Assets.xcassets in Resources */,
-				00A8674B2BC8772200EFD23A /* Assets.xcassets in Resources */,
-				DEEBC3C42BC9AB2F003D6105 /* Digitalt.ttf in Resources */,
-				DEEBC3CE2BC9AB68003D6105 /* Assistant-Regular.ttf in Resources */,
-				DEEBC3C52BC9AB32003D6105 /* Assistant-ExtraBold.ttf in Resources */,
-				DEEBC3CD2BC9AB68003D6105 /* Assistant-ExtraBold.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		19613D052BB48B4600738E6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,32 +253,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		00A867402BC8772100EFD23A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				00A8676E2BC9A2A000EFD23A /* EditTaskWatch.swift in Sources */,
-				DEEBC3D52BC9CC1F003D6105 /* SuggestionButtonWatch.swift in Sources */,
-				00A8675F2BC877CF00EFD23A /* WeekHeader.swift in Sources */,
-				00A867702BC9A2F700EFD23A /* WeekPickerWatch.swift in Sources */,
-				DEEBC3D72BC9CFDB003D6105 /* DescriptionWatch.swift in Sources */,
-				00A867552BC8774600EFD23A /* MC04App.swift in Sources */,
-				DEEBC3D32BC9C32D003D6105 /* TimePickerWatch .swift in Sources */,
-				00A867662BC8861300EFD23A /* DandiButtonStyle.swift in Sources */,
-				DEEBC3C32BC9AA88003D6105 /* FontsEnumWatch.swift in Sources */,
-				00A867492BC8772100EFD23A /* ContentView.swift in Sources */,
-				00A867572BC8774C00EFD23A /* FontsEnum.swift in Sources */,
-				00A867682BC8863600EFD23A /* DandiButtonWatch.swift in Sources */,
-				00A867632BC8786400EFD23A /* WeekHeaderWatch.swift in Sources */,
-				00A867612BC877F400EFD23A /* WeekScrollWatch.swift in Sources */,
-				00A8675D2BC877A300EFD23A /* CalendarWatch.swift in Sources */,
-				00A867592BC8775200EFD23A /* WeekModel.swift in Sources */,
-				00A867582BC8775000EFD23A /* ViewModel.swift in Sources */,
-				00A867562BC8774900EFD23A /* Model.swift in Sources */,
-				00A867652BC8859700EFD23A /* SuggestionWatch.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		19613D032BB48B4600738E6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,77 +286,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		00A867502BC8772200EFD23A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 00A867432BC8772100EFD23A /* DandieWatch Watch App */;
-			targetProxy = 00A8674F2BC8772200EFD23A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		00A867522BC8772200EFD23A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DandieWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 8T6XBC66CF;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = andreucci.MC04;
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Debug;
-		};
-		00A867532BC8772200EFD23A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DandieWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 8T6XBC66CF;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = andreucci.MC04;
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.4;
-			};
-			name = Release;
-		};
 		19613D132BB48B4800738E6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -671,7 +409,6 @@
 		19613D162BB48B4800738E6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -691,7 +428,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = projects.laura.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -702,7 +439,6 @@
 		19613D172BB48B4800738E6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -722,7 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = projects.laura.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -733,15 +469,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00A867542BC8772200EFD23A /* Build configuration list for PBXNativeTarget "DandieWatch Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				00A867522BC8772200EFD23A /* Debug */,
-				00A867532BC8772200EFD23A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		19613D022BB48B4600738E6C /* Build configuration list for PBXProject "MC04" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
