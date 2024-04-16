@@ -58,7 +58,7 @@ struct SuggestionsView: View {
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Habits.self, configurations: config)
+        let container = try ModelContainer(for: Habit.self, configurations: config)
         return SuggestionsView()
             .modelContainer(container)
     } catch {

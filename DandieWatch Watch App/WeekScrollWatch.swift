@@ -14,9 +14,10 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 struct WeekScrollWatch: View {
-    @Binding var viewModel: WeekModel
+    @EnvironmentObject private var viewModel: WeekModel
     @State var update = false;
         
     var body: some View {
@@ -51,5 +52,6 @@ struct WeekScrollWatch: View {
 
 
 #Preview {
-    WeekScrollWatch(viewModel: .constant(WeekModel()))
+    WeekScrollWatch()
+        .environmentObject(WeekModel(modelContext: try! ModelContainer(for: Habit.self).mainContext))
 }

@@ -3,14 +3,13 @@ import SwiftUI
 import SwiftData
 
 struct CalendarWatch: View {
+    @EnvironmentObject private var weekModel: WeekModel
+    
     @State private var isPresented = false
-    @Environment(\.modelContext) var modelContext
-    @Query var habits: [Habits]
     @State var isDone: Bool = false
     @State var date: Date = Date()
     @State var phrases: [String]
-    @State private var path = [Habits]()
-    @State private var weekCalendar = WeekModel()
+    @State private var path = [Habit]()
     @State var sumDone = 0
     
     func verifyDone() {
@@ -21,15 +20,15 @@ struct CalendarWatch: View {
         sumDone = sumTotal
     }
     
-    var filteredHabits: [Habits] {
-        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
+    var filteredHabits: [Habit] {
+        return weekModel.filteredHabits()
     }
     
     var body: some View {
         NavigationStack(path: $path) {
 //            GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
-                    WeekScrollWatch(viewModel: $weekCalendar)
+                    WeekScrollWatch()
                     
 //                        .frame(height: geometry.size.height / 5)
                         
@@ -58,7 +57,7 @@ struct CalendarWatch: View {
                     
                     VStack(alignment: .center) {
                         List {
-                            ForEach(habits) { habit in
+                            ForEach(weekModel.habits, id:\.self) { habit in
                                 NavigationLink(destination: DescriptionWatch(habits: habit)) {
                                     HStack {
                                         Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
@@ -71,7 +70,7 @@ struct CalendarWatch: View {
                                             .font(.custom("Digitalt", size: 20))
                                             .swipeActions {
                                                 NavigationLink {
-                                                    EditTaskWatch(habits: habit)
+                                                    EditTaskWatch(habit: habit)
                                                 } label: {
                                                     Image(systemName: "pencil")
                                                 }
@@ -79,7 +78,7 @@ struct CalendarWatch: View {
 
                                             .swipeActions {
                                                 Button {
-                                                    modelContext.delete(habit)
+                                                    weekModel.deleteHabit(habit)
                                                 } label: {
                                                     Image(systemName: "trash")
                                                 }
@@ -124,8 +123,8 @@ struct CalendarWatch: View {
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Habits.self, configurations: config)
-        let _ = Habits(id: UUID(), name: "Lavar o rosto", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date())
+        let container = try ModelContainer(for: Habit.self, configurations: config)
+        let _ = Habit(id: UUID(), name: "Lavar o rosto", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date())
         return CalendarWatch(phrases: ["uau"])
             .modelContainer(container)
     } catch {

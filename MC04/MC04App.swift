@@ -10,11 +10,19 @@ import SwiftUI
 
 @main
 struct MC04App: App {
+    let container: ModelContainer
+    
+    init() {
+        do {
+            container = try ModelContainer(for: Habit.self)
+        } catch {
+            fatalError("Failed to create ModelContainer for Habit.")
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-            
+            ContentView(modelContext: container.mainContext)
         }
-        .modelContainer(for: Habits.self)
     }
 }

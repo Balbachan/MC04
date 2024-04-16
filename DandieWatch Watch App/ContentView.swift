@@ -6,13 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @State private var weekModel: WeekModel
+    
+    init(modelContext: ModelContext) {
+        let weekModel = WeekModel(modelContext: modelContext)
+        _weekModel = State(initialValue: weekModel)
+    }
+    
     var body: some View {
         CalendarWatch(phrases: ["aaa"])
+            .environmentObject(weekModel)
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(modelContext: try! ModelContainer(for: Habit.self).mainContext)
 }

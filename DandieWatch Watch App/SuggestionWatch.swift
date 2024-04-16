@@ -25,7 +25,7 @@ struct SuggestionWatch: View {
                 
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
-                        NavigationLink(destination: EditTaskWatch(habitModel: habit)) {
+                        NavigationLink(destination: EditTaskWatch(habitTemplate: habit)) {
                             Text("\(habit.name)")
                         }
                         .buttonStyle(SuggestionButtonWatch())
@@ -50,7 +50,7 @@ struct SuggestionWatch: View {
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Habits.self, configurations: config)
+        let container = try ModelContainer(for: Habit.self, configurations: config)
         return SuggestionWatch()
             .modelContainer(container)
     } catch {

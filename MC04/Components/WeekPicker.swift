@@ -79,7 +79,6 @@ struct WeekPicker: View {
                                     selectedDays.removeAll(where: {$0 == day})
                                 } else {
                                     selectedDays.append(day)
-                                    //                                    print(day)
                                 }
                             }
                     }
@@ -101,7 +100,6 @@ struct WeekPicker: View {
                 //                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
                 //
                 //                }.frame(width: 250, height: 80)
-                
                 
                 //Toggle repetir toda semana
                 HStack{
@@ -142,7 +140,3 @@ struct WeekPicker: View {
         }
     }
 }
-
-//#Preview {
-//    WeekPicker(selectedDays: .constant([.Domingo,.Terça]), numberOfWeeks: .constant(3))
-//}

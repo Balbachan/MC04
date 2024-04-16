@@ -12,7 +12,7 @@
 		002FCD1C2BC9FB070056C238 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD1B2BC9FB070056C238 /* Preview Assets.xcassets */; };
 		002FCD1F2BC9FB070056C238 /* DandieWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		002FCD232BC9FB180056C238 /* MC04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0A2BB48B4600738E6C /* MC04App.swift */; };
-		002FCD242BC9FB1A0056C238 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* Model.swift */; };
+		002FCD242BC9FB1A0056C238 /* HabitTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* HabitTemplate.swift */; };
 		002FCD252BC9FB1D0056C238 /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */; };
 		002FCD262BC9FB200056C238 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
 		002FCD272BC9FB230056C238 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
@@ -27,26 +27,20 @@
 		002FCD3B2BC9FC360056C238 /* WeekHeaderWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD3A2BC9FC360056C238 /* WeekHeaderWatch.swift */; };
 		002FCD3D2BC9FC490056C238 /* WeekPickerWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD3C2BC9FC490056C238 /* WeekPickerWatch.swift */; };
 		002FCD3F2BC9FC610056C238 /* WeekScrollWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD3E2BC9FC610056C238 /* WeekScrollWatch.swift */; };
-		00CA831F2BBDCA5000C0B713 /* SuggestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */; };
-		00CA83212BBDD0F500C0B713 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83202BBDD0F500C0B713 /* Steps.swift */; };
 		00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */; };
 		00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83242BBE067900C0B713 /* DescriptionView.swift */; };
 		1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */; };
 		1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193733792BC5B50000DFC6C3 /* WeekPicker.swift */; };
 		1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */; };
 		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
-		194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */; };
 		19571C612BC872D200E57F59 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19571C602BC872D200E57F59 /* OnboardingView.swift */; };
-		195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */; };
-		195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */; };
 		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
 		195C77E72BBC9F20007C8DC9 /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */; };
-		195C77E92BBC9F39007C8DC9 /* TaskSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */; };
 		19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0A2BB48B4600738E6C /* MC04App.swift */; };
 		19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0C2BB48B4600738E6C /* ContentView.swift */; };
 		19613D0F2BB48B4800738E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D0E2BB48B4800738E6C /* Assets.xcassets */; };
 		19613D122BB48B4800738E6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D112BB48B4800738E6C /* Preview Assets.xcassets */; };
-		19613D192BB4908E00738E6C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* Model.swift */; };
+		19613D192BB4908E00738E6C /* HabitTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* HabitTemplate.swift */; };
 		19613D202BB4914E00738E6C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
 		198BC0CC2BC704C100B482EE /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */; };
 		198BC0CE2BC704D300B482EE /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */; };
@@ -55,6 +49,10 @@
 		DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
 		DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
 		DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A20652BB96E7A00D85214 /* WeekScroll.swift */; };
+		DE98FB132BCF1D2300F200CA /* FuncModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB122BCF1D2300F200CA /* FuncModels.swift */; };
+		DE98FB142BCF1D2300F200CA /* FuncModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB122BCF1D2300F200CA /* FuncModels.swift */; };
+		DE98FB162BCF214300F200CA /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
+		DE98FB172BCF214300F200CA /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +95,6 @@
 		002FCD3A2BC9FC360056C238 /* WeekHeaderWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderWatch.swift; sourceTree = "<group>"; };
 		002FCD3C2BC9FC490056C238 /* WeekPickerWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPickerWatch.swift; sourceTree = "<group>"; };
 		002FCD3E2BC9FC610056C238 /* WeekScrollWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScrollWatch.swift; sourceTree = "<group>"; };
-		00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCard.swift; sourceTree = "<group>"; };
-		00CA83202BBDD0F500C0B713 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		00CA83242BBE067900C0B713 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonStyle.swift; sourceTree = "<group>"; };
@@ -106,19 +102,15 @@
 		1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DandiButtonStyle.swift; sourceTree = "<group>"; };
 		194F742C2BBDE74B008AE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		194F742E2BBDE845008AE4E1 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
-		194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowStyle.swift; sourceTree = "<group>"; };
 		19571C602BC872D200E57F59 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
-		195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsEnum.swift; sourceTree = "<group>"; };
-		195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectorView.swift; sourceTree = "<group>"; };
 		19613D072BB48B4600738E6C /* Dandie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19613D0A2BB48B4600738E6C /* MC04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC04App.swift; sourceTree = "<group>"; };
 		19613D0C2BB48B4600738E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19613D0E2BB48B4800738E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19613D112BB48B4800738E6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		19613D182BB4908E00738E6C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		19613D182BB4908E00738E6C /* HabitTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTemplate.swift; sourceTree = "<group>"; };
 		19613D1F2BB4914E00738E6C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-ExtraBold.ttf"; sourceTree = "<group>"; };
 		198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -127,6 +119,8 @@
 		DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeader.swift; sourceTree = "<group>"; };
 		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
 		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
+		DE98FB122BCF1D2300F200CA /* FuncModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncModels.swift; sourceTree = "<group>"; };
+		DE98FB152BCF214300F200CA /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,8 +225,9 @@
 		19613D1A2BB4909A00738E6C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19613D182BB4908E00738E6C /* Model.swift */,
+				19613D182BB4908E00738E6C /* HabitTemplate.swift */,
 				195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */,
+				DE98FB152BCF214300F200CA /* Habit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,10 +235,8 @@
 		19613D1E2BB4910B00738E6C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				195C77E82BBC9F39007C8DC9 /* TaskSelectorView.swift */,
 				19613D0C2BB48B4600738E6C /* ContentView.swift */,
 				DE0359752BB5E30F00BD70D2 /* CalendarView.swift */,
-				195C77E02BBC72D0007C8DC9 /* ChecklistView.swift */,
 				195C77E42BBC858D007C8DC9 /* EditTaskView.swift */,
 				00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */,
 				00CA83242BBE067900C0B713 /* DescriptionView.swift */,
@@ -257,6 +250,7 @@
 			children = (
 				19613D1F2BB4914E00738E6C /* ViewModel.swift */,
 				DE03597D2BB627B000BD70D2 /* WeekModel.swift */,
+				DE98FB122BCF1D2300F200CA /* FuncModels.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -266,11 +260,7 @@
 			children = (
 				DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */,
 				DE7A20652BB96E7A00D85214 /* WeekScroll.swift */,
-				195C77E22BBC7492007C8DC9 /* CheckboxToggleStyle.swift */,
-				194F74302BBDF0ED008AE4E1 /* ListRowStyle.swift */,
-				00CA831E2BBDCA5000C0B713 /* SuggestionCard.swift */,
 				1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */,
-				00CA83202BBDD0F500C0B713 /* Steps.swift */,
 				193733792BC5B50000DFC6C3 /* WeekPicker.swift */,
 				1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */,
 				19BF31682BC99F0500549AB5 /* OnboardingButtonStyle.swift */,
@@ -390,10 +380,12 @@
 				002FCD262BC9FB200056C238 /* ViewModel.swift in Sources */,
 				002FCD272BC9FB230056C238 /* WeekModel.swift in Sources */,
 				002FCD3B2BC9FC360056C238 /* WeekHeaderWatch.swift in Sources */,
-				002FCD242BC9FB1A0056C238 /* Model.swift in Sources */,
+				DE98FB172BCF214300F200CA /* Habit.swift in Sources */,
+				002FCD242BC9FB1A0056C238 /* HabitTemplate.swift in Sources */,
 				002FCD352BC9FBFA0056C238 /* FontEnumWatch.swift in Sources */,
 				002FCD292BC9FB4A0056C238 /* CalendarWatch.swift in Sources */,
 				002FCD2B2BC9FB630056C238 /* DandiButtonWatch.swift in Sources */,
+				DE98FB142BCF1D2300F200CA /* FuncModels.swift in Sources */,
 				002FCD252BC9FB1D0056C238 /* FontsEnum.swift in Sources */,
 				002FCD172BC9FB060056C238 /* ContentView.swift in Sources */,
 				002FCD392BC9FC260056C238 /* TimePickerWatch.swift in Sources */,
@@ -408,24 +400,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */,
-				195C77E12BBC72D0007C8DC9 /* ChecklistView.swift in Sources */,
 				19613D202BB4914E00738E6C /* ViewModel.swift in Sources */,
-				194F74312BBDF0ED008AE4E1 /* ListRowStyle.swift in Sources */,
 				00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */,
 				00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */,
-				195C77E32BBC7492007C8DC9 /* CheckboxToggleStyle.swift in Sources */,
 				1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */,
 				1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */,
 				19BF31692BC99F0500549AB5 /* OnboardingButtonStyle.swift in Sources */,
+				DE98FB162BCF214300F200CA /* Habit.swift in Sources */,
 				DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */,
-				00CA83212BBDD0F500C0B713 /* Steps.swift in Sources */,
-				00CA831F2BBDCA5000C0B713 /* SuggestionCard.swift in Sources */,
 				DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */,
 				DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */,
 				195C77E72BBC9F20007C8DC9 /* FontsEnum.swift in Sources */,
-				19613D192BB4908E00738E6C /* Model.swift in Sources */,
+				DE98FB132BCF1D2300F200CA /* FuncModels.swift in Sources */,
+				19613D192BB4908E00738E6C /* HabitTemplate.swift in Sources */,
 				1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */,
-				195C77E92BBC9F39007C8DC9 /* TaskSelectorView.swift in Sources */,
 				195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */,
 				19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */,
 				19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */,
@@ -457,14 +445,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = andreucci.MC04;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = baganca.MC04;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = baganca.MC04.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -488,14 +476,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = andreucci.MC04;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = baganca.MC04;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = baganca.MC04.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -649,7 +637,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = baganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -681,7 +669,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = baganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

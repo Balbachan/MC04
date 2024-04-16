@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 struct WeekScroll: View {
-    @Binding var viewModel: WeekModel
+    
     @State var update = false;
+    @EnvironmentObject private var weekModel: WeekModel
         
     var body: some View {
         GeometryReader { geometry in
@@ -18,17 +20,17 @@ struct WeekScroll: View {
                 VStack {
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 0) {
-                            ForEach(viewModel.weeks.indices, id: \.self) { index in
+                            ForEach(weekModel.weeks.indices, id: \.self) { index in
                                 ZStack {
                                     if update {
-                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
+                                        WeekHeader(firstDay: weekModel.weeks[index])
                                     } else {
-                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
+                                        WeekHeader(firstDay: weekModel.weeks[index])
                                     }
                                 }
                                 .frame(width: geometry.size.width, height: 110)
                                 .onAppear(perform: {
-                                    value.scrollTo(Int(viewModel.weeks.count / 2))
+                                    value.scrollTo(Int(weekModel.weeks.count / 2))
                                 })
                             }
                         }
@@ -44,5 +46,6 @@ struct WeekScroll: View {
 
 
 #Preview {
-    WeekScroll(viewModel: .constant(WeekModel()))
+    WeekScroll()
+        .environmentObject(WeekModel(modelContext: try! ModelContainer(for: Habit.self).mainContext))
 }

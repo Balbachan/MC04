@@ -11,28 +11,20 @@ import SwiftData
 
 struct CalendarView: View {
     @AppStorage("isOnboarding") var showOnboarding: Bool = true
-    @Environment(\.modelContext) var modelContext
-    @Query var habits: [Habits]
-    @State var isDone: Bool = false
+    @EnvironmentObject private var weekModel: WeekModel
+    
     @State var date: Date = Date()
-    @State private var path = [Habits]()
-    @State private var weekCalendar = WeekModel()
-    @State var sumDone = 0
+    @State var isDone: Bool = false
+//    var funcModels: FuncModels
+
     
-    func verifyDone() {
-        var sumTotal = 0
-        for habit in filteredHabits where habit.isDone == true {
-            sumTotal += 1
-        }
-        sumDone = sumTotal
+    var filteredHabits: [Habit] {
+        return weekModel.filteredHabits()
     }
     
-    var filteredHabits: [Habits] {
-        return habits.filter { $0.verifyDateInterval(date: weekCalendar.selectedDate) }
-    }
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack() {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
                     
@@ -42,7 +34,7 @@ struct CalendarView: View {
                         .fontWeight(.bold)
                     
                     // Calendar
-                    WeekScroll(viewModel: $weekCalendar)
+                    WeekScroll()
                         .frame(height: geometry.size.height / 4.6)
                         .padding(.top, 25)
                     
@@ -63,14 +55,13 @@ struct CalendarView: View {
                     
                     VStack(){
                         List(){
-                            ForEach(filteredHabits) { habit in
+                            ForEach(filteredHabits, id: \.self) { habit in
                                 NavigationLink(destination: DescriptionView(habits: habit)){
                                     
                                     Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
                                         .tint(.appOrange)
                                         .onTapGesture {
                                             habit.isDone.toggle()
-                                            verifyDone()
                                         }
                                     
                                     Text(habit.name)
@@ -84,7 +75,7 @@ struct CalendarView: View {
                                         }
                                         .swipeActions {
                                             Button {
-                                                modelContext.delete(habit)
+                                                weekModel.deleteHabit(habit)
                                             } label: {
                                                 Image(systemName: "trash")
                                             }
@@ -105,29 +96,7 @@ struct CalendarView: View {
                         .environment(\.defaultMinListRowHeight, 70)
                     }
                     
-                    // Texto de feitos:
-                    if sumDone == filteredHabits.count {
-                        if filteredHabits.count == 0 {
-                            Text("\(sumDone) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.appOrange)
-                        } else {
-                            Text("\(sumDone) Feitos")
-                                .font(.custom("Digitalt", size: 24))
-                                .foregroundColor(.green)
-                        }
-                    } else if sumDone == 0 {
-                        Text("\(sumDone) Feitos")
-                            .font(.custom("Digitalt", size: 24))
-                            .foregroundColor(.appOrange)
-                    } else {
-                        Text("\(sumDone) Feitos")
-                            .font(.custom("Digitalt", size: 24))
-                            .foregroundColor(.appYellow)
-                    }
-                }
-                .onChange(of: weekCalendar.selectedDate){
-                    verifyDone()
+                    HabitCountView()
                 }
                 
             }
@@ -148,11 +117,52 @@ struct CalendarView: View {
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Habits.self, configurations: config)
-        let _ = Habits(id: UUID(), name: "Lavar o rosto", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date())
+        let container = try ModelContainer(for: Habit.self, configurations: config)
+        let _ = Habit(id: UUID(), name: "Lavar o rosto", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date())
         return CalendarView()
             .modelContainer(container)
     } catch {
         fatalError("Alguém me desconfigurou")
+    }
+}
+
+struct HabitCountView: View {
+    @EnvironmentObject private var weekModel: WeekModel
+    
+    private var filteredHabits: [Habit] {
+        return weekModel.filteredHabits()
+    }
+    
+    private var sumDone: Int {
+        var sumTotal = 0
+        let filteredHabits = weekModel.filteredHabits()
+        
+        for habit in filteredHabits where habit.isDone == true {
+            sumTotal += 1
+        }
+        return sumTotal
+    }
+    
+    var body: some View {
+        // Texto de feitos:
+        if sumDone == filteredHabits.count {
+            if filteredHabits.count == 0 {
+                Text("\(sumDone) Feitos")
+                    .font(.custom("Digitalt", size: 24))
+                    .foregroundColor(.appOrange)
+            } else {
+                Text("\(sumDone) Feitos")
+                    .font(.custom("Digitalt", size: 24))
+                    .foregroundColor(.green)
+            }
+        } else if sumDone == 0 {
+            Text("\(sumDone) Feitos")
+                .font(.custom("Digitalt", size: 24))
+                .foregroundColor(.appOrange)
+        } else {
+            Text("\(sumDone) Feitos")
+                .font(.custom("Digitalt", size: 24))
+                .foregroundColor(.appYellow)
+        }
     }
 }
