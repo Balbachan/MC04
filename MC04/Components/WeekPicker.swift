@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 enum DayOfWeek: Int, CaseIterable {
     case Domingo = 1,
@@ -33,10 +34,10 @@ enum DayOfWeek: Int, CaseIterable {
 struct WeekPicker: View {
     @Binding var selectedDays: [DayOfWeek]
     @Binding var numberOfWeeks: Int
-    @State var allWeeks: Bool = false
-    @State var weeks: [Int] = [1,2,3,4,5]
-    @State var hours: Int = 0
-    @State var minutes: [Int] = [00, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+    @Binding var allWeeks: Bool
+    @Binding var weeks: [Int]
+    @Binding var hours: Int
+    @Binding var minutes: Int
     
     func getWeeks(){
         if allWeeks {
@@ -45,6 +46,8 @@ struct WeekPicker: View {
             numberOfWeeks = weeks.count
         }
     }
+    
+    
     
     var body: some View {
         ZStack{
@@ -129,7 +132,7 @@ struct WeekPicker: View {
                         .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
                     
                     Picker("", selection: $minutes){
-                        ForEach(minutes, id: \.self) { i in
+                        ForEach(0..<60, id: \.self) { i in
                             Text("\(i)").tag(i)
                                 .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
                         }
@@ -140,6 +143,6 @@ struct WeekPicker: View {
     }
 }
 
-#Preview {
-    WeekPicker(selectedDays: .constant([.Domingo,.Terça]), numberOfWeeks: .constant(3))
-}
+//#Preview {
+//    WeekPicker(selectedDays: .constant([.Domingo,.Terça]), numberOfWeeks: .constant(3))
+//}

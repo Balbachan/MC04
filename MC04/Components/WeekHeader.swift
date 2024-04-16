@@ -11,6 +11,7 @@ import SwiftUI
 struct WeekHeader: View {
     var firstDay: Date = Date()
     @State var weekDays: [String] = [] // Dias da semana
+    @State var weekNumb: [String] = [] // Dias do mês
     @State var weekDate:[Date] = [] // Dia na semana
     @State var selectedIndex: Int? // Dia selecionado
     @Binding var selectedDate: Date // Dia atual
@@ -20,10 +21,13 @@ struct WeekHeader: View {
             HStack(spacing: 5){
                 ForEach(weekDays.indices, id: \.self) { index in
                     VStack(spacing: 0) {
-                        ZStack {
+                        ZStack{
                             Text("\(weekDays[index])")
+                                .multilineTextAlignment(.center)
                                 .font(.custom(FontType.t1.font, size: 17))
+//                                .border(.black)
                             
+//                            Text("\(weekDate[index])")
                         }
                     }
                     .padding(.horizontal, 10)
@@ -40,13 +44,14 @@ struct WeekHeader: View {
                     .onTapGesture {
                         selectedDate = weekDate[index]
                         selectedIndex = index
-                        print("\(weekDate[index])")
+//                        print("\(weekDate[index])")
                     }
                 }
             }
             .onAppear(perform: {
                 weekDays = []
                 weekDate = []
+//                weekNumb = []
                 
                 for i in 0..<7 {
                     if let date = Calendar.current.date(byAdding: .day, value: i, to: firstDay) {
@@ -56,12 +61,16 @@ struct WeekHeader: View {
                         
                         
                         // Popular o array com os dias da semana
+                        let formatterNumb = DateFormatter()
                         let formatter = DateFormatter()
                         formatter.dateFormat = "E"
+//                        formatterNumb.dateFormat = "dd"
                         formatter.locale = Locale(identifier: "pt-br")
                         let dayNameWithPeriod = formatter.string(from: date)
+//                        let dayName = formatterNumb.string(from: date)
                         let dayNameWithoutPeriod = dayNameWithPeriod.replacingOccurrences(of: ".", with: "")
                         weekDays.append(dayNameWithoutPeriod)
+//                        weekDays.append(dayName)
                         weekDate.append(date)
                     }
                 }

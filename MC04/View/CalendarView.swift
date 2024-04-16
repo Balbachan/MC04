@@ -46,7 +46,7 @@ struct CalendarView: View {
                     WeekScroll(viewModel: $weekCalendar)
                         .frame(height: geometry.size.height / 5)
                         .padding(.top, 30)
-                    
+                       
                     // Título Hoje
                     HStack {
                         Text("Hoje")
@@ -93,7 +93,6 @@ struct CalendarView: View {
                                                 }
                                                 .tint(.red)
                                             }
-                                        
                                     }
                                     
                                     
@@ -126,6 +125,9 @@ struct CalendarView: View {
                                 .font(.custom("Digitalt", size: 24))
                                 .foregroundColor(.appYellow)
                         }
+                    }
+                    .onChange(of: weekCalendar.selectedDate){
+                        verifyDone()
                     }
                     
                 }

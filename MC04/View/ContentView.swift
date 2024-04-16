@@ -7,6 +7,7 @@
 
 import SwiftData
 import SwiftUI
+import UserNotifications 
 
 struct ContentView: View {
     
@@ -16,6 +17,14 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                 CalendarView()
+            }.onAppear{
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                                if success {
+                                    print("Permission approved!")
+                                } else if let error = error {
+                                    print(error.localizedDescription)
+                                }
+                            }
             }
         }
     }
