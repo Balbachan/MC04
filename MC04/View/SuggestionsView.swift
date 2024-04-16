@@ -9,49 +9,49 @@ import SwiftUI
 import SwiftData
 
 struct SuggestionsView: View {
-    var viewModel: ViewModel = ViewModel()
+    @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    @State var dismissToHome: Bool = false
     
+    var viewModel: ViewModel = ViewModel()
+    
+    private func dismiss() {
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    func backToHome(){
+        if dismissToHome == true{
+            dismissToHome.toggle()
+            dismiss()
+        }
+    }
     
     var body: some View {
-        
-        //        GeometryReader { geometry in
         VStack {
-            // Título da Seção
-            HStack {
-                Text("Hábitos")
-                    .font(.custom("Digitalt", size: 28))
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            
-            
             ScrollView {
+//                Button("back"){dismiss()}
+                
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
-                        NavigationLink(destination: EditTaskView(habitModel: habit)) {
+                        NavigationLink(destination: EditTaskView(dismissToHome: $dismissToHome, habitModel: habit)) {
                             Text("\(habit.name)")
                         }
                         .buttonStyle(SuggestionButtonStyle())
                         .padding(.top, 10)
                     }
-                    
                 }
-                
-                //                NavigationLink {
-                //                    Text("aaa")
-                //                } label: {
-                //                    Text("Confirmar rotina")
-                //                        .foregroundColor(Color("AmareloAlert"))
-                //                        .background(RoundedRectangle(cornerRadius: 10)
-                //                            .foregroundColor(Color("Confirm"))
-                //                            .frame(height: 70)
-                //                            .frame(width: 390))
-                //                }.padding(.top, 22)
+                .buttonStyle(DandiButtonStyle())
+                .padding(.top, 22)
             }
+            .scrollIndicators(.hidden)
+            .padding(.horizontal, 40)
         }
-        .padding(20)
-        //        }
+        .navigationTitle("Hábitos")
+        .navigationBarTitleDisplayMode(.large)
+        .background(.appWhite)
+        .onAppear(){
+            backToHome()
+        }
     }
 }
 

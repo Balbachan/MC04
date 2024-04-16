@@ -8,21 +8,34 @@
 import SwiftUI
 
 struct DandiButtonStyle: ButtonStyle {
+    var isOrange: Bool = true
+    
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .font(.custom("Digitalt", size: 24))
-            .foregroundStyle(Color.appBeige)
-            .padding(.vertical, 25)
-            .padding(.horizontal, 90)
-            .background(configuration.isPressed ? Color(.appDarkGray) : Color.appOrange)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            
+        GeometryReader { geometry in
+            if(isOrange) {
+                configuration.label
+                    .frame(width: geometry.size.width * 1)
+                    .font(.custom("Digitalt", size: 24))
+                    .foregroundStyle(Color.appBeige)
+                    .padding(.vertical, 25)
+                    .background(configuration.isPressed ? Color(.appMediumGray) : Color.appOrange)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+            } else {
+                configuration.label
+                    .frame(width: geometry.size.width * 1)
+                    .font(.custom("Digitalt", size: 24))
+                    .foregroundStyle(Color.appBeige)
+                    .padding(.vertical, 25)
+                    .background(configuration.isPressed ? Color(.appMediumGray) : Color.appBlack)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+            }
+        }
     }
 }
 
 #Preview {
-    Button("Confirmar Rotina") {
+    Button("Continuar Adicionando") {
         print("aaaa")
     }
-    .buttonStyle(DandiButtonStyle())
+    .buttonStyle(DandiButtonStyle(isOrange: false))
 }
