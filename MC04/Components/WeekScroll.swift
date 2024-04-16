@@ -11,7 +11,7 @@ import SwiftUI
 struct WeekScroll: View {
     @Binding var viewModel: WeekModel
     @State var update = false;
-    
+        
     var body: some View {
         GeometryReader { geometry in
             ScrollViewReader { value in
@@ -19,15 +19,12 @@ struct WeekScroll: View {
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 0) {
                             ForEach(viewModel.weeks.indices, id: \.self) { index in
-                                VStack {
-                                    WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                    
-                                    // Não entendi o que esse update faz
-                                    //                                    if update {
-                                    //                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                    //                                    } else {
-                                    //                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                    //                                    }
+                                ZStack {
+                                    if update {
+                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
+                                    } else {
+                                        WeekHeader(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
+                                    }
                                 }
                                 .frame(width: geometry.size.width, height: 110)
                                 .onAppear(perform: {

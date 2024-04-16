@@ -25,7 +25,6 @@ struct CalendarView: View {
             sumTotal += 1
         }
         sumDone = sumTotal
-        isDone = true
     }
     
     var filteredHabits: [Habits] {
@@ -33,6 +32,7 @@ struct CalendarView: View {
     }
     
     var body: some View {
+        
         NavigationStack(path: $path) {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
@@ -139,10 +139,6 @@ struct CalendarView: View {
         // Chama o Onboarding
         .fullScreenCover(isPresented: $showOnboarding, content: {
             OnboardingView(isPresented: $showOnboarding)
-        })
-        
-        .popover(isPresented: $isDone, content: {
-            TasksCompletedPopUp()
         })
     }
     
