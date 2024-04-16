@@ -35,27 +35,38 @@ struct EditTaskView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("\(habits.name)")
-                .font(.custom(FontType.t1.font, size: FontType.t1.rawValue))
-            
-            Text("\(habits.desc)")
-                .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
-            
-            Spacer()
-            
-            WeekPicker(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks)
-            
-            Spacer()
-            
-            // Esse botão aparece só se a pessoa estiver vindo
-            
-            Button("Adicionar tarefa") {
-                saveHabit()
+        NavigationStack{
+            VStack {
+                Text("\(habits.desc)")
                 
-            }
-            .buttonStyle(DandiButtonStyle())
-            
+                Spacer()
+                
+                WeekPicker(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks)
+                
+                Spacer()
+                
+                // Esse botão aparece só se a pessoa estiver vindo
+                
+                Button("Continuar adicionando") {
+                    saveHabit()
+                    dismiss()
+                }
+                .buttonStyle(DandiButtonStyle())
+                .padding(.bottom)
+                
+                
+                Button("Concluir Rotina") {
+                    saveHabit()
+                }
+                .buttonStyle(DandiButtonStyle(isOrange: false))
+                
+                
+            }.onAppear(perform: {
+                if let habitModel = habitModel {
+                    self.habits = habitModel.newHabits()
+                }
+            })
+            .padding(.horizontal)
         }
         .onAppear(perform: {
             if let habitModel = habitModel {
