@@ -12,6 +12,7 @@ import SwiftData
 import Foundation
 import SwiftData
 
+
 struct HabitModel: Identifiable, Hashable {
     let id: UUID = UUID()
     var name: String

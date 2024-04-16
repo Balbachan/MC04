@@ -9,9 +9,9 @@
 
 import Foundation
 import SwiftData
+// Aqui geralmente é classe
 
 struct ViewModel: Observable {
-    
     var habits: [HabitModel] = [
         HabitModel(name: "Lavar o rosto", desc: "Indicado de manhã e a noite. \nPasso essencial para limpar a pele, serve para remover a oleosidade e impurezas. \nNão esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."], ["3", "se o sabonete correto e na medida certa", "Tente ir em um dermatologista para ele analisar seu tipo de pele e o sabonete indicado para ela. Apenas um pump do sabonete é o suficiente para lavar o rosto"], ["4", "Lave massageando o rosto ", "Não esfregue o rosto! Espalhe o sabonete em movimentos circulares fazendo uma massagem no rosto"], ["5", "Enxágue o rosto com atenção ", "Enxágue bem o rosto, deixar resíduos de sabonete pode causar irritações."]], images: "sdv"),
         HabitModel(name: "Hidratação",  desc: "Hidratar a pele é essencial, ela fortalece a proteção da pele, prevendo o ressecamento, sinais de envelhecimento e diminui o risco de inflamações. \n Tome cuidado e escolha um hidratante ideal para a sua pele com a ajuda de um dermatologista.", steps: [["1","Hidratante no rosto", "Após lavar o rosto passe o hidratante de rosto, no rosto fazendo movimentos circulares"],["2", "Hidratante no corpo", "Após o banho passe o hidratante de corpo, no corpo dando atenção, principalmente, às regiões mais ressecadas"]], images: "sdv"),

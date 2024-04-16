@@ -23,6 +23,7 @@ struct WeekHeader: View {
                         ZStack {
                             Text("\(weekDays[index])")
                                 .font(.custom(FontType.t1.font, size: 17))
+                            // Se o selectedIndex apontar para um dia menor que o index 0 da semana atual,
                             
                         }
                     }
@@ -40,7 +41,12 @@ struct WeekHeader: View {
                     .onTapGesture {
                         selectedDate = weekDate[index]
                         selectedIndex = index
+                        if(selectedDate < weekDate[index]) {
+                            
+                        }
+                        print("\(String(describing: selectedIndex))")
                         print("\(weekDate[index])")
+                        
                     }
                 }
             }
