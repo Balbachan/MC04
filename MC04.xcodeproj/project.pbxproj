@@ -33,6 +33,7 @@
 		DE63B7D32BD03A1400BCA918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD182BC9FB070056C238 /* Assets.xcassets */; };
 		DE63B7D52BD0580C00BCA918 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */; };
 		DE63B7D72BD0655A00BCA918 /* WeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */; };
+		DE63B7DA2BD0706700BCA918 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D82BD0701500BCA918 /* WatchApp.swift */; };
 		DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A20652BB96E7A00D85214 /* WeekScroll.swift */; };
 		DE98FB162BCF214300F200CA /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
 		DEFD19F42BCF4CF60023FAAD /* HabitCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */; };
@@ -103,6 +104,7 @@
 		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
 		DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekEnum.swift; sourceTree = "<group>"; };
+		DE63B7D82BD0701500BCA918 /* WatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
 		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 		DE98FB152BCF214300F200CA /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCount.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		19613D092BB48B4600738E6C /* MC04 */ = {
 			isa = PBXGroup;
 			children = (
+				DE63B7D82BD0701500BCA918 /* WatchApp.swift */,
 				194F742C2BBDE74B008AE4E1 /* Info.plist */,
 				19613D0A2BB48B4600738E6C /* MC04App.swift */,
 				19613D1A2BB4909A00738E6C /* Model */,
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE63B7DA2BD0706700BCA918 /* WatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,14 +419,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = baganca.MC04;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = braganca.MC04;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -446,14 +450,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = baganca.MC04;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = braganca.MC04;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -586,6 +590,7 @@
 		19613D162BB48B4800738E6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -606,7 +611,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -617,6 +622,7 @@
 		19613D172BB48B4800738E6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -637,7 +643,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
