@@ -11,6 +11,7 @@ import SwiftData
 struct SuggestionsView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
     @State var dismissToHome: Bool = false
     
     var viewModel: ViewModel = ViewModel()
@@ -29,8 +30,6 @@ struct SuggestionsView: View {
     var body: some View {
         VStack {
             ScrollView {
-//                Button("back"){dismiss()}
-                
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
                         NavigationLink(destination: EditTaskView(dismissToHome: $dismissToHome, habitModel: habit)) {

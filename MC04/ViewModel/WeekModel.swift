@@ -177,4 +177,14 @@ class WeekModel: ObservableObject {
         }
     }
     
+    //Função que calcula quantos hábitos estão prontos
+    var sumDone: Int {
+        var sumTotal = 0
+        let filteredHabits = filteredHabits()
+        
+        for habit in filteredHabits where habit.isDone == true {
+            sumTotal += 1
+        }
+        return sumTotal
+    }
 }

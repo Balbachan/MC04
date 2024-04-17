@@ -9,28 +9,6 @@ import SwiftUI
 import SwiftData
 import UserNotifications
 
-enum DayOfWeek: Int, CaseIterable {
-    case Domingo = 1,
-         Segunda = 2,
-         Terça = 3,
-         Quarta = 4,
-         Quinta = 5,
-         Sexta = 6,
-         Sabado = 7
-    
-    func name() -> String {
-        switch self {
-        case .Domingo: return "D"
-        case .Segunda: return "S"
-        case .Terça: return "T"
-        case .Quarta: return "Q"
-        case .Quinta: return "Q"
-        case .Sexta: return "S"
-        case .Sabado: return "S"
-        }
-    }
-}
-
 struct WeekPicker: View {
     @Binding var selectedDays: [DayOfWeek]
     @Binding var numberOfWeeks: Int
@@ -55,11 +33,9 @@ struct WeekPicker: View {
                 .frame(height: 350)
             
             VStack{
-                
                 //Título
                 Text("Quais dias e repetições")
                     .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
-                
                 
                 //Seletor de dias da semana
                 HStack {
