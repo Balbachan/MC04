@@ -105,11 +105,7 @@ class WeekModel: ObservableObject {
     }
     
     //Salva o Habito Criado
-    func saveHabit() {
-        
-        var selectedDays: [DayOfWeek] = []
-        var habit: Habit = Habit()
-        var numberOfWeeks: Int = 1
+    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
         
         DispatchQueue(label: "com.example.queue").async {
             
@@ -126,11 +122,11 @@ class WeekModel: ObservableObject {
             self.addHabit(habit)
         }
     }
-    
+
     //Manda as notificações
     func notification(_ hora: Int, _ min: Int, _ week: [DayOfWeek], _ repeats : Bool){
         
-        var habit: Habit = Habit()
+        let habit: Habit = Habit()
         
         if week.count > 0{
             //faz um for de notificacoes

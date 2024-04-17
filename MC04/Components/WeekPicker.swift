@@ -47,8 +47,6 @@ struct WeekPicker: View {
         }
     }
     
-    
-    
     var body: some View {
         ZStack{
             Rectangle()
