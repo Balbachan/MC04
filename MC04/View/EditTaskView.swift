@@ -23,75 +23,25 @@ struct EditTaskView: View {
     
     var habitModel: HabitTemplate?
     
-    private func saveHabit() {
-        DispatchQueue(label: "com.example.queue").async {
-            
-            // adiciona no habito a data de início e fim
-            let calendar = Calendar.current
-            
-            habit.startDate = calendar.startOfDay(for: Date())
-            habit.finalDate = Calendar.current.date(byAdding: .day, value: numberOfWeeks * (7), to: habit.startDate)!
-            
-            // adiciona no habito os dias da semana
-            self.habit.daysOfWeek = selectedDays.map{$0.rawValue}
-            
-            // salva o habito
-            weekModel.addHabit(self.habit)
-        }
-    }
+//    private func saveHabit() {
+//        DispatchQueue(label: "com.example.queue").async {
+//            
+//            // adiciona no habito a data de início e fim
+//            let calendar = Calendar.current
+//            
+//            habit.startDate = calendar.startOfDay(for: Date())
+//            habit.finalDate = Calendar.current.date(byAdding: .day, value: numberOfWeeks * (7), to: habit.startDate)!
+//            
+//            // adiciona no habito os dias da semana
+//            self.habit.daysOfWeek = selectedDays.map{$0.rawValue}
+//            
+//            // salva o habito
+//            weekModel.addHabit(self.habit)
+//        }
+//    }
     
     private func dismiss() {
         presentationMode.wrappedValue.dismiss()
-    }
-    
-    func notification(_ hora: Int, _ min: Int, _ week: [DayOfWeek], _ repeats : Bool){
-        if week.count > 0{
-            //faz um for de notificacoes
-            for days in week{
-                print("dias \(days.rawValue)")
-                let content = UNMutableNotificationContent()
-                content.title =  "\(habit.name)"
-                content.subtitle = "Lembre-se de se cuidar"
-                content.sound = UNNotificationSound.default
-                
-                var datComp = DateComponents()
-                datComp.hour = hora
-                datComp.minute = min
-                datComp.weekday = days.rawValue
-                
-                
-                // show this notification at 7.30 everyday
-                let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: repeats)
-                
-                
-                // choose a random identifier
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                
-                // add our notification request
-                UNUserNotificationCenter.current().add(request)
-            }
-        }else{
-            let content = UNMutableNotificationContent()
-            content.title =  "\(habit.name)"
-            content.subtitle = "Lembre-se de se cuidar"
-            content.sound = UNNotificationSound.default
-            
-            var datComp = DateComponents()
-            datComp.hour = hora
-            datComp.minute = min
-            datComp.weekday = week.first?.rawValue
-            
-            
-            // show this notification at 7.30 everyday
-            let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: repeats)
-            
-            
-            // choose a random identifier
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-            
-            // add our notification request
-            UNUserNotificationCenter.current().add(request)
-        }
     }
     
     var body: some View {
@@ -111,16 +61,16 @@ struct EditTaskView: View {
                 // Esse botão aparece só se a pessoa estiver vindo
                 VStack{
                     Button("Continuar adicionando") {
-                        notification(hours, minutes, selectedDays, allWeeks)
-                        saveHabit()
+                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        weekModel.saveHabit()
                         dismiss()
                     }
                     .buttonStyle(DandiButtonStyle())
                     .padding(.bottom)
                     
                     Button("Concluir Rotina") {
-                        notification(hours, minutes, selectedDays, allWeeks)
-                        saveHabit()
+                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        weekModel.saveHabit()
                         dismissToHome.toggle()
                         dismiss()
                     }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002FCD172BC9FB060056C238 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD162BC9FB060056C238 /* ContentView.swift */; };
+		002FCD172BC9FB060056C238 /* ContentViewWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD162BC9FB060056C238 /* ContentViewWatch.swift */; };
 		002FCD192BC9FB070056C238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD182BC9FB070056C238 /* Assets.xcassets */; };
 		002FCD1C2BC9FB070056C238 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD1B2BC9FB070056C238 /* Preview Assets.xcassets */; };
 		002FCD1F2BC9FB070056C238 /* DandieWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -53,6 +53,7 @@
 		DE98FB142BCF1D2300F200CA /* FuncModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB122BCF1D2300F200CA /* FuncModels.swift */; };
 		DE98FB162BCF214300F200CA /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
 		DE98FB172BCF214300F200CA /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
+		DEFD19F42BCF4CF60023FAAD /* HabitCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +82,7 @@
 
 /* Begin PBXFileReference section */
 		002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DandieWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		002FCD162BC9FB060056C238 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		002FCD162BC9FB060056C238 /* ContentViewWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewWatch.swift; sourceTree = "<group>"; };
 		002FCD182BC9FB070056C238 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		002FCD1B2BC9FB070056C238 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		002FCD282BC9FB4A0056C238 /* CalendarWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWatch.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 		DE98FB122BCF1D2300F200CA /* FuncModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncModels.swift; sourceTree = "<group>"; };
 		DE98FB152BCF214300F200CA /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +146,7 @@
 		002FCD132BC9FB060056C238 /* DandieWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				002FCD162BC9FB060056C238 /* ContentView.swift */,
+				002FCD162BC9FB060056C238 /* ContentViewWatch.swift */,
 				002FCD282BC9FB4A0056C238 /* CalendarWatch.swift */,
 				002FCD2A2BC9FB630056C238 /* DandiButtonWatch.swift */,
 				002FCD3A2BC9FC360056C238 /* WeekHeaderWatch.swift */,
@@ -264,6 +266,7 @@
 				193733792BC5B50000DFC6C3 /* WeekPicker.swift */,
 				1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */,
 				19BF31682BC99F0500549AB5 /* OnboardingButtonStyle.swift */,
+				DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -387,7 +390,7 @@
 				002FCD2B2BC9FB630056C238 /* DandiButtonWatch.swift in Sources */,
 				DE98FB142BCF1D2300F200CA /* FuncModels.swift in Sources */,
 				002FCD252BC9FB1D0056C238 /* FontsEnum.swift in Sources */,
-				002FCD172BC9FB060056C238 /* ContentView.swift in Sources */,
+				002FCD172BC9FB060056C238 /* ContentViewWatch.swift in Sources */,
 				002FCD392BC9FC260056C238 /* TimePickerWatch.swift in Sources */,
 				002FCD2F2BC9FBA50056C238 /* EditTaskWatch.swift in Sources */,
 				002FCD372BC9FC140056C238 /* SuggestionWatch.swift in Sources */,
@@ -415,6 +418,7 @@
 				19613D192BB4908E00738E6C /* HabitTemplate.swift in Sources */,
 				1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */,
 				195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */,
+				DEFD19F42BCF4CF60023FAAD /* HabitCount.swift in Sources */,
 				19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */,
 				19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */,
 				19571C612BC872D200E57F59 /* OnboardingView.swift in Sources */,

@@ -1,74 +1,74 @@
-
 //
-// EditTaskView.swift
-// MC04
+////
+//// EditTaskView.swift
+//// MC04
+////
+//// Created by Laura C. Balbachan dos Santos on 02/04/24.
+////
 //
-// Created by Laura C. Balbachan dos Santos on 02/04/24.
+//import SwiftUI
+//import SwiftData
 //
-
-import SwiftUI
-import SwiftData
-
-struct EditTaskWatch: View {
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var weekModel: WeekModel
-    
-    @State var habit: Habit = Habit()
-    @State var selectedDaysOne: [DayOfWeekOne] = []
-    @State var selectedDaysTwo: [DayOfWeekTwo] = []
-    @State var numberOfWeeks: Int = 1
-    
-    var habitTemplate: HabitTemplate?
-    
-    private func saveHabit() {
-        DispatchQueue(label: "com.example.queue").async {
-            
-            // adiciona no habito a data de início e fim
-            let calendar = Calendar.current
-            habit.startDate = calendar.startOfDay(for: Date())
-            habit.finalDate = Calendar.current.date(byAdding: .day, value: numberOfWeeks * (7), to: habit.startDate)!
-            
-            // adiciona no habito os dias da semana
-            self.habit.daysOfWeek = selectedDaysOne.map{$0.rawValue}
-            self.habit.daysOfWeek = selectedDaysTwo.map{$0.rawValue}
-            
-            // salva o habito
-            weekModel.addHabit(self.habit)
-        }
-    }
-    
-    private func dismiss() {
-        presentationMode.wrappedValue.dismiss()
-    }
-    
-    var body: some View {
-        NavigationStack{
-            VStack {
-                WeekPickerWatch(selectedDaysOne: $selectedDaysOne, selectedDaysTwo: $selectedDaysTwo, numberOfWeeks: $numberOfWeeks)
-                
-                // Esse botão aparece só se a pessoa estiver vindo
-                
-                Button("Continuar adicionando") {
-                    saveHabit()
-                    dismiss()
-                    print(habit.name)
-                }
-                .buttonStyle(DandiButtonWatch())
-            }.onAppear(perform: {
-                if let habitModel = habitTemplate {
-                    self.habit = habitModel.newHabits()
-                }
-            })
-            .padding(.horizontal)
-        }
-    }
-}
-
-
-
-
-#Preview {
-    EditTaskWatch(habitTemplate: ViewModel().habits[0])
-        .environmentObject(WeekModel(modelContext: try! ModelContainer(for: Habit.self).mainContext))
-}
-
+//struct EditTaskWatch: View {
+//    @Environment(\.presentationMode) var presentationMode
+//    @EnvironmentObject private var weekModel: WeekModel
+//    
+//    @State var habit: Habit = Habit()
+//    @State var selectedDaysOne: [DayOfWeekOne] = []
+//    @State var selectedDaysTwo: [DayOfWeekTwo] = []
+//    @State var numberOfWeeks: Int = 1
+//    
+//    var habitTemplate: HabitTemplate?
+//    
+//    private func saveHabit() {
+//        DispatchQueue(label: "com.example.queue").async {
+//            
+//            // adiciona no habito a data de início e fim
+//            let calendar = Calendar.current
+//            habit.startDate = calendar.startOfDay(for: Date())
+//            habit.finalDate = Calendar.current.date(byAdding: .day, value: numberOfWeeks * (7), to: habit.startDate)!
+//            
+//            // adiciona no habito os dias da semana
+//            self.habit.daysOfWeek = selectedDaysOne.map{$0.rawValue}
+//            self.habit.daysOfWeek = selectedDaysTwo.map{$0.rawValue}
+//            
+//            // salva o habito
+//            weekModel.addHabit(self.habit)
+//        }
+//    }
+//    
+//    private func dismiss() {
+//        presentationMode.wrappedValue.dismiss()
+//    }
+//    
+//    var body: some View {
+//        NavigationStack{
+//            VStack {
+//                WeekPickerWatch(selectedDaysOne: $selectedDaysOne, selectedDaysTwo: $selectedDaysTwo, numberOfWeeks: $numberOfWeeks)
+//                
+//                // Esse botão aparece só se a pessoa estiver vindo
+//                
+//                Button("Continuar adicionando") {
+//                    saveHabit()
+//                    dismiss()
+//                    print(habit.name)
+//                }
+//                .buttonStyle(DandiButtonWatch())
+//            }.onAppear(perform: {
+//                if let habitModel = habitTemplate {
+//                    self.habit = habitModel.newHabits()
+//                }
+//            })
+//            .padding(.horizontal)
+//        }
+//    }
+//}
+//
+//
+//
+//
+//#Preview {
+//    EditTaskWatch(habitTemplate: ViewModel().habits[0])
+//        .environmentObject(WeekModel(modelContext: try! ModelContainer(for: Habit.self).mainContext))
+//}
+//

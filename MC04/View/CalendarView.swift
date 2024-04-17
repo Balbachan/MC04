@@ -15,13 +15,6 @@ struct CalendarView: View {
     
     @State var date: Date = Date()
     @State var isDone: Bool = false
-//    var funcModels: FuncModels
-
-    
-    var filteredHabits: [Habit] {
-        return weekModel.filteredHabits()
-    }
-    
     
     var body: some View {
         NavigationStack() {
@@ -55,7 +48,7 @@ struct CalendarView: View {
                     
                     VStack(){
                         List(){
-                            ForEach(filteredHabits, id: \.self) { habit in
+                            ForEach(weekModel.filteredHabits(), id: \.self) { habit in
                                 NavigationLink(destination: DescriptionView(habits: habit)){
                                     
                                     Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
@@ -112,57 +105,7 @@ struct CalendarView: View {
     
 }
 
+//#Preview {
+//    CalendarView(showOnboarding: false, date: Date(), isDone: false)
+//}
 
-
-#Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Habit.self, configurations: config)
-        let _ = Habit(id: UUID(), name: "Lavar o rosto", isDone: true, desc: "Indicado de manhã e a noite.Passo essencial para limpar a pele, serve para remover a oleosidade e impurezas.Não esqueça de escolher um sabonete adequado para seu tipo de pele.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv", startDate: Date(), finalDate: Date(), daysOfWeek: [1], time: Date())
-        return CalendarView()
-            .modelContainer(container)
-    } catch {
-        fatalError("Alguém me desconfigurou")
-    }
-}
-
-struct HabitCountView: View {
-    @EnvironmentObject private var weekModel: WeekModel
-    
-    private var filteredHabits: [Habit] {
-        return weekModel.filteredHabits()
-    }
-    
-    private var sumDone: Int {
-        var sumTotal = 0
-        let filteredHabits = weekModel.filteredHabits()
-        
-        for habit in filteredHabits where habit.isDone == true {
-            sumTotal += 1
-        }
-        return sumTotal
-    }
-    
-    var body: some View {
-        // Texto de feitos:
-        if sumDone == filteredHabits.count {
-            if filteredHabits.count == 0 {
-                Text("\(sumDone) Feitos")
-                    .font(.custom("Digitalt", size: 24))
-                    .foregroundColor(.appOrange)
-            } else {
-                Text("\(sumDone) Feitos")
-                    .font(.custom("Digitalt", size: 24))
-                    .foregroundColor(.green)
-            }
-        } else if sumDone == 0 {
-            Text("\(sumDone) Feitos")
-                .font(.custom("Digitalt", size: 24))
-                .foregroundColor(.appOrange)
-        } else {
-            Text("\(sumDone) Feitos")
-                .font(.custom("Digitalt", size: 24))
-                .foregroundColor(.appYellow)
-        }
-    }
-}
