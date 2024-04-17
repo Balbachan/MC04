@@ -54,7 +54,7 @@ struct WeekPicker: View {
             Rectangle()
                 .foregroundColor(.appSuperLightGray)
                 .cornerRadius(20)
-                .frame(height: 340)
+                .frame(height: 350)
             
             VStack{
                 
@@ -68,7 +68,6 @@ struct WeekPicker: View {
                     ForEach(DayOfWeek.allCases, id: \.self) { day in
                         Text(day.name())
                             .font(.custom(FontType.t4.font, size: FontType.t4.rawValue))
-                        //                            .font(.custom("Digitalt", size: 20))
                             .foregroundColor(selectedDays.contains(day) ? Color.appBeige : Color.black)
                             .frame(width: 30, height: 30)
                             .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
@@ -79,34 +78,15 @@ struct WeekPicker: View {
                                     selectedDays.removeAll(where: {$0 == day})
                                 } else {
                                     selectedDays.append(day)
-                                    //                                    print(day)
                                 }
                             }
                     }
                 }.padding(.vertical)
                 
-                //Picker de semanas
-                //                HStack {
-                //                    Text("Durante")
-                //                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
-                //
-                //                    Picker("", selection: $numberOfWeeks) {
-                //                        ForEach(weeks, id: \.self) {
-                //                            Text("\($0)")
-                //                                .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
-                //                        }
-                //                    }.pickerStyle(.wheel)
-                //
-                //                    Text("Semanas")
-                //                        .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
-                //
-                //                }.frame(width: 250, height: 80)
-                
-                
                 //Toggle repetir toda semana
                 HStack{
                     Toggle("Repetir toda semana", isOn: $allWeeks)
-                        .font(.custom(FontType.b1.font, size: FontType.b1.rawValue))
+                        .font(.custom(FontType.b1.font, size: 18))
                         .toggleStyle(SwitchToggleStyle(tint: .appOrange))
                         .frame(width: 250)
                         .padding(. bottom, 15)
@@ -143,6 +123,6 @@ struct WeekPicker: View {
     }
 }
 
-//#Preview {
-//    WeekPicker(selectedDays: .constant([.Domingo,.Terça]), numberOfWeeks: .constant(3))
-//}
+#Preview {
+    WeekPicker(selectedDays: .constant([.Domingo, .Terça]), numberOfWeeks: .constant(2), allWeeks: .constant(false), weeks: .constant([1]), hours: .constant(10), minutes: .constant(09))
+}

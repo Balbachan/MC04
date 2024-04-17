@@ -1,18 +1,28 @@
+////
+////  ContentView.swift
+////  DandieWatch Watch App
+////
+////  Created by Beatriz Andreucci on 11/04/24.
+////
 //
-//  ContentView.swift
-//  DandieWatch Watch App
+//import SwiftUI
+////import SwiftData
 //
-//  Created by Beatriz Andreucci on 11/04/24.
+//struct ContentView: View {
+////    @State private var weekModel: WeekModel
+////    
+////    init(modelContext: ModelContext) {
+////        let weekModel = WeekModel(modelContext: modelContext)
+////        _weekModel = State(initialValue: weekModel)
+////    }
+//    
+//    var body: some View {
+//        CalendarWatch(phrases: ["aaa"])
+//            .environmentObject(weekModel)
+////        Text("w")
+//    }
+//}
 //
-
-import SwiftUI
-
-struct ContentView: View {
-    var body: some View {
-        CalendarWatch(phrases: ["aaa"])
-    }
-}
-
-#Preview {
-    ContentView()
-}
+////#Preview {
+////    ContentView(modelContext: try! ModelContainer(for: Habit.self).mainContext)
+////}

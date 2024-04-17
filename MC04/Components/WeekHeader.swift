@@ -7,14 +7,17 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 struct WeekHeader: View {
-    var firstDay: Date = Date()
+    @EnvironmentObject private var weekModel: WeekModel
+
     @State var weekDays: [String] = [] // Dias da semana
     @State var weekNumb: [String] = [] // Dias do mês
     @State var weekDate:[Date] = [] // Dia na semana
     @State var selectedIndex: Int? // Dia selecionado
-    @Binding var selectedDate: Date // Dia atual
+    
+    var firstDay: Date = Date()
     
     var body: some View {
         GeometryReader { geometry in
@@ -42,7 +45,7 @@ struct WeekHeader: View {
                             .padding(.bottom, 70)
                     )
                     .onTapGesture {
-                        selectedDate = weekDate[index]
+                        weekModel.selectedDate = weekDate[index]
                         selectedIndex = index
 //                        print("\(weekDate[index])")
                     }
@@ -55,7 +58,7 @@ struct WeekHeader: View {
                 
                 for i in 0..<7 {
                     if let date = Calendar.current.date(byAdding: .day, value: i, to: firstDay) {
-                        if Calendar.current.compare(date, to: selectedDate, toGranularity: .day) == .orderedSame {
+                        if Calendar.current.compare(date, to: weekModel.selectedDate, toGranularity: .day) == .orderedSame {
                             selectedIndex = i
                         }
                         
@@ -80,5 +83,6 @@ struct WeekHeader: View {
 }
 
 #Preview {
-    WeekHeader(firstDay: Date(), selectedDate: .constant(Date()))
+    WeekHeader(firstDay: Date())
+        .environmentObject(WeekModel(modelContext: try! ModelContainer(for: Habit.self).mainContext))
 }

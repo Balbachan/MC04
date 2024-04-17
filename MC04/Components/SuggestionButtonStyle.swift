@@ -15,8 +15,6 @@ struct SuggestionButtonStyle: ButtonStyle {
             .frame(width: 350, height: 100) // MARK: aqui está com número fixo
             .background(configuration.isPressed ? Color.appDarkGray : Color.appSuperLightGray)
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            
-            
     }
 }
 

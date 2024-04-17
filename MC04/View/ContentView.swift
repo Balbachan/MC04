@@ -7,11 +7,15 @@
 
 import SwiftData
 import SwiftUI
-import UserNotifications 
+import UserNotifications
 
 struct ContentView: View {
+    @State private var weekModel: WeekModel
     
-//    @Binding var dismissToHome: Bool
+    init(modelContext: ModelContext) {
+        let weekModel = WeekModel(modelContext: modelContext)
+        _weekModel = State(initialValue: weekModel)
+    }
     
     var body: some View {
         NavigationStack {
@@ -19,19 +23,18 @@ struct ContentView: View {
                 CalendarView()
             }.onAppear{
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                                if success {
-                                    print("Permission approved!")
-                                } else if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            }
+                    if success {
+                        print("Permission approved!")
+                    } else if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
             }
         }
+        .environmentObject(weekModel)
     }
 }
 
-
-
-//#Preview {
-//    ContentView()
-//}
+#Preview {
+    ContentView(modelContext: try! ModelContainer(for: Habit.self).mainContext)
+}
