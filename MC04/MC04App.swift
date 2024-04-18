@@ -7,6 +7,7 @@
 
 import SwiftData
 import SwiftUI
+import Aptabase
 
 @main
 struct MC04App: App {
@@ -18,11 +19,16 @@ struct MC04App: App {
         } catch {
             fatalError("Failed to create ModelContainer for Habit.")
         }
+        Aptabase.shared.initialize(appKey: "A-EU-9619857133") // 👈 this is where you enter your App Key
     }
+   
     
     var body: some Scene {
         WindowGroup {
             ContentView(modelContext: container.mainContext)
+                .onAppear(perform: {
+                    Aptabase.shared.trackEvent("app_started") // Abriu o app
+                })
         }
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		002FCD1C2BC9FB070056C238 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD1B2BC9FB070056C238 /* Preview Assets.xcassets */; };
 		002FCD1F2BC9FB070056C238 /* DandieWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0054423D2BD13347008BA237 /* Aptabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0054423C2BD13347008BA237 /* Aptabase */; };
 		00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */; };
 		00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83242BBE067900C0B713 /* DescriptionView.swift */; };
 		1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */; };
@@ -122,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0054423D2BD13347008BA237 /* Aptabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +295,9 @@
 				002FCD1E2BC9FB070056C238 /* PBXTargetDependency */,
 			);
 			name = Dandie;
+			packageProductDependencies = (
+				0054423C2BD13347008BA237 /* Aptabase */,
+			);
 			productName = MC04;
 			productReference = 19613D072BB48B4600738E6C /* Dandie.app */;
 			productType = "com.apple.product-type.application";
@@ -324,6 +329,9 @@
 				Base,
 			);
 			mainGroup = 19613CFE2BB48B4600738E6C;
+			packageReferences = (
+				0054423B2BD13270008BA237 /* XCRemoteSwiftPackageReference "aptabase-swift" */,
+			);
 			productRefGroup = 19613D082BB48B4600738E6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -682,6 +690,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0054423B2BD13270008BA237 /* XCRemoteSwiftPackageReference "aptabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aptabase/aptabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0054423C2BD13347008BA237 /* Aptabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0054423B2BD13270008BA237 /* XCRemoteSwiftPackageReference "aptabase-swift" */;
+			productName = Aptabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 19613CFF2BB48B4600738E6C /* Project object */;
 }

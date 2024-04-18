@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import UserNotifications
+import Aptabase
 
 struct WeekPicker: View {
     @Binding var selectedDays: [DayOfWeek]
@@ -50,6 +51,7 @@ struct WeekPicker: View {
                             .onTapGesture {
                                 if selectedDays.contains(day) {
                                     selectedDays.removeAll(where: {$0 == day})
+                                   
                                 } else {
                                     selectedDays.append(day)
                                 }
@@ -67,6 +69,7 @@ struct WeekPicker: View {
                 }.padding(.top, 10)
                     .onChange(of: allWeeks) {
                         getWeeks()
+                        Aptabase.shared.trackEvent("Adicionar em todas as semanas")
                         print(allWeeks)
                     }
                 
