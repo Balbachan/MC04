@@ -9,6 +9,7 @@ import Observation
 import Foundation
 import SwiftData
 import UserNotifications
+import SwiftUI
 
 
 class WeekModel: ObservableObject {
@@ -101,15 +102,16 @@ class WeekModel: ObservableObject {
     
     //Filtra os Habitos de hoje na CalendarView
     func filteredHabits() -> [Habit] {
-        return habits.filter { $0.verifyDateInterval(date: selectedDate) }
+        return filteredHabits(date: selectedDate)
+    }
+    
+    //Filtra os Habitos de hoje na CalendarView
+    private func filteredHabits(date: Date) -> [Habit] {
+        return habits.filter { $0.verifyDateInterval(date: date) }
     }
     
     //Salva o Habito Criado
-    func saveHabit() {
-        
-        var selectedDays: [DayOfWeek] = []
-        var habit: Habit = Habit()
-        var numberOfWeeks: Int = 1
+    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
         
         DispatchQueue(label: "com.example.queue").async {
             
@@ -126,7 +128,7 @@ class WeekModel: ObservableObject {
             self.addHabit(habit)
         }
     }
-    
+
     //Manda as notificações
     func notification(_ hora: Int, _ min: Int, _ week: [DayOfWeek], _ repeats : Bool){
         
@@ -146,10 +148,8 @@ class WeekModel: ObservableObject {
                 datComp.minute = min
                 datComp.weekday = days.rawValue
                 
-                
                 // show this notification at 7.30 everyday
                 let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: repeats)
-                
                 
                 // choose a random identifier
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
@@ -181,4 +181,36 @@ class WeekModel: ObservableObject {
         }
     }
     
+    //Função que calcula quantos hábitos estão prontos
+    var sumDone: Int {
+        var sumTotal = 0
+        let filteredHabits = filteredHabits()
+        
+        for habit in filteredHabits where habit.isDone == true {
+            sumTotal += 1
+        }
+        return sumTotal
+    }
+    
+    //Função que devolve a cor dos dias da semana
+    func calendarColours(date: Date) -> Color {
+        let habtis = filteredHabits(date: date)
+        
+        // conta quantos estão acabados
+        let sumDone = habtis.reduce(0) { partialResult, habit in
+            return habit.isDone ? partialResult + 1 : partialResult
+        }
+        
+        if sumDone == 0 && habtis.count == 0 {
+            return Color(.appSuperLightGray)
+        }
+        
+        if sumDone == habtis.count {
+            return Color(.appOrange)
+        } else if sumDone > 0 && sumDone < habtis.count {
+            return Color(.appYellow)
+        } else{
+            return Color(.appSuperLightGray)
+        }
+    }
 }

@@ -28,8 +28,7 @@ struct CalendarView: View {
                     
                     // Calendar
                     WeekScroll()
-                        .frame(height: geometry.size.height / 4.6)
-                        .padding(.top, 25)
+                        .frame(height: geometry.size.height / 5)
                     
                     // Título Hoje
                     HStack {
@@ -44,7 +43,7 @@ struct CalendarView: View {
                                 .bold()
                                 .tint(.appOrange)
                         }
-                    }
+                    }.padding(.top)
                     
                     VStack(){
                         List(){
