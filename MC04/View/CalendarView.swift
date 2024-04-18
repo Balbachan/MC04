@@ -20,11 +20,18 @@ struct CalendarView: View {
         NavigationStack() {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
-                    
-                    // Frase de efeito diária
-                    Text("Bora reagir meu chapa")
-                        .font(.custom("Digitalt", size: 28))
-                        .fontWeight(.bold)
+                    HStack {
+                        Image("hidandie")
+                            .padding(.leading, -20)
+                            .padding(.bottom, 10)
+                        
+                        // Frase de efeito diária
+                        
+                        
+                        Text("Bora reagir meu chapa")
+                            .font(.custom("Digitalt", size: 28))
+                            .fontWeight(.bold)
+                    }
                     
                     // Calendar
                     WeekScroll()
@@ -49,8 +56,15 @@ struct CalendarView: View {
                         }
                     }.padding(.top)
                     
-                    VStack(){
-                        List(){
+                    VStack(alignment: .center, spacing: 10) {
+                        if(weekModel.filteredHabits().isEmpty){
+                            Image("null")
+                                .resizable()
+                                .scaledToFit()
+//                                .frame(width: geometry.size.width * 0.9)
+                        } else {
+                            
+                        List {
                             ForEach(weekModel.filteredHabits(), id: \.self) { habit in
                                 NavigationLink(destination: DescriptionView(habits: habit)
                                     .onAppear(perform: {
@@ -58,6 +72,8 @@ struct CalendarView: View {
                                         
                                     })){
                                     
+                                    
+                                    // Onde o check é checkado
                                     Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
                                         .tint(.appOrange)
                                         .onTapGesture {
@@ -95,11 +111,16 @@ struct CalendarView: View {
                         }
                         .listStyle(.plain)
                         .environment(\.defaultMinListRowHeight, 70)
+                        
+                        
+                        }
+                        
+                        HabitCountView()
+                        
+                        Spacer()
+
                     }
-                    
-                    HabitCountView()
                 }
-                
             }
             .padding(20)
             .background(.appWhite)

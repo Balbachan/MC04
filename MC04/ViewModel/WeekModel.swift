@@ -112,7 +112,6 @@ class WeekModel: ObservableObject {
     
     //Salva o Habito Criado
     func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
-        
         DispatchQueue(label: "com.example.queue").async {
             
             // adiciona no habito a data de início e fim
@@ -126,6 +125,9 @@ class WeekModel: ObservableObject {
             
             // salva o habito
             self.addHabit(habit)
+            
+            print(habit.name)
+            print(habit.id)
         }
     }
 
