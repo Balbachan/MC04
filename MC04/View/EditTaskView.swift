@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Aptabase
 
 struct EditTaskView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -46,6 +47,7 @@ struct EditTaskView: View {
                     Button("Continuar adicionando") {
 //                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
                         weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                        Aptabase.shared.trackEvent("Continuar Adicionando") // An event with a custom property
                         dismiss()
                     }
                     .buttonStyle(DandiButtonStyle())
@@ -54,6 +56,7 @@ struct EditTaskView: View {
                     Button("Concluir Rotina") {
 //                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
                         weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                        Aptabase.shared.trackEvent("Concluir Rotina") // An event with a custom property
                         dismissToHome.toggle()
                         dismiss()
                     }

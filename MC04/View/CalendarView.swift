@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import Aptabase
 
 struct CalendarView: View {
     @AppStorage("isOnboarding") var showOnboarding: Bool = true
@@ -39,6 +40,10 @@ struct CalendarView: View {
                         Spacer()
                         NavigationLink {
                             SuggestionsView()
+                                .onAppear(perform: {
+                                    Aptabase.shared.trackEvent("plusSymbol")
+                                    print("plus")
+                                })
                         } label: {
                             Image(systemName: "plus")
                                 .bold()
@@ -49,12 +54,17 @@ struct CalendarView: View {
                     VStack(){
                         List(){
                             ForEach(weekModel.filteredHabits(), id: \.self) { habit in
-                                NavigationLink(destination: DescriptionView(habits: habit)){
+                                NavigationLink(destination: DescriptionView(habits: habit)
+                                    .onAppear(perform: {
+                                        Aptabase.shared.trackEvent("descriptions", with: ["name": habit.name])
+                                        
+                                    })){
                                     
                                     Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
                                         .tint(.appOrange)
                                         .onTapGesture {
                                             habit.isDone.toggle()
+                                            Aptabase.shared.trackEvent("Check", with: ["name": habit.isDone])
                                         }
                                     
                                     Text(habit.name)
