@@ -25,7 +25,6 @@ struct WeekHeader: View {
                 Grid {
                     GridRow {
                         ForEach(weekDays.indices, id: \.self) { index in
-                            
                             ZStack{
                                 VStack {
                                     Spacer()
@@ -65,7 +64,6 @@ struct WeekHeader: View {
                         }
                     }
                 }
-                
             }
         }
         .onAppear(perform: {

@@ -44,7 +44,7 @@ struct EditTaskView: View {
                 // Esse botão aparece só se a pessoa estiver vindo
                 VStack{
                     Button("Continuar adicionando") {
-//                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
                         weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
                         dismiss()
                     }
@@ -52,7 +52,7 @@ struct EditTaskView: View {
                     .padding(.bottom)
                     
                     Button("Concluir Rotina") {
-//                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
                         weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
                         dismissToHome.toggle()
                         dismiss()
