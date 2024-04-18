@@ -7,11 +7,11 @@
 
 import SwiftUI
 import SwiftData
+import Aptabase
 
 struct SuggestionsView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
-    
     @State var dismissToHome: Bool = false
     
     var viewModel: ViewModel = ViewModel()
@@ -32,7 +32,10 @@ struct SuggestionsView: View {
             ScrollView {
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
-                        NavigationLink(destination: EditTaskView(dismissToHome: $dismissToHome, habitModel: habit)) {
+                        NavigationLink(destination: EditTaskView(dismissToHome: $dismissToHome, habitModel: habit)
+                            .onAppear(perform: {
+                            Aptabase.shared.trackEvent("Habitos", with: ["nome": habit.name]) // An event with a custom property
+                        })) {
                             Text("\(habit.name)")
                         }
                         .buttonStyle(SuggestionButtonStyle())

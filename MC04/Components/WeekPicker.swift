@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import UserNotifications
+import Aptabase
 
 struct WeekPicker: View {
     @Binding var selectedDays: [DayOfWeek]
@@ -50,6 +51,7 @@ struct WeekPicker: View {
                             .onTapGesture {
                                 if selectedDays.contains(day) {
                                     selectedDays.removeAll(where: {$0 == day})
+                                   
                                 } else {
                                     selectedDays.append(day)
                                     print(day)
@@ -59,7 +61,7 @@ struct WeekPicker: View {
                 }.padding(.vertical)
                 
                 //Toggle repetir toda semana
-                HStack{
+                HStack {
                     Toggle("Repetir toda semana", isOn: $allWeeks)
                         .font(.custom(FontType.b1.font, size: 18))
                         .toggleStyle(SwitchToggleStyle(tint: .appOrange))
@@ -68,9 +70,11 @@ struct WeekPicker: View {
                 }.padding(.top, 10)
                     .onChange(of: allWeeks) {
                         getWeeks()
+                        Aptabase.shared.trackEvent("Adicionar em todas as semanas")
                         print(allWeeks)
                     }
                 
+                // Definir horário da notificação
                 Text("Definir horário para notificação:")
                     .font(.custom(FontType.b1.font, size: 16))
                 

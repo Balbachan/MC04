@@ -49,7 +49,7 @@ struct WeekHeader: View {
                                 VStack {
                                     Text("\(weekDays[index])")
                                         .font(.custom(FontType.t1.font, size: 18))
-                                        .padding([.top], 20)
+                                        .padding([.top], 16)
                                     Spacer()
                                 }
                                 

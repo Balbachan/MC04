@@ -6,13 +6,11 @@
 //
 
 import SwiftUI
+import Aptabase
 
 struct OnboardingView: View {
-    
     @Environment(\.dismiss) var dismiss
-    
     @Binding var isPresented: Bool
-    
     @State private var introIndex: Int = 0
     
     var body: some View {
@@ -57,6 +55,7 @@ struct OnboardingView: View {
                             Button("Vamos começar") {
                                 // MARK: Aqui daria um dissmiss para ir para o calendar view
                                 isPresented = false
+                                Aptabase.shared.trackEvent("Vamos comecar") 
                                 dismiss()
                             }
                             .buttonStyle(OnboardingButtonStyle())
@@ -66,11 +65,13 @@ struct OnboardingView: View {
                         } else {
                             Button("Prosseguir") {
                                 introIndex += 1
+                                Aptabase.shared.trackEvent("Prosseguir OnBoarding") // An event with a custom property
                             }
                             .buttonStyle(OnboardingButtonStyle())
                             
                             Button("Pular") {
                                 introIndex = (OnboardingModel().introduction.count - 1)
+                                Aptabase.shared.trackEvent("Pular OnBoarding") 
                             }
                             .buttonStyle(OnboardingButtonStyle(isOrange: false))
                         }
