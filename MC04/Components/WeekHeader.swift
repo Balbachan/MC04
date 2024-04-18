@@ -25,7 +25,6 @@ struct WeekHeader: View {
                 Grid {
                     GridRow {
                         ForEach(weekDays.indices, id: \.self) { index in
-                            
                             ZStack{
                                 VStack {
                                     Spacer()
@@ -50,12 +49,12 @@ struct WeekHeader: View {
                                 VStack {
                                     Text("\(weekDays[index])")
                                         .font(.custom(FontType.t1.font, size: 18))
-                                        .padding([.top], 20)
+                                        .padding([.top], 16)
                                     Spacer()
                                 }
                                 
                                 Text("\(weekNumb[index])")
-                                    .font(.custom(FontType.t1.font, size: 20))
+                                    .font(.custom(FontType.b2.font, size: 20))
                                     .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.5)
                             }
                             .onTapGesture {

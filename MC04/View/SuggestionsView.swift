@@ -11,7 +11,6 @@ import SwiftData
 struct SuggestionsView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
-    
     @State var dismissToHome: Bool = false
     
     var viewModel: ViewModel = ViewModel()

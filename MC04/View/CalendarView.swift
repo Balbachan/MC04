@@ -12,7 +12,6 @@ import SwiftData
 struct CalendarView: View {
     @AppStorage("isOnboarding") var showOnboarding: Bool = true
     @EnvironmentObject private var weekModel: WeekModel
-    
     @State var date: Date = Date()
     @State var isDone: Bool = false
     
@@ -58,6 +57,7 @@ struct CalendarView: View {
                                     
                                     Text(habit.name)
                                         .font(.custom("Digitalt", size: 20))
+                                    // MARK: Aqui precisa customizar os  botões e arrumar o de edição
                                         .swipeActions {
                                             NavigationLink {
                                                 // EditTaskView(habits: habit)
@@ -72,7 +72,6 @@ struct CalendarView: View {
                                                 Image(systemName: "trash")
                                             }
                                             .tint(.red)
-                                            .cornerRadius(20)
                                         }
                                 }
                             }.listRowSeparator(.hidden)

@@ -58,7 +58,7 @@ struct WeekPicker: View {
                 }.padding(.vertical)
                 
                 //Toggle repetir toda semana
-                HStack{
+                HStack {
                     Toggle("Repetir toda semana", isOn: $allWeeks)
                         .font(.custom(FontType.b1.font, size: 18))
                         .toggleStyle(SwitchToggleStyle(tint: .appOrange))
@@ -70,6 +70,7 @@ struct WeekPicker: View {
                         print(allWeeks)
                     }
                 
+                // Definir horário da notificação
                 Text("Definir horário para notificação:")
                     .font(.custom(FontType.b1.font, size: 16))
                 

@@ -11,7 +11,6 @@ import SwiftData
 struct EditTaskView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var weekModel: WeekModel
-    
     @State var habit = Habit()
     @State var selectedDays: [DayOfWeek] = []
     @State var numberOfWeeks: Int = 1
@@ -20,6 +19,7 @@ struct EditTaskView: View {
     @State var weeks: [Int] = [1,2,3,4,5]
     @State var hours: Int = 0
     @State var minutes: Int = 0
+    @State var hasSelectedDays: Bool = false
     
     var habitModel: HabitTemplate?
     
@@ -42,17 +42,23 @@ struct EditTaskView: View {
                 Spacer()
                 
                 // Esse botão aparece só se a pessoa estiver vindo
-                VStack{
+                VStack {
                     Button("Continuar adicionando") {
-//                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
-                        weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
-                        dismiss()
+                        // MARK: Acho que a ideia da lógica seria algo assim
+                        if selectedDays.isEmpty {
+                            hasSelectedDays = true
+                        } else {
+//                            weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                            weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                            dismiss()
+                        }
                     }
+                    .disabled(hasSelectedDays)
                     .buttonStyle(DandiButtonStyle())
                     .padding(.bottom)
                     
                     Button("Concluir Rotina") {
-//                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        //                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
                         weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
                         dismissToHome.toggle()
                         dismiss()

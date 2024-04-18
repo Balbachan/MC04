@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    
     @Environment(\.dismiss) var dismiss
-    
     @Binding var isPresented: Bool
-    
     @State private var introIndex: Int = 0
     
     var body: some View {
