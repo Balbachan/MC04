@@ -130,7 +130,7 @@ class WeekModel: ObservableObject {
     //Manda as notificações
     func notification(_ hora: Int, _ min: Int, _ week: [DayOfWeek], _ repeats : Bool){
         
-        var habit: Habit = Habit()
+        let habit: Habit = Habit()
         
         if week.count > 0{
             //faz um for de notificacoes
