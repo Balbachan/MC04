@@ -9,6 +9,7 @@ import Observation
 import Foundation
 import SwiftData
 import UserNotifications
+import SwiftUI
 
 
 class WeekModel: ObservableObject {
@@ -101,7 +102,12 @@ class WeekModel: ObservableObject {
     
     //Filtra os Habitos de hoje na CalendarView
     func filteredHabits() -> [Habit] {
-        return habits.filter { $0.verifyDateInterval(date: selectedDate) }
+        return filteredHabits(date: selectedDate)
+    }
+    
+    //Filtra os Habitos de hoje na CalendarView
+    private func filteredHabits(date: Date) -> [Habit] {
+        return habits.filter { $0.verifyDateInterval(date: date) }
     }
     
     //Salva o Habito Criado
@@ -142,10 +148,8 @@ class WeekModel: ObservableObject {
                 datComp.minute = min
                 datComp.weekday = days.rawValue
                 
-                
                 // show this notification at 7.30 everyday
                 let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: repeats)
-                
                 
                 // choose a random identifier
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
@@ -186,5 +190,27 @@ class WeekModel: ObservableObject {
             sumTotal += 1
         }
         return sumTotal
+    }
+    
+    //Função que devolve a cor dos dias da semana
+    func calendarColours(date: Date) -> Color {
+        let habtis = filteredHabits(date: date)
+        
+        // conta quantos estão acabados
+        let sumDone = habtis.reduce(0) { partialResult, habit in
+            return habit.isDone ? partialResult + 1 : partialResult
+        }
+        
+        if sumDone == 0 && habtis.count == 0 {
+            return Color(.appSuperLightGray)
+        }
+        
+        if sumDone == habtis.count {
+            return Color(.appOrange)
+        } else if sumDone > 0 && sumDone < habtis.count {
+            return Color(.appYellow)
+        } else{
+            return Color(.appSuperLightGray)
+        }
     }
 }
