@@ -8,28 +8,7 @@
 import SwiftUI
 import SwiftData
 import UserNotifications
-
-enum DayOfWeek: Int, CaseIterable {
-    case Domingo = 1,
-         Segunda = 2,
-         Terça = 3,
-         Quarta = 4,
-         Quinta = 5,
-         Sexta = 6,
-         Sabado = 7
-    
-    func name() -> String {
-        switch self {
-        case .Domingo: return "D"
-        case .Segunda: return "S"
-        case .Terça: return "T"
-        case .Quarta: return "Q"
-        case .Quinta: return "Q"
-        case .Sexta: return "S"
-        case .Sabado: return "S"
-        }
-    }
-}
+import Aptabase
 
 struct WeekPicker: View {
     @Binding var selectedDays: [DayOfWeek]
@@ -47,8 +26,6 @@ struct WeekPicker: View {
         }
     }
     
-    
-    
     var body: some View {
         ZStack{
             Rectangle()
@@ -57,11 +34,9 @@ struct WeekPicker: View {
                 .frame(height: 350)
             
             VStack{
-                
                 //Título
                 Text("Quais dias e repetições")
                     .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
-                
                 
                 //Seletor de dias da semana
                 HStack {
@@ -76,6 +51,7 @@ struct WeekPicker: View {
                             .onTapGesture {
                                 if selectedDays.contains(day) {
                                     selectedDays.removeAll(where: {$0 == day})
+                                   
                                 } else {
                                     selectedDays.append(day)
                                 }
@@ -84,7 +60,7 @@ struct WeekPicker: View {
                 }.padding(.vertical)
                 
                 //Toggle repetir toda semana
-                HStack{
+                HStack {
                     Toggle("Repetir toda semana", isOn: $allWeeks)
                         .font(.custom(FontType.b1.font, size: 18))
                         .toggleStyle(SwitchToggleStyle(tint: .appOrange))
@@ -93,9 +69,11 @@ struct WeekPicker: View {
                 }.padding(.top, 10)
                     .onChange(of: allWeeks) {
                         getWeeks()
+                        Aptabase.shared.trackEvent("Adicionar em todas as semanas")
                         print(allWeeks)
                     }
                 
+                // Definir horário da notificação
                 Text("Definir horário para notificação:")
                     .font(.custom(FontType.b1.font, size: 16))
                 

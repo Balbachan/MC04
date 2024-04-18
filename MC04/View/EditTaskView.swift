@@ -7,12 +7,12 @@
 
 import SwiftUI
 import SwiftData
+import Aptabase
 
 struct EditTaskView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var weekModel: WeekModel
-    
-    @State var habit: Habit = Habit()
+    @State var habit = Habit()
     @State var selectedDays: [DayOfWeek] = []
     @State var numberOfWeeks: Int = 1
     @Binding var dismissToHome: Bool
@@ -20,25 +20,9 @@ struct EditTaskView: View {
     @State var weeks: [Int] = [1,2,3,4,5]
     @State var hours: Int = 0
     @State var minutes: Int = 0
+    @State var hasSelectedDays: Bool = false
     
     var habitModel: HabitTemplate?
-    
-//    private func saveHabit() {
-//        DispatchQueue(label: "com.example.queue").async {
-//            
-//            // adiciona no habito a data de início e fim
-//            let calendar = Calendar.current
-//            
-//            habit.startDate = calendar.startOfDay(for: Date())
-//            habit.finalDate = Calendar.current.date(byAdding: .day, value: numberOfWeeks * (7), to: habit.startDate)!
-//            
-//            // adiciona no habito os dias da semana
-//            self.habit.daysOfWeek = selectedDays.map{$0.rawValue}
-//            
-//            // salva o habito
-//            weekModel.addHabit(self.habit)
-//        }
-//    }
     
     private func dismiss() {
         presentationMode.wrappedValue.dismiss()
@@ -59,18 +43,21 @@ struct EditTaskView: View {
                 Spacer()
                 
                 // Esse botão aparece só se a pessoa estiver vindo
-                VStack{
+                VStack {
                     Button("Continuar adicionando") {
-                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
-                        weekModel.saveHabit()
+//                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                        Aptabase.shared.trackEvent("Continuar Adicionando") // An event with a custom property
                         dismiss()
                     }
+                    .disabled(hasSelectedDays)
                     .buttonStyle(DandiButtonStyle())
                     .padding(.bottom)
                     
                     Button("Concluir Rotina") {
-                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
-                        weekModel.saveHabit()
+                        //                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                        Aptabase.shared.trackEvent("Concluir Rotina") // An event with a custom property
                         dismissToHome.toggle()
                         dismiss()
                     }

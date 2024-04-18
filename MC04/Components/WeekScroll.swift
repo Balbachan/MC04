@@ -24,11 +24,13 @@ struct WeekScroll: View {
                                 ZStack {
                                     if update {
                                         WeekHeader(firstDay: weekModel.weeks[index])
+                                            .padding(.bottom)
                                     } else {
                                         WeekHeader(firstDay: weekModel.weeks[index])
+                                            .padding(.bottom)
                                     }
                                 }
-                                .frame(width: geometry.size.width, height: 110)
+                                .frame(width: geometry.size.width, height: geometry.size.height )
                                 .onAppear(perform: {
                                     value.scrollTo(Int(weekModel.weeks.count / 2))
                                 })
@@ -36,8 +38,8 @@ struct WeekScroll: View {
                         }
                         .scrollTargetLayout()
                     }
+                    .scrollIndicators(.hidden)
                     .scrollTargetBehavior(.viewAligned)
-                    
                 }
             }
         }

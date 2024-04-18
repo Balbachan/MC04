@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
+import Aptabase
 
 struct OnboardingView: View {
-    @Binding var isPresented: Bool
     @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     @State private var introIndex: Int = 0
-    
-    let introduction: [String] = ["Prazer! Meu nome é Dandie e meu objetivo\naqui é te auxiliar a ter uma rotina de\nautocuidado.", "Nessa tela você poderá: \nAcompanhar sua rotina\nAdicionar novas tarefas\nVer suas tarefas do dia", "Ao escolher alguma dessas tarefas que fiz\npara você, basta definir o(s) dia(s), se ela irá\nse repetir e o horário que irá realizá-la.", "Viu como é fácil?\n Eu estarei aqui acompanhando seu\nprogresso, além de te lembrar de fazer as\ntarefas, seguir sua rotina com excelência\ne te dar dicas."]
-    let introImagesLight: [String] = ["dandie1", "dandie2", "dandie3", "dandie4"]
     
     var body: some View {
         GeometryReader { geometry in
@@ -21,15 +19,15 @@ struct OnboardingView: View {
                 VStack {
                     // Instruções e imagens do Onboarding
                     TabView(selection: $introIndex) {
-                        ForEach(0..<introduction.count, id: \.self) { index in
+                        ForEach(0..<OnboardingModel().introduction.count, id: \.self) { index in
                             VStack {
-                                Image("\(introImagesLight[index])")
+                                Image("\(OnboardingModel().introImagesLight[index])")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
                                     .padding(.bottom, 40)
                                 
-                                Text("\(introduction[index])")
+                                Text("\(OnboardingModel().introduction[index])")
                                     .multilineTextAlignment(.center)
                             }
                         }
@@ -40,7 +38,7 @@ struct OnboardingView: View {
                     // Index em cículos personalizado
                     VStack {
                         HStack {
-                            ForEach(0..<introduction.count, id: \.self) { index in
+                            ForEach(0..<OnboardingModel().introduction.count, id: \.self) { index in
                                 Circle()
                                     .fill(introIndex == index ? Color.appYellow : Color.appLightGray)
                                     .frame(width: 22)
@@ -53,10 +51,11 @@ struct OnboardingView: View {
                         
                         
                         // Condição para os botões certos aparecerem nas etapas do Onboarding
-                        if(introIndex == (introduction.count - 1)) {
+                        if(introIndex == (OnboardingModel().introduction.count - 1)) {
                             Button("Vamos começar") {
                                 // MARK: Aqui daria um dissmiss para ir para o calendar view
                                 isPresented = false
+                                Aptabase.shared.trackEvent("Vamos comecar") 
                                 dismiss()
                             }
                             .buttonStyle(OnboardingButtonStyle())
@@ -66,11 +65,13 @@ struct OnboardingView: View {
                         } else {
                             Button("Prosseguir") {
                                 introIndex += 1
+                                Aptabase.shared.trackEvent("Prosseguir OnBoarding") // An event with a custom property
                             }
                             .buttonStyle(OnboardingButtonStyle())
                             
                             Button("Pular") {
-                                introIndex = (introduction.count - 1)
+                                introIndex = (OnboardingModel().introduction.count - 1)
+                                Aptabase.shared.trackEvent("Pular OnBoarding") 
                             }
                             .buttonStyle(OnboardingButtonStyle(isOrange: false))
                         }

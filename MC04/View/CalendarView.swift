@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import Aptabase
 
 struct CalendarView: View {
     @AppStorage("isOnboarding") var showOnboarding: Bool = true
     @EnvironmentObject private var weekModel: WeekModel
-    
     @State var date: Date = Date()
     @State var isDone: Bool = false
     
@@ -28,8 +28,7 @@ struct CalendarView: View {
                     
                     // Calendar
                     WeekScroll()
-                        .frame(height: geometry.size.height / 4.6)
-                        .padding(.top, 25)
+                        .frame(height: geometry.size.height / 5)
                     
                     // Título Hoje
                     HStack {
@@ -39,26 +38,36 @@ struct CalendarView: View {
                         Spacer()
                         NavigationLink {
                             SuggestionsView()
+                                .onAppear(perform: {
+                                    Aptabase.shared.trackEvent("plusSymbol")
+                                    print("plus")
+                                })
                         } label: {
                             Image(systemName: "plus")
                                 .bold()
                                 .tint(.appOrange)
                         }
-                    }
+                    }.padding(.top)
                     
                     VStack(){
                         List(){
                             ForEach(weekModel.filteredHabits(), id: \.self) { habit in
-                                NavigationLink(destination: DescriptionView(habits: habit)){
+                                NavigationLink(destination: DescriptionView(habits: habit)
+                                    .onAppear(perform: {
+                                        Aptabase.shared.trackEvent("descriptions", with: ["name": habit.name])
+                                        
+                                    })){
                                     
                                     Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
                                         .tint(.appOrange)
                                         .onTapGesture {
                                             habit.isDone.toggle()
+                                            Aptabase.shared.trackEvent("Check", with: ["name": habit.isDone])
                                         }
                                     
                                     Text(habit.name)
                                         .font(.custom("Digitalt", size: 20))
+                                    // MARK: Aqui precisa customizar os  botões e arrumar o de edição
                                         .swipeActions {
                                             NavigationLink {
                                                 // EditTaskView(habits: habit)
@@ -73,7 +82,6 @@ struct CalendarView: View {
                                                 Image(systemName: "trash")
                                             }
                                             .tint(.red)
-                                            .cornerRadius(20)
                                         }
                                 }
                             }.listRowSeparator(.hidden)
