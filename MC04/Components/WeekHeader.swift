@@ -20,42 +20,35 @@ struct WeekHeader: View {
     var firstDay: Date = Date()
     
     var body: some View {
-        GeometryReader{ geometry in
-            HStack{
+        GeometryReader { geometry in
+            HStack {
                 Grid {
                     GridRow {
                         ForEach(weekDays.indices, id: \.self) { index in
-                            ZStack{
+                            ZStack {
+                                Text("\(weekDays[index])")
+                                    .font(.custom(FontType.t2.font, size: 18))
+                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height * 0.2)
+                                        
                                 VStack {
                                     Spacer()
                                     if index == selectedIndex{
-                                        Rectangle()
-                                            .foregroundColor(.appWhite)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 100)
-                                                    .stroke(Color(weekModel.calendarColours(date: weekDate[index])), lineWidth: 10)
-                                            )
-                                            .cornerRadius(100)
-                                            .frame(height: geometry.size.height)
+                                        Capsule()
+                                            .stroke(Color(weekModel.calendarColours(date: weekDate[index])), lineWidth: 5)
+                                            .foregroundStyle(.appWhite)
                                         
                                     } else {
-                                        Rectangle()
-                                            .foregroundColor(weekModel.calendarColours(date: weekDate[index]))
-                                            .cornerRadius(100)
+                                        Capsule()
+                                            .foregroundStyle(Color(weekModel.calendarColours(date: weekDate[index])))
                                             .frame(height: geometry.size.height * 0.7)
                                     }
                                 }
-                                
-                                VStack {
-                                    Text("\(weekDays[index])")
-                                        .font(.custom(FontType.t1.font, size: 18))
-                                        .padding([.top], 16)
-                                    Spacer()
-                                }
+                    
                                 
                                 Text("\(weekNumb[index])")
-                                    .font(.custom(FontType.t1.font, size: 24))
+                                    .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
                                     .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.5)
+                               
                             }
                             .onTapGesture {
                                 weekModel.selectedDate = weekDate[index]
@@ -66,6 +59,7 @@ struct WeekHeader: View {
                 }
             }
         }
+        .padding()
         .onAppear(perform: {
             weekDays = []
             weekDate = []
@@ -114,6 +108,7 @@ struct WeekHeader: View {
             }
         })
     }
+        
 }
 
 #Preview {

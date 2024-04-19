@@ -12,7 +12,9 @@ import SwiftData
 struct WeekScroll: View {
     
     @EnvironmentObject private var weekModel: WeekModel
-        
+//    @Environment private var wh: WeekHeader
+    @AppStorage("teste") var teste: Bool = true
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollViewReader { value in
@@ -21,13 +23,15 @@ struct WeekScroll: View {
                         LazyHStack(spacing: 0) {
                             ForEach(weekModel.weeks.indices, id: \.self) { index in
                                 ZStack {
-                                        WeekHeader(firstDay: weekModel.weeks[index])
-                                            .padding(.bottom)
-                                   
+                                    WeekHeader(firstDay: weekModel.weeks[index])
+                                        .padding(.bottom)
                                 }
-                                .frame(width: geometry.size.width, height: geometry.size.height )
+                                .frame(width: geometry.size.width, height: geometry.size.height)
                                 .onAppear(perform: {
-                                    value.scrollTo(Int(weekModel.weeks.count / 2))
+                                    if teste {
+                                        value.scrollTo(Int(weekModel.weeks.count / 2))
+                                        teste = false
+                                    }
                                 })
                             }
                         }
