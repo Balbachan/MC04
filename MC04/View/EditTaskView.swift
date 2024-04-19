@@ -45,7 +45,7 @@ struct EditTaskView: View {
                 // Esse botão aparece só se a pessoa estiver vindo
                 VStack {
                     Button("Continuar adicionando") {
-//                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
                         weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
                         Aptabase.shared.trackEvent("Continuar Adicionando") // An event with a custom property
                         dismiss()
@@ -55,7 +55,7 @@ struct EditTaskView: View {
                     .padding(.bottom)
                     
                     Button("Concluir Rotina") {
-                        //                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
                         weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
                         Aptabase.shared.trackEvent("Concluir Rotina") // An event with a custom property
                         dismissToHome.toggle()

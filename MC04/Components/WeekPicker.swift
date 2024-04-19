@@ -54,6 +54,7 @@ struct WeekPicker: View {
                                    
                                 } else {
                                     selectedDays.append(day)
+                                    print(day)
                                 }
                             }
                     }
