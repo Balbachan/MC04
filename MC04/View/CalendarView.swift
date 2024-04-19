@@ -25,6 +25,9 @@ struct CalendarView: View {
                     Text("Bora reagir meu chapa")
                         .font(.custom("Digitalt", size: 28))
                         .fontWeight(.bold)
+                        .background() {
+                            Image("hidandie")
+                        }
                     
                     // Calendar
                     WeekScroll()
@@ -49,57 +52,70 @@ struct CalendarView: View {
                         }
                     }.padding(.top)
                     
-                    VStack(){
-                        List(){
-                            ForEach(weekModel.filteredHabits(), id: \.self) { habit in
-                                NavigationLink(destination: DescriptionView(habits: habit)
-                                    .onAppear(perform: {
-                                        Aptabase.shared.trackEvent("descriptions", with: ["name": habit.name])
-                                        
-                                    })){
-                                    
-                                    Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
-                                        .tint(.appOrange)
-                                        .onTapGesture {
-                                            habit.isDone.toggle()
-                                            Aptabase.shared.trackEvent("Check", with: ["name": habit.isDone])
+                    VStack(alignment: .center, spacing: 10) {
+                        if(weekModel.filteredHabits().isEmpty){
+                            Image("null")
+                                .resizable()
+                                .scaledToFit()
+                            //                                .frame(width: geometry.size.width * 0.9)
+                        } else {
+                            
+                            List {
+                                ForEach(weekModel.filteredHabits(), id: \.self) { habit in
+                                    NavigationLink(destination: DescriptionView(habits: habit)
+                                        .onAppear(perform: {
+                                            Aptabase.shared.trackEvent("descriptions", with: ["name": habit.name])
+                                            
+                                        })){
+                                            
+                                            
+                                            // Onde o check é checkado
+                                            Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
+                                                .tint(.appOrange)
+                                                .onTapGesture {
+                                                    habit.isDone.toggle()
+                                                    Aptabase.shared.trackEvent("Check", with: ["name": habit.isDone])
+                                                }
+                                            
+                                            Text(habit.name)
+                                                .font(.custom("Digitalt", size: 20))
+                                            // MARK: Aqui precisa customizar os  botões e arrumar o de edição
+                                                .swipeActions {
+                                                    NavigationLink {
+                                                        // EditTaskView(habits: habit)
+                                                    } label: {
+                                                        Image(systemName: "pencil")
+                                                    }
+                                                }
+                                                .swipeActions {
+                                                    Button {
+                                                        weekModel.deleteHabit(habit)
+                                                    } label: {
+                                                        Image(systemName: "trash")
+                                                    }
+                                                    .tint(.red)
+                                                }
                                         }
-                                    
-                                    Text(habit.name)
-                                        .font(.custom("Digitalt", size: 20))
-                                    // MARK: Aqui precisa customizar os  botões e arrumar o de edição
-                                        .swipeActions {
-                                            NavigationLink {
-                                                // EditTaskView(habits: habit)
-                                            } label: {
-                                                Image(systemName: "pencil")
-                                            }
-                                        }
-                                        .swipeActions {
-                                            Button {
-                                                weekModel.deleteHabit(habit)
-                                            } label: {
-                                                Image(systemName: "trash")
-                                            }
-                                            .tint(.red)
-                                        }
-                                }
-                            }.listRowSeparator(.hidden)
-                                .listRowBackground(
-                                    Rectangle()
-                                        .fill(Color.appSuperLightGray)
-                                        .cornerRadius(20)
-                                        .padding(2)
-                                )
+                                }.listRowSeparator(.hidden)
+                                    .listRowBackground(
+                                        Rectangle()
+                                            .fill(Color.appSuperLightGray)
+                                            .cornerRadius(20)
+                                            .padding(2)
+                                    )
+                                
+                            }
+                            .listStyle(.plain)
+                            .environment(\.defaultMinListRowHeight, 70)
+                            
                             
                         }
-                        .listStyle(.plain)
-                        .environment(\.defaultMinListRowHeight, 70)
+                        HabitCountView()
+                        
+                        Spacer()
+                        
                     }
-                    
-                    HabitCountView()
                 }
-                
             }
             .padding(20)
             .background(.appWhite)
