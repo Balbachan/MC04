@@ -17,7 +17,7 @@ struct CalendarView: View {
     @State var isDone: Bool = false
     
     var body: some View {
-        NavigationStack() {
+        NavigationStack {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
                     
@@ -25,6 +25,8 @@ struct CalendarView: View {
                     Text("Bora reagir meu chapa")
                         .font(.custom("Digitalt", size: 28))
                         .fontWeight(.bold)
+                        .padding(20)
+                        
 //                        .background() {
 //                            Image("hidandie")
 //                        }
@@ -50,14 +52,16 @@ struct CalendarView: View {
                                 .bold()
                                 .tint(.appOrange)
                         }
-                    }.padding(.top)
+                    }
+                    .padding(20)
+                    .padding(.top)
                     
                     VStack(alignment: .center, spacing: 10) {
                         if(weekModel.filteredHabits().isEmpty){
                             Image("null")
                                 .resizable()
                                 .scaledToFit()
-                            //                                .frame(width: geometry.size.width * 0.9)
+                            
                         } else {
                             
                             List {
@@ -115,9 +119,9 @@ struct CalendarView: View {
                         Spacer()
                         
                     }
+                    .padding(.horizontal, 20)
                 }
             }
-//            .padding(20)
             .background(.appWhite)
             
         }
