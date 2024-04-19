@@ -207,7 +207,7 @@ class WeekModel: ObservableObject {
             return Color(.appOrange)
         } else if sumDone > 0 && sumDone < habtis.count {
             return Color(.appYellow)
-        } else{
+        } else {
             return Color(.appSuperLightGray)
         }
     }

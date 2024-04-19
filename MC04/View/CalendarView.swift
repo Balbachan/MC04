@@ -25,13 +25,13 @@ struct CalendarView: View {
                     Text("Bora reagir meu chapa")
                         .font(.custom("Digitalt", size: 28))
                         .fontWeight(.bold)
-                        .background() {
-                            Image("hidandie")
-                        }
+//                        .background() {
+//                            Image("hidandie")
+//                        }
                     
                     // Calendar
                     WeekScroll()
-                        .frame(height: geometry.size.height / 5)
+                        .frame(width: geometry.size.width, height: geometry.size.height / 5)
                     
                     // Título Hoje
                     HStack {
@@ -117,7 +117,7 @@ struct CalendarView: View {
                     }
                 }
             }
-            .padding(20)
+//            .padding(20)
             .background(.appWhite)
             
         }
