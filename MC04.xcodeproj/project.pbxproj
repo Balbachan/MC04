@@ -16,7 +16,6 @@
 		1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193733792BC5B50000DFC6C3 /* WeekPicker.swift */; };
 		1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */; };
 		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
-		1956C00F2BD192F9000AD60D /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D82BD0701500BCA918 /* WatchApp.swift */; };
 		19571C612BC872D200E57F59 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19571C602BC872D200E57F59 /* OnboardingView.swift */; };
 		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
 		195C77E72BBC9F20007C8DC9 /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */; };
@@ -32,6 +31,14 @@
 		DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359752BB5E30F00BD70D2 /* CalendarView.swift */; };
 		DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
 		DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
+		DE189F4D2BD3067800359017 /* HabitTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* HabitTemplate.swift */; };
+		DE189F4E2BD3067B00359017 /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */; };
+		DE189F4F2BD3067E00359017 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
+		DE189F502BD3068100359017 /* WeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */; };
+		DE189F512BD3068600359017 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
+		DE189F522BD3068900359017 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
+		DE189F532BD3068B00359017 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */; };
+		DE189F662BD308AC00359017 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE189F632BD3088100359017 /* WatchApp.swift */; };
 		DE63B7D32BD03A1400BCA918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD182BC9FB070056C238 /* Assets.xcassets */; };
 		DE63B7D52BD0580C00BCA918 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */; };
 		DE63B7D72BD0655A00BCA918 /* WeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */; };
@@ -103,9 +110,9 @@
 		DE0359752BB5E30F00BD70D2 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeader.swift; sourceTree = "<group>"; };
 		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
+		DE189F632BD3088100359017 /* WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
 		DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekEnum.swift; sourceTree = "<group>"; };
-		DE63B7D82BD0701500BCA918 /* WatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
 		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 		DE98FB152BCF214300F200CA /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCount.swift; sourceTree = "<group>"; };
@@ -190,7 +197,7 @@
 		19613D092BB48B4600738E6C /* MC04 */ = {
 			isa = PBXGroup;
 			children = (
-				DE63B7D82BD0701500BCA918 /* WatchApp.swift */,
+				DE189F632BD3088100359017 /* WatchApp.swift */,
 				194F742C2BBDE74B008AE4E1 /* Info.plist */,
 				19613D0A2BB48B4600738E6C /* MC04App.swift */,
 				19613D1A2BB4909A00738E6C /* Model */,
@@ -371,7 +378,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1956C00F2BD192F9000AD60D /* WatchApp.swift in Sources */,
+				DE189F4D2BD3067800359017 /* HabitTemplate.swift in Sources */,
+				DE189F4E2BD3067B00359017 /* FontsEnum.swift in Sources */,
+				DE189F4F2BD3067E00359017 /* Habit.swift in Sources */,
+				DE189F522BD3068900359017 /* WeekModel.swift in Sources */,
+				DE189F662BD308AC00359017 /* WatchApp.swift in Sources */,
+				DE189F532BD3068B00359017 /* OnboardingModel.swift in Sources */,
+				DE189F502BD3068100359017 /* WeekEnum.swift in Sources */,
+				DE189F512BD3068600359017 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,19 +436,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DandieWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 8LW8TUQS66;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = laura.MC04;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = braganca.MC04;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = laura.MC04.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -453,19 +467,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DandieWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 8LW8TUQS66;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = laura.MC04;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = braganca.MC04;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = laura.MC04.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -604,7 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC04/Preview Content\"";
-				DEVELOPMENT_TEAM = 8LW8TUQS66;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC04/Info.plist;
@@ -619,7 +633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = laura.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -636,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC04/Preview Content\"";
-				DEVELOPMENT_TEAM = 8LW8TUQS66;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC04/Info.plist;
@@ -651,7 +665,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = laura.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

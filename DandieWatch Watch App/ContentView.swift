@@ -9,7 +9,7 @@ import SwiftUI
 //import SwiftData
 
 struct ContentView: View {
-//    @State private var weekModel: WeekModel
+    @State private var weekModel: WeekModel
 //    
 //    init(modelContext: ModelContext) {
 //        let weekModel = WeekModel(modelContext: modelContext)

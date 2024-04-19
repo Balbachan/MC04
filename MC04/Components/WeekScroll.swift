@@ -11,7 +11,6 @@ import SwiftData
 
 struct WeekScroll: View {
     
-    @State var update = false;
     @EnvironmentObject private var weekModel: WeekModel
         
     var body: some View {
@@ -22,13 +21,9 @@ struct WeekScroll: View {
                         LazyHStack(spacing: 0) {
                             ForEach(weekModel.weeks.indices, id: \.self) { index in
                                 ZStack {
-                                    if update {
                                         WeekHeader(firstDay: weekModel.weeks[index])
                                             .padding(.bottom)
-                                    } else {
-                                        WeekHeader(firstDay: weekModel.weeks[index])
-                                            .padding(.bottom)
-                                    }
+                                   
                                 }
                                 .frame(width: geometry.size.width, height: geometry.size.height )
                                 .onAppear(perform: {
