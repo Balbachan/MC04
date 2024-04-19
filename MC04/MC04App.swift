@@ -11,7 +11,9 @@ import Aptabase
 
 @main
 struct MC04App: App {
-    let container: ModelContainer
+    @AppStorage("teste") var teste: Bool = false
+     let container: ModelContainer
+    
     
     init() {
         do {
@@ -28,6 +30,7 @@ struct MC04App: App {
             ContentView(modelContext: container.mainContext)
                 .onAppear(perform: {
                     Aptabase.shared.trackEvent("app_started") // Abriu o app
+                    teste = true
                 })
         }
     }
