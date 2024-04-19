@@ -11,14 +11,6 @@ struct CalendarWatch: View {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
                     
-                    // Frase de efeito diária
-                    Text("Bora reagir meu chapa")
-                        .font(.custom("Digitalt", size: 28))
-                        .fontWeight(.bold)
-                        .background() {
-                            Image("hidandie")
-                        }
-                    
                     // Calendar
                     WeekScrollWatch()
                         .frame(height: geometry.size.height / 5)
