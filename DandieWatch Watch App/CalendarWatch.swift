@@ -13,7 +13,7 @@ struct CalendarWatch: View {
                     
                     // Calendar
                     WeekScrollWatch()
-                        .frame(height: geometry.size.height / 5)
+                        .frame(height: 100)
                     
                     // Título Hoje
                     HStack {
@@ -24,7 +24,7 @@ struct CalendarWatch: View {
                         NavigationLink {
                             SuggestionWatch()
                                 .onAppear(perform: {
-                                    Aptabase.shared.trackEvent("plusSymbol")
+                                    Aptabase.shared.trackEvent("plusSymbolWatch")
                                     print("plus")
                                 })
                         } label: {
