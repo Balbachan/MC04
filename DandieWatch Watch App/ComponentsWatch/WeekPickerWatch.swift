@@ -125,7 +125,7 @@ struct WeekPickerWatch: View {
         }
         .padding(.top)
         .frame(width: 200)
-        .background(.appWhite)
+//        .background(.appWhite)
         .ignoresSafeArea()
     }
 }
