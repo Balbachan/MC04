@@ -54,6 +54,8 @@ struct CalendarView: View {
                             Image("null")
                                 .resizable()
                                 .scaledToFit()
+                                
+                            
                         } else {
                             List {
                                 ForEach(weekModel.filteredHabits(), id: \.self) { habit in

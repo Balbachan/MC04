@@ -30,47 +30,47 @@ struct EditTaskView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .leading){
-                Spacer()
-                
-                Text("\(habit.desc)")
-                    .font(.custom(FontType.b1.font, size: 15))
-                
-                Spacer()
-                
-                WeekPicker(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks, allWeeks: $allWeeks , weeks: $weeks, hours: $hours, minutes: $minutes)
-                
-                Spacer()
-                
-                // Esse botão aparece só se a pessoa estiver vindo
-                VStack {
-                    Button("Continuar adicionando") {
-                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
-                        weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
-                        Aptabase.shared.trackEvent("Continuar Adicionando") // An event with a custom property
-                        dismiss()
-                    }
-                    .disabled(hasSelectedDays)
-                    .buttonStyle(DandiButtonStyle())
-                    .padding(.bottom)
+            ScrollView {
+                VStack(alignment: .leading){
+                    Text("\(habit.desc)")
+                        .font(.custom(FontType.b1.font, size: 15))
+                        .frame(width: geometry.size.width, height: geometry.size.height * 0.3)
                     
-                    Button("Concluir Rotina") {
-                        weekModel.notification(hours, minutes, selectedDays, allWeeks)
-                        weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
-                        Aptabase.shared.trackEvent("Concluir Rotina") // An event with a custom property
-                        dismissToHome.toggle()
-                        dismiss()
+                    WeekPicker(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks, allWeeks: $allWeeks , weeks: $weeks, hours: $hours, minutes: $minutes)
+                        .padding(.bottom, 30)
+                        
+                
+                    
+                    // Esse botão aparece só se a pessoa estiver vindo
+                    VStack {
+                        Button("Continuar adicionando") {
+                            weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                            weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                            Aptabase.shared.trackEvent("Continuar Adicionando") // An event with a custom property
+                            dismiss()
+                        }
+                        .disabled(hasSelectedDays)
+                        .buttonStyle(DandiButtonStyle())
+                        .padding(.bottom)
+                        
+                        Button("Concluir Rotina") {
+                            weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                            weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                            Aptabase.shared.trackEvent("Concluir Rotina") // An event with a custom property
+                            dismissToHome.toggle()
+                            dismiss()
+                        }
+                        .buttonStyle(DandiButtonStyle(isOrange: false))
+                    }.frame(height: 160)
+                    
+                    
+                }.onAppear(perform: {
+                    if let habitModel = habitModel {
+                        self.habit = habitModel.newHabits()
                     }
-                    .buttonStyle(DandiButtonStyle(isOrange: false))
-                }.frame(height: 160)
-                
-                
-            }.onAppear(perform: {
-                if let habitModel = habitModel {
-                    self.habit = habitModel.newHabits()
-                }
-            })
+                })
             .navigationTitle("\(habit.name)")
+            }
         }
         .padding(.horizontal)
         .background(.appWhite)

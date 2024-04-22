@@ -48,7 +48,7 @@ struct SuggestionsView: View {
             .scrollIndicators(.hidden)
             .padding(.horizontal, 40)
         }
-        .navigationTitle("Hábitos")
+//        .navigationTitle("Hábitos")
         .navigationBarTitleDisplayMode(.large)
         .background(.appWhite)
         .onAppear(){

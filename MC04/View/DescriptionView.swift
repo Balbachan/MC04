@@ -10,7 +10,6 @@ import SwiftData
 
 struct DescriptionView: View {
     @EnvironmentObject private var weekModel: WeekModel
-    
     @Bindable var habits: Habit
     
     var body: some View {
