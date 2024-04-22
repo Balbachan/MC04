@@ -17,33 +17,35 @@ import SwiftUI
 import SwiftData
 
 struct WeekScrollWatch: View {
-    @EnvironmentObject private var viewModel: WeekModel
-    @State var update = false;
-        
+    
+    @EnvironmentObject private var weekModel: WeekModel
+//    @Environment private var wh: WeekHeader
+    @AppStorage("teste") var teste: Bool = true
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollViewReader { value in
                 VStack {
                     ScrollView(.horizontal) {
-                        LazyHStack(spacing: 9) {
-                            ForEach(viewModel.weeks.indices, id: \.self) { index in
+                        LazyHStack(spacing: 0) {
+                            ForEach(weekModel.weeks.indices, id: \.self) { index in
                                 ZStack {
-                                    if update {
-                                        WeekHeaderWatch(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                    } else {
-                                        WeekHeaderWatch(firstDay: viewModel.weeks[index], selectedDate: $viewModel.selectedDate)
-                                    }
+                                    WeekHeaderWatch(firstDay: weekModel.weeks[index])
+                                        .padding(.bottom)
                                 }
-                                .frame(width: geometry.size.width, height: 110)
+                                .frame(width: geometry.size.width, height: geometry.size.height)
                                 .onAppear(perform: {
-                                    value.scrollTo(Int(viewModel.weeks.count / 2))
+                                    if teste {
+                                        value.scrollTo(Int(weekModel.weeks.count / 2))
+                                        teste = false
+                                    }
                                 })
                             }
                         }
                         .scrollTargetLayout()
                     }
-//                    .scrollTargetBehavior(.viewAligned)
-                    
+                    .scrollIndicators(.hidden)
+                    .scrollTargetBehavior(.viewAligned)
                 }
             }
         }
@@ -55,3 +57,4 @@ struct WeekScrollWatch: View {
     WeekScrollWatch()
         .environmentObject(WeekModel(modelContext: try! ModelContainer(for: Habit.self).mainContext))
 }
+

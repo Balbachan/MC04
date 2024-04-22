@@ -13,8 +13,8 @@ import Aptabase
 struct CalendarView: View {
     @AppStorage("isOnboarding") var showOnboarding: Bool = true
     @EnvironmentObject private var weekModel: WeekModel
-    @State var date: Date = Date()
-    @State var isDone: Bool = false
+//    @State var date: Date = Date()
+//    @State var isDone: Bool = false
     
     var body: some View {
         NavigationStack {
