@@ -31,7 +31,7 @@ struct WeekScrollWatch: View {
                             ForEach(weekModel.weeks.indices, id: \.self) { index in
                                 ZStack {
                                     WeekHeaderWatch(firstDay: weekModel.weeks[index])
-                                        .padding(.bottom)
+                                        .padding(.top)
                                 }
                                 .frame(width: geometry.size.width, height: geometry.size.height)
                                 .onAppear(perform: {
@@ -44,6 +44,7 @@ struct WeekScrollWatch: View {
                         }
                         .scrollTargetLayout()
                     }
+                    .ignoresSafeArea()
                     .scrollIndicators(.hidden)
                     .scrollTargetBehavior(.viewAligned)
                 }

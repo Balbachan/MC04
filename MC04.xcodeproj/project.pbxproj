@@ -56,6 +56,7 @@
 		DE63B7D52BD0580C00BCA918 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */; };
 		DE63B7D72BD0655A00BCA918 /* WeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */; };
 		DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A20652BB96E7A00D85214 /* WeekScroll.swift */; };
+		DE901DC12BD6DDCD00E15184 /* WeekEnumWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE901DC02BD6DDCD00E15184 /* WeekEnumWatch.swift */; };
 		DE98FB162BCF214300F200CA /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
 		DEFD19F42BCF4CF60023FAAD /* HabitCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */; };
 /* End PBXBuildFile section */
@@ -127,6 +128,7 @@
 		DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekEnum.swift; sourceTree = "<group>"; };
 		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
+		DE901DC02BD6DDCD00E15184 /* WeekEnumWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekEnumWatch.swift; sourceTree = "<group>"; };
 		DE98FB152BCF214300F200CA /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,9 +160,9 @@
 				002FCD282BC9FB4A0056C238 /* CalendarWatch.swift */,
 				002FCD2C2BC9FB810056C238 /* DescriptionWatch.swift */,
 				002FCD2E2BC9FBA50056C238 /* EditTaskWatch.swift */,
-				002FCD3E2BC9FC610056C238 /* WeekScrollWatch.swift */,
-				002FCD362BC9FC140056C238 /* SuggestionWatch.swift */,
 				002FCD342BC9FBFA0056C238 /* FontEnumWatch.swift */,
+				002FCD362BC9FC140056C238 /* SuggestionWatch.swift */,
+				DE901DBF2BD6DDAE00E15184 /* WatchModel */,
 				DE189F792BD30C7C00359017 /* ComponentsWatch */,
 				002FCD182BC9FB070056C238 /* Assets.xcassets */,
 				002FCD1A2BC9FB070056C238 /* Preview Content */,
@@ -285,8 +287,17 @@
 				002FCD3C2BC9FC490056C238 /* WeekPickerWatch.swift */,
 				002FCD322BC9FBD80056C238 /* SuggestionButtonWatch.swift */,
 				002FCD382BC9FC260056C238 /* TimePickerWatch.swift */,
+				002FCD3E2BC9FC610056C238 /* WeekScrollWatch.swift */,
 			);
 			path = ComponentsWatch;
+			sourceTree = "<group>";
+		};
+		DE901DBF2BD6DDAE00E15184 /* WatchModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE901DC02BD6DDCD00E15184 /* WeekEnumWatch.swift */,
+			);
+			path = WatchModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +424,7 @@
 				DE189F6E2BD30B5B00359017 /* ContentView.swift in Sources */,
 				DE189F762BD30B7200359017 /* WeekScrollWatch.swift in Sources */,
 				DE189F732BD30B6B00359017 /* EditTaskWatch.swift in Sources */,
+				DE901DC12BD6DDCD00E15184 /* WeekEnumWatch.swift in Sources */,
 				DE189F4F2BD3067E00359017 /* Habit.swift in Sources */,
 				DE189F6B2BD30AFE00359017 /* CalendarWatch.swift in Sources */,
 				DE189F6F2BD30B6000359017 /* DandiButtonWatch.swift in Sources */,
@@ -473,19 +485,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DandieWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 8T6XBC66CF;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = andreucci.MC04;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = braganca.MC04;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -504,19 +516,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DandieWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 8T6XBC66CF;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = andreucci.MC04;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = braganca.MC04;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -655,7 +667,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC04/Preview Content\"";
-				DEVELOPMENT_TEAM = 8T6XBC66CF;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC04/Info.plist;
@@ -670,7 +682,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -687,7 +699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC04/Preview Content\"";
-				DEVELOPMENT_TEAM = 8T6XBC66CF;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MC04/Info.plist;
@@ -702,7 +714,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = andreucci.MC04;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
