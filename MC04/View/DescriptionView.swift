@@ -7,11 +7,13 @@
 
 import SwiftUI
 import SwiftData
+import Aptabase
 
 struct DescriptionView: View {
     @EnvironmentObject private var weekModel: WeekModel
-    
     @Bindable var habits: Habit
+    //    let product: Product
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -22,10 +24,40 @@ struct DescriptionView: View {
                     
                     Text("\(habits.desc)")
                         .font(.custom(FontType.b1.font, size: FontType.b2.rawValue))
+                        .padding(.bottom)
+                    
+                    Text("Dica de produtos")
+                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                    
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack {
+                            ForEach(products, id: \.self) { product in
+                                ProductDetailsView(product: product)
+                            }
+                        }
+                    }
+                    
+                    
+                    HStack{
+                        Text("Cupom de desconto:")
+                        
+                        Link(destination: URL(string: "https://www.mener.com.br/discount/DANDIE10")!, label: {
+                            Text("DANDIE10")
+                                .underline()
+                        })  .environment(\.openURL, OpenURLAction(handler: { url in
+                            Aptabase.shared.trackEvent("CupomDandie")
+                            return .systemAction
+                        }))
+                        
+                    }
+                    
+                    
                     
                     Text("Como fazer")
                         .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
                         .padding(.top, 20)
+                    
+                    
                     
                     // Descrição dos hábitos
                     ForEach(habits.steps, id: \.self) { step in

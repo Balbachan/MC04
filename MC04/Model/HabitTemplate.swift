@@ -19,7 +19,7 @@ struct HabitTemplate: Identifiable, Hashable {
     var steps: [[String]]
     var images: String
     
-    func newHabits() -> Habit {
+    func newHabits() -> Habit { 
         return Habit(id: UUID(), name: self.name, isDone: false, desc: self.desc, steps: self.steps, images: self.images, startDate: Date(), finalDate: Date(), daysOfWeek: [], time: Date())
     }
 }
