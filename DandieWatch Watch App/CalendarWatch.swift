@@ -37,6 +37,7 @@ struct CalendarWatch: View {
                     VStack(alignment: .center, spacing: 10) {
                         if(weekModel.filteredHabits().isEmpty){
                             Text("Você ainda não adicionou tarefas para hoje")
+                                .padding(.horizontal)
                                 .foregroundStyle(.appDarkGray)
 
                         } else {
