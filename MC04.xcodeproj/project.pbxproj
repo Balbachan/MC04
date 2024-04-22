@@ -10,6 +10,9 @@
 		002FCD1C2BC9FB070056C238 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD1B2BC9FB070056C238 /* Preview Assets.xcassets */; };
 		002FCD1F2BC9FB070056C238 /* DandieWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0054423D2BD13347008BA237 /* Aptabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0054423C2BD13347008BA237 /* Aptabase */; };
+		00835B9B2BD683B000347118 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00835B9A2BD683B000347118 /* ProductDetailsView.swift */; };
+		00835B9E2BD6850900347118 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00835B9D2BD6850900347118 /* Product.swift */; };
+		00835B9F2BD6850900347118 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00835B9D2BD6850900347118 /* Product.swift */; };
 		00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */; };
 		00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83242BBE067900C0B713 /* DescriptionView.swift */; };
 		1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */; };
@@ -99,6 +102,8 @@
 		002FCD3A2BC9FC360056C238 /* WeekHeaderWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderWatch.swift; sourceTree = "<group>"; };
 		002FCD3C2BC9FC490056C238 /* WeekPickerWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPickerWatch.swift; sourceTree = "<group>"; };
 		002FCD3E2BC9FC610056C238 /* WeekScrollWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScrollWatch.swift; sourceTree = "<group>"; };
+		00835B9A2BD683B000347118 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		00835B9D2BD6850900347118 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		00CA83242BBE067900C0B713 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonStyle.swift; sourceTree = "<group>"; };
@@ -231,6 +236,7 @@
 			children = (
 				19613D182BB4908E00738E6C /* HabitTemplate.swift */,
 				195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */,
+				00835B9D2BD6850900347118 /* Product.swift */,
 				DE98FB152BCF214300F200CA /* Habit.swift */,
 				DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */,
 			);
@@ -266,6 +272,7 @@
 				DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */,
 				DE7A20652BB96E7A00D85214 /* WeekScroll.swift */,
 				1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */,
+				00835B9A2BD683B000347118 /* ProductDetailsView.swift */,
 				193733792BC5B50000DFC6C3 /* WeekPicker.swift */,
 				1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */,
 				19BF31682BC99F0500549AB5 /* OnboardingButtonStyle.swift */,
@@ -419,6 +426,7 @@
 				DE189F502BD3068100359017 /* WeekEnum.swift in Sources */,
 				DE189F512BD3068600359017 /* ViewModel.swift in Sources */,
 				DE189F6D2BD30B5700359017 /* SuggestionWatch.swift in Sources */,
+				00835B9F2BD6850900347118 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +439,14 @@
 				00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */,
 				00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */,
 				1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */,
+				00835B9B2BD683B000347118 /* ProductDetailsView.swift in Sources */,
 				1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */,
 				19BF31692BC99F0500549AB5 /* OnboardingButtonStyle.swift in Sources */,
 				DE63B7D72BD0655A00BCA918 /* WeekEnum.swift in Sources */,
 				DE98FB162BCF214300F200CA /* Habit.swift in Sources */,
 				DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */,
 				DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */,
+				00835B9E2BD6850900347118 /* Product.swift in Sources */,
 				DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */,
 				DE63B7D52BD0580C00BCA918 /* OnboardingModel.swift in Sources */,
 				195C77E72BBC9F20007C8DC9 /* FontsEnum.swift in Sources */,

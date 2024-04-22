@@ -25,6 +25,9 @@ struct ViewModel: Observable {
     ]
     
     let phrases: [String] = ["Se não quiser virar uma uva passa, comece a usar protetor solar!", "Se não quiser virar uma protetor solar, comece a usar uva passa!"]
+    
+  
+    
 }
 
 

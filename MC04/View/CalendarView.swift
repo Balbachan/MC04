@@ -66,7 +66,7 @@ struct CalendarView: View {
                             
                             List {
                                 ForEach(weekModel.filteredHabits(), id: \.self) { habit in
-                                    NavigationLink(destination: DescriptionView(habits: habit)
+                                    NavigationLink(destination: DescriptionView(habits: habit, product: <#Product#>)
                                         .onAppear(perform: {
                                             Aptabase.shared.trackEvent("descriptions", with: ["name": habit.name])
                                             
