@@ -18,6 +18,12 @@ struct EditTaskWatch: View {
     @State var selectedDaysTwo: [DayOfWeekTwo] = []
     @State var numberOfWeeks: Int = 1
     
+    @State var allWeeks: Bool = false
+    @State var weeks: [Int] = [1,2,3,4,5]
+    @State var hours: Int = 0
+    @State var minutes: Int = 0
+    @State var hasSelectedDays: Bool = false
+    
     var habitTemplate: HabitTemplate?
     
     private func saveHabit() {
@@ -43,8 +49,9 @@ struct EditTaskWatch: View {
     
     var body: some View {
         NavigationStack{
-            VStack {
-                WeekPickerWatch(selectedDaysOne: $selectedDaysOne, selectedDaysTwo: $selectedDaysTwo, numberOfWeeks: $numberOfWeeks)
+            ZStack(){
+                WeekPickerWatch(selectedDaysOne: $selectedDaysOne, selectedDaysTwo: $selectedDaysTwo, numberOfWeeks: $numberOfWeeks, allWeeks: $allWeeks , weeks: $weeks, hours: $hours, minutes: $minutes)
+                    .padding(.top,25)
                 
                 // Esse botão aparece só se a pessoa estiver vindo
                 
@@ -52,7 +59,7 @@ struct EditTaskWatch: View {
                     saveHabit()
                     dismiss()
                     print(habit.name)
-                }
+                } .padding(.top,180)
                 .buttonStyle(DandiButtonWatch())
             }.onAppear(perform: {
                 if let habitModel = habitTemplate {
@@ -60,7 +67,7 @@ struct EditTaskWatch: View {
                 }
             })
             .padding(.horizontal)
-        }
+        }.background(.appWhite)
     }
 }
 
