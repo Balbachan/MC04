@@ -7,43 +7,197 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002FCD1C2BC9FB070056C238 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD1B2BC9FB070056C238 /* Preview Assets.xcassets */; };
+		002FCD1F2BC9FB070056C238 /* DandieWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0054423D2BD13347008BA237 /* Aptabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0054423C2BD13347008BA237 /* Aptabase */; };
+		00835B9B2BD683B000347118 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00835B9A2BD683B000347118 /* ProductDetailsView.swift */; };
+		00835B9E2BD6850900347118 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00835B9D2BD6850900347118 /* Product.swift */; };
+		00835B9F2BD6850900347118 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00835B9D2BD6850900347118 /* Product.swift */; };
+		00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */; };
+		00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CA83242BBE067900C0B713 /* DescriptionView.swift */; };
+		1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */; };
+		1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193733792BC5B50000DFC6C3 /* WeekPicker.swift */; };
+		1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */; };
+		193D1F392BD6DB4D0073167A /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D1F382BD6DB4D0073167A /* CalendarHeader.swift */; };
+		194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194F742E2BBDE845008AE4E1 /* Digitalt.ttf */; };
+		19571C612BC872D200E57F59 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19571C602BC872D200E57F59 /* OnboardingView.swift */; };
+		195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E42BBC858D007C8DC9 /* EditTaskView.swift */; };
+		195C77E72BBC9F20007C8DC9 /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */; };
 		19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0A2BB48B4600738E6C /* MC04App.swift */; };
 		19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0C2BB48B4600738E6C /* ContentView.swift */; };
 		19613D0F2BB48B4800738E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D0E2BB48B4800738E6C /* Assets.xcassets */; };
 		19613D122BB48B4800738E6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19613D112BB48B4800738E6C /* Preview Assets.xcassets */; };
-		19613D192BB4908E00738E6C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* Model.swift */; };
-		19613D1C2BB490AD00738E6C /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1B2BB490AD00738E6C /* SomeView.swift */; };
+		19613D192BB4908E00738E6C /* HabitTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* HabitTemplate.swift */; };
 		19613D202BB4914E00738E6C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
-		19613D242BB492A300738E6C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D232BB492A300738E6C /* Components.swift */; };
+		198BC0CC2BC704C100B482EE /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */; };
+		198BC0CE2BC704D300B482EE /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */; };
+		19BF31692BC99F0500549AB5 /* OnboardingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BF31682BC99F0500549AB5 /* OnboardingButtonStyle.swift */; };
+		DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359752BB5E30F00BD70D2 /* CalendarView.swift */; };
+		DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */; };
+		DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
+		DE189F4D2BD3067800359017 /* HabitTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D182BB4908E00738E6C /* HabitTemplate.swift */; };
+		DE189F4E2BD3067B00359017 /* FontsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */; };
+		DE189F4F2BD3067E00359017 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
+		DE189F502BD3068100359017 /* WeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */; };
+		DE189F512BD3068600359017 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D1F2BB4914E00738E6C /* ViewModel.swift */; };
+		DE189F522BD3068900359017 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03597D2BB627B000BD70D2 /* WeekModel.swift */; };
+		DE189F6B2BD30AFE00359017 /* CalendarWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD282BC9FB4A0056C238 /* CalendarWatch.swift */; };
+		DE189F6D2BD30B5700359017 /* SuggestionWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD362BC9FC140056C238 /* SuggestionWatch.swift */; };
+		DE189F6E2BD30B5B00359017 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD162BC9FB060056C238 /* ContentView.swift */; };
+		DE189F6F2BD30B6000359017 /* DandiButtonWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD2A2BC9FB630056C238 /* DandiButtonWatch.swift */; };
+		DE189F702BD30B6200359017 /* WeekHeaderWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD3A2BC9FC360056C238 /* WeekHeaderWatch.swift */; };
+		DE189F712BD30B6500359017 /* DescriptionWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD2C2BC9FB810056C238 /* DescriptionWatch.swift */; };
+		DE189F722BD30B6800359017 /* WeekPickerWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD3C2BC9FC490056C238 /* WeekPickerWatch.swift */; };
+		DE189F732BD30B6B00359017 /* EditTaskWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD2E2BC9FBA50056C238 /* EditTaskWatch.swift */; };
+		DE189F742BD30B6D00359017 /* SuggestionButtonWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD322BC9FBD80056C238 /* SuggestionButtonWatch.swift */; };
+		DE189F752BD30B7000359017 /* TimePickerWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD382BC9FC260056C238 /* TimePickerWatch.swift */; };
+		DE189F762BD30B7200359017 /* WeekScrollWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD3E2BC9FC610056C238 /* WeekScrollWatch.swift */; };
+		DE189F772BD30B7800359017 /* FontEnumWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002FCD342BC9FBFA0056C238 /* FontEnumWatch.swift */; };
+		DE189F7B2BD30D3D00359017 /* Aptabase in Frameworks */ = {isa = PBXBuildFile; productRef = DE189F7A2BD30D3D00359017 /* Aptabase */; };
+		DE189F7C2BD30D6A00359017 /* MC04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19613D0A2BB48B4600738E6C /* MC04App.swift */; };
+		DE63B7D32BD03A1400BCA918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002FCD182BC9FB070056C238 /* Assets.xcassets */; };
+		DE63B7D52BD0580C00BCA918 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */; };
+		DE63B7D72BD0655A00BCA918 /* WeekEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */; };
+		DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7A20652BB96E7A00D85214 /* WeekScroll.swift */; };
+		DE901DC12BD6DDCD00E15184 /* WeekEnumWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE901DC02BD6DDCD00E15184 /* WeekEnumWatch.swift */; };
+		DE98FB162BCF214300F200CA /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98FB152BCF214300F200CA /* Habit.swift */; };
+		DEFD19F42BCF4CF60023FAAD /* HabitCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		002FCD1D2BC9FB070056C238 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19613CFF2BB48B4600738E6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 002FCD112BC9FB060056C238;
+			remoteInfo = "DandieWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		002FCCEB2BC9F86C0056C238 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				002FCD1F2BC9FB070056C238 /* DandieWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		19613D072BB48B4600738E6C /* MC04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC04.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DandieWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		002FCD162BC9FB060056C238 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		002FCD182BC9FB070056C238 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		002FCD1B2BC9FB070056C238 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		002FCD282BC9FB4A0056C238 /* CalendarWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWatch.swift; sourceTree = "<group>"; };
+		002FCD2A2BC9FB630056C238 /* DandiButtonWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DandiButtonWatch.swift; sourceTree = "<group>"; };
+		002FCD2C2BC9FB810056C238 /* DescriptionWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionWatch.swift; sourceTree = "<group>"; };
+		002FCD2E2BC9FBA50056C238 /* EditTaskWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskWatch.swift; sourceTree = "<group>"; };
+		002FCD322BC9FBD80056C238 /* SuggestionButtonWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonWatch.swift; sourceTree = "<group>"; };
+		002FCD342BC9FBFA0056C238 /* FontEnumWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEnumWatch.swift; sourceTree = "<group>"; };
+		002FCD362BC9FC140056C238 /* SuggestionWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionWatch.swift; sourceTree = "<group>"; };
+		002FCD382BC9FC260056C238 /* TimePickerWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerWatch.swift; sourceTree = "<group>"; };
+		002FCD3A2BC9FC360056C238 /* WeekHeaderWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderWatch.swift; sourceTree = "<group>"; };
+		002FCD3C2BC9FC490056C238 /* WeekPickerWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPickerWatch.swift; sourceTree = "<group>"; };
+		002FCD3E2BC9FC610056C238 /* WeekScrollWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScrollWatch.swift; sourceTree = "<group>"; };
+		00835B9A2BD683B000347118 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		00835B9D2BD6850900347118 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
+		00CA83242BBE067900C0B713 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionButtonStyle.swift; sourceTree = "<group>"; };
+		193733792BC5B50000DFC6C3 /* WeekPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekPicker.swift; sourceTree = "<group>"; };
+		1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DandiButtonStyle.swift; sourceTree = "<group>"; };
+		193D1F382BD6DB4D0073167A /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
+		194F742C2BBDE74B008AE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		194F742E2BBDE845008AE4E1 /* Digitalt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Digitalt.ttf; sourceTree = "<group>"; };
+		19571C602BC872D200E57F59 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		195C77E42BBC858D007C8DC9 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsEnum.swift; sourceTree = "<group>"; };
+		19613D072BB48B4600738E6C /* Dandie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dandie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19613D0A2BB48B4600738E6C /* MC04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC04App.swift; sourceTree = "<group>"; };
 		19613D0C2BB48B4600738E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19613D0E2BB48B4800738E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19613D112BB48B4800738E6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		19613D182BB4908E00738E6C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		19613D1B2BB490AD00738E6C /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
+		19613D182BB4908E00738E6C /* HabitTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTemplate.swift; sourceTree = "<group>"; };
 		19613D1F2BB4914E00738E6C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		19613D232BB492A300738E6C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-ExtraBold.ttf"; sourceTree = "<group>"; };
+		198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-SemiBold.ttf"; sourceTree = "<group>"; };
+		19BF31682BC99F0500549AB5 /* OnboardingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonStyle.swift; sourceTree = "<group>"; };
+		DE0359752BB5E30F00BD70D2 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeader.swift; sourceTree = "<group>"; };
+		DE03597D2BB627B000BD70D2 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
+		DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekEnum.swift; sourceTree = "<group>"; };
+		DE7A20652BB96E7A00D85214 /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
+		DE901DC02BD6DDCD00E15184 /* WeekEnumWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekEnumWatch.swift; sourceTree = "<group>"; };
+		DE98FB152BCF214300F200CA /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		002FCD0F2BC9FB060056C238 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE189F7B2BD30D3D00359017 /* Aptabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19613D042BB48B4600738E6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0054423D2BD13347008BA237 /* Aptabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002FCD132BC9FB060056C238 /* DandieWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				002FCD162BC9FB060056C238 /* ContentView.swift */,
+				002FCD282BC9FB4A0056C238 /* CalendarWatch.swift */,
+				002FCD2C2BC9FB810056C238 /* DescriptionWatch.swift */,
+				002FCD2E2BC9FBA50056C238 /* EditTaskWatch.swift */,
+				002FCD342BC9FBFA0056C238 /* FontEnumWatch.swift */,
+				002FCD362BC9FC140056C238 /* SuggestionWatch.swift */,
+				DE901DBF2BD6DDAE00E15184 /* WatchModel */,
+				DE189F792BD30C7C00359017 /* ComponentsWatch */,
+				002FCD182BC9FB070056C238 /* Assets.xcassets */,
+				002FCD1A2BC9FB070056C238 /* Preview Content */,
+			);
+			path = "DandieWatch Watch App";
+			sourceTree = "<group>";
+		};
+		002FCD1A2BC9FB070056C238 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				002FCD1B2BC9FB070056C238 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		194F742D2BBDE82C008AE4E1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				194F742E2BBDE845008AE4E1 /* Digitalt.ttf */,
+				198BC0CB2BC704C100B482EE /* Assistant-ExtraBold.ttf */,
+				198BC0CD2BC704D300B482EE /* Assistant-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		19613CFE2BB48B4600738E6C = {
 			isa = PBXGroup;
 			children = (
 				19613D092BB48B4600738E6C /* MC04 */,
+				002FCD132BC9FB060056C238 /* DandieWatch Watch App */,
 				19613D082BB48B4600738E6C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,7 +205,8 @@
 		19613D082BB48B4600738E6C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				19613D072BB48B4600738E6C /* MC04.app */,
+				19613D072BB48B4600738E6C /* Dandie.app */,
+				002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,11 +214,13 @@
 		19613D092BB48B4600738E6C /* MC04 */ = {
 			isa = PBXGroup;
 			children = (
+				194F742C2BBDE74B008AE4E1 /* Info.plist */,
 				19613D0A2BB48B4600738E6C /* MC04App.swift */,
 				19613D1A2BB4909A00738E6C /* Model */,
 				19613D212BB4915D00738E6C /* ViewModel */,
 				19613D1E2BB4910B00738E6C /* View */,
 				19613D222BB4928400738E6C /* Components */,
+				194F742D2BBDE82C008AE4E1 /* Fonts */,
 				19613D0E2BB48B4800738E6C /* Assets.xcassets */,
 				19613D102BB48B4800738E6C /* Preview Content */,
 			);
@@ -81,7 +238,11 @@
 		19613D1A2BB4909A00738E6C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19613D182BB4908E00738E6C /* Model.swift */,
+				19613D182BB4908E00738E6C /* HabitTemplate.swift */,
+				195C77E62BBC9F20007C8DC9 /* FontsEnum.swift */,
+				00835B9D2BD6850900347118 /* Product.swift */,
+				DE98FB152BCF214300F200CA /* Habit.swift */,
+				DE63B7D62BD0655A00BCA918 /* WeekEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -90,7 +251,11 @@
 			isa = PBXGroup;
 			children = (
 				19613D0C2BB48B4600738E6C /* ContentView.swift */,
-				19613D1B2BB490AD00738E6C /* SomeView.swift */,
+				DE0359752BB5E30F00BD70D2 /* CalendarView.swift */,
+				195C77E42BBC858D007C8DC9 /* EditTaskView.swift */,
+				00CA83222BBDD3D500C0B713 /* SuggestionsView.swift */,
+				00CA83242BBE067900C0B713 /* DescriptionView.swift */,
+				19571C602BC872D200E57F59 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				19613D1F2BB4914E00738E6C /* ViewModel.swift */,
+				DE03597D2BB627B000BD70D2 /* WeekModel.swift */,
+				DE63B7D42BD0580C00BCA918 /* OnboardingModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -106,29 +273,83 @@
 		19613D222BB4928400738E6C /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				19613D232BB492A300738E6C /* Components.swift */,
+				DE0359772BB5E34B00BD70D2 /* WeekHeader.swift */,
+				DE7A20652BB96E7A00D85214 /* WeekScroll.swift */,
+				1912EFB72BBF223200ABF757 /* SuggestionButtonStyle.swift */,
+				00835B9A2BD683B000347118 /* ProductDetailsView.swift */,
+				193733792BC5B50000DFC6C3 /* WeekPicker.swift */,
+				1937337B2BC5B95100DFC6C3 /* DandiButtonStyle.swift */,
+				19BF31682BC99F0500549AB5 /* OnboardingButtonStyle.swift */,
+				DEFD19F32BCF4CF60023FAAD /* HabitCount.swift */,
+				193D1F382BD6DB4D0073167A /* CalendarHeader.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		DE189F792BD30C7C00359017 /* ComponentsWatch */ = {
+			isa = PBXGroup;
+			children = (
+				002FCD2A2BC9FB630056C238 /* DandiButtonWatch.swift */,
+				002FCD3A2BC9FC360056C238 /* WeekHeaderWatch.swift */,
+				002FCD3C2BC9FC490056C238 /* WeekPickerWatch.swift */,
+				002FCD322BC9FBD80056C238 /* SuggestionButtonWatch.swift */,
+				002FCD382BC9FC260056C238 /* TimePickerWatch.swift */,
+				002FCD3E2BC9FC610056C238 /* WeekScrollWatch.swift */,
+			);
+			path = ComponentsWatch;
+			sourceTree = "<group>";
+		};
+		DE901DBF2BD6DDAE00E15184 /* WatchModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE901DC02BD6DDCD00E15184 /* WeekEnumWatch.swift */,
+			);
+			path = WatchModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		19613D062BB48B4600738E6C /* MC04 */ = {
+		002FCD112BC9FB060056C238 /* DandieWatch Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "MC04" */;
+			buildConfigurationList = 002FCD202BC9FB070056C238 /* Build configuration list for PBXNativeTarget "DandieWatch Watch App" */;
 			buildPhases = (
-				19613D032BB48B4600738E6C /* Sources */,
-				19613D042BB48B4600738E6C /* Frameworks */,
-				19613D052BB48B4600738E6C /* Resources */,
+				002FCD0E2BC9FB060056C238 /* Sources */,
+				002FCD0F2BC9FB060056C238 /* Frameworks */,
+				002FCD102BC9FB060056C238 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MC04;
+			name = "DandieWatch Watch App";
+			packageProductDependencies = (
+				DE189F7A2BD30D3D00359017 /* Aptabase */,
+			);
+			productName = "DandieWatch Watch App";
+			productReference = 002FCD122BC9FB060056C238 /* DandieWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		19613D062BB48B4600738E6C /* Dandie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "Dandie" */;
+			buildPhases = (
+				19613D032BB48B4600738E6C /* Sources */,
+				19613D042BB48B4600738E6C /* Frameworks */,
+				19613D052BB48B4600738E6C /* Resources */,
+				002FCCEB2BC9F86C0056C238 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				002FCD1E2BC9FB070056C238 /* PBXTargetDependency */,
+			);
+			name = Dandie;
+			packageProductDependencies = (
+				0054423C2BD13347008BA237 /* Aptabase */,
+			);
 			productName = MC04;
-			productReference = 19613D072BB48B4600738E6C /* MC04.app */;
+			productReference = 19613D072BB48B4600738E6C /* Dandie.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -141,6 +362,9 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					002FCD112BC9FB060056C238 = {
+						CreatedOnToolsVersion = 15.3;
+					};
 					19613D062BB48B4600738E6C = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -155,44 +379,176 @@
 				Base,
 			);
 			mainGroup = 19613CFE2BB48B4600738E6C;
+			packageReferences = (
+				0054423B2BD13270008BA237 /* XCRemoteSwiftPackageReference "aptabase-swift" */,
+			);
 			productRefGroup = 19613D082BB48B4600738E6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				19613D062BB48B4600738E6C /* MC04 */,
+				19613D062BB48B4600738E6C /* Dandie */,
+				002FCD112BC9FB060056C238 /* DandieWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		002FCD102BC9FB060056C238 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE63B7D32BD03A1400BCA918 /* Assets.xcassets in Resources */,
+				002FCD1C2BC9FB070056C238 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19613D052BB48B4600738E6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198BC0CC2BC704C100B482EE /* Assistant-ExtraBold.ttf in Resources */,
 				19613D122BB48B4800738E6C /* Preview Assets.xcassets in Resources */,
 				19613D0F2BB48B4800738E6C /* Assets.xcassets in Resources */,
+				198BC0CE2BC704D300B482EE /* Assistant-SemiBold.ttf in Resources */,
+				194F742F2BBDE845008AE4E1 /* Digitalt.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		002FCD0E2BC9FB060056C238 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE189F4D2BD3067800359017 /* HabitTemplate.swift in Sources */,
+				DE189F742BD30B6D00359017 /* SuggestionButtonWatch.swift in Sources */,
+				DE189F752BD30B7000359017 /* TimePickerWatch.swift in Sources */,
+				DE189F722BD30B6800359017 /* WeekPickerWatch.swift in Sources */,
+				DE189F4E2BD3067B00359017 /* FontsEnum.swift in Sources */,
+				DE189F7C2BD30D6A00359017 /* MC04App.swift in Sources */,
+				DE189F772BD30B7800359017 /* FontEnumWatch.swift in Sources */,
+				DE189F6E2BD30B5B00359017 /* ContentView.swift in Sources */,
+				DE189F762BD30B7200359017 /* WeekScrollWatch.swift in Sources */,
+				DE189F732BD30B6B00359017 /* EditTaskWatch.swift in Sources */,
+				DE901DC12BD6DDCD00E15184 /* WeekEnumWatch.swift in Sources */,
+				DE189F4F2BD3067E00359017 /* Habit.swift in Sources */,
+				DE189F6B2BD30AFE00359017 /* CalendarWatch.swift in Sources */,
+				DE189F6F2BD30B6000359017 /* DandiButtonWatch.swift in Sources */,
+				DE189F702BD30B6200359017 /* WeekHeaderWatch.swift in Sources */,
+				DE189F522BD3068900359017 /* WeekModel.swift in Sources */,
+				DE189F712BD30B6500359017 /* DescriptionWatch.swift in Sources */,
+				DE189F502BD3068100359017 /* WeekEnum.swift in Sources */,
+				DE189F512BD3068600359017 /* ViewModel.swift in Sources */,
+				DE189F6D2BD30B5700359017 /* SuggestionWatch.swift in Sources */,
+				00835B9F2BD6850900347118 /* Product.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19613D032BB48B4600738E6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE0359782BB5E34B00BD70D2 /* WeekHeader.swift in Sources */,
 				19613D202BB4914E00738E6C /* ViewModel.swift in Sources */,
-				19613D242BB492A300738E6C /* Components.swift in Sources */,
-				19613D1C2BB490AD00738E6C /* SomeView.swift in Sources */,
-				19613D192BB4908E00738E6C /* Model.swift in Sources */,
+				00CA83252BBE067900C0B713 /* DescriptionView.swift in Sources */,
+				00CA83232BBDD3D500C0B713 /* SuggestionsView.swift in Sources */,
+				1912EFB82BBF223200ABF757 /* SuggestionButtonStyle.swift in Sources */,
+				00835B9B2BD683B000347118 /* ProductDetailsView.swift in Sources */,
+				1937337C2BC5B95100DFC6C3 /* DandiButtonStyle.swift in Sources */,
+				19BF31692BC99F0500549AB5 /* OnboardingButtonStyle.swift in Sources */,
+				DE63B7D72BD0655A00BCA918 /* WeekEnum.swift in Sources */,
+				DE98FB162BCF214300F200CA /* Habit.swift in Sources */,
+				DE0359762BB5E30F00BD70D2 /* CalendarView.swift in Sources */,
+				DE7A20662BB96E7A00D85214 /* WeekScroll.swift in Sources */,
+				00835B9E2BD6850900347118 /* Product.swift in Sources */,
+				DE03597E2BB627B000BD70D2 /* WeekModel.swift in Sources */,
+				DE63B7D52BD0580C00BCA918 /* OnboardingModel.swift in Sources */,
+				195C77E72BBC9F20007C8DC9 /* FontsEnum.swift in Sources */,
+				19613D192BB4908E00738E6C /* HabitTemplate.swift in Sources */,
+				1937337A2BC5B50000DFC6C3 /* WeekPicker.swift in Sources */,
+				195C77E52BBC858D007C8DC9 /* EditTaskView.swift in Sources */,
+				DEFD19F42BCF4CF60023FAAD /* HabitCount.swift in Sources */,
 				19613D0D2BB48B4600738E6C /* ContentView.swift in Sources */,
 				19613D0B2BB48B4600738E6C /* MC04App.swift in Sources */,
+				19571C612BC872D200E57F59 /* OnboardingView.swift in Sources */,
+				193D1F392BD6DB4D0073167A /* CalendarHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		002FCD1E2BC9FB070056C238 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 002FCD112BC9FB060056C238 /* DandieWatch Watch App */;
+			targetProxy = 002FCD1D2BC9FB070056C238 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		002FCD212BC9FB070056C238 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DandieWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = braganca.MC04;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		002FCD222BC9FB070056C238 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DandieWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DandieWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = braganca.MC04;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
 		19613D132BB48B4800738E6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -245,7 +601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -302,7 +658,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -315,25 +671,28 @@
 		19613D162BB48B4800738E6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC04/Preview Content\"";
-				DEVELOPMENT_TEAM = 8LW8TUQS66;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MC04/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = laura.projects.MC04;
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -344,25 +703,28 @@
 		19613D172BB48B4800738E6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC04/Preview Content\"";
-				DEVELOPMENT_TEAM = 8LW8TUQS66;
+				DEVELOPMENT_TEAM = VB5FKSJKF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MC04/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = laura.projects.MC04;
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = braganca.MC04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -373,6 +735,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		002FCD202BC9FB070056C238 /* Build configuration list for PBXNativeTarget "DandieWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				002FCD212BC9FB070056C238 /* Debug */,
+				002FCD222BC9FB070056C238 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		19613D022BB48B4600738E6C /* Build configuration list for PBXProject "MC04" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -382,7 +753,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "MC04" */ = {
+		19613D152BB48B4800738E6C /* Build configuration list for PBXNativeTarget "Dandie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19613D162BB48B4800738E6C /* Debug */,
@@ -392,6 +763,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0054423B2BD13270008BA237 /* XCRemoteSwiftPackageReference "aptabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aptabase/aptabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0054423C2BD13347008BA237 /* Aptabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0054423B2BD13270008BA237 /* XCRemoteSwiftPackageReference "aptabase-swift" */;
+			productName = Aptabase;
+		};
+		DE189F7A2BD30D3D00359017 /* Aptabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0054423B2BD13270008BA237 /* XCRemoteSwiftPackageReference "aptabase-swift" */;
+			productName = Aptabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 19613CFF2BB48B4600738E6C /* Project object */;
 }
