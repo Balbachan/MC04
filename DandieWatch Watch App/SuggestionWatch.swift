@@ -20,6 +20,7 @@ struct SuggestionWatch: View {
                     Text("Hábitos")
                         .font(.custom(FontType.t1.font, size: 28))
                         .fontWeight(.bold)
+                        .foregroundStyle(.black)
                     Spacer()
                 }
                 
@@ -41,8 +42,8 @@ struct SuggestionWatch: View {
 //                }
 //                .buttonStyle(DandiButtonWatch())
 //                .padding(.top, 22)
-            }
-            .padding(.horizontal, 40)
+            } .background(Color("AppWhite"))
+            
         }
     }
 }

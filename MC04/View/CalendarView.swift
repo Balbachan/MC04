@@ -13,8 +13,8 @@ import Aptabase
 struct CalendarView: View {
     @AppStorage("isOnboarding") var showOnboarding: Bool = true
     @EnvironmentObject private var weekModel: WeekModel
-    @State var date: Date = Date()
-    @State var isDone: Bool = false
+//    @State var date: Date = Date()
+//    @State var isDone: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -84,13 +84,13 @@ struct CalendarView: View {
                                             Text(habit.name)
                                                 .font(.custom("Digitalt", size: 20))
                                             // MARK: Aqui precisa customizar os  botões e arrumar o de edição
-                                                .swipeActions {
-                                                    NavigationLink {
-                                                        // EditTaskView(habits: habit)
-                                                    } label: {
-                                                        Image(systemName: "pencil")
-                                                    }
-                                                }
+//                                                .swipeActions {
+//                                                    NavigationLink {
+//                                                        // EditTaskView(habits: habit)
+//                                                    } label: {
+//                                                        Image(systemName: "pencil")
+//                                                    }
+//                                                }
                                                 .swipeActions {
                                                     Button {
                                                         weekModel.deleteHabit(habit)
