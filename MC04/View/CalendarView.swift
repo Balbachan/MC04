@@ -94,17 +94,13 @@ struct CalendarView: View {
                                         .cornerRadius(20)
                                         .padding(2)
                                 )
-                                
                             }
                             .listStyle(.plain)
                             .environment(\.defaultMinListRowHeight, 70)
                             
-                            
+                            HabitCountView()
                         }
-                        HabitCountView()
-                        
                         Spacer()
-                        
                     }
                     .padding(.horizontal, 20)
                 }

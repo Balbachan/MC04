@@ -35,7 +35,7 @@ struct WeekHeader: View {
                                     if index == selectedIndex{
                                         Capsule()
                                             .stroke(Color(weekModel.calendarColours(date: weekDate[index])), lineWidth: 5)
-                                            .frame(height: geometry.size.height * 1)
+                                            .frame(height: geometry.size.height * 0.9)
                                             .foregroundStyle(.appWhite)
                                         
                                     } else {
@@ -48,7 +48,7 @@ struct WeekHeader: View {
                                 
                                 Text("\(weekNumb[index])")
                                     .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
-                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.3)
+                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.4)
                                
                             }
                             .onTapGesture {
