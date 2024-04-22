@@ -84,13 +84,13 @@ struct CalendarView: View {
                                             Text(habit.name)
                                                 .font(.custom("Digitalt", size: 20))
                                             // MARK: Aqui precisa customizar os  botões e arrumar o de edição
-                                                .swipeActions {
-                                                    NavigationLink {
-                                                        // EditTaskView(habits: habit)
-                                                    } label: {
-                                                        Image(systemName: "pencil")
-                                                    }
-                                                }
+//                                                .swipeActions {
+//                                                    NavigationLink {
+//                                                        // EditTaskView(habits: habit)
+//                                                    } label: {
+//                                                        Image(systemName: "pencil")
+//                                                    }
+//                                                }
                                                 .swipeActions {
                                                     Button {
                                                         weekModel.deleteHabit(habit)

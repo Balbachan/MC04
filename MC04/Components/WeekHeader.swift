@@ -28,26 +28,27 @@ struct WeekHeader: View {
                             ZStack {
                                 Text("\(weekDays[index])")
                                     .font(.custom(FontType.t2.font, size: 18))
-                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height * 0.2)
+                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height * 0.3)
                                         
                                 VStack {
                                     Spacer()
                                     if index == selectedIndex{
                                         Capsule()
                                             .stroke(Color(weekModel.calendarColours(date: weekDate[index])), lineWidth: 5)
+                                            .frame(height: geometry.size.height * 1)
                                             .foregroundStyle(.appWhite)
                                         
                                     } else {
                                         Capsule()
                                             .foregroundStyle(Color(weekModel.calendarColours(date: weekDate[index])))
-                                            .frame(height: geometry.size.height * 0.7)
+                                            .frame(height: geometry.size.height * 0.6)
                                     }
                                 }
                     
                                 
                                 Text("\(weekNumb[index])")
                                     .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
-                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.5)
+                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.3)
                                
                             }
                             .onTapGesture {
