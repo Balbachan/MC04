@@ -13,8 +13,6 @@ import Aptabase
 struct CalendarView: View {
     @AppStorage("isOnboarding") var showOnboarding: Bool = true
     @EnvironmentObject private var weekModel: WeekModel
-//    @State var date: Date = Date()
-//    @State var isDone: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -26,10 +24,6 @@ struct CalendarView: View {
                         .font(.custom("Digitalt", size: 28))
                         .fontWeight(.bold)
                         .padding(20)
-                        
-//                        .background() {
-//                            Image("hidandie")
-//                        }
                     
                     // Calendar
                     WeekScroll()
@@ -37,10 +31,12 @@ struct CalendarView: View {
                     
                     // Título Hoje
                     HStack {
-                        Text("Hoje")
-                            .font(.custom("Digitalt", size: 28))
+                        Text("Tarefas")
+                            .font(.custom(FontType.t1.font, size: 28))
                             .fontWeight(.bold)
+                        
                         Spacer()
+                        
                         NavigationLink {
                             SuggestionsView()
                                 .onAppear(perform: {
@@ -61,17 +57,13 @@ struct CalendarView: View {
                             Image("null")
                                 .resizable()
                                 .scaledToFit()
-                            
                         } else {
-                            
                             List {
                                 ForEach(weekModel.filteredHabits(), id: \.self) { habit in
                                     NavigationLink(destination: DescriptionView(habits: habit)
                                         .onAppear(perform: {
                                             Aptabase.shared.trackEvent("descriptions", with: ["name": habit.name])
-                                            
                                         })){
-                                            
                                             
                                             // Onde o check é checkado
                                             Image(habit.isDone ? "checkBoxOn" : "checkBoxOff")
@@ -84,13 +76,6 @@ struct CalendarView: View {
                                             Text(habit.name)
                                                 .font(.custom("Digitalt", size: 20))
                                             // MARK: Aqui precisa customizar os  botões e arrumar o de edição
-//                                                .swipeActions {
-//                                                    NavigationLink {
-//                                                        // EditTaskView(habits: habit)
-//                                                    } label: {
-//                                                        Image(systemName: "pencil")
-//                                                    }
-//                                                }
                                                 .swipeActions {
                                                     Button {
                                                         weekModel.deleteHabit(habit)
@@ -100,13 +85,15 @@ struct CalendarView: View {
                                                     .tint(.red)
                                                 }
                                         }
-                                }.listRowSeparator(.hidden)
-                                    .listRowBackground(
-                                        Rectangle()
-                                            .fill(Color.appSuperLightGray)
-                                            .cornerRadius(20)
-                                            .padding(2)
-                                    )
+                                    
+                                }
+                                .listRowSeparator(.hidden)
+                                .listRowBackground(
+                                    Rectangle()
+                                        .fill(Color.appSuperLightGray)
+                                        .cornerRadius(20)
+                                        .padding(2)
+                                )
                                 
                             }
                             .listStyle(.plain)
