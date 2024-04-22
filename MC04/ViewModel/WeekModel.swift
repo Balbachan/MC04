@@ -119,7 +119,7 @@ class WeekModel: ObservableObject {
             
             for selectedDay in selectedDays {
                 
-                var habitForDay = Habit()
+                let habitForDay = Habit()
                 
                 habitForDay.name = habit.name
                 habitForDay.desc = habit.desc

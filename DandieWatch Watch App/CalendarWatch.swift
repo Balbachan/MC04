@@ -17,10 +17,10 @@ struct CalendarWatch: View {
                     
                     // Título Hoje
                     HStack {
-                        Text("Hoje")
-//                            .font(.custom("Digitalt", size: 28))
+                        Text("Tarefas")
                             .fontWeight(.bold)
-                            .font(.system(size: 28))
+                            .font(.system(size: 15))
+                            .foregroundStyle(Color.black)
                         Spacer()
                         NavigationLink {
                             SuggestionWatch()
@@ -30,20 +30,15 @@ struct CalendarWatch: View {
                                 })
                         } label: {
                             Image(systemName: "plus")
-//                                .font(.system(size: 10))
                                 .foregroundColor(Color("AppOrange"))
-//                                .frame(width: 30, height: 1)
-                        }.frame(width: 80, height: 1)
-                        
-                        
-                    }.foregroundColor(.black)
+                        }.frame(width: 20, height: 0)
+                    }.padding(.horizontal)
                     
                     VStack(alignment: .center, spacing: 10) {
                         if(weekModel.filteredHabits().isEmpty){
                             Image("null")
                                 .resizable()
                                 .scaledToFit()
-                            //                                .frame(width: geometry.size.width * 0.9)
                         } else {
                             
                             List {
