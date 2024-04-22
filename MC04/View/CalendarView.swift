@@ -19,11 +19,8 @@ struct CalendarView: View {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
                     
-                    // Frase de efeito diária
-                    Text("Bora reagir meu chapa")
-                        .font(.custom("Digitalt", size: 28))
-                        .fontWeight(.bold)
-                        .padding(20)
+                    // Frase de efeito
+                    CalendarHeader(phrase: ViewModel().phrases)
                     
                     // Calendar
                     WeekScroll()

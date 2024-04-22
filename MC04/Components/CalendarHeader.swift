@@ -8,17 +8,46 @@
 import SwiftUI
 
 struct CalendarHeader: View {
-//    var vm: ViewModel
+    @EnvironmentObject private var weekModel: WeekModel
+    @State var phrase: [String]
     
     var body: some View {
         HStack {
             Image("hidandie")
-            Text("Frase do dia")
-                .font(.custom(FontType.t1.font, size: FontType.t1.rawValue))
+            
+            // Texto de feitos
+            if weekModel.sumDone == weekModel.filteredHabits().count {
+                // Se não houver hábitos no dia
+                if weekModel.filteredHabits().count == 0 {
+                    Text(phrase[1])
+                        .multilineTextAlignment(.leading)
+                        .font(.custom(FontType.t1.font, size: 28))
+                    
+                    // Se todos foram concluídos
+                } else {
+                    Text(phrase[0])
+                        .multilineTextAlignment(.leading)
+                        .font(.custom(FontType.t1.font, size: 28))
+                }
+                
+                // Se nenhum tiver sido concluído
+            } else if weekModel.sumDone == 0 {
+                Text(phrase[2])
+                    .multilineTextAlignment(.leading)
+                    .font(.custom(FontType.t1.font, size: 28))
+                
+                // Se pelo menos um for concluído
+            } else {
+                Text(phrase[1])
+                    .multilineTextAlignment(.leading)
+                    .font(.custom(FontType.t1.font, size: 28))
+            }
+            
+            Spacer()
         }
     }
 }
 
-#Preview {
-    CalendarHeader()
-}
+//#Preview {
+//    CalendarHeader(phrase: ["Bora Reagir Meu Chapa"])
+//}

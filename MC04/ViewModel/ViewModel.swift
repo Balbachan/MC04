@@ -24,7 +24,7 @@ struct ViewModel: Observable {
         
     ]
     
-    let phrases: [String] = ["Ai sim em! Foco no processo.", "Fica esperto, a constância é importante!", "Eai cara, vai vacilar?"]
+    let phrases: [String] = ["Aí sim ein! Foco no processo.", "Fica esperto, a constância é importante!", "Eai cara, vai vacilar?"]
 }
 
 
