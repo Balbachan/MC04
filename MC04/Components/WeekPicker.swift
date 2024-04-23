@@ -34,11 +34,11 @@ struct WeekPicker: View {
                 .frame(height: 350)
             
             VStack{
-                //Título
+                // Título
                 Text("Quais dias e repetições")
                     .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
                 
-                //Seletor de dias da semana
+                // Seletor de dias da semana
                 HStack {
                     ForEach(DayOfWeek.allCases, id: \.self) { day in
                         Text(day.name())
@@ -47,56 +47,70 @@ struct WeekPicker: View {
                             .frame(width: 30, height: 30)
                             .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
                             .padding(.horizontal, 5)
-                        
                             .onTapGesture {
                                 if selectedDays.contains(day) {
                                     selectedDays.removeAll(where: {$0 == day})
-                                   
+                                    
                                 } else {
                                     selectedDays.append(day)
                                     print(day)
                                 }
                             }
                     }
-                }.padding(.vertical)
+                }
+                .padding(.vertical)
                 
-                //Toggle repetir toda semana
+                // Toggle repetir toda semana
                 HStack {
                     Toggle("Repetir toda semana", isOn: $allWeeks)
                         .font(.custom(FontType.b1.font, size: 18))
                         .toggleStyle(SwitchToggleStyle(tint: .appOrange))
                         .frame(width: 250)
                         .padding(. bottom, 15)
-                }.padding(.top, 10)
-                    .onChange(of: allWeeks) {
-                        getWeeks()
-                        Aptabase.shared.trackEvent("Adicionar em todas as semanas")
-                        print(allWeeks)
-                    }
+                }
+                .padding(.top, 10)
+                .onChange(of: allWeeks) {
+                    getWeeks()
+                    Aptabase.shared.trackEvent("Adicionar em todas as semanas")
+                    print(allWeeks)
+                }
                 
                 // Definir horário da notificação
                 Text("Definir horário para notificação:")
                     .font(.custom(FontType.b1.font, size: 16))
                 
-                //Picker de horas
+                // Picker de horas
                 HStack {
                     Picker("", selection: $hours){
                         ForEach(0..<24, id: \.self) { i in
-                            Text("\(i)").tag(i)
-                                .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            if(i < 10) {
+                                Text("0\(i)").tag(i)
+                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            } else {
+                                Text("\(i)").tag(i)
+                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            }
                         }
-                    }.pickerStyle(WheelPickerStyle())
+                    }
+                    .pickerStyle(WheelPickerStyle())
                     
                     Text(":")
                         .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
                     
                     Picker("", selection: $minutes){
                         ForEach(0..<60, id: \.self) { i in
-                            Text("\(i)").tag(i)
-                                .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            if(i < 10) {
+                                Text("0\(i)").tag(i)
+                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            } else {
+                                Text("\(i)").tag(i)
+                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            }
                         }
-                    }.pickerStyle(WheelPickerStyle())
-                }.frame(width: 180, height: 90)
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                }
+                .frame(width: 180, height: 90)
             }
         }
     }

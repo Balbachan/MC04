@@ -18,8 +18,8 @@ struct EditTaskView: View {
     @Binding var dismissToHome: Bool
     @State var allWeeks: Bool = false
     @State var weeks: [Int] = [1,2,3,4,5]
-    @State var hours: Int = 0
-    @State var minutes: Int = 0
+    @State var hours: Int = 9
+    @State var minutes: Int = 30
     @State var hasSelectedDays: Bool = false
     
     var habitModel: HabitTemplate?
@@ -38,8 +38,7 @@ struct EditTaskView: View {
                     
                     WeekPicker(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks, allWeeks: $allWeeks , weeks: $weeks, hours: $hours, minutes: $minutes)
                         .padding(.bottom, 30)
-                        
-                
+                    
                     
                     // Esse botão aparece só se a pessoa estiver vindo
                     VStack {
@@ -69,7 +68,7 @@ struct EditTaskView: View {
                         self.habit = habitModel.newHabits()
                     }
                 })
-            .navigationTitle("\(habit.name)")
+                .navigationTitle("\(habit.name)")
             }
         }
         .padding(.horizontal)

@@ -33,7 +33,7 @@ class WeekModel: ObservableObject {
         self.selectedDate = today
         self.selectedWeekIndex = 0
         self.modelContext = modelContext
-
+        
         Task {
             await MainActor.run {
                 fetchData()
@@ -133,36 +133,34 @@ class WeekModel: ObservableObject {
             }
         }
     }
-
+    
     //Manda as notificações
     func notification(_ hora: Int, _ min: Int, _ week: [DayOfWeek], _ repeats : Bool){
         
         let habit: Habit = Habit()
         
-        if week.count > 0{
-            //faz um for de notificacoes
-            for days in week{
+        if week.count > 1 {
+            // Executa se mais de um dia for selecionado
+            for days in week {
                 print("dias \(days.rawValue)")
+                
+                // Conteúdo da notificação
                 let content = UNMutableNotificationContent()
-                content.title =  "\(habit.name)"
-                content.subtitle = "Lembre-se de se cuidar"
-                content.sound = UNNotificationSound.default
+                    content.title =  "\(habit.name)"
+                    content.subtitle = "Lembre-se de se cuidar"
+                    content.sound = UNNotificationSound.default
                 
                 var datComp = DateComponents()
-                datComp.hour = hora
-                datComp.minute = min
-                datComp.weekday = days.rawValue
+                    datComp.hour = hora
+                    datComp.minute = min
+                    datComp.weekday = days.rawValue
                 
-                // show this notification at 7.30 everyday
                 let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: repeats)
-                
-                // choose a random identifier
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                
-                // add our notification request
                 UNUserNotificationCenter.current().add(request)
             }
-        }else{
+        } else {
+            // Se somente um dia for selecionado
             let content = UNMutableNotificationContent()
             content.title =  "\(habit.name)"
             content.subtitle = "Lembre-se de se cuidar"
@@ -173,15 +171,8 @@ class WeekModel: ObservableObject {
             datComp.minute = min
             datComp.weekday = week.first?.rawValue
             
-            
-            // show this notification at 7.30 everyday
             let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: repeats)
-            
-            
-            // choose a random identifier
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-            
-            // add our notification request
             UNUserNotificationCenter.current().add(request)
         }
     }
