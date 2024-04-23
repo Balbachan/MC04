@@ -33,7 +33,7 @@ class WeekModel: ObservableObject {
         self.selectedDate = today
         self.selectedWeekIndex = 0
         self.modelContext = modelContext
-
+        
         Task {
             await MainActor.run {
                 fetchData()
@@ -110,7 +110,77 @@ class WeekModel: ObservableObject {
         return habits.filter { $0.verifyDateInterval(date: date) }
     }
     
-    //Salva o Habito correta!
+    //Salvar o Habito 2
+    //    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
+    //        DispatchQueue(label: "com.example.queue").async {
+    //
+    //            let calendar = Calendar.current
+    //            let startDate = calendar.startOfDay(for: Date())
+    //
+    //            for weekIndex in 0..<numberOfWeeks {
+    //                for selectedDay in selectedDays {
+    //
+    //                    var dateComponents = DateComponents()
+    //                    dateComponents.weekOfYear = weekIndex
+    //                    dateComponents.weekday = selectedDay.rawValue
+    //
+    //                    if let habitStartDate = calendar.nextDate(after: startDate, matching: dateComponents, matchingPolicy: .nextTime) {
+    //                        let habitEndDate = calendar.date(byAdding: .day, value: 6, to: habitStartDate)!
+    //
+    //                        var habitForDay = habit
+    //                        habitForDay.startDate = habitStartDate
+    //                        habitForDay.finalDate = habitEndDate
+    //                        habitForDay.daysOfWeek = [selectedDay.rawValue]
+    //
+    //                        self.addHabit(habitForDay)
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    
+    
+    //Salva o Habito 3
+//    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
+//        DispatchQueue(label: "com.example.queue").async {
+//            
+//            let calendar = Calendar.current
+//            let startDate = calendar.startOfDay(for: Date())
+//            var habitsDays = [Habit]()
+//            for selectedDay in selectedDays {
+//                
+//                let habitForDay = Habit()
+//                
+//                habitForDay.name = habit.name
+//                habitForDay.desc = habit.desc
+//                habitForDay.steps = habit.steps
+//                
+//                habitForDay.startDate = startDate
+////                habitForDay.finalDate = calendar.date(byAdding: .day, value: numberOfWeeks * 7, to: startDate)!
+//                habitForDay.daysOfWeek = [selectedDay.rawValue]
+//                
+//                habitsDays.append(habitForDay)
+////                self.addHabit(habitForDay)
+//            }
+//            
+//            for habitsDay in habitsDays {
+//                for i in 0..<numberOfWeeks{
+//                    let habitForDay = Habit()
+//                    habitForDay.name = habit.name
+//                    habitForDay.desc = habit.desc
+//                    habitForDay.steps = habit.steps
+//                    
+//                    habitForDay.startDate = habitsDay.startDate
+//                    
+//                    habitForDay.finalDate = calendar.date(byAdding: .day, value: i, to: startDate)!
+//                    habitForDay.daysOfWeek = habitsDay.days
+//                    self.addHabit(habitForDay)
+//                }
+//            }
+//        }
+//    }
+
+    //Salva o Habito 1
     func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
         DispatchQueue(label: "com.example.queue").async {
             
@@ -133,7 +203,9 @@ class WeekModel: ObservableObject {
             }
         }
     }
-
+    
+   
+    
     //Manda as notificações
     func notification(_ hora: Int, _ min: Int, _ week: [DayOfWeek], _ repeats : Bool){
         
