@@ -17,9 +17,7 @@ import SwiftUI
 import SwiftData
 
 struct WeekScrollWatch: View {
-    
     @EnvironmentObject private var weekModel: WeekModel
-//    @Environment private var wh: WeekHeader
     @AppStorage("teste") var teste: Bool = true
     
     var body: some View {
@@ -44,15 +42,14 @@ struct WeekScrollWatch: View {
                         }
                         .scrollTargetLayout()
                     }
-                    .ignoresSafeArea()
+                    .scrollTargetBehavior(.paging)
                     .scrollIndicators(.hidden)
-                    .scrollTargetBehavior(.viewAligned)
+                    
                 }
             }
         }
     }
 }
-
 
 #Preview {
     WeekScrollWatch()

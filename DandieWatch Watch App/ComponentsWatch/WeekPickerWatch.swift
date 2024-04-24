@@ -11,34 +11,28 @@ import SwiftData
 
 struct WeekPickerWatch: View {
     @Binding var selectedDays: [DayOfWeek]
-    //    @Binding var selectedDaysOne: [DayOfWeekOne]
-    //    @Binding var selectedDaysTwo: [DayOfWeekTwo]
     @Binding var numberOfWeeks: Int
     @Binding var allWeeks: Bool
     @Binding var weeks: [Int]
     @Binding var hours: Int
     @Binding var minutes: Int
-//    @Binding var allWeeksWatch: Bool
-    
-//    @State var allDays: Bool = false
     
     func getWeeks(){
         if allWeeks {
-            numberOfWeeks = 10000
+            numberOfWeeks = 50
         } else {
             numberOfWeeks = weeks.count
         }
     }
     
-    
     var body: some View {
-        ZStack{
+        ZStack {
             Rectangle()
                 .frame(width: 180, height: 180)
                 .foregroundColor(.appSuperLightGray)
                 .cornerRadius(20)
             
-            VStack{
+            VStack {
                 VStack {
                     HStack {
                         ForEach(DayOfWeek.allCases.prefix(3), id: \.self) { day in

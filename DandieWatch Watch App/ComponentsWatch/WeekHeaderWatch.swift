@@ -22,30 +22,31 @@ struct WeekHeaderWatch: View {
                         ForEach(weekDays.indices, id: \.self) { index in
                             ZStack {
                                 Text("\(weekDays[index])")
-//                                    .font(.custom(FontType.t2.font, size: 18))
                                     .font(.system(size: 9))
                                     .position(x: geometry.size.width * 0.06, y: geometry.size.height * 0.2)
-                                        
+                                
                                 VStack {
                                     Spacer()
+                                    // Se selecionado, é maior
                                     if index == selectedIndex{
                                         Capsule()
                                             .stroke(Color(weekModel.calendarColours(date: weekDate[index])), lineWidth: 3)
+                                            .frame(height: geometry.size.height * 1)
                                             .foregroundStyle(.appWhite)
-                                        
+                                    // Se não, fica no tamanho normal
                                     } else {
                                         Capsule()
                                             .foregroundStyle(Color(weekModel.calendarColours(date: weekDate[index])))
-                                            .frame(height: geometry.size.height * 0.7)
+                                            .frame(height: geometry.size.height * 0.5)
                                     }
                                 }
-                    
                                 
                                 Text("\(weekNumb[index])")
                                     .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
-                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.5)
-                               
-                            }.foregroundColor(.black)
+                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.3)
+                                
+                            }
+                            .foregroundColor(.black)
                             .onTapGesture {
                                 weekModel.selectedDate = weekDate[index]
                                 selectedIndex = index
@@ -54,6 +55,8 @@ struct WeekHeaderWatch: View {
                     }
                 }
             }
+            .background(.appWhite)
+            
         }
         .padding()
         .onAppear(perform: {

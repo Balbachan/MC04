@@ -18,7 +18,6 @@ struct DescriptionWatch: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     Text("\(habits.name)")
-//                        .font(.custom(FontType.t1.font, size: FontType.t1.rawValue))
                         .font(.system(size: 25))
                         .bold()
                     
@@ -28,7 +27,6 @@ struct DescriptionWatch: View {
                     Text("Como fazer")
                         .font(.system(size: 22))
                         .bold()
-//                        .font(.custom(FontType.t2.font, size: FontType.t2.rawValue))
                         .padding(.top, 20)
                     
                     // Descrição dos hábitos
@@ -38,7 +36,6 @@ struct DescriptionWatch: View {
                                 Text(step[0])
                                     .foregroundColor(Color.appYellow)
                                     .font(.system(size: 20))
-//                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
                             }
                             .background(
                                 Circle()
@@ -48,7 +45,6 @@ struct DescriptionWatch: View {
                             .padding(.leading, 10)
                             
                             Text(step[1])
-//                                .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
                                 .bold()
                         }
                         
@@ -59,7 +55,7 @@ struct DescriptionWatch: View {
                     }
                     Spacer(minLength: 30)
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("!AVISO")
+                        Text("AVISO!")
                             .font(.custom(FontType.t1.font, size: 20))
                         
                         Text("Ao ler as descrições e dicas desse aplicativo, lembre-se de que as informações são apenas para referência geral.Este aplicativo não deve ser usado ou entendido como substituto da orientação e acompanhamento de um dermatologista. Os usuários devem sempre consultar um médico ou outro profissional de saúde para receber orientações médicas ou informações sobre diagnósticos e tratamentos.")
@@ -70,7 +66,9 @@ struct DescriptionWatch: View {
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(Color.appBeige)
                     )
-                }.foregroundColor(.black)
+                }
+                .foregroundColor(.black)
+                .padding(.horizontal, 10)
                 
             }
             .background(.appWhite)

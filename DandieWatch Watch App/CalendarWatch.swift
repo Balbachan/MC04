@@ -39,9 +39,8 @@ struct CalendarWatch: View {
                             Text("Você ainda não adicionou tarefas para hoje")
                                 .padding(.horizontal)
                                 .foregroundStyle(.appDarkGray)
-
-                        } else {
                             
+                        } else {
                             List {
                                 ForEach(weekModel.filteredHabits(), id: \.self) { habit in
                                     NavigationLink(destination: DescriptionWatch(habits: habit)
@@ -62,13 +61,6 @@ struct CalendarWatch: View {
                                             Text(habit.name)
                                                 .font(.custom("Digitalt", size: 20))
                                             // MARK: Aqui precisa customizar os  botões e arrumar o de edição
-//                                                .swipeActions {
-//                                                    NavigationLink {
-//                                                        // EditTaskView(habits: habit)
-//                                                    } label: {
-//                                                        Image(systemName: "pencil")
-//                                                    }
-//                                                }
                                                 .swipeActions {
                                                     Button {
                                                         weekModel.deleteHabit(habit)
@@ -78,12 +70,13 @@ struct CalendarWatch: View {
                                                     .tint(.red)
                                                 }
                                         }
-                                }.listRowBackground(
-                                        Rectangle()
-                                            .fill(Color.appSuperLightGray)
-                                            .cornerRadius(20)
-                                            .padding(2)
-                                    )
+                                }
+                                .listRowBackground(
+                                    Rectangle()
+                                        .fill(Color.appSuperLightGray)
+                                        .cornerRadius(20)
+                                        .padding(2)
+                                )
                                 
                             }
                             .listStyle(.plain)
@@ -91,14 +84,9 @@ struct CalendarWatch: View {
                             
                             
                         }
-//                        HabitCountView()
-                        
-//                        Spacer()
-                        
                     }
                 }
             }
-//            .padding(20)
             .background(.appWhite)
             
         }

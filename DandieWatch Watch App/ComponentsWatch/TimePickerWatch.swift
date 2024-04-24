@@ -9,52 +9,67 @@ import Foundation
 import SwiftUI
 
 struct TimePickerWatch: View {
-    
-    @State var hours: Int = 0
-    @State var minutes: [Int] = [00, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+    @State var hours: Int = 09
+    @State var minutes: Int = 30
     
     var body: some View {
         GeometryReader { geometry in
-            VStack{
+            VStack(alignment: .center) {
                 Text("Horários")
                     .font(.system(size: 22))
-                    .fontWeight(.black)
-                    .foregroundStyle(Color.black)
+                    .fontWeight(.heavy)
+                    .foregroundStyle(.appBlack)
+                    .padding(.bottom, 4)
                 
-                ZStack{
-                    Rectangle()
-                        .frame(width: geometry.size.width * 0.95, height: 100)
-                        .foregroundColor(.appSuperLightGray)
-                        .cornerRadius(20)
-                    
-                    //Picker de horas
+                VStack {
+                    // Picker de horas
                     HStack {
                         Picker("", selection: $hours){
                             ForEach(0..<24, id: \.self) { i in
-                                Text("\(i)").tag(i)
-                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                if(i < 10) {
+                                    Text("0\(i)").tag(i)
+                                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                } else {
+                                    Text("\(i)").tag(i)
+                                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                }
                             }
-                        }.pickerStyle(.automatic)
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        
+                        Text(":")
+                            .font(.system(size: 22))
+                            .fontWeight(.heavy)
+                            .foregroundStyle(.appBlack)
+                            .padding(.top, 10)
                         
                         Picker("", selection: $minutes){
-                            ForEach(minutes, id: \.self) { i in
-                                Text("\(i)").tag(i)
-                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            ForEach(0..<60, id: \.self) { i in
+                                if(i < 10) {
+                                    Text("0\(i)").tag(i)
+                                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                } else {
+                                    Text("\(i)").tag(i)
+                                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                }
                             }
-                        }.pickerStyle(WheelPickerStyle())
-                        
-                    }.frame(width: 150, height: 80)
-                }.padding(.vertical, 5)
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                    }
+                }
+                .padding(.bottom, 9)
+                .padding(.horizontal, 10)
                 
-                Button("Adicionar tarede"){
-                }.buttonStyle(DandiButtonWatch(isOrange: false))
-                    .padding(.top)
+                
+                Button("Adicionar tarefa"){
+                    // ???????
+                }
+                .buttonStyle(DandiButtonWatch(isOrange: false))
+                .padding(.top)
                 
             }
-            .frame(width: geometry.size.width, height: geometry.size.height)
             .background(.appWhite)
         }
-        .ignoresSafeArea()
     }
 }
 

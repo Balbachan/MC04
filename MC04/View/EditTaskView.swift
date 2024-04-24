@@ -21,7 +21,7 @@ struct EditTaskView: View {
     @State var hours: Int = 9
     @State var minutes: Int = 30
     @State var hasSelectedDays: Bool = false
-    
+    @State var isFromHome: Bool
     var habitModel: HabitTemplate?
     
     private func dismiss() {
@@ -31,44 +31,59 @@ struct EditTaskView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
-                VStack(alignment: .leading){
-                    Text("\(habit.desc)")
-                        .font(.custom(FontType.b1.font, size: 15))
-                        .frame(width: geometry.size.width, height: geometry.size.height * 0.3)
-                    
-                    WeekPicker(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks, allWeeks: $allWeeks , weeks: $weeks, hours: $hours, minutes: $minutes)
-                        .padding(.bottom, 30)
-                    
-                    
-                    // Esse botão aparece só se a pessoa estiver vindo
-                    VStack {
-                        Button("Continuar adicionando") {
-                            weekModel.notification(hours, minutes, selectedDays, allWeeks)
-                            weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
-                            Aptabase.shared.trackEvent("Continuar Adicionando") // An event with a custom property
-                            dismiss()
-                        }
-                        .disabled(hasSelectedDays)
-                        .buttonStyle(DandiButtonStyle())
-                        .padding(.bottom)
+                // MARK: Se não estiver vindo da Home
+                if(!isFromHome) {
+                    VStack(alignment: .leading) {
+                        Text("\(habit.desc)")
+                            .font(.custom(FontType.b1.font, size: 15))
+                            .frame(width: geometry.size.width, height: geometry.size.height * 0.3)
                         
-                        Button("Concluir Rotina") {
-                            weekModel.notification(hours, minutes, selectedDays, allWeeks)
-                            weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
-                            Aptabase.shared.trackEvent("Concluir Rotina") // An event with a custom property
-                            dismissToHome.toggle()
-                            dismiss()
+                        WeekPicker(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks, allWeeks: $allWeeks , weeks: $weeks, hours: $hours, minutes: $minutes)
+                            .padding(.bottom, 30)
+                        
+                        // Esse botão aparece só se a pessoa estiver vindo
+                        VStack {
+                            Button("Continuar adicionando") {
+                                weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                                weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                                Aptabase.shared.trackEvent("Continuar Adicionando")
+                                dismiss()
+                            }
+                            .disabled(hasSelectedDays)
+                            .buttonStyle(DandiButtonStyle())
+                            .padding(.bottom)
+                            
+                            Button("Concluir Rotina") {
+                                weekModel.notification(hours, minutes, selectedDays, allWeeks)
+                                weekModel.saveHabit(habit: habit, selectedDays: selectedDays, numberOfWeeks: numberOfWeeks)
+                                Aptabase.shared.trackEvent("Concluir Rotina")
+                                dismissToHome.toggle()
+                                dismiss()
+                            }
+                            .buttonStyle(DandiButtonStyle(isOrange: false))
+                        }
+                        .frame(height: 160)
+                    }
+                    .onAppear(perform: {
+                        if let habitModel = habitModel {
+                            self.habit = habitModel.newHabits()
+                        }
+                    })
+                    .navigationTitle("\(habit.name)")
+                    
+                    // Se estiver vindo da Home, os botões são diferentes
+                } else {
+                    VStack(alignment: .leading) {
+                        WeekPicker(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks, allWeeks: $allWeeks, weeks: $weeks, hours: $hours, minutes: $minutes)
+                            .padding(.bottom, 30)
+                        
+                        Button("Concluir rotina") {
+                            print("\(habit.name)")
                         }
                         .buttonStyle(DandiButtonStyle(isOrange: false))
-                    }.frame(height: 160)
-                    
-                    
-                }.onAppear(perform: {
-                    if let habitModel = habitModel {
-                        self.habit = habitModel.newHabits()
+                        
                     }
-                })
-                .navigationTitle("\(habit.name)")
+                }
             }
         }
         .padding(.horizontal)
@@ -77,14 +92,14 @@ struct EditTaskView: View {
 }
 
 
-#Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Habit.self, configurations: config)
-        let example =  HabitTemplate(name: "Lavar o rosto", desc: "Essa tarefa é indicada ser realizada no período da manhã e da noite, pois além de limpar a pele, essa etapa remove a oleosidade, as impurezas vindas da poluição e as células mortas. Por isso, a higienização ajuda na desobstrução dos poros, previne o surgimento de cravos e espinhas e ainda dá mais viço ao rosto, deixando-o com uma aparência saudável.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv")
-        return EditTaskView(dismissToHome: .constant(false), habitModel: example)
-            .modelContainer(container)
-    } catch {
-        fatalError("Alguém me desconfigurou")
-    }
-}
+//#Preview {
+//    do {
+//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//        let container = try ModelContainer(for: Habit.self, configurations: config)
+//        let example =  HabitTemplate(name: "Lavar o rosto", desc: "Essa tarefa é indicada ser realizada no período da manhã e da noite, pois além de limpar a pele, essa etapa remove a oleosidade, as impurezas vindas da poluição e as células mortas. Por isso, a higienização ajuda na desobstrução dos poros, previne o surgimento de cravos e espinhas e ainda dá mais viço ao rosto, deixando-o com uma aparência saudável.", steps: [["1","Lave suas mãos", "Antes de começar a lavar o rosto lave suas mãos. Assim você não vai contagiar seu rosto com possíveis bacterias."],["2", "Use água morna", "Cuidado com a temperatura da água sempre tente lavar o rosto com uma água que esteja morna. Água muito quente pode causar danos a pele."]], images: "sdv")
+//        return EditTaskView(dismissToHome: .constant(false), habitModel: example)
+//            .modelContainer(container)
+//    } catch {
+//        fatalError("Alguém me desconfigurou")
+//    }
+//}

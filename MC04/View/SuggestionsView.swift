@@ -32,7 +32,7 @@ struct SuggestionsView: View {
             ScrollView {
                 VStack(alignment: .center) {
                     ForEach(viewModel.habits) { habit in
-                        NavigationLink(destination: EditTaskView(dismissToHome: $dismissToHome, habitModel: habit)
+                        NavigationLink(destination: EditTaskView(dismissToHome: $dismissToHome, isFromHome: false, habitModel: habit)
                             .onAppear(perform: {
                             Aptabase.shared.trackEvent("Habitos", with: ["nome": habit.name]) // An event with a custom property
                         })) {
