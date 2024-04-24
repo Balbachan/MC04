@@ -85,7 +85,7 @@ class WeekModel: ObservableObject {
         
         if let firstDayOfThisWeek = calendar.nextDate(after: date, matching: componentDay, matchingPolicy: .previousTimePreservingSmallerComponents, direction: .backward) {
             
-            for i in -10...10 {
+            for i in -2...2 {
                 if let newDate = calendar.date(byAdding: .weekOfYear, value: i, to: firstDayOfThisWeek) {
                     weeks.append(newDate)
                 } else {
@@ -99,87 +99,47 @@ class WeekModel: ObservableObject {
         }
     }
     
+    //Filtra os Habitos de hoje na CalendarView
+    private func filteredHabits(date: Date) -> [Habit] {
+        return habits.filter { $0.verifyDateInterval(date: date) }
+    }
     
     //Filtra os Habitos de hoje na CalendarView
     func filteredHabits() -> [Habit] {
         return filteredHabits(date: selectedDate)
     }
     
-    //Filtra os Habitos de hoje na CalendarView
-    private func filteredHabits(date: Date) -> [Habit] {
-        return habits.filter { $0.verifyDateInterval(date: date) }
+    //Salva o habito 4
+    func saveHabit4(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
+        DispatchQueue(label: "com.example.queue").async {
+            let calendar = Calendar.current
+            let startDate = calendar.startOfDay(for: Date())
+            
+            for selectedDay in selectedDays {
+                guard let nextDay = calendar.nextDate(after: startDate, matching: DateComponents(weekday: selectedDay.rawValue), matchingPolicy: .nextTime) else {
+                    continue
+                }
+                
+                for weekIndex in 0..<numberOfWeeks {
+                    let startDateOfWeek = calendar.date(byAdding: .weekOfYear, value: weekIndex, to: nextDay)!
+                    let finalDateOfWeek = calendar.date(byAdding: .day, value: 6, to: startDateOfWeek)!
+                    
+                    let habitForDay = Habit()
+                    
+                    habitForDay.name = habit.name
+                    habitForDay.desc = habit.desc
+                    habitForDay.steps = habit.steps
+                    habitForDay.startDate = startDateOfWeek
+                    habitForDay.finalDate = finalDateOfWeek
+                    habitForDay.daysOfWeek = [selectedDay.rawValue]
+                    
+                    self.addHabit(habitForDay)
+                    print("O Hábito: \(habitForDay.name) está sendo criados nos dias: \(habitForDay.daysOfWeek)")
+                }
+            }
+        }
     }
     
-    //Salvar o Habito 2
-    //    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
-    //        DispatchQueue(label: "com.example.queue").async {
-    //
-    //            let calendar = Calendar.current
-    //            let startDate = calendar.startOfDay(for: Date())
-    //
-    //            for weekIndex in 0..<numberOfWeeks {
-    //                for selectedDay in selectedDays {
-    //
-    //                    var dateComponents = DateComponents()
-    //                    dateComponents.weekOfYear = weekIndex
-    //                    dateComponents.weekday = selectedDay.rawValue
-    //
-    //                    if let habitStartDate = calendar.nextDate(after: startDate, matching: dateComponents, matchingPolicy: .nextTime) {
-    //                        let habitEndDate = calendar.date(byAdding: .day, value: 6, to: habitStartDate)!
-    //
-    //                        var habitForDay = habit
-    //                        habitForDay.startDate = habitStartDate
-    //                        habitForDay.finalDate = habitEndDate
-    //                        habitForDay.daysOfWeek = [selectedDay.rawValue]
-    //
-    //                        self.addHabit(habitForDay)
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    
-    
-    //Salva o Habito 3
-//    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
-//        DispatchQueue(label: "com.example.queue").async {
-//            
-//            let calendar = Calendar.current
-//            let startDate = calendar.startOfDay(for: Date())
-//            var habitsDays = [Habit]()
-//            for selectedDay in selectedDays {
-//                
-//                let habitForDay = Habit()
-//                
-//                habitForDay.name = habit.name
-//                habitForDay.desc = habit.desc
-//                habitForDay.steps = habit.steps
-//                
-//                habitForDay.startDate = startDate
-////                habitForDay.finalDate = calendar.date(byAdding: .day, value: numberOfWeeks * 7, to: startDate)!
-//                habitForDay.daysOfWeek = [selectedDay.rawValue]
-//                
-//                habitsDays.append(habitForDay)
-////                self.addHabit(habitForDay)
-//            }
-//            
-//            for habitsDay in habitsDays {
-//                for i in 0..<numberOfWeeks{
-//                    let habitForDay = Habit()
-//                    habitForDay.name = habit.name
-//                    habitForDay.desc = habit.desc
-//                    habitForDay.steps = habit.steps
-//                    
-//                    habitForDay.startDate = habitsDay.startDate
-//                    
-//                    habitForDay.finalDate = calendar.date(byAdding: .day, value: i, to: startDate)!
-//                    habitForDay.daysOfWeek = habitsDay.days
-//                    self.addHabit(habitForDay)
-//                }
-//            }
-//        }
-//    }
-
     //Salva o Habito 1
     func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
         DispatchQueue(label: "com.example.queue").async {
@@ -203,8 +163,6 @@ class WeekModel: ObservableObject {
             }
         }
     }
-    
-   
     
     //Manda as notificações
     func notification(_ hora: Int, _ min: Int, _ week: [DayOfWeek], _ repeats : Bool){
@@ -234,7 +192,7 @@ class WeekModel: ObservableObject {
                 // add our notification request
                 UNUserNotificationCenter.current().add(request)
             }
-        }else{
+        } else {
             let content = UNMutableNotificationContent()
             content.title =  "\(habit.name)"
             content.subtitle = "Lembre-se de se cuidar"
@@ -291,3 +249,101 @@ class WeekModel: ObservableObject {
         }
     }
 }
+
+
+
+//Funções que podem ser usadas
+
+//Salvar o Habito 2
+//    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
+//        DispatchQueue(label: "com.example.queue").async {
+//
+//            let calendar = Calendar.current
+//            let startDate = calendar.startOfDay(for: Date())
+//
+//            for weekIndex in 0..<numberOfWeeks {
+//                for selectedDay in selectedDays {
+//
+//                    var dateComponents = DateComponents()
+//                    dateComponents.weekOfYear = weekIndex
+//                    dateComponents.weekday = selectedDay.rawValue
+//
+//                    if let habitStartDate = calendar.nextDate(after: startDate, matching: dateComponents, matchingPolicy: .nextTime) {
+//                        let habitEndDate = calendar.date(byAdding: .day, value: 6, to: habitStartDate)!
+//
+//                        var habitForDay = habit
+//                        habitForDay.startDate = habitStartDate
+//                        habitForDay.finalDate = habitEndDate
+//                        habitForDay.daysOfWeek = [selectedDay.rawValue]
+//
+//                        self.addHabit(habitForDay)
+//                    }
+//                }
+//            }
+//        }
+//    }
+
+
+//Salva o Habito 3
+//    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
+//        DispatchQueue(label: "com.example.queue").async {
+//
+//            let calendar = Calendar.current
+//            let startDate = calendar.startOfDay(for: Date())
+//            var habitsDays = [Habit]()
+//            for selectedDay in selectedDays {
+//
+//                let habitForDay = Habit()
+//
+//                habitForDay.name = habit.name
+//                habitForDay.desc = habit.desc
+//                habitForDay.steps = habit.steps
+//
+//                habitForDay.startDate = startDate
+////                habitForDay.finalDate = calendar.date(byAdding: .day, value: numberOfWeeks * 7, to: startDate)!
+//                habitForDay.daysOfWeek = [selectedDay.rawValue]
+//
+//                habitsDays.append(habitForDay)
+////                self.addHabit(habitForDay)
+//            }
+//
+//            for habitsDay in habitsDays {
+//                for i in 0..<numberOfWeeks{
+//                    let habitForDay = Habit()
+//                    habitForDay.name = habit.name
+//                    habitForDay.desc = habit.desc
+//                    habitForDay.steps = habit.steps
+//
+//                    habitForDay.startDate = habitsDay.startDate
+//
+//                    habitForDay.finalDate = calendar.date(byAdding: .day, value: i, to: startDate)!
+//                    habitForDay.daysOfWeek = habitsDay.days
+//                    self.addHabit(habitForDay)
+//                }
+//            }
+//        }
+//    }
+
+//Salva o Habito 1
+//    func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
+//        DispatchQueue(label: "com.example.queue").async {
+//
+//            let calendar = Calendar.current
+//            let startDate = calendar.startOfDay(for: Date())
+//
+//            for selectedDay in selectedDays {
+//
+//                let habitForDay = Habit()
+//
+//                habitForDay.name = habit.name
+//                habitForDay.desc = habit.desc
+//                habitForDay.steps = habit.steps
+//
+//                habitForDay.startDate = startDate
+//                habitForDay.finalDate = calendar.date(byAdding: .day, value: numberOfWeeks * 7, to: startDate)!
+//                habitForDay.daysOfWeek = [selectedDay.rawValue]
+//
+//                self.addHabit(habitForDay)
+//            }
+//        }
+//    }

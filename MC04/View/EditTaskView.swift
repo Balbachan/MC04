@@ -12,15 +12,17 @@ import Aptabase
 struct EditTaskView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var weekModel: WeekModel
+    
     @State var habit = Habit()
     @State var selectedDays: [DayOfWeek] = []
     @State var numberOfWeeks: Int = 1
-    @Binding var dismissToHome: Bool
     @State var allWeeks: Bool = false
     @State var weeks: [Int] = [1,2,3,4,5]
     @State var hours: Int = 0
     @State var minutes: Int = 0
     @State var hasSelectedDays: Bool = false
+    
+    @Binding var dismissToHome: Bool
     
     var habitModel: HabitTemplate?
     

@@ -20,7 +20,7 @@ struct WeekPicker: View {
     
     func getWeeks(){
         if allWeeks {
-            numberOfWeeks = 50
+            numberOfWeeks = 4
         } else {
             numberOfWeeks = weeks.count
         }
