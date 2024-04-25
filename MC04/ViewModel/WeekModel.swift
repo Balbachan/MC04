@@ -110,35 +110,35 @@ class WeekModel: ObservableObject {
     }
     
     //Salva o habito 4
-    func saveHabit4(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
-        DispatchQueue(label: "com.example.queue").async {
-            let calendar = Calendar.current
-            let startDate = calendar.startOfDay(for: Date())
-            
-            for selectedDay in selectedDays {
-                guard let nextDay = calendar.nextDate(after: startDate, matching: DateComponents(weekday: selectedDay.rawValue), matchingPolicy: .nextTime) else {
-                    continue
-                }
-                
-                for weekIndex in 0..<numberOfWeeks {
-                    let startDateOfWeek = calendar.date(byAdding: .weekOfYear, value: weekIndex, to: nextDay)!
-                    let finalDateOfWeek = calendar.date(byAdding: .day, value: 6, to: startDateOfWeek)!
-                    
-                    let habitForDay = Habit()
-                    
-                    habitForDay.name = habit.name
-                    habitForDay.desc = habit.desc
-                    habitForDay.steps = habit.steps
-                    habitForDay.startDate = startDateOfWeek
-                    habitForDay.finalDate = finalDateOfWeek
-                    habitForDay.daysOfWeek = [selectedDay.rawValue]
-                    
-                    self.addHabit(habitForDay)
-                    print("O Hábito: \(habitForDay.name) está sendo criados nos dias: \(habitForDay.daysOfWeek)")
-                }
-            }
-        }
-    }
+//    func saveHabit4(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
+//        DispatchQueue(label: "com.example.queue").async {
+//            let calendar = Calendar.current
+//            let startDate = calendar.startOfDay(for: Date())
+//            
+//            for selectedDay in selectedDays {
+//                guard let nextDay = calendar.nextDate(after: startDate, matching: DateComponents(weekday: selectedDay.rawValue), matchingPolicy: .nextTime) else {
+//                    continue
+//                }
+//                
+//                for weekIndex in 0..<numberOfWeeks {
+//                    let startDateOfWeek = calendar.date(byAdding: .weekOfYear, value: weekIndex, to: nextDay)!
+//                    let finalDateOfWeek = calendar.date(byAdding: .day, value: 6, to: startDateOfWeek)!
+//                    
+//                    let habitForDay = Habit()
+//                    
+//                    habitForDay.name = habit.name
+//                    habitForDay.desc = habit.desc
+//                    habitForDay.steps = habit.steps
+//                    habitForDay.startDate = startDateOfWeek
+//                    habitForDay.finalDate = finalDateOfWeek
+//                    habitForDay.daysOfWeek = [selectedDay.rawValue]
+//                    
+//                    self.addHabit(habitForDay)
+//                    print("O Hábito: \(habitForDay.name) está sendo criados nos dias: \(habitForDay.daysOfWeek)")
+//                }
+//            }
+//        }
+//    }
     
     //Salva o Habito 1
     func saveHabit(habit: Habit, selectedDays: [DayOfWeek], numberOfWeeks: Int) {
@@ -149,17 +149,7 @@ class WeekModel: ObservableObject {
             
             for selectedDay in selectedDays {
                 
-                let habitForDay = Habit()
-                
-                habitForDay.name = habit.name
-                habitForDay.desc = habit.desc
-                habitForDay.steps = habit.steps
-                
-                habitForDay.startDate = startDate
-                habitForDay.finalDate = calendar.date(byAdding: .day, value: numberOfWeeks * 7, to: startDate)!
-                habitForDay.daysOfWeek = [selectedDay.rawValue]
-                
-                self.addHabit(habitForDay)
+                self.addHabit(Habit(name: habit.name, desc: habit.desc, steps: habit.steps, startDate: startDate, finalDate: calendar.date(byAdding: .day, value: numberOfWeeks * 7, to: startDate)!, daysOfWeek: [selectedDay.rawValue]))
             }
         }
     }
