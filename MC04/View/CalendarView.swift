@@ -14,6 +14,7 @@ struct CalendarView: View {
     @AppStorage("isOnboarding") var showOnboarding: Bool = true
     @EnvironmentObject private var weekModel: WeekModel
     @State var dismissToHome: Bool = false
+    let center = UNUserNotificationCenter.current()
     
     var body: some View {
         NavigationStack {
@@ -55,7 +56,7 @@ struct CalendarView: View {
                             Image("null")
                                 .resizable()
                                 .scaledToFit()
-                                
+                            
                             
                         } else {
                             List {
@@ -76,25 +77,32 @@ struct CalendarView: View {
                                             Text(habit.name)
                                                 .font(.custom("Digitalt", size: 20))
                                             // MARK: Aqui precisa customizar os  botões e arrumar o de edição
-                                                .swipeActions {
-                                                    NavigationLink {
-//                                                        Text(habit.name)
-                                                        EditTaskView(dismissToHome: $dismissToHome, isFromHome: true)
-                                                    } label: {
-                                                        Image(systemName: "pencil")
-                                                    }
-
-                                                }
+                                            //                                                .swipeActions {
+                                            //                                                    NavigationLink {
+                                            //                                                        Text(habit.name)
+                                            //                                                        EditTaskView(dismissToHome: $dismissToHome, isFromHome: true)
+                                            //                                                    } label: {
+                                            //                                                        Image(systemName: "pencil")
+                                            //                                                    }
+                                            //
+                                            //  }
                                                 .swipeActions {
                                                     Button {
                                                         weekModel.deleteHabit(habit)
+                                                        // Aqui está deletando todas as pendentes
+//                                                        center.removeAllDeliveredNotifications()
+//                                                        center.removeAllPendingNotificationRequests()
+                                                        
+                                                        // Aqui deleta notificações específicas
+                                                        center.removePendingNotificationRequests(withIdentifiers: ["\(habit.name + String(habit.hashValue))"])
+                                                        center.removeDeliveredNotifications(withIdentifiers: ["\(habit.name + String(habit.hashValue))"])
                                                     } label: {
                                                         Image(systemName: "trash")
                                                     }
                                                     .tint(.red)
                                                 }
                                         }
-                                    
+                                
                                 }
                                 .listRowSeparator(.hidden)
                                 .listRowBackground(

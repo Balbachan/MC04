@@ -136,8 +136,10 @@ class WeekModel: ObservableObject {
     
     //Manda as notificações
     func notification(_ hora: Int, _ min: Int, _ week: [DayOfWeek], _ repeats : Bool){
-        
         let habit: Habit = Habit()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd"
+//        dateFormatter.string(from: habit.time)
         
         if week.count > 1 {
             // Executa se mais de um dia for selecionado
@@ -146,16 +148,17 @@ class WeekModel: ObservableObject {
                 
                 // Conteúdo da notificação
                 let content = UNMutableNotificationContent()
-                    content.title =  "\(habit.name)"
-                    content.subtitle = "Lembre-se de se cuidar"
-                    content.sound = UNNotificationSound.default
+                content.title =  "\(habit.name)"
+                content.subtitle = "Lembre-se de se cuidar"
+                content.sound = UNNotificationSound.default
                 
                 var datComp = DateComponents()
-                    datComp.hour = hora
-                    datComp.minute = min
-                    datComp.weekday = days.rawValue
+                datComp.hour = hora
+                datComp.minute = min
+                datComp.weekday = days.rawValue
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: repeats)
+//                let request = UNNotificationRequest(identifier: "\(habit.name + dateFormatter)", content: content, trigger: trigger)
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                 UNUserNotificationCenter.current().add(request)
             }
@@ -172,7 +175,7 @@ class WeekModel: ObservableObject {
             datComp.weekday = week.first?.rawValue
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: repeats)
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: "\(habit.name + String(habit.hashValue))", content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request)
         }
     }
