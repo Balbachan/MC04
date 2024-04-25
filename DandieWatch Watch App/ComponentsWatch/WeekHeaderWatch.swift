@@ -22,8 +22,10 @@ struct WeekHeaderWatch: View {
                         ForEach(weekDays.indices, id: \.self) { index in
                             ZStack {
                                 Text("\(weekDays[index])")
-                                    .font(.system(size: 9))
-                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height * 0.2)
+                                    .font(.system(size: 12))
+                                    .fontWeight(.heavy)
+                                    .padding(.bottom, 20)
+//                                    .position(x: geometry.size.width * 0.06, y: geometry.size.height * 0.2)
                                 
                                 VStack {
                                     Spacer()
@@ -33,7 +35,7 @@ struct WeekHeaderWatch: View {
                                             .stroke(Color(weekModel.calendarColours(date: weekDate[index])), lineWidth: 3)
                                             .frame(height: geometry.size.height * 1)
                                             .foregroundStyle(.appWhite)
-                                    // Se não, fica no tamanho normal
+                                        // Se não, fica no tamanho normal
                                     } else {
                                         Capsule()
                                             .foregroundStyle(Color(weekModel.calendarColours(date: weekDate[index])))
@@ -42,7 +44,7 @@ struct WeekHeaderWatch: View {
                                 }
                                 
                                 Text("\(weekNumb[index])")
-                                    .font(.custom(FontType.b2.font, size: FontType.b2.rawValue))
+                                    .font(.system(size: 12))
                                     .position(x: geometry.size.width * 0.06, y: geometry.size.height / 1.3)
                                 
                             }
@@ -56,9 +58,7 @@ struct WeekHeaderWatch: View {
                 }
             }
             .background(.appWhite)
-            
         }
-        .padding()
         .onAppear(perform: {
             weekDays = []
             weekDate = []
@@ -69,12 +69,11 @@ struct WeekHeaderWatch: View {
                     if Calendar.current.compare(date, to: weekModel.selectedDate, toGranularity: .day) == .orderedSame {
                         selectedIndex = i
                     }
-                    
                     // Popular o array com os dias da semana
                     let formatterNumb = DateFormatter()
                     let formatter = DateFormatter()
                     
-                    formatter.dateFormat = "E"
+                    formatter.dateFormat = "EEEEE"
                     formatter.locale = Locale(identifier: "pt-br")
                     
                     let dayNameWithPeriod = formatter.string(from: date)
@@ -95,7 +94,7 @@ struct WeekHeaderWatch: View {
                     let formatterNumb = DateFormatter()
                     let formatter = DateFormatter()
                     
-                    formatter.dateFormat = "dd"
+                    formatter.dateFormat = "d"
                     formatter.locale = Locale(identifier: "pt-br")
                     
                     let dayNameWithPeriod = formatter.string(from: date)

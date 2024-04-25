@@ -26,94 +26,115 @@ struct WeekPickerWatch: View {
     }
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(width: 180, height: 180)
-                .foregroundColor(.appSuperLightGray)
-                .cornerRadius(20)
-            
+        VStack {
             VStack {
-                VStack {
-                    HStack {
-                        ForEach(DayOfWeek.allCases.prefix(3), id: \.self) { day in
-                            Text(day.name())
-                                .font(.custom(FontType.t1.font, size: FontType.t4.rawValue))
-                                .foregroundColor(selectedDays.contains(day) ? Color.appBeige : Color.black)
-                                .frame(width: 30, height: 30)
-                                .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
-                                .padding(.horizontal, 5)
-                            
-                                .onTapGesture {
-                                    if selectedDays.contains(day) {
-                                        selectedDays.removeAll(where: {$0 == day})
-                                        
-                                    } else {
-                                        selectedDays.append(day)
-                                        print(day)
-                                    }
+                HStack {
+                    ForEach(DayOfWeek.allCases.prefix(3), id: \.self) { day in
+                        Text(day.name())
+                            .font(.system(size: 10))
+                            .fontWeight(.heavy)
+                            .foregroundColor(selectedDays.contains(day) ? Color.appBeige : Color.black)
+                            .frame(width: 30, height: 30)
+                            .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
+                            .padding(.horizontal, 5)
+                        
+                            .onTapGesture {
+                                if selectedDays.contains(day) {
+                                    selectedDays.removeAll(where: {$0 == day})
+                                    
+                                } else {
+                                    selectedDays.append(day)
+                                    print(day)
                                 }
-                        }
-                    }
-                    
-                    HStack {
-                        ForEach(DayOfWeek.allCases.suffix(4), id: \.self) { day in
-                            Text(day.name())
-                                .font(.custom(FontType.t1.font, size: FontType.t4.rawValue))
-                                .foregroundColor(selectedDays.contains(day) ? Color.appBeige : Color.black)
-                                .frame(width: 30, height: 30)
-                                .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
-                                .padding(.horizontal, 5)
-                            
-                                .onTapGesture {
-                                    if selectedDays.contains(day) {
-                                        selectedDays.removeAll(where: {$0 == day})
-                                        
-                                    } else {
-                                        selectedDays.append(day)
-                                        print(day)
-                                    }
-                                }
-                        }
+                            }
                     }
                 }
                 
-                //Toggle repetir toda semana
-                VStack{
-                    Toggle("Repetir toda semana", isOn: $allWeeks)
-                        .toggleStyle(SwitchToggleStyle(tint: .appOrange))
-                        .font(.system(size: 12))
-                        .foregroundColor(.black)
-                        .frame(width: 160)
-                }.padding(.top, 8)
+                HStack {
+                    ForEach(DayOfWeek.allCases.suffix(4), id: \.self) { day in
+                        Text(day.name())
+                            .font(.system(size: 10))
+                            .fontWeight(.heavy)
+                            .foregroundColor(selectedDays.contains(day) ? .appBeige : .appBlack)
+                            .frame(width: 30, height: 30)
+                            .background(selectedDays.contains(day) ? Color.appOrange.cornerRadius(100) : Color.appLightGray.cornerRadius(100))
+                            .padding(.horizontal, 5)
+                        
+                            .onTapGesture {
+                                if selectedDays.contains(day) {
+                                    selectedDays.removeAll(where: {$0 == day})
+                                    
+                                } else {
+                                    selectedDays.append(day)
+                                    print(day)
+                                }
+                            }
+                    }
+                }
+            }
+            
+            //Toggle repetir toda semana
+            HStack{
+                Toggle("Repetir toda a semana", isOn: $allWeeks)
+                    .toggleStyle(SwitchToggleStyle(tint: .appOrange))
+                    .font(.system(size: 12))
+                    .foregroundStyle(.appBlack)
                 
-                VStack(spacing: 0){
-                    Text("Horário notificação:")
-                        .font(.system(size: 13))
-                        .foregroundColor(.black)
-                        .bold()
-                    
-                    //Picker de horas
+//                Text("Repetir toda a semana")
+//                    .font(.system(size: 12))
+//                    .foregroundStyle(.appBlack)
+            }
+            .padding(.top, 2)
+            .padding(.horizontal)
+            
+            
+            
+            VStack(spacing: 0){
+                Text("Horário notificação")
+                    .font(.system(size: 12))
+                    .foregroundColor(.appBlack)
+                
+                // Picker de horário para as notificações
+                VStack {
                     HStack {
                         Picker("", selection: $hours){
                             ForEach(0..<24, id: \.self) { i in
-                                Text("\(i)").tag(i)
-                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                if(i < 10) {
+                                    Text("0\(i)").tag(i)
+                                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                } else {
+                                    Text("\(i)").tag(i)
+                                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                }
                             }
-                        }.frame(width: 70, height: 40)
+                        }
+                        .pickerStyle(WheelPickerStyle())
                         
                         Text(":")
-                            .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                            .font(.system(size: 22))
+                            .fontWeight(.heavy)
+                            .foregroundStyle(.appBlack)
+                            .padding(.top, 10)
                         
                         Picker("", selection: $minutes){
                             ForEach(0..<60, id: \.self) { i in
-                                Text("\(i)").tag(i)
-                                    .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                if(i < 10) {
+                                    Text("0\(i)").tag(i)
+                                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                } else {
+                                    Text("\(i)").tag(i)
+                                        .font(.custom(FontType.t3.font, size: FontType.t3.rawValue))
+                                }
                             }
-                        }.frame(width: 70, height: 40)
-                    }.frame(height: 20)
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                    }
                 }
+                .padding(.bottom, 9)
+                .padding(.horizontal, 10)
             }
         }
+        .background(.appWhite)
     }
 }
 

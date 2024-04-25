@@ -13,7 +13,7 @@ struct CalendarWatch: View {
                     
                     // Calendar
                     WeekScrollWatch()
-                        .frame(height: 90)
+                        .padding(.bottom)
                     
                     // Título Hoje
                     HStack {

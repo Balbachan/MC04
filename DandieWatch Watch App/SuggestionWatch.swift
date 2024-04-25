@@ -18,7 +18,7 @@ struct SuggestionWatch: View {
             ScrollView {
                 HStack {
                     Text("Hábitos")
-                        .font(.custom(FontType.t1.font, size: 28))
+                        .font(.system(size: 20))
                         .fontWeight(.bold)
                         .foregroundStyle(.black)
                     Spacer()
@@ -34,14 +34,6 @@ struct SuggestionWatch: View {
                     }
                     
                 }
-                
-//                NavigationLink {
-//                    Text("aaa")
-//                } label: {
-//                    Text("Concluir rotina")
-//                }
-//                .buttonStyle(DandiButtonWatch())
-//                .padding(.top, 22)
             } .background(Color("AppWhite"))
             
         }

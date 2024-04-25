@@ -30,6 +30,8 @@ struct WeekScrollWatch: View {
                                 ZStack {
                                     WeekHeaderWatch(firstDay: weekModel.weeks[index])
                                         .padding(.top)
+                                        .padding(.horizontal)
+                                        .padding(.bottom)
                                 }
                                 .frame(width: geometry.size.width, height: geometry.size.height)
                                 .onAppear(perform: {
@@ -42,9 +44,8 @@ struct WeekScrollWatch: View {
                         }
                         .scrollTargetLayout()
                     }
-                    .scrollTargetBehavior(.paging)
                     .scrollIndicators(.hidden)
-                    
+                    .scrollTargetBehavior(.paging)
                 }
             }
         }

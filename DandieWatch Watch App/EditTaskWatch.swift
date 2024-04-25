@@ -30,8 +30,8 @@ struct EditTaskWatch: View {
     var habitTemplate: HabitTemplate?
     
     var body: some View {
-        NavigationStack{
-            ScrollView{
+        NavigationStack {
+            ScrollView {
                 WeekPickerWatch(selectedDays: $selectedDays, numberOfWeeks: $numberOfWeeks, allWeeks: $allWeeks, weeks: $weeks, hours: $hours, minutes: $minutes)
                     .padding(.top,25)
                 
@@ -49,9 +49,9 @@ struct EditTaskWatch: View {
                     self.habit = habitModel.newHabits()
                 }
             })
-            .padding(.top, 32)
-            .padding(.horizontal)
-            .ignoresSafeArea()
+//            .padding(.top, 25)
+            .padding(.horizontal, 20)
+//            .ignoresSafeArea()
         }
         .background(.appWhite)
         .navigationTitle("Selecione os dias")
